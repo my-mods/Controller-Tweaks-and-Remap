@@ -53,3 +53,11 @@ their inclusion does not grant a new license to those components.
 
 When reporting a problem, include the game build, mod versions, Vortex conflict winners,
 and relevant ControllerCompass log lines. Review logs for private information before posting.
+
+## Vortex metadata and updates
+
+The ZIP includes installation metadata, so Vortex sets the display name, version, and description during installation. Runtime payloads and file destinations are unchanged.
+
+Replace/reinstall the updated ZIP through Vortex using the existing mod entry, then deploy. Redeployment alone cannot read new archive metadata. This does not provide automatic update discovery or merge duplicate Vortex entries.
+
+Archive filename: Dawnwalker-Controller-Tweaks.zip

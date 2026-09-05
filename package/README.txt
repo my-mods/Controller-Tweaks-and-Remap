@@ -97,3 +97,10 @@ mappings and confirms LB <-> LT and RB <-> RT across every affected action.
 Lua tests cover click reveal, timer refresh, idle fade, held buttons, frame stalls,
 controller changes, input errors and compass-only opacity. The new binding still requires
 an in-game check on this UE4SS build; offline tests cannot verify native input.
+
+VORTEX METADATA UPDATE 1.1.4
+The ZIP now generates vortex_override_instructions.json from mod.manifest, so Vortex sets the display name, version, and description during installation. Runtime payloads and file destinations are unchanged.
+
+Replace/reinstall the updated ZIP through Vortex using the existing mod entry, then deploy. Redeployment alone cannot read new archive metadata. This does not provide automatic update discovery or merge duplicate Vortex entries.
+
+Archive filename: Dawnwalker-Controller-Tweaks.zip

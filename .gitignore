@@ -12,6 +12,7 @@ package/*.utoc
 package/Data/*.pak
 package/Data/*.ucas
 package/Data/*.utoc
+package/vortex_override_instructions.json
 *.ps1
 *.psm1
 *.psd1

@@ -1,38 +1,15 @@
-# Dawnwalker Controller Tweaks v1.1.3
+# Dawnwalker Controller Tweaks v1.1.4
 
-Fix the documentation-only Data/PACKAGE-LAYOUT.txt conflict between the two mods.
-This archive uses Data/Dawnwalker-Controller-Tweaks-PACKAGE-LAYOUT.txt instead.
-Replace/reinstall the existing Vortex entry with this updated ZIP, then deploy so
-Vortex removes the old shared note. Redeploying the previous archive is insufficient.
-ZIP filenames remain unchanged. Runtime behavior and required HUDTweaks conflicts
-are unchanged. This release does not add Vortex metadata display support.
+The ZIP now generates vortex_override_instructions.json from mod.manifest, so Vortex sets the display name, version, and description during installation. Runtime payloads and file destinations are unchanged.
 
-Packaging-only update: every release uses the same `Dawnwalker-Controller-Tweaks.zip`
-filename. Builds overwrite this archive; versions remain in metadata and release tags.
-Use Vortex's replace/update flow for one mod entry. Controller behavior is unchanged.
+Replace/reinstall the updated ZIP through Vortex using the existing mod entry, then deploy. Redeployment alone cannot read new archive metadata. This does not provide automatic update discovery or merge duplicate Vortex entries.
 
-Fixes a controller-cache bug consistent with the reported Start button failure:
-a still-valid menu controller could remain cached after gameplay possession,
-preventing input from ever becoming ready. The module now follows HUDTweaks'
-detected gameplay pawn and revalidates its controller. Waiting states are logged.
+Archive filename: Dawnwalker-Controller-Tweaks.zip
 
-- Swap LB with LT and RB with RT in the default controller layout.
-- Tap View/Back for Map; hold for 0.30 seconds for Game Hub.
-- Press Start/Options to reveal the compass temporarily, using HUDTweaks' idle/fade settings.
-- Stable mod name and Vortex-ready mixed Lua/IoStore package.
+Validation: ZIP allowlist, manifest/attribute agreement, UTF-8 without BOM, installed Vortex attribute merge, and installer destination planning. Lua and INI hashes match the previous local release. All three cooked assets match after round-trip extraction; container serialization order can differ. 
 
-## Installation
+No live Vortex installation/deployment or in-game test is performed for this packaging update. Confirm the displayed name, version, and description after reinstalling. Previous in-game acceptance checks remain applicable.
 
-Import `Dawnwalker-Controller-Tweaks.zip` into Vortex, replacing earlier
-Controller Swap / Controller Tweaks packages and the old menu-shortcut mods.
-Requires HUDTweaks v2 and UE4SS. This mod must win HUDTweaks' `main.lua` conflict;
-the separate prompt fix should win `HUDTweaks.ini`. Use the Root mod type.
-Do not install the automatic source-code archives.
+Requires HUDTweaks v2 and UE4SS. Keep HUDTweaks enabled. Controller Tweaks wins Scripts/main.lua; Prompt Dismissal Fix wins Scripts/HUDTweaks.ini. Disable standalone menu-shortcut/controller compatibility variants through Vortex. Use Root (game folder). Native compass checks remain pending; this is a prerelease.
 
-## Compatibility and testing
-
-Built for Steam build 25129649 / executable CL-257186. Lua 5.4 tests, IoStore verification,
-controller asset round-trip comparison, and Vortex installer planning checks pass.
-The retained-menu-controller regression fails against v1.1.0 and passes with v1.1.1.
-Native input and visuals need an in-game retest; this is a testing prerelease.
-Start's normal menu/legend action is retained and can obscure the compass reveal.
+Verified local archive: 54959 bytes; SHA-256 `99C2266E3EF4A50D7273526152B9C5FBCAFE9DABB068938A6CF68B88593B8720`.
