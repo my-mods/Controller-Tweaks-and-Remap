@@ -1,5 +1,10 @@
 # Changes
 
+## 1.3.1 — 2026-09-05
+
+- Use Controller Tweaks identifiers and container filenames.
+- Preserve all controller behavior.
+
 ## 1.3.0 — 2026-09-05
 
 - Remove the reported nonfunctional Start/Options compass reveal and its Lua adapter.
