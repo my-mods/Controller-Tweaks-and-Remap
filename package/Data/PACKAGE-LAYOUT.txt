@@ -1,0 +1,5 @@
+This archive uses Vortex's Dawnwalker root installer to deploy mixed PAK and Lua
+content. Installable files appear exactly once under Dawnwalker/ at archive root.
+Data/ contains this layout note, not duplicate IoStore containers or Lua scripts.
+mod.manifest and README.txt are at archive root.
+Manage installation, deployment, conflicts and removal through Vortex.

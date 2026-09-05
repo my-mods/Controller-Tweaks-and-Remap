@@ -2,6 +2,8 @@
 *.txt text eol=crlf
 *.json text eol=lf
 *.manifest text eol=lf
+*.lua text eol=lf
+upstream/HUDTweaks/main.lua -text
 *.uasset binary
 *.uexp binary
 *.bin binary

@@ -1,4 +1,7 @@
 *.zip
+.testdeps/
+release-package/
+build-containers/
 build-legacy/
 working-json/
 roundtrip-input/

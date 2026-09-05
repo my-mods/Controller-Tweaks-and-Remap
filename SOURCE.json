@@ -5,6 +5,15 @@
   "officialPatchAtCapture": "Hotfix 1.0.2",
   "unrealEngine": "5.5.4",
   "stockMappingCount": 30,
+  "controllerModVersion": "1.1.0",
+  "compass": {
+    "key": "Gamepad_Special_Right",
+    "activation": "press (rising edge); repeat presses refresh the reveal",
+    "fadeSettings": "HUDTweaks AutoFade idleAfterSeconds, fadeOutSeconds, idleOpacity",
+    "hudTweaksSource": "upstream/HUDTweaks/main.lua",
+    "hudTweaksSha256": "436077A4C1F7E1502B488B7E1DF360C81F305115858AC994F0A852ACDDCEE766",
+    "validation": "Offline Lua 5.4 tests; native in-game behavior not yet verified"
+  },
   "sourceHashes": {
     "scriptobjects.bin": "9DA57588D9D39F1FAB03C5D8591D3419E0CC745E00487A1FBB2A795907038095",
     "IA_Hub_Launch.uasset": "C07AACB59FDF17388760B5A54100C6617769EF914C3D84FE40CDF2B8CD2CC7CB",
