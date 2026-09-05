@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<mod>
+  <info>
+    <name>Controller Shoulder-Trigger Swap + map shortcut Compatibility</name>
+    <modid>DawnwalkerControllerTweaks</modid>
+    <description>Swaps LB with LT and RB with RT while preserving map and hub shortcuts.</description>
+    <author>Local compatibility mod</author>
+    <version>1.0.0</version>
+    <created_on>2026-09-05</created_on>
+  </info>
+  <supports>
+    <game>The Blood of Dawnwalker</game>
+    <steam_build>25129649</steam_build>
+    <executable>dw1-pc-257186-shipping-patch2-all</executable>
+    <unreal_engine>5.5.4</unreal_engine>
+  </supports>
+</mod>

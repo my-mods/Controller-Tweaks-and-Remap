@@ -1,0 +1,10 @@
+*.md text eol=lf
+*.txt text eol=crlf
+*.json text eol=lf
+*.manifest text eol=lf
+*.uasset binary
+*.uexp binary
+*.bin binary
+*.pak binary
+*.ucas binary
+*.utoc binary
