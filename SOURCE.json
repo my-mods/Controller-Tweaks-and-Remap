@@ -6,7 +6,7 @@
   "officialPatchAtCapture": "Hotfix 1.0.2",
   "unrealEngine": "5.5.4",
   "stockMappingCount": 30,
-  "controllerModVersion": "1.3.1",
+  "controllerModVersion": "1.3.2",
   "releaseArchive": "Dawnwalker-Controller-Tweaks.zip",
   "sourceHashes": {
     "scriptobjects.bin": "9DA57588D9D39F1FAB03C5D8591D3419E0CC745E00487A1FBB2A795907038095",

@@ -1,5 +1,7 @@
 # Dawnwalker Controller Tweaks
 
+![Dawnwalker Controller Tweaks](Nexus/thumbnail.png)
+
 Controller improvements for *The Blood of Dawnwalker* on PC.
 
 - **Swap shoulders and triggers:** LB ↔ LT and RB ↔ RT (PlayStation L1 ↔ L2 and R1 ↔ R2).
@@ -13,7 +15,7 @@ With the default layout, Block moves to LT, Focus Mode/Combat Abilities to LB, A
 No other mods or loaders are required.
 
 1. Download **Dawnwalker-Controller-Tweaks.zip** from [Releases](https://github.com/my-mods/Dawnwalker-Controller-Tweaks/releases).
-2. Install it through Vortex as **Root (game folder)**, then enable and deploy.
+2. Import it directly into Vortex 1.14 or newer as **Root (game folder)**, then enable and deploy.
 
 To uninstall, disable/remove the mod and deploy through Vortex.
 

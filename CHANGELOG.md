@@ -1,5 +1,11 @@
 # Changes
 
+## 1.3.2 — 2026-09-05
+
+- Add a complete Nexus description, listing metadata and controller thumbnail.
+- Include Nexus materials, rights notice, changelog and current release notes in the download.
+- Refresh the short mod description. Runtime containers are unchanged from 1.3.1.
+
 ## 1.3.1 — 2026-09-05
 
 - Use Controller Tweaks identifiers and container filenames.

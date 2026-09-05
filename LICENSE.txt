@@ -1,0 +1,9 @@
+Rights notice
+
+The Blood of Dawnwalker and its game assets belong to their respective
+rightsholders. This unofficial mod includes modified game input assets.
+No ownership of the underlying game assets is claimed, and this notice grants
+no additional rights to those assets.
+
+No separate open-source license has been granted for this package. Any
+third-party material remains subject to its original rights and permissions.

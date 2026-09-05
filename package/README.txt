@@ -13,7 +13,7 @@ Installation
 No other mods or loaders are required.
 
 1. Download Dawnwalker-Controller-Tweaks.zip from Releases: https://github.com/my-mods/Dawnwalker-Controller-Tweaks/releases.
-2. Install it through Vortex as Root (game folder), then enable and deploy.
+2. Import it directly into Vortex 1.14 or newer as Root (game folder), then enable and deploy.
 
 To uninstall, disable/remove the mod and deploy through Vortex.
 
