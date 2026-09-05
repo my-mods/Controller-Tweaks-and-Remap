@@ -6,8 +6,8 @@
   "summary": "Swap shoulders and triggers, enjoy a wider walking range, and use short press for Map or long press for Game Hub. No other mods or loaders required.",
   "descriptionFile": "description.bbcode.txt",
   "thumbnailFile": "thumbnail.png",
-  "thumbnailAltText": "Controller Tweaks and The Blood of Dawnwalker titles beside a black controller against an atmospheric dark castle backdrop.",
-  "thumbnailIsAIGenerated": true,
+  "thumbnailAltText": "Controller Tweaks title over an official in-game screenshot of Coen walking through a town market.",
+  "thumbnailIsAIGenerated": false,
   "suggestedCategory": "Gameplay",
   "keywords": [
     "Controller",
@@ -29,8 +29,7 @@
   "nexusModId": 203,
   "nexusFileId": 555,
   "tags": [
-    "AI Assisted",
-    "AI Media"
+    "AI Assisted"
   ],
   "license": "MIT",
   "nexusUrl": "https://www.nexusmods.com/thebloodofdawnwalker/mods/203"
