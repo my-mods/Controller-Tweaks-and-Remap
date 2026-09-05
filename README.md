@@ -1,4 +1,11 @@
-# Controller Shoulder/Trigger Swap + map shortcut Compatibility
+# Dawnwalker Controller Tweaks
+
+This is the stable name for this controller mod. New features change the version
+and changelog, not the name. Releases use `Dawnwalker-Controller-Tweaks-VERSION.zip`,
+with VERSION read from `package/mod.manifest`.
+The legacy internal mod ID, container filenames, and repository folder are retained
+to avoid changing existing paths. This naming correction keeps version 1.1.0;
+gameplay behavior is unchanged.
 
 Reproducible UE5.5 IoStore compatibility mod for The Blood of Dawnwalker. It combines:
 

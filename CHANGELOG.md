@@ -2,6 +2,10 @@
 
 ## 1.1.0 — 2026-09-05
 
+- Standardized the display name to Dawnwalker Controller Tweaks. Archive names now
+  use a stable prefix and the manifest version; internal IDs and deployed paths stay
+  unchanged. The naming-only repackage retains 1.1.0 and identical gameplay behavior.
+
 - Added normal Start/Options press to reveal the compass; no long hold is required.
 - Integrated compass state into HUDTweaks' opacity calculation for the strip, headings,
   and pins, preserving all other HUD settings and protecting widget class defaults.

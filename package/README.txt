@@ -1,9 +1,14 @@
-CONTROLLER SWAP + map shortcut + START COMPASS REVEAL 1.1.0
+DAWNWALKER CONTROLLER TWEAKS 1.1.0
 ================================================================
 
 Game: The Blood of Dawnwalker (PC)
 Built for Steam build 25129649 / executable CL-257186.
 Requires HUDTweaks v2 and a working Dawnwalker-compatible UE4SS installation.
+
+This is the stable name of the former Controller Swap + map shortcut + Start Compass
+Reveal mod, not a separate mod. This naming-only repackage remains version 1.1.0.
+Replace the previous package in Vortex; do not enable both. Future releases keep
+the name and change the version. Internal IDs and deployed paths are unchanged.
 
 CONTROLS
 --------
