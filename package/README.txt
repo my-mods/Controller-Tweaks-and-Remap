@@ -1,4 +1,8 @@
-DAWNWALKER CONTROLLER TWEAKS 1.1.2
+DAWNWALKER CONTROLLER TWEAKS 1.1.3
+
+Packaging update: Data/Dawnwalker-Controller-Tweaks-PACKAGE-LAYOUT.txt is unique to this mod.
+Replace/reinstall the existing Vortex entry from the updated ZIP and deploy to
+remove the old shared Data/PACKAGE-LAYOUT.txt. Gameplay behavior is unchanged.
 ================================================================
 
 Game: The Blood of Dawnwalker (PC)

@@ -1,5 +1,11 @@
 # Changes
 
+## 1.1.3 — 2026-09-05
+
+- Rename the Data layout note to Dawnwalker-Controller-Tweaks-PACKAGE-LAYOUT.txt.
+- Exclude the old shared note from archives.
+- Keep the stable ZIP filename and existing runtime behavior.
+
 ## 1.1.2 — 2026-09-05
 
 - Use Dawnwalker-Controller-Tweaks.zip, without a version suffix.

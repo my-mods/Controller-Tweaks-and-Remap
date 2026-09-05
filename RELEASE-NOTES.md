@@ -1,4 +1,11 @@
-# Dawnwalker Controller Tweaks v1.1.2
+# Dawnwalker Controller Tweaks v1.1.3
+
+Fix the documentation-only Data/PACKAGE-LAYOUT.txt conflict between the two mods.
+This archive uses Data/Dawnwalker-Controller-Tweaks-PACKAGE-LAYOUT.txt instead.
+Replace/reinstall the existing Vortex entry with this updated ZIP, then deploy so
+Vortex removes the old shared note. Redeploying the previous archive is insufficient.
+ZIP filenames remain unchanged. Runtime behavior and required HUDTweaks conflicts
+are unchanged. This release does not add Vortex metadata display support.
 
 Packaging-only update: every release uses the same `Dawnwalker-Controller-Tweaks.zip`
 filename. Builds overwrite this archive; versions remain in metadata and release tags.
