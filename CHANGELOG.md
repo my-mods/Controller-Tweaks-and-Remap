@@ -1,5 +1,14 @@
 # Changes
 
+## 1.3.0 — 2026-09-05
+
+- Remove the reported nonfunctional Start/Options compass reveal and its Lua adapter.
+- Remove HUDTweaks and UE4SS dependencies; ship only the existing container triple.
+- Preserve shoulder/trigger swap, map and hub shortcuts and the wider walking range.
+- Document Vortex replacement to remove old script overrides and restore HUDTweaks.
+- Retain historical upstream provenance.
+- Keep stable mod identity and archive name; include only the seven required package files.
+
 ## 1.2.1 — 2026-09-05
 
 - Put the complete feature list at the top of both READMEs: bidirectional LB/LT

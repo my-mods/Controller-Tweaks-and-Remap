@@ -1,130 +1,68 @@
-DAWNWALKER CONTROLLER TWEAKS 1.2.1
+DAWNWALKER CONTROLLER TWEAKS 1.3.0
 
 ALL INCLUDED CHANGES
-- LB <-> LT (PlayStation L1 <-> L2): both directions are swapped.
-- RB <-> RT (PlayStation R1 <-> R2): both directions are swapped.
-- Left-stick walk-to-run threshold: 0.70 -> 0.90 for a wider walking range;
-  full-tilt input remains unchanged.
+- LB <-> LT (PlayStation L1 <-> L2) and RB <-> RT (R1 <-> R2), in both directions.
+- Wider left-stick walking range: the existing walk-to-run threshold changes from 0.70 to 0.90.
 - Tap Back/View (PlayStation touchpad) for Map; hold 0.30 seconds for Game Hub.
-- Press Start/Menu (PlayStation Options) to reveal the compass, then idle fade.
-  Press again to refresh; this is not a permanent toggle.
-- Includes the v1.1.5 compass loading recovery and controller-possession fix.
 
-Version 1.2.1 clarifies the documentation; gameplay payloads match v1.2.0.
-Replace/reinstall the existing Vortex entry from this ZIP and deploy.
-================================================================
+The Start/Options compass feature has been removed. Controller Tweaks no longer
+requires HUDTweaks, UE4SS, Prompt Dismissal Fix, or any other mod.
 
-Game: The Blood of Dawnwalker (PC)
-Built for Steam build 25129649 / executable CL-257186.
-Requires HUDTweaks v2 and a working Dawnwalker-compatible UE4SS installation.
+Game: The Blood of Dawnwalker (PC), default controller layout.
+Source capture: Steam build 25129649 / executable CL-257186.
+Compatibility with later game versions is not established.
 
-This is the stable name of the former Controller Swap + map shortcut + Start Compass
-Reveal mod, not a separate mod. All features listed above are included together.
-Replace the previous package in Vortex; do not enable both. Future releases keep
-the name and change the version. Internal IDs and deployed paths are unchanged.
-The archive is always Dawnwalker-Controller-Tweaks.zip and is overwritten on builds.
-Keep one Vortex mod entry and use its replace/update flow for this archive.
+CONTROLS AND SCOPE
+Walking uses more processed input before fast movement activates. Game/Steam Input
+deadzone and sensitivity settings affect the physical stick position. Full-tilt
+input, direction, sprint bindings, camera and keyboard mappings are preserved.
+IA_Move is shared with keyboard input. No input delay or replacement INI is added.
 
-CONTROLS
---------
-Walking uses more stick travel before the fast-movement tag activates. The 0.90
-threshold is measured on processed movement input, so Steam Input and the game's
-deadzone/sensitivity settings can affect the physical stick position. No input
-delay is added. Direction, maximum input, camera, sprint bindings, and keyboard
-movement mappings are preserved. This changes the existing IA_Move asset; it
-does not replace any user INI. In-game feel and diagonal running need testing.
-
-The default controller preset is changed globally:
-- LB actions move to LT.
-- LT actions move to LB.
-- RB actions move to RT.
-- RT actions move to RB.
-
-This includes the following current mappings:
+The shoulder/trigger swap applies globally to the default controller preset:
 - Block: LB -> LT
 - Focus Mode and Combat Abilities: LT -> LB
 - Attack and Overworld Abilities: RB -> RT
 - Shadowstep: RT -> RB
-- Photo Mode rise/fall also follow the same global physical-button swap.
+- Photo Mode rise/fall follows the same physical-button swap.
 
-map and hub shortcuts compatibility is built in:
-- Tap Xbox Back/View: open the map.
-- Hold Xbox Back/View for 0.30 seconds: open Game Hub.
-- DualSense uses the touchpad for the game's Gamepad_Special_Left input.
+Only IA_Move, IA_Hub_Launch, IA_Hub_Map and RIP_GamepadDefault are replaced.
+Start/Options has no custom compass behavior in this version.
 
-Press Start (Xbox Menu) / PlayStation Options:
-- A normal click reveals the compass immediately; no long press is needed.
-- It uses HUDTweaks' idleAfterSeconds, fadeOutSeconds and idleOpacity settings.
-  With your captured settings: 2 seconds visible, then a 0.8-second fade to zero.
-- Another click refreshes the timer. Holding the button does not repeat.
-- This never toggles hidden state or permanently pins the compass.
-- The compass strip, cardinal headings and pins change together.
-- Otherwise the compass follows your normal HUDTweaks behavior, including combat.
-- F8 suspension of HUDTweaks suspends this feature too.
+VORTEX INSTALLATION AND UPDATE FROM 1.2.1 OR EARLIER
+1. Close the game. Disable the previous Controller Tweaks entry in Vortex and deploy
+   so Vortex removes its old HUDTweaks script overrides.
+2. Import Dawnwalker-Controller-Tweaks.zip and replace/reinstall that same mod entry
+   from the new archive. Use replacement, not a merge that retains old files.
+3. Select Root (game folder), enable the replacement, and deploy through Vortex.
+   Redeploying the old entry alone does not process the new archive.
+4. Keep one Controller Tweaks entry. Earlier standalone menu-shortcut,
+   menu-shortcut and Controller Swap variants remain superseded.
 
-Start's original controls-legend/menu action still executes: this binding observes
-the button, it does not consume it. A press may therefore also open the normal
-Start menu or change the legend. This limitation still needs an in-game check.
+The new package has no HUDTweaks main.lua conflict. If you keep HUDTweaks for its
+own features, its original Scripts/main.lua should become active again; Vortex
+should remove ControllerCompass.lua from the old package. If you use Prompt
+Dismissal Fix, it remains independent and still wins HUDTweaks.ini. Do not remove
+HUDTweaks or UE4SS if other mods still need them. Manage all cleanup through Vortex.
 
-SCOPE
------
-- Designed for controller use; IA_Move is a shared movement action.
-- Default controller layout only.
-- Keyboard bindings are unchanged.
-- Replaces IA_Move, IA_Hub_Launch, IA_Hub_Map, and RIP_GamepadDefault.
-- Overlays HUDTweaks/Scripts/main.lua and adds ControllerCompass.lua. Your
-  HUDTweaks.ini and the separate Prompt Dismissal Fix remain independent.
-
-VORTEX INSTALLATION
--------------------
-1. Close the game.
-2. Disable the original Dawnwalker menu-shortcut mod and the earlier
-   menu-shortcut compatibility mod, plus Controller Swap v1.0.0.
-   This package supersedes all three.
-3. Install this ZIP through Vortex, enable it, and deploy.
-4. If Vortex reports a conflict with another default-controller mapping mod,
-   this combined patch must win to keep both the swap and map shortcut behavior.
-5. Keep HUDTweaks enabled. Make this mod win the HUDTweaks main.lua file conflict.
-   Keep your Prompt Dismissal Fix enabled and winning the INI conflict.
-6. The Vortex type should be Root (game folder); the archive's Dawnwalker paths
-   route both the controller containers and Lua files to their correct locations.
-
-Another cooked mod replacing IA_Move or the other listed assets requires an asset
-compatibility patch. Differently named containers can conflict without Vortex
-reporting a file collision; file conflict rules cannot merge their assets.
+For a first installation, import this ZIP as Root (game folder), enable and deploy.
+If another mod supplies identically named containers, Controller Tweaks must win
+those three files to retain its changes. Differently named cooked containers can
+replace the same assets without a Vortex file conflict; an asset compatibility
+patch is needed. Vortex file rules cannot merge assets.
 
 UNINSTALLATION
---------------
-Disable/remove this mod in Vortex and deploy again. Re-enable the previous map shortcut
-compatibility mod only if you still want map shortcut without the shoulder-trigger swap.
+Disable/remove Controller Tweaks and deploy through Vortex. Re-enable an earlier
+map shortcut mod only if you want its behavior without Controller Tweaks.
 
-COMPASS DIAGNOSTICS
--------------------
-After loading a save, UE4SS.log should contain:
-  [ControllerCompass] Input ready: press Start/Options to reveal compass.
-Each press logs Compass revealed; idle fade will resume. API failures are logged
-instead of being interpreted as button presses. A held button across loading or
-a long frame stall must be released before the feature rearms.
-Version 1.1.5 uses one persistent game-thread timer and a validated gameplay-pawn
-lookup. It checks local controller possession and retries after malformed lookup
-results or input errors. The startup log reports Loaded v1.1.5; game-thread timer active.
-Requires UE4SS with LoopInGameThreadWithDelay (present in diagnosed build 97b7e501).
-If it logs Scheduler unavailable, that UE4SS build lacks the required API.
-The new build needs an in-game retest, including after loading another save.
+STABLE IDENTITY
+The name, internal mod ID, container paths and Dawnwalker-Controller-Tweaks.zip
+filename remain stable. Versions stay in metadata
+and GitHub tags. Use Vortex's replace/update flow; the filename does not merge
+duplicates automatically. No user settings INI is replaced.
 
 VALIDATION
-----------
-The IoStore container was built as UE5.5 content and round-trip checked. It contains
-exactly IA_Move, IA_Hub_Launch, IA_Hub_Map and RIP_GamepadDefault. IA_Move's only
-payload change is the MoveFast threshold from 0.70 to 0.90. The decoded preset has 31
-mappings and confirms LB <-> LT and RB <-> RT across every affected action.
-Lua tests cover click reveal, timer refresh, idle fade, held buttons, frame stalls,
-controller changes, input errors and compass-only opacity. The new binding still requires
-an in-game check on this UE4SS build; offline tests cannot verify native input.
-
-VORTEX METADATA UPDATE 1.1.4
-The ZIP now generates vortex_override_instructions.json from mod.manifest, so Vortex sets the display name, version, and description during installation. Runtime payloads and file destinations are unchanged.
-
-Replace/reinstall the updated ZIP through Vortex using the existing mod entry, then deploy. Redeployment alone cannot read new archive metadata. This does not provide automatic update discovery or merge duplicate Vortex entries.
-
-Archive filename: Dawnwalker-Controller-Tweaks.zip
+The actual ZIP must contain exactly seven allowlisted files, including one
+container triple and no Lua scripts. Offline checks verify the container, extract
+its four assets, validate the movement threshold and unchanged remaining payloads,
+and test installed Vortex installer/metadata planning with mocked state.
+Native movement feel still needs testing, so this remains a prerelease.

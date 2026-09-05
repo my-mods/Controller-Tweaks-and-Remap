@@ -2,86 +2,75 @@
 
 Controller improvements for **The Blood of Dawnwalker (PC)**, packaged for Vortex.
 
-## Included controller changes
+- LB <-> LT (PlayStation L1 <-> L2) and RB <-> RT (R1 <-> R2), in both directions.
+- Wider left-stick walking range: the existing walk-to-run threshold changes from 0.70 to 0.90.
+- Tap Back/View (PlayStation touchpad) for Map; hold 0.30 seconds for Game Hub.
 
-Every release contains all of these changes in one Controller Tweaks package:
-
-| Control | Behavior with this mod |
-| --- | --- |
-| LB / LT (PlayStation L1 / L2) | Swapped both ways: LB actions use LT, and LT actions use LB. |
-| RB / RT (PlayStation R1 / R2) | Swapped both ways: RB actions use RT, and RT actions use RB. |
-| Left stick: walking to running | Fast-movement threshold raised from **0.70 to 0.90**, giving walking more stick travel. Full-tilt input is preserved. |
-| Xbox Back/View / PlayStation touchpad | Tap to open the map; hold for **0.30 seconds** to open Game Hub. |
-| Xbox Start/Menu / PlayStation Options | Press to reveal the compass, then let it fade using your HUDTweaks idle/fade settings. Press again to refresh the timer; holding does not repeat. |
-
-The shoulder/trigger swap applies throughout the default controller preset,
-including Block (LB -> LT), Focus/Combat Abilities (LT -> LB),
-Attack/Overworld Abilities (RB -> RT), Shadowstep (RT -> RB), and Photo Mode
-rise/fall. Keyboard bindings are unchanged.
-
-The walk-to-run threshold uses processed movement input. Game and Steam Input
-deadzone/sensitivity settings affect the physical stick position; **0.90 does not
-mean a guaranteed 90% physical-stick position**. No input delay is added.
-
-Compass reveal is temporary, not a permanent visibility toggle. Start/Options
-still performs its original menu/controls-legend action. The included v1.1.5 fix
-also validates the gameplay controller after loading and retries transient lookup
-or input failures. Native movement feel and compass behavior still need testing.
-
-Version 1.2.1 clarifies both READMEs; gameplay payloads are unchanged from v1.2.0.
+**Version 1.3.0 removes the nonfunctional Start/Options compass feature. No other
+mods are required: HUDTweaks and UE4SS are no longer dependencies.**
 
 ## Download and install
 
-Download the mod ZIP from [Releases](https://github.com/my-mods/Dawnwalker-Controller-Tweaks/releases).
-Do not install GitHub's automatically generated source-code ZIP as a mod.
+Download **Dawnwalker-Controller-Tweaks.zip** from
+[Releases](https://github.com/my-mods/Dawnwalker-Controller-Tweaks/releases).
+Use the mod archive, not GitHub's source-code ZIP.
 
-Requires HUDTweaks v2, a Dawnwalker-compatible UE4SS installation with
-`LoopInGameThreadWithDelay` (present in the diagnosed build 97b7e501), and the default
-controller layout. Built against Steam build 25129649 / executable CL-257186;
-compatibility with later game or HUDTweaks versions is not established.
+### Updating from 1.2.1 or earlier
 
-1. Close the game and import the release ZIP into Vortex.
-2. Replace earlier Controller Swap / Controller Tweaks packages and disable the
-   original menu-shortcut and menu-shortcut mods.
-3. Keep HUDTweaks enabled; let this mod win its `Scripts/main.lua` conflict.
-4. If using [HUDTweaks Prompt Dismissal Fix](https://github.com/my-mods/Dawnwalker-HUDTweaks-Prompt-Fix),
-   keep that fix enabled and winning `Scripts/HUDTweaks.ini`.
-5. Enable and deploy through Vortex using the Root (game folder) mod type.
+1. Close the game. Disable the previous Controller Tweaks entry in Vortex and deploy
+   so Vortex removes its old HUDTweaks script overrides.
+2. Import Dawnwalker-Controller-Tweaks.zip and replace/reinstall that same mod entry
+   from the new archive. Use replacement, not a merge that retains old files.
+3. Select Root (game folder), enable the replacement, and deploy through Vortex.
+   Redeploying the old entry alone does not process the new archive.
+4. Keep one Controller Tweaks entry. Earlier standalone menu-shortcut,
+   menu-shortcut and Controller Swap variants remain superseded.
 
-This repository does not deploy files into your game. Disable this mod in Vortex
-and redeploy to uninstall. The previous HUDTweaks main.lua then becomes active.
+The new package has no HUDTweaks main.lua conflict. If you keep HUDTweaks for its
+own features, its original Scripts/main.lua should become active again; Vortex
+should remove ControllerCompass.lua from the old package. If you use Prompt
+Dismissal Fix, it remains independent and still wins HUDTweaks.ini. Do not remove
+HUDTweaks or UE4SS if other mods still need them. Manage all cleanup through Vortex.
 
-In-game validation remains pending; this release is a prerelease.
+For a first installation, import the ZIP as **Root (game folder)**, enable and
+deploy. To uninstall, disable/remove Controller Tweaks and deploy through Vortex.
+
+## Controls and compatibility
+
+The physical-key swap applies globally to the default controller preset, including
+Photo Mode. Block moves to LT, Focus Mode/Combat Abilities to LB, Attack/Overworld
+Abilities to RT, and Shadowstep to RB. The remaining Start/Options behavior is the
+game's own behavior.
+
+The walking threshold uses processed movement input; the game's and Steam Input's
+deadzone/sensitivity settings affect physical stick travel. Full-tilt input,
+direction, sprint bindings, camera and keyboard mappings are preserved. IA_Move
+is a shared movement action. No delay, movement Lua hook or replacement INI is added.
+
+Built from Steam build 25129649 / executable CL-257186 stock assets. Compatibility
+with later game versions is not established. Replaces exactly IA_Move,
+IA_Hub_Launch, IA_Hub_Map and RIP_GamepadDefault. Another cooked mod replacing these
+assets needs a compatibility patch. Differently named containers can conflict
+without a Vortex file warning; file conflict rules cannot merge their assets.
+For identical container filenames, Controller Tweaks must win all three files.
 
 ## Stable identity
 
-This is the stable name for this controller mod. New features change the version
-and changelog, not the name. Every build overwrites `Dawnwalker-Controller-Tweaks.zip`.
-The ZIP filename never contains a version or game build. Version metadata remains in
-`package/mod.manifest` and GitHub release tags; use Vortex's replacement/update flow
-for the same mod entry instead of creating another named variant.
-The legacy internal mod ID, container filenames, and repository folder are retained
-to avoid changing existing paths. Version 1.1.5 fixes lookup failure recovery and
-uses one persistent game-thread timer for compass input.
+Keep one Vortex entry and use its replace/update flow. The display name, legacy
+internal ID, container paths and **Dawnwalker-Controller-Tweaks.zip** remain stable.
+Versions live in the manifest, source metadata and release tags. Vortex override
+metadata sets the name, version and description when the ZIP is processed; it
+does not provide automatic update discovery or merge existing duplicates.
 
-A normal press reveals the compass immediately. It uses HUDTweaks' idleAfterSeconds,
-fadeOutSeconds and idleOpacity, then returns to normal automatic visibility. Another
-press refreshes the timer; holding does not repeat. Other HUD elements keep fading.
-The original Start action is not consumed, so a press can also open its menu/legend.
+In-game validation remains pending; this release is a prerelease.
 
-## Credits and reporting issues
+## Provenance
 
-This is an unofficial compatibility mod, not the original HUDTweaks project.
-HUDTweaks and captured game assets belong to their respective authors/rightsholders;
-their inclusion does not grant a new license to those components.
+Captured game assets belong to their rightsholders. Stock snapshots, hashes and
+capture provenance are retained in SOURCE.json. The removed compass integration
+is recoverable in Git history. upstream/HUDTweaks/main.lua and retiredCompass
+metadata remain only as a historical source/provenance record; they are neither
+built nor shipped. No new license is granted to third-party components.
 
-When reporting a problem, include the game build, mod versions, Vortex conflict winners,
-and relevant ControllerCompass log lines. Review logs for private information before posting.
-
-## Vortex metadata and updates
-
-The metadata added in v1.1.4 generates `vortex_override_instructions.json` from `mod.manifest`, so Vortex sets the display name, version, and description during installation. These metadata instructions preserve the payload destinations.
-
-Replace/reinstall the updated ZIP through Vortex using the existing mod entry, then deploy. Redeployment alone cannot read new archive metadata. This does not provide automatic update discovery or merge duplicate Vortex entries.
-
-Archive filename: Dawnwalker-Controller-Tweaks.zip
+When reporting issues, include the game build, mod version, Vortex conflict winners
+and observed controls. See [release notes](RELEASE-NOTES.md).

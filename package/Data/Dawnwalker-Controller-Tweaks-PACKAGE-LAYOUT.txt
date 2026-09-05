@@ -1,7 +1,7 @@
 Dawnwalker Controller Tweaks package layout
 
-This archive uses Vortex's Dawnwalker root installer to deploy mixed PAK and Lua
-content. Installable files appear exactly once under Dawnwalker/ at archive root.
-Data/ contains this layout note, not duplicate IoStore containers or Lua scripts.
-mod.manifest and README.txt are at archive root.
+Use Vortex's Root (game folder) installer. The only runtime payload is one IoStore
+container triple under Dawnwalker/Content/Paks/~mods/ at archive root.
+Data/ retains this uniquely named layout note; no runtime files are duplicated.
+mod.manifest and README.txt are at archive root. No Lua scripts are included.
 Manage installation, deployment, conflicts and removal through Vortex.

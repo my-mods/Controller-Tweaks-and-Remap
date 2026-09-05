@@ -1,38 +1,39 @@
-# Dawnwalker Controller Tweaks v1.2.1
+# Dawnwalker Controller Tweaks v1.3.0
 
-Documentation update: both READMEs now begin with the complete feature list: LB/LT and RB/RT swaps, the 0.70-to-0.90 walk-to-run threshold, map and hub shortcuts, compass reveal/fade, and compass loading recovery. All five gameplay files are byte-identical to v1.2.0.
+Removed the Start/Options compass reveal feature after the user reported it did
+not work and that heightened senses already displays quest objectives. No Lua
+scripts or HUDTweaks overrides are shipped. HUDTweaks, UE4SS and other mods are
+not required by Controller Tweaks.
 
-Walking has more left-stick travel before the game requests fast movement.
-The existing IA_Move MoveFast threshold changes from 0.70 to 0.90. Full-tilt
-input, movement direction, sprint bindings, camera and keyboard mappings remain
-unchanged. The threshold uses processed movement input; game/Steam Input
-deadzone and sensitivity settings affect its physical position.
+Retains the bidirectional LB/LT and RB/RT swap, map and hub shortcuts, and wider walking
+range (processed MoveFast threshold 0.70 -> 0.90). Controller asset payloads are
+unchanged from v1.2.1. The name, internal ID, container paths and ZIP name stay stable.
 
-Includes the v1.1.5 compass loading/polling fix, shoulder/trigger swap, and
-map and hub shortcuts. No new movement Lua hooks or replacement user settings INI.
+## Vortex replacement
 
-## Vortex update
+1. Close the game. Disable the previous Controller Tweaks entry in Vortex and deploy
+   so Vortex removes its old HUDTweaks script overrides.
+2. Import Dawnwalker-Controller-Tweaks.zip and replace/reinstall that same mod entry
+   from the new archive. Use replacement, not a merge that retains old files.
+3. Select Root (game folder), enable the replacement, and deploy through Vortex.
+   Redeploying the old entry alone does not process the new archive.
+4. Keep one Controller Tweaks entry. Earlier standalone menu-shortcut,
+   menu-shortcut and Controller Swap variants remain superseded.
 
-Import **Dawnwalker-Controller-Tweaks.zip** and replace/reinstall the existing
-Controller Tweaks entry. Use **Root (game folder)**, then deploy through Vortex.
-Keep HUDTweaks v2 and compatible UE4SS enabled; Controller Tweaks wins
-`HUDTweaks/Scripts/main.lua`. If used, Prompt Dismissal Fix remains enabled and
-wins `HUDTweaks/Scripts/HUDTweaks.ini`. Disable the earlier standalone menu-shortcut
-and controller compatibility variants. Keep one Controller Tweaks entry.
+The new package has no HUDTweaks main.lua conflict. If you keep HUDTweaks for its
+own features, its original Scripts/main.lua should become active again; Vortex
+should remove ControllerCompass.lua from the old package. If you use Prompt
+Dismissal Fix, it remains independent and still wins HUDTweaks.ini. Do not remove
+HUDTweaks or UE4SS if other mods still need them. Manage all cleanup through Vortex.
 
-An asset mod replacing IA_Move needs a compatibility patch. Differently named
-containers may conflict without Vortex reporting a file collision.
-Disable Controller Tweaks and deploy in Vortex to uninstall.
+Another cooked mod replacing IA_Move, IA_Hub_Launch, IA_Hub_Map or
+RIP_GamepadDefault needs an asset compatibility patch. Disable/remove Controller
+Tweaks and deploy through Vortex to uninstall.
 
-## Validation and remaining check
+## Validation
 
-Built from installed Steam build 25129649 / executable CL-257186 stock assets.
-The actual ZIP container verifies and extracts successfully. Its four assets
-round-trip correctly; the only IA_Move payload change is the 0.70-to-0.90 float.
-Unknown upstream snapshots are rejected. Lua regression/compilation checks and
-Vortex installer planning use offline mocked state, with no live deployment.
-
-Published as a prerelease until tested in game. With the replacement deployed,
-check slow stick sweeps, full-tilt running in straight and diagonal directions,
-sprint, crouching, combat movement, keyboard movement, and Start/Options compass
-reveal before and after reloading a save. No live in-game result is claimed.
+Source capture remains Steam build 25129649 / executable CL-257186. Prerelease:
+in-game walking feel remains unverified. After Vortex replacement, check slow stick
+sweeps, straight/diagonal full-tilt running, sprint, crouch, combat, keyboard input,
+shoulder/trigger controls and map and hub shortcuts. If HUDTweaks remains installed,
+verify its own HUD behavior after its original main.lua is restored by Vortex.

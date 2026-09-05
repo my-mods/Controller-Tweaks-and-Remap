@@ -3,9 +3,9 @@
   <info>
     <name>Dawnwalker Controller Tweaks</name>
     <modid>DawnwalkerControllerTweaks</modid>
-    <description>Wider left-stick walking range, LB/LT and RB/RT swap, map and hub shortcuts, and Start press compass reveal.</description>
+    <description>Wider left-stick walking range, LB/LT and RB/RT swap, and map and hub shortcuts.</description>
     <author>Local compatibility mod</author>
-    <version>1.2.1</version>
+    <version>1.3.0</version>
     <created_on>2026-09-05</created_on>
   </info>
   <supports>
@@ -13,6 +13,5 @@
     <steam_build>25129649</steam_build>
     <executable>dw1-pc-257186-shipping-patch2-all</executable>
     <unreal_engine>5.5.4</unreal_engine>
-    <requires>HUDTweaks v2 and a working Dawnwalker UE4SS installation</requires>
   </supports>
 </mod>
