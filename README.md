@@ -23,6 +23,6 @@ Uses the default controller preset. Game and Steam Input deadzone settings affec
 
 Replaces `IA_Move`, `IA_Hub_Launch`, `IA_Hub_Map`, and `RIP_GamepadDefault`. Other mods changing these assets need a compatibility patch, even if Vortex shows no file conflict.
 
-Based on Steam build **25129649 / CL-257186**. Later versions are unverified. In-game validation is still pending.
+Based on Steam build **25129649 / CL-257186**. Later versions are unverified.
 
 Game assets belong to their respective rightsholders.
