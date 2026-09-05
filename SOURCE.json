@@ -6,7 +6,7 @@
   "officialPatchAtCapture": "Hotfix 1.0.2",
   "unrealEngine": "5.5.4",
   "stockMappingCount": 30,
-  "controllerModVersion": "1.1.4",
+  "controllerModVersion": "1.1.5",
   "releaseArchive": "Dawnwalker-Controller-Tweaks.zip",
   "compass": {
     "key": "Gamepad_Special_Right",
@@ -14,7 +14,11 @@
     "fadeSettings": "HUDTweaks AutoFade idleAfterSeconds, fadeOutSeconds, idleOpacity",
     "hudTweaksSource": "upstream/HUDTweaks/main.lua",
     "hudTweaksSha256": "436077A4C1F7E1502B488B7E1DF360C81F305115858AC994F0A852ACDDCEE766",
-    "validation": "v1.1.0 in-game log stops before Input ready; stale-controller regression reproduced offline and fixed in v1.1.1; native retest pending"
+    "validation": "v1.1.2 game log on 2026-09-05: PlayerPawn iterator received a function, followed by registry callback error; reproduced with legacy adapter offline. v1.1.5 validates lookup results and possession and uses one persistent game-thread timer; native retest pending",
+    "scheduler": "LoopInGameThreadWithDelay(16, callback); requires the delayed game-thread API",
+    "ue4ssReference": "https://github.com/UE4SS-RE/RE-UE4SS/blob/97b7e501/UE4SS/src/Mod/LuaMod.cpp",
+    "ue4ssReferenceSha256": "4DA613F5C5B336BD633DC0EB24F450D68612ABC06083F43BCDC0AB8FD5A42B1E",
+    "ue4ssReferenceReason": "Installed UE4SS log reports v3.0.1 Beta #0, Git SHA 97b7e501; this source provides the persistent timer and uses a shared hook Lua state. The exact native cause of the malformed return is not proven."
   },
   "sourceHashes": {
     "scriptobjects.bin": "9DA57588D9D39F1FAB03C5D8591D3419E0CC745E00487A1FBB2A795907038095",

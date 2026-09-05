@@ -1,5 +1,15 @@
 # Changes
 
+## 1.1.5 — 2026-09-05
+
+- Replace repeated async-to-game-thread callback registration with one persistent
+  game-thread timer, available in the diagnosed UE4SS build (97b7e501).
+- Replace the HUDTweaks gameplay-pawn adapter with a lookup that validates returned
+  tables and local controller possession, including retained menu controllers.
+- Recover from transient lookup/input errors and rearm only after button release.
+
+- Offline regression and packaging validation only; in-game retest required.
+
 ## 1.1.4 — 2026-09-05
 
 - Generate Vortex display name, version, and description in the release archive.

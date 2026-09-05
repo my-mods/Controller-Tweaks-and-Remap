@@ -1,4 +1,4 @@
-DAWNWALKER CONTROLLER TWEAKS 1.1.3
+DAWNWALKER CONTROLLER TWEAKS 1.1.5
 
 Packaging update: Data/Dawnwalker-Controller-Tweaks-PACKAGE-LAYOUT.txt is unique to this mod.
 Replace/reinstall the existing Vortex entry from the updated ZIP and deploy to
@@ -85,9 +85,12 @@ After loading a save, UE4SS.log should contain:
 Each press logs Compass revealed; idle fade will resume. API failures are logged
 instead of being interpreted as button presses. A held button across loading or
 a long frame stall must be released before the feature rearms.
-Version 1.1.1 also logs the chosen controller and why it is waiting, if not ready.
-It uses HUDTweaks' gameplay-pawn probe and never keeps an unpossessed menu controller
-cached just because its UObject remains valid. The new build needs an in-game retest.
+Version 1.1.5 uses one persistent game-thread timer and a validated gameplay-pawn
+lookup. It checks local controller possession and retries after malformed lookup
+results or input errors. The startup log reports Loaded v1.1.5; game-thread timer active.
+Requires UE4SS with LoopInGameThreadWithDelay (present in diagnosed build 97b7e501).
+If it logs Scheduler unavailable, that UE4SS build lacks the required API.
+The new build needs an in-game retest, including after loading another save.
 
 VALIDATION
 ----------

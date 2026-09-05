@@ -7,7 +7,8 @@ Controller improvements for **The Blood of Dawnwalker (PC)**, packaged for Vorte
 Download the mod ZIP from [Releases](https://github.com/my-mods/Dawnwalker-Controller-Tweaks/releases).
 Do not install GitHub's automatically generated source-code ZIP as a mod.
 
-Requires HUDTweaks v2, a Dawnwalker-compatible UE4SS installation, and the default
+Requires HUDTweaks v2, a Dawnwalker-compatible UE4SS installation with
+`LoopInGameThreadWithDelay` (present in the diagnosed build 97b7e501), and the default
 controller layout. Built against Steam build 25129649 / executable CL-257186;
 compatibility with later game or HUDTweaks versions is not established.
 
@@ -32,7 +33,8 @@ The ZIP filename never contains a version or game build. Version metadata remain
 `package/mod.manifest` and GitHub release tags; use Vortex's replacement/update flow
 for the same mod entry instead of creating another named variant.
 The legacy internal mod ID, container filenames, and repository folder are retained
-to avoid changing existing paths. Version 1.1.1 fixes controller discovery after loading.
+to avoid changing existing paths. Version 1.1.5 fixes lookup failure recovery and
+uses one persistent game-thread timer for compass input.
 
 Reproducible UE5.5 IoStore compatibility mod for The Blood of Dawnwalker. It combines:
 
@@ -56,7 +58,7 @@ and relevant ControllerCompass log lines. Review logs for private information be
 
 ## Vortex metadata and updates
 
-The ZIP includes installation metadata, so Vortex sets the display name, version, and description during installation. Runtime payloads and file destinations are unchanged.
+The metadata added in v1.1.4 generates `vortex_override_instructions.json` from `mod.manifest`, so Vortex sets the display name, version, and description during installation. These metadata instructions preserve the payload destinations.
 
 Replace/reinstall the updated ZIP through Vortex using the existing mod entry, then deploy. Redeployment alone cannot read new archive metadata. This does not provide automatic update discovery or merge duplicate Vortex entries.
 

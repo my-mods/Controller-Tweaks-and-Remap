@@ -2,9 +2,10 @@
 local M = {}
 local owner, previousTime, previousDown = nil, nil, nil
 local shownAt, peekLevel = nil, nil
-local installed, pending, probeLogged = false, false, false
+local installed, running, probeLogged = false, false, false
 local waitingReason = nil
 local controller, key, gameplayStatics = nil, nil, nil
+local playerPawn = nil
 local compassClasses = {
     WBP_Compass_C = true,
     WBP_CompassHeading_C = true,
@@ -79,12 +80,21 @@ local function controlsPawn(candidate, pawn)
     return ok and result == true
 end
 
+local function findAll(className)
+    local objects = FindAllOf(className)
+    if objects == nil then return {} end
+    if type(objects) ~= "table" then
+        error("FindAllOf(" .. className .. ") returned " .. type(objects) .. "; waiting to retry")
+    end
+    return objects
+end
+
 local function getController(pawn)
     -- UObject validity alone is insufficient: the main-menu controller may remain
     -- alive after another controller possesses the gameplay pawn.
     if controlsPawn(controller, pawn) then return controller end
     controller = nil
-    for _, candidate in ipairs(FindAllOf("PlayerController") or {}) do
+    for _, candidate in pairs(findAll("PlayerController")) do
         if controlsPawn(candidate, pawn) then
             controller = candidate
             break
@@ -93,9 +103,28 @@ local function getController(pawn)
     return controller
 end
 
+-- Shared with the HUDTweaks adapter. A valid cached pawn alone does not prove
+-- gameplay possession, and the first controller can still belong to the menu.
+function M.PlayerPawn(className)
+    if controlsPawn(controller, playerPawn) then return playerPawn end
+    playerPawn, controller = nil, nil
+    local pawns = findAll(className)
+    local controllers = findAll("PlayerController")
+    for _, pawn in pairs(pawns) do
+        if valid(pawn) and not pawn:GetFullName():find("Default__", 1, true) then
+            for _, candidate in pairs(controllers) do
+                if controlsPawn(candidate, pawn) then
+                    playerPawn, controller = pawn, candidate
+                    return playerPawn
+                end
+            end
+        end
+    end
+    return nil
+end
+
 function M.Start(onChanged, getSettings, getPlayerPawn)
     if installed then return end
-    installed = true
     local function clear()
         if M.Step(nil, nil, nil) then onChanged() end
     end
@@ -107,7 +136,8 @@ function M.Start(onChanged, getSettings, getPlayerPawn)
         end
     end
     local function tick()
-        pending = false
+        if running then return end
+        running = true
         local ok, err = pcall(function()
             local settings = getSettings()
             if not settings then waitFor("HUDTweaks disabled or suspended"); return end
@@ -140,6 +170,7 @@ function M.Start(onChanged, getSettings, getPlayerPawn)
             local changed, clicked = M.Step(down, now, pc:GetFullName(), settings)
             if changed then onChanged() end
             if clicked then print("[ControllerCompass] Compass revealed; idle fade will resume.\n") end
+            M.lastError = nil
         end)
         if not ok then
             pcall(clear)
@@ -148,15 +179,23 @@ function M.Start(onChanged, getSettings, getPlayerPawn)
                 print("[ControllerCompass] Input check failed: " .. tostring(err) .. "\n")
             end
         end
+        running = false
     end
-    LoopAsync(16, function()
-        if not pending then
-            pending = true
-            ExecuteInGameThread(tick)
-        end
-        return false
-    end)
-    print("[ControllerCompass] Loaded v1.1.3; waiting for a local player.\n")
+    -- Register once at startup. The old async-to-game-thread bridge repeatedly
+    -- registered callbacks while the shared hook Lua stack could be executing.
+    -- Use the delayed game-thread API present in the diagnosed UE4SS build.
+    if type(LoopInGameThreadWithDelay) ~= "function" then
+        print("[ControllerCompass] Scheduler unavailable: UE4SS must provide LoopInGameThreadWithDelay.\n")
+        return
+    end
+    local ok, handle = pcall(LoopInGameThreadWithDelay, 16, tick)
+    if not ok then
+        print("[ControllerCompass] Scheduler failed: " .. tostring(handle) .. "\n")
+        return
+    end
+    installed = true
+    M.timerHandle = handle
+    print("[ControllerCompass] Loaded v1.1.5; game-thread timer active; waiting for a local player.\n")
 end
 
 return M
