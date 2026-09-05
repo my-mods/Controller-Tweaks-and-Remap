@@ -1,5 +1,31 @@
 # Dawnwalker Controller Tweaks
 
+Controller improvements for **The Blood of Dawnwalker (PC)**, packaged for Vortex.
+
+## Download and install
+
+Download the mod ZIP from [Releases](https://github.com/my-mods/Dawnwalker-Controller-Tweaks/releases).
+Do not install GitHub's automatically generated source-code ZIP as a mod.
+
+Requires HUDTweaks v2, a Dawnwalker-compatible UE4SS installation, and the default
+controller layout. Built against Steam build 25129649 / executable CL-257186;
+compatibility with later game or HUDTweaks versions is not established.
+
+1. Close the game and import the release ZIP into Vortex.
+2. Replace earlier Controller Swap / Controller Tweaks packages and disable the
+   original menu-shortcut and menu-shortcut mods.
+3. Keep HUDTweaks enabled; let this mod win its `Scripts/main.lua` conflict.
+4. If using [HUDTweaks Prompt Dismissal Fix](https://github.com/my-mods/Dawnwalker-HUDTweaks-Prompt-Fix),
+   keep that fix enabled and winning `Scripts/HUDTweaks.ini`.
+5. Enable and deploy through Vortex using the Root (game folder) mod type.
+
+This repository does not deploy files into your game. Disable this mod in Vortex
+and redeploy to uninstall. The previous HUDTweaks main.lua then becomes active.
+
+In-game validation remains pending; this release is a prerelease.
+
+## Stable identity
+
 This is the stable name for this controller mod. New features change the version
 and changelog, not the name. Releases use `Dawnwalker-Controller-Tweaks-VERSION.zip`,
 with VERSION read from `package/mod.manifest`.
@@ -17,3 +43,12 @@ A normal press reveals the compass immediately. It uses HUDTweaks' idleAfterSeco
 fadeOutSeconds and idleOpacity, then returns to normal automatic visibility. Another
 press refreshes the timer; holding does not repeat. Other HUD elements keep fading.
 The original Start action is not consumed, so a press can also open its menu/legend.
+
+## Credits and reporting issues
+
+This is an unofficial compatibility mod, not the original HUDTweaks project.
+HUDTweaks and captured game assets belong to their respective authors/rightsholders;
+their inclusion does not grant a new license to those components.
+
+When reporting a problem, include the game build, mod versions, Vortex conflict winners,
+and relevant ControllerCompass log lines. Review logs for private information before posting.
