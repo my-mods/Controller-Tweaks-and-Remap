@@ -4,7 +4,7 @@ Controller improvements for The Blood of Dawnwalker on PC.
 
 - Swap shoulders and triggers: LB ↔ LT and RB ↔ RT (PlayStation L1 ↔ L2 and R1 ↔ R2).
 - Easier walking: raises the left-stick walk-to-run threshold from 0.70 to 0.90.
-- Tap for Map, hold for Game Hub: tap Back/View (PlayStation touchpad) for the map; hold for 0.30 seconds to open the hub.
+- Short press / long press: on Back/View (PlayStation touchpad), a short press opens the Map; a long press (0.30 seconds) opens the Game Hub.
 
 With the default layout, Block moves to LT, Focus Mode/Combat Abilities to LB, Attack/Overworld Abilities to RT, and Shadowstep to RB. The button swap also applies in Photo Mode.
 
