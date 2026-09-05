@@ -27,8 +27,10 @@ In-game validation remains pending; this release is a prerelease.
 ## Stable identity
 
 This is the stable name for this controller mod. New features change the version
-and changelog, not the name. Releases use `Dawnwalker-Controller-Tweaks-VERSION.zip`,
-with VERSION read from `package/mod.manifest`.
+and changelog, not the name. Every build overwrites `Dawnwalker-Controller-Tweaks.zip`.
+The ZIP filename never contains a version or game build. Version metadata remains in
+`package/mod.manifest` and GitHub release tags; use Vortex's replacement/update flow
+for the same mod entry instead of creating another named variant.
 The legacy internal mod ID, container filenames, and repository folder are retained
 to avoid changing existing paths. Version 1.1.1 fixes controller discovery after loading.
 

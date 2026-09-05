@@ -1,4 +1,4 @@
-DAWNWALKER CONTROLLER TWEAKS 1.1.1
+DAWNWALKER CONTROLLER TWEAKS 1.1.2
 ================================================================
 
 Game: The Blood of Dawnwalker (PC)
@@ -9,6 +9,8 @@ This is the stable name of the former Controller Swap + map shortcut + Start Com
 Reveal mod, not a separate mod. Version 1.1.1 fixes controller discovery after loading.
 Replace the previous package in Vortex; do not enable both. Future releases keep
 the name and change the version. Internal IDs and deployed paths are unchanged.
+The archive is always Dawnwalker-Controller-Tweaks.zip and is overwritten on builds.
+Keep one Vortex mod entry and use its replace/update flow for this archive.
 
 CONTROLS
 --------

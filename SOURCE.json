@@ -6,7 +6,8 @@
   "officialPatchAtCapture": "Hotfix 1.0.2",
   "unrealEngine": "5.5.4",
   "stockMappingCount": 30,
-  "controllerModVersion": "1.1.1",
+  "controllerModVersion": "1.1.2",
+  "releaseArchive": "Dawnwalker-Controller-Tweaks.zip",
   "compass": {
     "key": "Gamepad_Special_Right",
     "activation": "press (rising edge); repeat presses refresh the reveal",

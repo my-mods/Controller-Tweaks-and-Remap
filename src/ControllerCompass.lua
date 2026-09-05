@@ -156,7 +156,7 @@ function M.Start(onChanged, getSettings, getPlayerPawn)
         end
         return false
     end)
-    print("[ControllerCompass] Loaded v1.1.1; waiting for a local player.\n")
+    print("[ControllerCompass] Loaded v1.1.2; waiting for a local player.\n")
 end
 
 return M

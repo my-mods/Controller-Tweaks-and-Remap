@@ -1,5 +1,11 @@
 # Changes
 
+## 1.1.2 — 2026-09-05
+
+- Use Dawnwalker-Controller-Tweaks.zip, without a version suffix.
+- Keep version numbers in metadata and release tags; preserve one Vortex mod identity.
+- Controller and compass behavior are unchanged from 1.1.1.
+
 ## 1.1.1 — 2026-09-05
 
 - Fix a controller-cache bug that could keep a valid menu controller after gameplay

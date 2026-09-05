@@ -1,4 +1,8 @@
-# Dawnwalker Controller Tweaks v1.1.1
+# Dawnwalker Controller Tweaks v1.1.2
+
+Packaging-only update: every release uses the same `Dawnwalker-Controller-Tweaks.zip`
+filename. Builds overwrite this archive; versions remain in metadata and release tags.
+Use Vortex's replace/update flow for one mod entry. Controller behavior is unchanged.
 
 Fixes a controller-cache bug consistent with the reported Start button failure:
 a still-valid menu controller could remain cached after gameplay possession,
@@ -12,7 +16,7 @@ detected gameplay pawn and revalidates its controller. Waiting states are logged
 
 ## Installation
 
-Import `Dawnwalker-Controller-Tweaks-1.1.1.zip` into Vortex, replacing earlier
+Import `Dawnwalker-Controller-Tweaks.zip` into Vortex, replacing earlier
 Controller Swap / Controller Tweaks packages and the old menu-shortcut mods.
 Requires HUDTweaks v2 and UE4SS. This mod must win HUDTweaks' `main.lua` conflict;
 the separate prompt fix should win `HUDTweaks.ini`. Use the Root mod type.
