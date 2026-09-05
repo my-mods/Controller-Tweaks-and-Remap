@@ -1,8 +1,8 @@
-DAWNWALKER CONTROLLER TWEAKS 1.1.5
+DAWNWALKER CONTROLLER TWEAKS 1.2.0
 
-Packaging update: Data/Dawnwalker-Controller-Tweaks-PACKAGE-LAYOUT.txt is unique to this mod.
-Replace/reinstall the existing Vortex entry from the updated ZIP and deploy to
-remove the old shared Data/PACKAGE-LAYOUT.txt. Gameplay behavior is unchanged.
+Wider walking range: the MoveFast input threshold is raised from 0.70 to 0.90.
+Push the left stick further before running; full-tilt input remains unchanged.
+Replace/reinstall the existing Vortex entry from this ZIP and deploy.
 ================================================================
 
 Game: The Blood of Dawnwalker (PC)
@@ -18,6 +18,13 @@ Keep one Vortex mod entry and use its replace/update flow for this archive.
 
 CONTROLS
 --------
+Walking uses more stick travel before the fast-movement tag activates. The 0.90
+threshold is measured on processed movement input, so Steam Input and the game's
+deadzone/sensitivity settings can affect the physical stick position. No input
+delay is added. Direction, maximum input, camera, sprint bindings, and keyboard
+movement mappings are preserved. This changes the existing IA_Move asset; it
+does not replace any user INI. In-game feel and diagonal running need testing.
+
 The default controller preset is changed globally:
 - LB actions move to LT.
 - LT actions move to LB.

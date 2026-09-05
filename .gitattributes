@@ -4,6 +4,7 @@
 *.manifest text eol=lf
 *.lua text eol=lf
 upstream/HUDTweaks/main.lua -text
+current-json/IA_Move.json -text
 *.uasset binary
 *.uexp binary
 *.bin binary

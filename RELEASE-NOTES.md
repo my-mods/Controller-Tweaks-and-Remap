@@ -1,47 +1,36 @@
-# Dawnwalker Controller Tweaks v1.1.5
+# Dawnwalker Controller Tweaks v1.2.0
 
-Fixes the compass input path that failed during loading with `table expected, got
-function`. The gameplay-pawn lookup now validates engine results and current local
-controller possession. A single persistent game-thread timer replaces repeated
-async callback registration. Transient lookup/input errors cancel the reveal and
-retry on later ticks; a held button must be released before another reveal.
+Walking now has more left-stick travel before the game requests fast movement.
+The existing IA_Move MoveFast threshold changes from 0.70 to 0.90. Full-tilt
+input, movement direction, sprint bindings, camera and keyboard mappings remain
+unchanged. The threshold uses processed movement input; game/Steam Input
+deadzone and sensitivity settings affect its physical position.
 
-The prior log also reported `Lua::Registry::get_function_ref: Ref was not function`.
-Removing repeated callback registration addresses that risky scheduling path;
-the exact native cause of the original malformed return has not been proven.
+Includes the v1.1.5 compass loading/polling fix, shoulder/trigger swap, and
+map and hub shortcuts. No new movement Lua hooks or replacement user settings INI.
 
-Requires HUDTweaks v2 and a Dawnwalker-compatible UE4SS build providing
-`LoopInGameThreadWithDelay` (present in installed build 97b7e501). Built from the
-existing Steam build 25129649 / CL-257186 asset snapshots. Compatibility with later
-game or HUDTweaks versions is not established.
+## Vortex update
 
-## Install/update
+Import **Dawnwalker-Controller-Tweaks.zip** and replace/reinstall the existing
+Controller Tweaks entry. Use **Root (game folder)**, then deploy through Vortex.
+Keep HUDTweaks v2 and compatible UE4SS enabled; Controller Tweaks wins
+`HUDTweaks/Scripts/main.lua`. If used, Prompt Dismissal Fix remains enabled and
+wins `HUDTweaks/Scripts/HUDTweaks.ini`. Disable the earlier standalone menu-shortcut
+and controller compatibility variants. Keep one Controller Tweaks entry.
 
-Close the game. Replace/reinstall **Dawnwalker-Controller-Tweaks.zip** through the
-existing Vortex entry, choose **Root (game folder)**, enable and deploy.
-Keep HUDTweaks enabled; Controller Tweaks must win `HUDTweaks/Scripts/main.lua`.
-Keep Prompt Dismissal Fix winning `HUDTweaks/Scripts/HUDTweaks.ini` if used.
-Disable older standalone menu-shortcut/controller compatibility variants in Vortex.
-The stable ZIP name and Vortex display/version metadata are preserved.
-Disable/remove this mod and deploy through Vortex to uninstall.
+An asset mod replacing IA_Move needs a compatibility patch. Differently named
+containers may conflict without Vortex reporting a file collision.
+Disable Controller Tweaks and deploy in Vortex to uninstall.
 
 ## Validation and remaining check
 
-The new regression reproduces the logged iterator error with the legacy adapter.
-The corrected, generated PlayerPawn adapter passes malformed-return recovery,
-retained menu controller, possession changes, held-button suppression, scheduler
-diagnostics and input-error recovery tests under Lua 5.4. Existing compass opacity,
-fade, startup/loading and suspension tests pass. Upstream changes and missing,
-duplicated or changed integration anchors are rejected before generating output.
+Built from installed Steam build 25129649 / executable CL-257186 stock assets.
+The actual ZIP container verifies and extracts successfully. Its four assets
+round-trip correctly; the only IA_Move payload change is the 0.70-to-0.90 float.
+Unknown upstream snapshots are rejected. Lua regression/compilation checks and
+Vortex installer planning use offline mocked state, with no live deployment.
 
-Both consecutive builds replace the same ZIP. Container verification and round-trip
-extraction preserve all three controller assets. The actual ZIP passes its allowlist,
-payload-byte, manifest/metadata and installed Vortex installer-planning checks.
-
-**Prerelease: native input and visuals still require an in-game test.** After loading
-a save, look for `Loaded v1.1.5; game-thread timer active` and `Input ready` in
-UE4SS.log. Let the compass fade, release Start, then press Start/Options: it should
-reveal and resume idle fading. Repeat after loading another save. Holding Start
-does not repeat; holding View/Back opens the hub. Start's original menu/legend
-action is still observed and may obscure the compass. No live deployment is made
-by this build or its tests.
+Published as a prerelease until tested in game. With the replacement deployed,
+check slow stick sweeps, full-tilt running in straight and diagonal directions,
+sprint, crouching, combat movement, keyboard movement, and Start/Options compass
+reveal before and after reloading a save. No live in-game result is claimed.

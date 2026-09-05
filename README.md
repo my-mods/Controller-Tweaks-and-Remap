@@ -2,6 +2,12 @@
 
 Controller improvements for **The Blood of Dawnwalker (PC)**, packaged for Vortex.
 
+Version 1.2.0 gives the left stick a wider walking range by raising the existing
+`Player.Input.MoveFast` modifier threshold from **0.70 to 0.90**. Full-tilt input
+is preserved. This is a threshold on processed movement input; the physical stick
+position depends on game and Steam Input deadzone/sensitivity settings. No delay
+or new movement hook is added. The result still needs an in-game feel check.
+
 ## Download and install
 
 Download the mod ZIP from [Releases](https://github.com/my-mods/Dawnwalker-Controller-Tweaks/releases).
@@ -41,6 +47,7 @@ Reproducible UE5.5 IoStore compatibility mod for The Blood of Dawnwalker. It com
 - the patch-257186 Tap View/Back for Map and Hold View/Back for Game Hub behavior;
 - a global default-layout physical-key swap: `LB <-> LT` and `RB <-> RT`.
 - v1.1.0: press Start/Options to reveal the compass through HUDTweaks.
+- v1.2.0: wider left-stick walking range before running.
 
 A normal press reveals the compass immediately. It uses HUDTweaks' idleAfterSeconds,
 fadeOutSeconds and idleOpacity, then returns to normal automatic visibility. Another

@@ -6,7 +6,7 @@
   "officialPatchAtCapture": "Hotfix 1.0.2",
   "unrealEngine": "5.5.4",
   "stockMappingCount": 30,
-  "controllerModVersion": "1.1.5",
+  "controllerModVersion": "1.2.0",
   "releaseArchive": "Dawnwalker-Controller-Tweaks.zip",
   "compass": {
     "key": "Gamepad_Special_Right",
@@ -27,6 +27,21 @@
     "IA_Hub_Map.uasset": "35575E0E4FE84F30D860D8ADF6302917181B7AFFCFFCF019FDFAC575C722FA49",
     "IA_Hub_Map.uexp": "C9802F53F21DA1B2179B444F01AF2814042D070FA8DC527777C24000E83692EF",
     "RIP_GamepadDefault.uasset": "01D9D9D6A6A9CD6F474675ED41821D3BB944FA1E04AB23AB163C0C5F5679683C",
-    "RIP_GamepadDefault.uexp": "0A75E09D87932DA09C6DFDE7CC49B9CE4F58CB21CB1BC284CC016D577746DC6A"
+    "RIP_GamepadDefault.uexp": "0A75E09D87932DA09C6DFDE7CC49B9CE4F58CB21CB1BC284CC016D577746DC6A",
+    "IA_Move.uasset": "A84B110456A6D592ABA20AE558F1BD211FBE304DC567B23499E2BDB8161BBDC6",
+    "IA_Move.uexp": "5FA9C964C71690B45EF4BE0A585CD3C83AA0F0FE0E8FD63428F99E0C1BA68645"
+  },
+  "movement": {
+    "asset": "/Game/_Dawnwalker/Player/Input/Actions/Traversal/IA_Move",
+    "export": "DWGameplayTagInputModifier_1",
+    "tag": "Player.Input.MoveFast",
+    "stockThreshold": 0.7,
+    "threshold": 0.9,
+    "payloadByteOffset": 14,
+    "jsonSha256": "6719A2EC3B4069E0DE467FF514CED36134819181A855164E761E4C22628F64C5",
+    "capturedFrom": "Stock Dawnwalker-Windows.utoc/ucas with matching global containers, installed Steam build 25129649, extracted using retoc --version UE5_5 and UAssetGUI 3228c1e",
+    "capturedOn": "2026-09-05",
+    "validation": "Exact export payload and tag validated; actual ZIP round-trip tests; native movement feel pending",
+    "scope": "Processed input threshold; no movement-vector scaling or new Lua hooks"
   }
 }

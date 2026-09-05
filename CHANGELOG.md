@@ -1,5 +1,14 @@
 # Changes
 
+## 1.2.0 — 2026-09-05
+
+- Widen the left-stick walking range by raising IA_Move's existing MoveFast
+  modifier threshold from 0.70 to 0.90; preserve direction and full-tilt input.
+- Include the v1.1.5 compass loading/polling fix and all earlier controller tweaks.
+
+- Keep the same mod name, identity, deployment paths and ZIP filename.
+- Prerelease: package/offline validation only; in-game movement testing remains.
+
 ## 1.1.5 — 2026-09-05
 
 - Replace repeated async-to-game-thread callback registration with one persistent
