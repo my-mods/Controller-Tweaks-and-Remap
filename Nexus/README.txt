@@ -9,6 +9,8 @@ The category and keywords are suggestions; select the matching choices offered
 by the game's Nexus submission form. Nexus IDs are unset because these files
 do not create or identify a published Nexus listing.
 
-The release ZIP includes these materials for convenience. Its bundled image does
-not automatically assign a Nexus thumbnail or a Vortex picture. The packaged
-Vortex metadata supplies the stable name, version and short description.
+These listing materials are maintained separately in the repository's Nexus
+folder and are excluded from the Vortex release ZIP. Upload the thumbnail and
+description separately when preparing the Nexus listing. The ZIP's
+vortex_override_instructions.json supplies Vortex's stable name, version and
+short description.

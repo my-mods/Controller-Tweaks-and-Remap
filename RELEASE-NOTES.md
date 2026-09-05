@@ -1,9 +1,9 @@
-# Dawnwalker Controller Tweaks v1.3.2
+# Dawnwalker Controller Tweaks v1.3.3
 
-Adds a complete Nexus description, listing metadata and an original AI-generated thumbnail. These materials, the rights notice and changelog are included in the ZIP. All three runtime containers are byte-identical to v1.3.1; controller behavior is unchanged and was previously confirmed working in game.
+Keeps the Nexus thumbnail, full description and listing metadata separately in the repository's [Nexus folder](https://github.com/my-mods/Dawnwalker-Controller-Tweaks/tree/main/Nexus). They are no longer included in the Vortex ZIP. The ZIP retains the manifest, Vortex metadata, README, rights notice, changelog and these release notes. All three runtime containers are unchanged from v1.3.2 and v1.3.1; controller behavior was previously confirmed working in game.
 
 Import **Dawnwalker-Controller-Tweaks.zip** directly into Vortex 1.14 or newer as **Root (game folder)**. For an update, replace/reinstall the existing entry, then deploy. Updating from v1.3.1 is optional if you only want the gameplay changes. No other mods or loaders are required. Direct ZIP installation is validated; collection installation is not supported by this package's metadata exclusions.
 
 For versions before 1.3.1, disable the old entry and deploy first, then replace/reinstall that same entry from this ZIP and deploy. Vortex must remove the previous container names. For versions before 1.3.0 it must also remove ControllerCompass.lua and restore original HUDTweaks main.lua if HUDTweaks remains enabled. Disable superseded standalone TapMapHoldMenu/controller compatibility mods through Vortex.
 
-Validation: exact ZIP allowlist and source-byte comparison, unchanged runtime-container hashes, container verification and round-trip extraction, and read-only installer planning against the installed Vortex extension. Nexus materials are excluded from game deployment. No new in-game test is required for this metadata-only update; later game builds remain unverified.
+Validation: exact ZIP allowlist and source-byte comparison, absence of Nexus materials from the ZIP, unchanged runtime-container hashes, container verification and round-trip extraction, and read-only installer planning against the installed Vortex extension. Only the three runtime containers are planned for deployment. This packaging-only update does not change gameplay; later game builds remain unverified.

@@ -1,5 +1,11 @@
 # Changes
 
+## 1.3.3 — 2026-09-05
+
+- Keep the Nexus thumbnail, description and listing metadata separately in the repository's Nexus folder.
+- Remove Nexus listing materials from the Vortex ZIP and its installer exclusions.
+- Preserve the manifest, Vortex metadata and player documentation in the ZIP. Runtime containers are unchanged.
+
 ## 1.3.2 — 2026-09-05
 
 - Add a complete Nexus description, listing metadata and controller thumbnail.
