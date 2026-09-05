@@ -2,11 +2,33 @@
 
 Controller improvements for **The Blood of Dawnwalker (PC)**, packaged for Vortex.
 
-Version 1.2.0 gives the left stick a wider walking range by raising the existing
-`Player.Input.MoveFast` modifier threshold from **0.70 to 0.90**. Full-tilt input
-is preserved. This is a threshold on processed movement input; the physical stick
-position depends on game and Steam Input deadzone/sensitivity settings. No delay
-or new movement hook is added. The result still needs an in-game feel check.
+## Included controller changes
+
+Every release contains all of these changes in one Controller Tweaks package:
+
+| Control | Behavior with this mod |
+| --- | --- |
+| LB / LT (PlayStation L1 / L2) | Swapped both ways: LB actions use LT, and LT actions use LB. |
+| RB / RT (PlayStation R1 / R2) | Swapped both ways: RB actions use RT, and RT actions use RB. |
+| Left stick: walking to running | Fast-movement threshold raised from **0.70 to 0.90**, giving walking more stick travel. Full-tilt input is preserved. |
+| Xbox Back/View / PlayStation touchpad | Tap to open the map; hold for **0.30 seconds** to open Game Hub. |
+| Xbox Start/Menu / PlayStation Options | Press to reveal the compass, then let it fade using your HUDTweaks idle/fade settings. Press again to refresh the timer; holding does not repeat. |
+
+The shoulder/trigger swap applies throughout the default controller preset,
+including Block (LB -> LT), Focus/Combat Abilities (LT -> LB),
+Attack/Overworld Abilities (RB -> RT), Shadowstep (RT -> RB), and Photo Mode
+rise/fall. Keyboard bindings are unchanged.
+
+The walk-to-run threshold uses processed movement input. Game and Steam Input
+deadzone/sensitivity settings affect the physical stick position; **0.90 does not
+mean a guaranteed 90% physical-stick position**. No input delay is added.
+
+Compass reveal is temporary, not a permanent visibility toggle. Start/Options
+still performs its original menu/controls-legend action. The included v1.1.5 fix
+also validates the gameplay controller after loading and retries transient lookup
+or input failures. Native movement feel and compass behavior still need testing.
+
+Version 1.2.1 clarifies both READMEs; gameplay payloads are unchanged from v1.2.0.
 
 ## Download and install
 
@@ -41,13 +63,6 @@ for the same mod entry instead of creating another named variant.
 The legacy internal mod ID, container filenames, and repository folder are retained
 to avoid changing existing paths. Version 1.1.5 fixes lookup failure recovery and
 uses one persistent game-thread timer for compass input.
-
-Reproducible UE5.5 IoStore compatibility mod for The Blood of Dawnwalker. It combines:
-
-- the patch-257186 Tap View/Back for Map and Hold View/Back for Game Hub behavior;
-- a global default-layout physical-key swap: `LB <-> LT` and `RB <-> RT`.
-- v1.1.0: press Start/Options to reveal the compass through HUDTweaks.
-- v1.2.0: wider left-stick walking range before running.
 
 A normal press reveals the compass immediately. It uses HUDTweaks' idleAfterSeconds,
 fadeOutSeconds and idleOpacity, then returns to normal automatic visibility. Another

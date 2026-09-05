@@ -1,7 +1,16 @@
-DAWNWALKER CONTROLLER TWEAKS 1.2.0
+DAWNWALKER CONTROLLER TWEAKS 1.2.1
 
-Wider walking range: the MoveFast input threshold is raised from 0.70 to 0.90.
-Push the left stick further before running; full-tilt input remains unchanged.
+ALL INCLUDED CHANGES
+- LB <-> LT (PlayStation L1 <-> L2): both directions are swapped.
+- RB <-> RT (PlayStation R1 <-> R2): both directions are swapped.
+- Left-stick walk-to-run threshold: 0.70 -> 0.90 for a wider walking range;
+  full-tilt input remains unchanged.
+- Tap Back/View (PlayStation touchpad) for Map; hold 0.30 seconds for Game Hub.
+- Press Start/Menu (PlayStation Options) to reveal the compass, then idle fade.
+  Press again to refresh; this is not a permanent toggle.
+- Includes the v1.1.5 compass loading recovery and controller-possession fix.
+
+Version 1.2.1 clarifies the documentation; gameplay payloads match v1.2.0.
 Replace/reinstall the existing Vortex entry from this ZIP and deploy.
 ================================================================
 
@@ -10,7 +19,7 @@ Built for Steam build 25129649 / executable CL-257186.
 Requires HUDTweaks v2 and a working Dawnwalker-compatible UE4SS installation.
 
 This is the stable name of the former Controller Swap + map shortcut + Start Compass
-Reveal mod, not a separate mod. Version 1.1.1 fixes controller discovery after loading.
+Reveal mod, not a separate mod. All features listed above are included together.
 Replace the previous package in Vortex; do not enable both. Future releases keep
 the name and change the version. Internal IDs and deployed paths are unchanged.
 The archive is always Dawnwalker-Controller-Tweaks.zip and is overwritten on builds.
@@ -59,10 +68,10 @@ Start menu or change the legend. This limitation still needs an in-game check.
 
 SCOPE
 -----
-- Controller only.
+- Designed for controller use; IA_Move is a shared movement action.
 - Default controller layout only.
 - Keyboard bindings are unchanged.
-- Replaces IA_Hub_Launch, IA_Hub_Map, and RIP_GamepadDefault.
+- Replaces IA_Move, IA_Hub_Launch, IA_Hub_Map, and RIP_GamepadDefault.
 - Overlays HUDTweaks/Scripts/main.lua and adds ControllerCompass.lua. Your
   HUDTweaks.ini and the separate Prompt Dismissal Fix remain independent.
 
@@ -79,6 +88,10 @@ VORTEX INSTALLATION
    Keep your Prompt Dismissal Fix enabled and winning the INI conflict.
 6. The Vortex type should be Root (game folder); the archive's Dawnwalker paths
    route both the controller containers and Lua files to their correct locations.
+
+Another cooked mod replacing IA_Move or the other listed assets requires an asset
+compatibility patch. Differently named containers can conflict without Vortex
+reporting a file collision; file conflict rules cannot merge their assets.
 
 UNINSTALLATION
 --------------
@@ -102,7 +115,8 @@ The new build needs an in-game retest, including after loading another save.
 VALIDATION
 ----------
 The IoStore container was built as UE5.5 content and round-trip checked. It contains
-only IA_Hub_Launch, IA_Hub_Map and RIP_GamepadDefault. The decoded preset has 31
+exactly IA_Move, IA_Hub_Launch, IA_Hub_Map and RIP_GamepadDefault. IA_Move's only
+payload change is the MoveFast threshold from 0.70 to 0.90. The decoded preset has 31
 mappings and confirms LB <-> LT and RB <-> RT across every affected action.
 Lua tests cover click reveal, timer refresh, idle fade, held buttons, frame stalls,
 controller changes, input errors and compass-only opacity. The new binding still requires

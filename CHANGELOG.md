@@ -1,5 +1,14 @@
 # Changes
 
+## 1.2.1 — 2026-09-05
+
+- Put the complete feature list at the top of both READMEs: bidirectional LB/LT
+  and RB/RT swaps, walk-to-run threshold, map and hub shortcuts, compass reveal/fade,
+  and the included compass loading recovery fix.
+- Document PlayStation equivalents and correct the packaged asset list to include
+  IA_Move. Clarify shared-asset compatibility and processed-input threshold scope.
+- Documentation/metadata only; all five gameplay files are byte-identical to v1.2.0.
+
 ## 1.2.0 — 2026-09-05
 
 - Widen the left-stick walking range by raising IA_Move's existing MoveFast

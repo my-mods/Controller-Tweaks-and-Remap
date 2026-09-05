@@ -1,6 +1,8 @@
-# Dawnwalker Controller Tweaks v1.2.0
+# Dawnwalker Controller Tweaks v1.2.1
 
-Walking now has more left-stick travel before the game requests fast movement.
+Documentation update: both READMEs now begin with the complete feature list: LB/LT and RB/RT swaps, the 0.70-to-0.90 walk-to-run threshold, map and hub shortcuts, compass reveal/fade, and compass loading recovery. All five gameplay files are byte-identical to v1.2.0.
+
+Walking has more left-stick travel before the game requests fast movement.
 The existing IA_Move MoveFast threshold changes from 0.70 to 0.90. Full-tilt
 input, movement direction, sprint bindings, camera and keyboard mappings remain
 unchanged. The threshold uses processed movement input; game/Steam Input

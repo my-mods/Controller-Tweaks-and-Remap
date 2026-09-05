@@ -5,7 +5,7 @@
     <modid>DawnwalkerControllerTweaks</modid>
     <description>Wider left-stick walking range, LB/LT and RB/RT swap, map and hub shortcuts, and Start press compass reveal.</description>
     <author>Local compatibility mod</author>
-    <version>1.2.0</version>
+    <version>1.2.1</version>
     <created_on>2026-09-05</created_on>
   </info>
   <supports>
