@@ -3,6 +3,7 @@ local M = {}
 local owner, previousTime, previousDown = nil, nil, nil
 local shownAt, peekLevel = nil, nil
 local installed, pending, probeLogged = false, false, false
+local waitingReason = nil
 local controller, key, gameplayStatics = nil, nil, nil
 local compassClasses = {
     WBP_Compass_C = true,
@@ -65,12 +66,26 @@ local function valid(obj)
     return ok and result == true
 end
 
-local function getController()
-    if valid(controller) then return controller end
+local function sameObject(a, b)
+    return valid(a) and valid(b) and a:GetFullName() == b:GetFullName()
+end
+
+local function controlsPawn(candidate, pawn)
+    if not valid(candidate) then return false end
+    local ok, result = pcall(function()
+        return not candidate:GetFullName():find("Default__", 1, true)
+            and candidate:IsLocalController() and sameObject(candidate.Pawn, pawn)
+    end)
+    return ok and result == true
+end
+
+local function getController(pawn)
+    -- UObject validity alone is insufficient: the main-menu controller may remain
+    -- alive after another controller possesses the gameplay pawn.
+    if controlsPawn(controller, pawn) then return controller end
     controller = nil
-    for _, candidate in ipairs(FindAllOf("DawnwalkerPlayerControllerBase") or {}) do
-        if valid(candidate) and not candidate:GetFullName():find("Default__", 1, true)
-            and candidate:IsLocalController() then
+    for _, candidate in ipairs(FindAllOf("PlayerController") or {}) do
+        if controlsPawn(candidate, pawn) then
             controller = candidate
             break
         end
@@ -78,19 +93,33 @@ local function getController()
     return controller
 end
 
-function M.Start(onChanged, getSettings)
+function M.Start(onChanged, getSettings, getPlayerPawn)
     if installed then return end
     installed = true
     local function clear()
         if M.Step(nil, nil, nil) then onChanged() end
     end
+    local function waitFor(reason)
+        clear()
+        if waitingReason ~= reason then
+            waitingReason = reason
+            print("[ControllerCompass] Waiting: " .. reason .. "\n")
+        end
+    end
     local function tick()
         pending = false
         local ok, err = pcall(function()
             local settings = getSettings()
-            if not settings then clear(); return end
-            local pc = getController()
-            if not valid(pc) or not valid(pc.Pawn) then clear(); return end
+            if not settings then waitFor("HUDTweaks disabled or suspended"); return end
+            -- Reuse the gameplay-pawn probe already exercised by HUDTweaks' idle fade.
+            local pawn = getPlayerPawn()
+            if not valid(pawn) then
+                controller = nil
+                waitFor("HUDTweaks gameplay pawn")
+                return
+            end
+            local pc = getController(pawn)
+            if not valid(pc) then waitFor("local PlayerController possessing the gameplay pawn"); return end
             -- FName userdata is required by the native FKey parameter.
             if key == nil then key = { KeyName = FName("Gamepad_Special_Right") } end
             if not valid(gameplayStatics) then
@@ -102,9 +131,11 @@ function M.Start(onChanged, getSettings)
             if type(down) ~= "boolean" or type(now) ~= "number" then
                 error("Unreal input/time API returned an unexpected type")
             end
-            if not probeLogged then
+            if not probeLogged or waitingReason ~= nil then
                 print("[ControllerCompass] Input ready: press Start/Options to reveal compass.\n")
+                print("[ControllerCompass] Player controller: " .. pc:GetFullName() .. "\n")
                 probeLogged = true
+                waitingReason = nil
             end
             local changed, clicked = M.Step(down, now, pc:GetFullName(), settings)
             if changed then onChanged() end
@@ -125,7 +156,7 @@ function M.Start(onChanged, getSettings)
         end
         return false
     end)
-    print("[ControllerCompass] Loaded v1.1.0; waiting for a local player.\n")
+    print("[ControllerCompass] Loaded v1.1.1; waiting for a local player.\n")
 end
 
 return M

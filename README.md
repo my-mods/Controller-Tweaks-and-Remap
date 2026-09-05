@@ -30,8 +30,7 @@ This is the stable name for this controller mod. New features change the version
 and changelog, not the name. Releases use `Dawnwalker-Controller-Tweaks-VERSION.zip`,
 with VERSION read from `package/mod.manifest`.
 The legacy internal mod ID, container filenames, and repository folder are retained
-to avoid changing existing paths. This naming correction keeps version 1.1.0;
-gameplay behavior is unchanged.
+to avoid changing existing paths. Version 1.1.1 fixes controller discovery after loading.
 
 Reproducible UE5.5 IoStore compatibility mod for The Blood of Dawnwalker. It combines:
 

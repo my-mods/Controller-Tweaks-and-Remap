@@ -1,4 +1,4 @@
-DAWNWALKER CONTROLLER TWEAKS 1.1.0
+DAWNWALKER CONTROLLER TWEAKS 1.1.1
 ================================================================
 
 Game: The Blood of Dawnwalker (PC)
@@ -6,7 +6,7 @@ Built for Steam build 25129649 / executable CL-257186.
 Requires HUDTweaks v2 and a working Dawnwalker-compatible UE4SS installation.
 
 This is the stable name of the former Controller Swap + map shortcut + Start Compass
-Reveal mod, not a separate mod. This naming-only repackage remains version 1.1.0.
+Reveal mod, not a separate mod. Version 1.1.1 fixes controller discovery after loading.
 Replace the previous package in Vortex; do not enable both. Future releases keep
 the name and change the version. Internal IDs and deployed paths are unchanged.
 
@@ -79,6 +79,9 @@ After loading a save, UE4SS.log should contain:
 Each press logs Compass revealed; idle fade will resume. API failures are logged
 instead of being interpreted as button presses. A held button across loading or
 a long frame stall must be released before the feature rearms.
+Version 1.1.1 also logs the chosen controller and why it is waiting, if not ready.
+It uses HUDTweaks' gameplay-pawn probe and never keeps an unpossessed menu controller
+cached just because its UObject remains valid. The new build needs an in-game retest.
 
 VALIDATION
 ----------

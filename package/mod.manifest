@@ -5,7 +5,7 @@
     <modid>DawnwalkerControllerTweaks</modid>
     <description>Swaps LB/LT and RB/RT, preserves map and hub shortcuts, and adds a Start press compass reveal using HUDTweaks idle-fade settings.</description>
     <author>Local compatibility mod</author>
-    <version>1.1.0</version>
+    <version>1.1.1</version>
     <created_on>2026-09-05</created_on>
   </info>
   <supports>

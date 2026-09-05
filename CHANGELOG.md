@@ -1,5 +1,17 @@
 # Changes
 
+## 1.1.1 — 2026-09-05
+
+- Fix a controller-cache bug that could keep a valid menu controller after gameplay
+  possession, silently preventing all compass input polling.
+- Select the local PlayerController possessing HUDTweaks' detected gameplay pawn,
+  and revalidate possession before reusing a cached controller.
+- Add waiting-state and selected-controller diagnostics.
+
+- Preserve click-to-reveal behavior, idle fading, controller mappings, and mod identity.
+- The v1.1.0 game log confirmed loading but no input-ready message; v1.1.1 needs a
+  native retest after Vortex deployment.
+
 ## 1.1.0 — 2026-09-05
 
 - Standardized the display name to Dawnwalker Controller Tweaks. Archive names now
