@@ -1,5 +1,11 @@
 # Changes
 
+## 1.3.4 — 2026-09-05
+
+- Include the existing MIT license text and retain the underlying game-asset rights notice.
+- Add the license and selected AI Assisted / AI Media tags to the Nexus listing metadata.
+- Runtime containers and controller behavior are unchanged.
+
 ## 1.3.3 — 2026-09-05
 
 - Keep the Nexus thumbnail, description and listing metadata separately in the repository's Nexus folder.

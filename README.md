@@ -28,3 +28,5 @@ Replaces `IA_Move`, `IA_Hub_Launch`, `IA_Hub_Map`, and `RIP_GamepadDefault`. Oth
 Based on Steam build **25129649 / CL-257186**. Later versions are unverified.
 
 Game assets belong to their respective rightsholders.
+
+Original mod work is licensed under [MIT](LICENSE.txt). Underlying game assets retain their original rights and are not relicensed.

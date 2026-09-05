@@ -1,6 +1,6 @@
 {
   "name": "Dawnwalker Controller Tweaks",
-  "version": "1.3.3",
+  "version": "1.3.4",
   "game": "The Blood of Dawnwalker",
   "nexusDomain": "thebloodofdawnwalker",
   "summary": "Swap shoulders and triggers, enjoy a wider walking range, and use short press for Map or long press for Game Hub. No other mods or loaders required.",
@@ -9,13 +9,28 @@
   "thumbnailAltText": "Controller Tweaks and The Blood of Dawnwalker titles beside a black controller against an atmospheric dark castle backdrop.",
   "thumbnailIsAIGenerated": true,
   "suggestedCategory": "Gameplay",
-  "keywords": ["Controller", "Gamepad", "Controls", "Walking", "Quality of Life"],
-  "requirements": ["The Blood of Dawnwalker (PC)", "Controller", "Default controller preset"],
+  "keywords": [
+    "Controller",
+    "Gamepad",
+    "Controls",
+    "Walking",
+    "Quality of Life"
+  ],
+  "requirements": [
+    "The Blood of Dawnwalker (PC)",
+    "Controller",
+    "Default controller preset"
+  ],
   "requiredMods": [],
   "fileName": "Dawnwalker-Controller-Tweaks.zip",
   "fileDisplayName": "Dawnwalker Controller Tweaks",
-  "fileDescription": "Complete controller mod with shoulder/trigger swaps, a wider walking range, and short press Map / long press Game Hub. Install as Root (game folder) through Vortex. Version 1.3.3 keeps Nexus listing materials separate from the Vortex ZIP; runtime files are unchanged from 1.3.1.",
+  "fileDescription": "Complete controller mod with shoulder/trigger swaps, a wider walking range, and short press Map / long press Game Hub. Install as Root (game folder) through Vortex. Original mod work is MIT-licensed. Runtime files are unchanged from 1.3.1.",
   "sourceUrl": "https://github.com/my-mods/Dawnwalker-Controller-Tweaks",
   "nexusModId": null,
-  "nexusFileId": null
+  "nexusFileId": null,
+  "tags": [
+    "AI Assisted",
+    "AI Media"
+  ],
+  "license": "MIT"
 }

@@ -1,6 +1,8 @@
-# Dawnwalker Controller Tweaks v1.3.3
+# Dawnwalker Controller Tweaks v1.3.4
 
-Keeps the Nexus thumbnail, full description and listing metadata separately in the repository's [Nexus folder](https://github.com/my-mods/Dawnwalker-Controller-Tweaks/tree/main/Nexus). They are no longer included in the Vortex ZIP. The ZIP retains the manifest, Vortex metadata, README, rights notice, changelog and these release notes. All three runtime containers are unchanged from v1.3.2 and v1.3.1; controller behavior was previously confirmed working in game.
+Includes the existing MIT license text for the original mod work, with the underlying game assets remaining subject to their rightsholders' terms. This corrects the package documentation; it does not change the mod's license. All three runtime containers are unchanged from v1.3.3 and v1.3.1; controller behavior was previously confirmed working in game.
+
+The Nexus thumbnail, full description and listing metadata remain separate in the repository's [Nexus folder](https://github.com/my-mods/Dawnwalker-Controller-Tweaks/tree/main/Nexus).
 
 Import **Dawnwalker-Controller-Tweaks.zip** directly into Vortex 1.14 or newer as **Root (game folder)**. For an update, replace/reinstall the existing entry, then deploy. Updating from v1.3.1 is optional if you only want the gameplay changes. No other mods or loaders are required. Direct ZIP installation is validated; collection installation is not supported by this package's metadata exclusions.
 
