@@ -47,7 +47,7 @@
       "allowModManagerDownload": false,
       "primaryModManagerDownload": false,
       "updateModVersion": false,
-      "description": "Requires main 1.4.0 + UE4SS. MANUAL ONLY: back up your personal INI, then copy/merge using README. Replacement overwrites preferences. Do not install via Vortex.",
+      "description": "Requires main 1.4.0 + UE4SS. MANUAL ONLY: copy ControllerTweaks.ini to %LOCALAPPDATA%\\Dawnwalker\\Saved\\Config\\. Back up your INI first; replacement overwrites preferences. See README to merge changes. Do not install via Vortex.",
       "nexusFileId": 635
     }
   ]
