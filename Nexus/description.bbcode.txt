@@ -54,7 +54,7 @@ With the game closed, back up your personal INI. If you have no preferences to k
 
 To remove the preset, comment out/remove those eight overrides and restart. The main mod's swap returns; other personal settings remain. There is no in-game configuration menu. Cached button prompts may retain their previous labels.
 
-Replaces [b]IA_Move[/b], [b]IA_Hub_Launch[/b], [b]IA_Hub_Map[/b] and [b]RIP_GamepadDefault[/b]. Other mods changing any of these assets need a compatibility patch.Â 
+Replaces [b]IA_Move[/b], [b]IA_Hub_Launch[/b], [b]IA_Hub_Map[/b] and [b]RIP_GamepadDefault[/b]. Other mods changing any of these assets need a compatibility patch. 
 
 Based on Steam build [b]25129649 / CL-257186[/b]. The existing packaged controller behavior has been confirmed working in game. The new INI remapping and optional preset have offline validation only and remain a prerelease pending in-game checks, including after loading a save. Later game builds are unverified.
 
