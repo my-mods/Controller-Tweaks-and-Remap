@@ -1,0 +1,4 @@
+Configure all 31 default-preset controller bindings from a documented INI loaded at startup.
+Preserve personal overrides across mod updates; omitted settings inherit shipped defaults.
+Reapply custom controls after input-context recreation while preserving keyboard/mouse bindings and action triggers.
+Add an optional Original Shoulder Buttons INI preset restoring LB/LT and RB/RT, including Photo Mode, while retaining walking and Map/Game Hub tweaks.

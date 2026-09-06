@@ -2,16 +2,16 @@
 More comfortable controller input for The Blood of Dawnwalker on PC: swap shoulders and triggers, make walking easier, and open the Map or Game Hub with a short press or long press of the same button.
 
 [size=4][b]Features[/b][/size]
-[b]Configurable controller mappings[/b]
-Edit all 31 default-preset bindings in ControllerTweaks.ini; settings load at game startup. Xbox aliases such as LB, LT, RB, RT, A, B, X and Y are supported. The existing layout remains the default. This feature requires UE4SS and is awaiting in-game acceptance.
+[b]Configurable controller mappings (1.4.0)[/b]
+Configure all 31 default-preset controller bindings with a personal INI. The file documents every action, supported key name, Xbox alias and PlayStation equivalent. Settings load at startup; the main file keeps the existing layout by default.
 
 [b]Shoulder / trigger swap[/b]
 Swaps LB with LT and RB with RT in the default controller preset. PlayStation equivalents are L1 with L2 and R1 with R2.
 [list]
-[*]Block: LT / L2.
-[*]Focus Mode / Combat Abilities: LB / L1.
-[*]Attack / Overworld Abilities: RT / R2.
-[*]Shadowstep: RB / R1.
+[*]Block: LT / L2.[/*]
+[*]Focus Mode / Combat Abilities: LB / L1.[/*]
+[*]Attack / Overworld Abilities: RT / R2.[/*]
+[*]Shadowstep: RB / R1.[/*]
 [/list]
 The swap also applies in Photo Mode.
 
@@ -21,43 +21,45 @@ Raises the left-stick walk-to-run threshold from 0.70 to 0.90, giving you a wide
 [b]Short press Map / long press Game Hub[/b]
 On Back/View (PlayStation touchpad):
 [list]
-[*]Short press: open the Map.
-[*]Long press (0.30 seconds): open the Game Hub.
+[*]Short press: open the Map.[/*]
+[*]Long press (0.30 seconds): open the Game Hub.[/*]
 [/list]
 
 [size=4][b]Requirements[/b][/size]
-The Blood of Dawnwalker on PC, a controller, and the default controller preset. Requires a Dawnwalker-compatible UE4SS build with TMap and LoopInGameThreadWithDelay (reference build: 3.0.1 Beta, 97b7e501c). The loader is separate. HUDTweaks is not required.
+The Blood of Dawnwalker on PC, a controller, the default controller preset, and a Dawnwalker-compatible UE4SS build with TMap and LoopInGameThreadWithDelay (reference: 3.0.1 Beta, 97b7e501c). Install [url=https://www.nexusmods.com/thebloodofdawnwalker/mods/18]UE4SS for Dawnwalker[/url] following its instructions. The loader is separate; HUDTweaks is not required.
 
-[size=4][b]Installation[/b][/size]
-[list=1]
-[*]Download Dawnwalker-Controller-Tweaks.zip.
-[*]Import the ZIP directly into Vortex 1.14 or newer and install it as [b]Root (game folder)[/b].
-[*]Enable the mod and deploy through Vortex.
-[*]Use the default controller preset in the game.
-[/list]
-The runtime files are zzz_DawnwalkerControllerTweaks_P.pak, .ucas and .utoc, installed together under Dawnwalker/Content/Paks/~mods/.
+[size=4][b]Vortex Installation[/b][/size]
 
-[b]Updating[/b]
-Use Vortex's replace/reinstall flow on the existing mod entry with the new ZIP, then deploy. Keep one enabled Controller Tweaks entry. See the release notes for upgrade steps from older packages.
+Install UE4SS first. Import Dawnwalker-Controller-Tweaks.zip into Vortex as [b]Root (game folder)[/b], enable it and deploy. Use the default controller preset.
+
+[b]Updating from 1.3.4[/b]
+Use Vortex's replace/reinstall flow on the existing Controller Tweaks entry, then deploy. Reinstallation processes the added UE4SS scripts; keep one enabled entry. Earlier standalone shoulder/trigger and TapMapHoldMenu/controller compatibility mods are superseded. If you previously edited an INI inside the mod folder, back it up before replacement and transfer desired settings into the personal INI.
+
+[size=4][b]Manual installation[/b][/size]
+
+After installing UE4SS separately, extract the main archive's Dawnwalker folder into the game root, preserving paths. The three zzz_DawnwalkerControllerTweaks_P containers go under Dawnwalker/Content/Paks/~mods/; the Lua mod goes under Dawnwalker/Binaries/Win64/ue4ss/Mods/DawnwalkerControllerTweaks/. Keep README, license and other release documents outside runtime folders.
 
 [b]Uninstalling[/b]
-Disable or remove the mod in Vortex, then deploy.
+Disable/remove the mod in Vortex and deploy. For a manual installation, remove its three named containers and the DawnwalkerControllerTweaks Lua mod folder. The personal INI remains in your profile for future use.
 
 [size=4][b]Compatibility and configuration[/b][/size]
-Launch once, close the game, then edit %LOCALAPPDATA%/Dawnwalker/Saved/Config/ControllerTweaks.ini. The personal file is created only when missing, with the complete layout commented out. Uncomment and change only your desired settings, save and restart; personal edits do not require Vortex deployment. For example, Combat_Block = LB assigns Block to the left shoulder.
+Launch once with the mod, close the game, then open [b]%LOCALAPPDATA%/Dawnwalker/Saved/Config/ControllerTweaks.ini[/b]. Uncomment and edit only the settings you want to change; save and restart. Personal edits do not need Vortex deployment.
 
-The package supplies ControllerTweaks.defaults.ini with all 31 actions and all supported key names. Shipped defaults load first, then personal overrides. Omitted settings inherit current defaults. Your personal INI is never included in the ZIP or overwritten by the mod, so it survives updates and uninstall. Preserve any older INI stored inside the mod folder before the first upgrade; follow the release notes for migration.
+The personal INI is created only when missing and includes a full commented layout. Shipped ControllerTweaks.defaults.ini loads first, then your personal overrides. Omitted/commented values inherit defaults. The mod never rewrites an existing personal INI, and the main archive contains no personal INI, so updates preserve your edits. An invalid INI is left untouched and reported in UE4SS.log. Keep Player_Hub_Map and Player_Hub_Launch on the same control for their shared shortcut.
 
-Invalid files are left untouched and reported in UE4SS.log with the [ControllerTweaks] prefix. Keep Player_Hub_Map and Player_Hub_Launch on the same control for the shared short-press/long-press shortcut; timing and walking threshold remain fixed. Cached prompts/layout labels may remain unchanged. Runtime remapping awaits in-game acceptance.
+[b]Optional file: Original Shoulder Buttons[/b]
+Download Dawnwalker-Controller-Tweaks-Original-Shoulder-Buttons.zip manually. It requires the main 1.4.0 file and UE4SS. The preset restores Block to LB/L1, Focus Mode and Combat Abilities to LT/L2, Attack and Overworld Abilities to RB/R1, Shadowstep to RT/R2, and Photo Mode rise/fall to RT/R2 and LT/L2. Walking and Map/Game Hub tweaks remain active.
 
-Replaces [b]IA_Move[/b], [b]IA_Hub_Launch[/b], [b]IA_Hub_Map[/b] and [b]RIP_GamepadDefault[/b]. Other mods changing any of these assets need a compatibility patch. Different container filenames can still replace the same assets, so Vortex may show no file conflict. Load order alone cannot combine two edits to the same asset.
+With the game closed, back up your personal INI. If you have no preferences to keep, copy the optional ControllerTweaks.ini into the personal Config folder above. [b]Replacing it replaces all existing preferences; it does not merge them.[/b] To preserve other settings, set Enabled=true under your existing [General] section and copy/update only the eight active binding entries under your existing [Bindings] section, avoiding duplicates. The included README lists them all. Restart the game. Do not import this optional preset into Vortex or copy it into the game folder.
 
-Standalone shoulder/trigger swap and TapMapHoldMenu/controller compatibility mods are superseded by this combined mod; disable them through Vortex before using it. HUDTweaks can be used independently: this package contains no HUDTweaks script or configuration overrides.
+To remove the preset, comment out/remove those eight overrides and restart. The main mod's swap returns; other personal settings remain. There is no in-game configuration menu. Cached button prompts may retain their previous labels.
 
-Based on Steam build [b]25129649 / CL-257186[/b]. The existing packaged controller behavior has been confirmed working in game; the new INI remapping feature has offline validation only. Later game builds are unverified.
+Replaces [b]IA_Move[/b], [b]IA_Hub_Launch[/b], [b]IA_Hub_Map[/b] and [b]RIP_GamepadDefault[/b]. Other mods changing any of these assets need a compatibility patch.Â 
+
+Based on Steam build [b]25129649 / CL-257186[/b]. The existing packaged controller behavior has been confirmed working in game. The new INI remapping and optional preset have offline validation only and remain a prerelease pending in-game checks, including after loading a save. Later game builds are unverified.
 
 [size=4][b]Credits and source[/b][/size]
-Mod by CamilleBC. Controller and input changes are maintained in [url=https://github.com/my-mods/Dawnwalker-Controller-Tweaks]Dawnwalker Controller Tweaks on GitHub[/url]. Game assets belong to their respective rightsholders. The thumbnail is original AI-generated promotional artwork, not an in-game screenshot. This is an unofficial mod.
+Mod by CamilleBC. Controller and input changes are maintained in [url=https://github.com/my-mods/Dawnwalker-Controller-Tweaks]Dawnwalker Controller Tweaks on GitHub[/url]. Game assets belong to their respective rightsholders.
 
 [size=4][b]License[/b][/size]
 Original mod work is licensed under the [url=https://github.com/my-mods/Dawnwalker-Controller-Tweaks/blob/main/LICENSE.txt]MIT License[/url]. Preserve the copyright and permission notices when reusing it. Underlying game assets are not relicensed under MIT and remain subject to their rightsholders' terms.

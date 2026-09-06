@@ -1,0 +1,3 @@
+This optional download is a personal configuration preset.
+Data contains no game payload. Do not install this archive through Vortex.
+Apply ControllerTweaks.ini to the personal profile as described in README.txt.

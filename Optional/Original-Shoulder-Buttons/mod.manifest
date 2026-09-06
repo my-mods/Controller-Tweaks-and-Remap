@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<mod>
+  <info>
+    <name>Dawnwalker Controller Tweaks</name>
+    <modid>DawnwalkerControllerTweaks</modid>
+    <version>1.4.0</version>
+    <description>Optional Original Shoulder Buttons personal INI preset. Manual application to the user profile; requires the main mod and UE4SS.</description>
+  </info>
+</mod>

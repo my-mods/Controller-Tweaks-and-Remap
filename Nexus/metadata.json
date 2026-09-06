@@ -26,13 +26,28 @@
   ],
   "fileName": "Dawnwalker-Controller-Tweaks.zip",
   "fileDisplayName": "Dawnwalker Controller Tweaks",
-  "fileDescription": "Configurable controller bindings, shoulder/trigger swaps, wider walking and short press Map / long press Game Hub. Requires UE4SS; install as Root (game folder).",
+  "fileDescription": "Configure all 31 bindings with a documented personal INI preserved across updates. Requires UE4SS. Replace/reinstall through Vortex as Root (game folder). Includes shoulder/trigger, walking and Map/Hub tweaks. INI remapping: in-game testing pending.",
   "sourceUrl": "https://github.com/my-mods/Dawnwalker-Controller-Tweaks",
   "nexusModId": 203,
   "nexusFileId": 555,
   "tags": [
-    "AI Assisted"
+    "AI Assisted",
+    "AI Media",
+    "AI-Generated Content"
   ],
   "license": "MIT",
-  "nexusUrl": "https://www.nexusmods.com/thebloodofdawnwalker/mods/203"
+  "nexusUrl": "https://www.nexusmods.com/thebloodofdawnwalker/mods/203",
+  "optionalFiles": [
+    {
+      "name": "Original Shoulder Buttons",
+      "version": "1.4.0",
+      "category": "optional",
+      "fileName": "Dawnwalker-Controller-Tweaks-Original-Shoulder-Buttons.zip",
+      "sourceFolder": "Optional/Original-Shoulder-Buttons",
+      "allowModManagerDownload": false,
+      "primaryModManagerDownload": false,
+      "updateModVersion": false,
+      "description": "Original LB/LT and RB/RT, including Photo Mode. Requires main 1.4.0 + UE4SS. MANUAL ONLY: back up your personal INI, then copy/merge using README. Replacement overwrites preferences. Do not install via Vortex. In-game testing pending."
+    }
+  ]
 }
