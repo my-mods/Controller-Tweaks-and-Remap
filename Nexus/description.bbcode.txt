@@ -36,7 +36,7 @@ The Blood of Dawnwalker on PC, a controller, either Default or Alternative contr
 
 [size=4][b]Vortex Installation[/b][/size]
 
-Install UE4SS first. Import Dawnwalker-Controller-Tweaks-and-Remap.zip into Vortex as [b]Root (game folder)[/b], enable it and deploy. Select Default or Alternative, then restart the game.
+Install UE4SS first. Import Controller-Tweaks-and-Remap.zip into Vortex as [b]Root (game folder)[/b], enable it and deploy. Select Default or Alternative, then restart the game.
 
 [b]Updating[/b]
 Use Vortex's replace/reinstall flow on the existing Controller Tweaks and Remap entry, then deploy. Keep one enabled entry and restart the game. Personal settings are preserved. For Alternative, change an explicit Player_Drink_Blood=X to LB or comment it out to use the new default. Earlier standalone shoulder/trigger and TapMapHoldMenu/controller compatibility mods are superseded. If you previously edited an INI inside the mod folder, back it up before replacement and transfer desired settings into the personal INI.
@@ -65,7 +65,7 @@ Replaces [b]IA_Move[/b], [b]IA_Hub_Launch[/b], [b]IA_Hub_Map[/b], [b]RIP_Gamepad
 Based on Steam build [b]25129649 / CL-257186[/b].
 
 [size=4][b]Credits and source[/b][/size]
-Mod by CamilleBC. Controller and input changes are maintained in [url=https://github.com/my-mods/Dawnwalker-Controller-Tweaks-and-Remap]Controller Tweaks and Remap on GitHub[/url]. Game assets belong to their respective rightsholders.
+Mod by CamilleBC. Controller and input changes are maintained in [url=https://github.com/my-mods/Controller-Tweaks-and-Remap]Controller Tweaks and Remap on GitHub[/url]. Game assets belong to their respective rightsholders.
 
 [size=4][b]License[/b][/size]
-Original mod work is licensed under the [url=https://github.com/my-mods/Dawnwalker-Controller-Tweaks-and-Remap/blob/main/LICENSE.txt]MIT License[/url]. Preserve the copyright and permission notices when reusing it. Underlying game assets are not relicensed under MIT and remain subject to their rightsholders' terms.
+Original mod work is licensed under the [url=https://github.com/my-mods/Controller-Tweaks-and-Remap/blob/main/LICENSE.txt]MIT License[/url]. Preserve the copyright and permission notices when reusing it. Underlying game assets are not relicensed under MIT and remain subject to their rightsholders' terms.

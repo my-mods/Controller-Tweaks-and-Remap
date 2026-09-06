@@ -2,7 +2,7 @@
 <mod>
   <info>
     <name>Controller Tweaks and Remap</name>
-    <modid>DawnwalkerControllerTweaksAndRemap</modid>
+    <modid>ControllerTweaksAndRemap</modid>
     <description>Configure controller bindings with an INI, swap shoulders and triggers, enjoy a wider walking range, and use short press Map / long press Game Hub. Requires UE4SS.</description>
     <author>Local compatibility mod</author>
     <version>1.5.0</version>

@@ -60,5 +60,5 @@ remapping and this optional preset still require an in-game check, including
 after loading a save. Cached prompts may continue showing the old labels.
 This preset changes bindings only; it does not change triggers or modifiers.
 
-Source: https://github.com/my-mods/Dawnwalker-Controller-Tweaks-and-Remap
+Source: https://github.com/my-mods/Controller-Tweaks-and-Remap
 Original mod work is MIT-licensed; see LICENSE.txt.
