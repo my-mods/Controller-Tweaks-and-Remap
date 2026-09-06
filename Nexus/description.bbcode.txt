@@ -3,7 +3,10 @@ More comfortable controller input for The Blood of Dawnwalker on PC: swap should
 
 [size=4][b]Features[/b][/size]
 [b]Configurable controller mappings (1.4.0)[/b]
-Configure all 31 default-preset controller bindings with a personal INI. The file documents every action, supported key name, Xbox alias and PlayStation equivalent. Settings load at startup; the main file keeps the existing layout by default.
+Configure all 31 Default and Alternative controller bindings with a personal INI. The file documents every action, supported key name, Xbox alias and PlayStation equivalent. Settings load at startup; the main file keeps the existing layout by default.
+
+[b]Linked Voracious Bite controls[/b]
+Player_Drink_Blood controls both starting Bite in Focus and holding to feed. Necrospeak in Focus shares this button. Normal Interact and Death from Above keep their own bindings. Default uses X/Square; Alternative uses LB/L1 to avoid Attack on X/Square. If an old personal INI explicitly sets Player_Drink_Blood=X, change it to LB or comment it out when using Alternative. Keep Bite different from Attack and Focus. Keyboard Focus Bite/Necrospeak also follow the game's Drink Blood key. In-game acceptance of this development change is pending.
 
 [b]Shoulder / trigger swap[/b]
 Swaps LB with LT and RB with RT in the default controller preset. PlayStation equivalents are L1 with L2 and R1 with R2.
@@ -26,11 +29,11 @@ On Back/View (PlayStation touchpad):
 [/list]
 
 [size=4][b]Requirements[/b][/size]
-The Blood of Dawnwalker on PC, a controller, the default controller preset, and a Dawnwalker-compatible UE4SS build with TMap and LoopInGameThreadWithDelay (reference: 3.0.1 Beta, 97b7e501c). Install [url=https://www.nexusmods.com/thebloodofdawnwalker/mods/18]UE4SS for Dawnwalker[/url] following its instructions. The loader is separate; HUDTweaks is not required.
+The Blood of Dawnwalker on PC, a controller, either Default or Alternative controller preset, and a Dawnwalker-compatible UE4SS build with TMap and LoopInGameThreadWithDelay (reference: 3.0.1 Beta, 97b7e501c). Install [url=https://www.nexusmods.com/thebloodofdawnwalker/mods/18]UE4SS for Dawnwalker[/url] following its instructions. The loader is separate; HUDTweaks is not required.
 
 [size=4][b]Vortex Installation[/b][/size]
 
-Install UE4SS first. Import Dawnwalker-Controller-Tweaks.zip into Vortex as [b]Root (game folder)[/b], enable it and deploy. Use the default controller preset.
+Install UE4SS first. Import Dawnwalker-Controller-Tweaks.zip into Vortex as [b]Root (game folder)[/b], enable it and deploy. Select Default or Alternative, then restart the game.
 
 [b]Updating from 1.3.4[/b]
 Use Vortex's replace/reinstall flow on the existing Controller Tweaks entry, then deploy. Reinstallation processes the added UE4SS scripts; keep one enabled entry. Earlier standalone shoulder/trigger and TapMapHoldMenu/controller compatibility mods are superseded. If you previously edited an INI inside the mod folder, back it up before replacement and transfer desired settings into the personal INI.
@@ -45,18 +48,18 @@ Disable/remove the mod in Vortex and deploy. For a manual installation, remove i
 [size=4][b]Compatibility and configuration[/b][/size]
 Launch once with the mod, close the game, then open [b]%LOCALAPPDATA%/Dawnwalker/Saved/Config/ControllerTweaks.ini[/b]. Uncomment and edit only the settings you want to change; save and restart. Personal edits do not need Vortex deployment.
 
-The personal INI is created only when missing and includes a full commented layout. Shipped ControllerTweaks.defaults.ini loads first, then your personal overrides. Omitted/commented values inherit defaults. The mod never rewrites an existing personal INI, and the main archive contains no personal INI, so updates preserve your edits. An invalid INI is left untouched and reported in UE4SS.log. Keep Player_Hub_Map and Player_Hub_Launch on the same control for their shared shortcut.
+The personal INI is created only when missing and includes a full commented layout. Default uses the shipped INI layout; Alternative uses its original layout with Bite/feeding on LB/L1. Active personal values override either selected preset. Omitted/commented values inherit that preset's defaults. An old INI with every entry active overrides the entire layout. The included ControllerTweaks.defaults.ini has the latest binding explanations; old personal reference comments are preserved. The mod never rewrites an existing personal INI, and the main archive contains no personal INI, so updates preserve your edits. An invalid INI is left untouched and reported in UE4SS.log. Keep Player_Hub_Map and Player_Hub_Launch on the same control for their shared shortcut.
 
 [b]Optional file: Original Shoulder Buttons[/b]
-Download Dawnwalker-Controller-Tweaks-Original-Shoulder-Buttons.zip manually. It requires the main 1.4.0 file and UE4SS. The preset restores Block to LB/L1, Focus Mode and Combat Abilities to LT/L2, Attack and Overworld Abilities to RB/R1, Shadowstep to RT/R2, and Photo Mode rise/fall to RT/R2 and LT/L2. Walking and Map/Game Hub tweaks remain active.
+Download Dawnwalker-Controller-Tweaks-Original-Shoulder-Buttons.zip manually. It requires the main 1.4.0 file and UE4SS. Use this optional preset with Default. It restores Block to LB/L1, Focus Mode and Combat Abilities to LT/L2, Attack and Overworld Abilities to RB/R1, Shadowstep to RT/R2, and Photo Mode rise/fall to RT/R2 and LT/L2. Walking and Map/Game Hub tweaks remain active.
 
 With the game closed, back up your personal INI. If you have no preferences to keep, copy the optional ControllerTweaks.ini into the personal Config folder above. [b]Replacing it replaces all existing preferences; it does not merge them.[/b] To preserve other settings, set Enabled=true under your existing [General] section and copy/update only the eight active binding entries under your existing [Bindings] section, avoiding duplicates. The included README lists them all. Restart the game. Do not import this optional preset into Vortex or copy it into the game folder.
 
 To remove the preset, comment out/remove those eight overrides and restart. The main mod's swap returns; other personal settings remain. There is no in-game configuration menu. Cached button prompts may retain their previous labels.
 
-Replaces [b]IA_Move[/b], [b]IA_Hub_Launch[/b], [b]IA_Hub_Map[/b] and [b]RIP_GamepadDefault[/b]. Other mods changing any of these assets need a compatibility patch. 
+Replaces [b]IA_Move[/b], [b]IA_Hub_Launch[/b], [b]IA_Hub_Map[/b] [b]RIP_GamepadDefault[/b] and [b]DA_FocusConfig[/b]. Other mods changing any of these assets need a compatibility patch. 
 
-Based on Steam build [b]25129649 / CL-257186[/b]. The existing packaged controller behavior has been confirmed working in game. The new INI remapping and optional preset have offline validation only and remain a prerelease pending in-game checks, including after loading a save. Later game builds are unverified.
+Based on Steam build [b]25129649 / CL-257186[/b]. The existing packaged controller behavior has been confirmed working in game. The INI remapping, linked Focus Bite, Alternative support and optional preset have offline validation only and remain a prerelease pending in-game checks, including after loading a save. Later game builds are unverified.
 
 [size=4][b]Credits and source[/b][/size]
 Mod by CamilleBC. Controller and input changes are maintained in [url=https://github.com/my-mods/Dawnwalker-Controller-Tweaks]Dawnwalker Controller Tweaks on GitHub[/url]. Game assets belong to their respective rightsholders.

@@ -55,6 +55,27 @@ local aliases = {
     rightstickleft = "Gamepad_RightStick_Left",
     rightstickright = "Gamepad_RightStick_Right",
 }
+-- Native Alternative preset overrides seven entries of the stock default preset.
+-- Resolve its complete layout here so the packaged default shoulder swap does not
+-- leak through inheritance. Only personal entries override this alternate layout.
+M.alternatePresetEntries = {
+    Combat_Switch_Weapon = "Gamepad_FaceButton_Bottom",
+    Toggle_Quickslot = "Gamepad_LeftShoulder",
+    Combat_Block = "Gamepad_FaceButton_Top",
+    Combat_Attack = "Gamepad_FaceButton_Left",
+    Combat_Draw_Weapon = "Gamepad_RightTriggerAxis",
+    Player_Shadowstep = "Gamepad_RightShoulder",
+    Player_Abilities_Gamepad = "Gamepad_RightTriggerAxis",
+}
+M.alternateDefaults = {}
+for action, key in pairs(M.defaults) do M.alternateDefaults[action] = key end
+for action, key in pairs(M.alternatePresetEntries) do M.alternateDefaults[action] = key end
+M.alternateDefaults.Player_Focus_Mode = "Gamepad_LeftTriggerAxis"
+M.alternateDefaults.Combat_Abilities = "Gamepad_LeftTriggerAxis"
+M.alternateDefaults.Photo_Vertical_Rise = "Gamepad_RightTriggerAxis"
+M.alternateDefaults.Photo_Vertical_Fall = "Gamepad_LeftTriggerAxis"
+-- X is Attack in Alternative. Use LB for Bite/feeding/Necrospeak in Focus.
+M.alternateDefaults.Player_Drink_Blood = "Gamepad_LeftShoulder"
 
 local actions, keys = {}, {}
 for action in pairs(M.defaults) do actions[action:lower()] = action end

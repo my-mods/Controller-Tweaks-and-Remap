@@ -46,6 +46,7 @@ local function each(array, callback)
 end
 local function keyName(key) return name(key.KeyName) end
 local presetPath = '/Game/_Dawnwalker/Player/Input/Presets/RIP_GamepadDefault.RIP_GamepadDefault'
+local alternatePath = '/Game/_Dawnwalker/Player/Input/Presets/RIP_GamepadAlternate.RIP_GamepadAlternate'
 local lastError, announced = nil, false
 local bindingIds = {}
 local function same(a, b)
@@ -57,21 +58,33 @@ local function apply(subsystem, library, state)
     local preset = subsystem:GetActiveGamepadPreset()
     if not live(preset) then return false end
     local fullName = preset:GetFullName()
-    if fullName:sub(-#presetPath) ~= presetPath then return true end
-    if not same(state.preset, preset) then state.preset, state.targets = preset, nil end
+    local alternative = fullName:sub(-#alternatePath) == alternatePath
+    if not alternative and fullName:sub(-#presetPath) ~= presetPath then return true end
+    if not same(state.preset, preset) then
+        state.preset, state.targets, state.conflictReported = preset, nil, nil
+    end
     local mappings = preset.PresetMapping
-    if #mappings ~= 31 then error('Default preset differs from the supported 31-entry mod preset; refusing to patch.') end
+    local inherited = alternative and #mappings == 7
+    if not inherited and #mappings ~= 31 then error('Controller preset differs from the supported layout; refusing to patch.') end
+    if inherited then
+        for action in pairs(Config.alternatePresetEntries) do
+            local id = bindingIds[action] or FName(action)
+            bindingIds[action] = id
+            if not mappings:Contains(id) then error('Alternative preset is missing original action: ' .. action) end
+        end
+    end
+    local bindings = alternative and config.alternateBindings or config.bindings
 
     -- Read and validate every integration point before changing the preset.
     -- The game's table links one visible action to multiple internal input names.
     local targets, changes = state.targets or {}, {}
-    for action, desired in pairs(config.bindings) do
+    for action, desired in pairs(bindings) do
         local id = bindingIds[action]
         if not id then id = FName(action); bindingIds[action] = id end
-        if not mappings:Contains(id) then error('Missing preset action: ' .. action) end
-        local current = unwrap(mappings:Find(id))
-        local actual = keyName(current.Key)
-        if actual:sub(1, 8) ~= 'Gamepad_' then error('Unexpected preset key for ' .. action) end
+        local present = mappings:Contains(id)
+        if not present and not inherited then error('Missing preset action: ' .. action) end
+        local actual = present and keyName(unwrap(mappings:Find(id)).Key) or nil
+        if actual and actual:sub(1, 8) ~= 'Gamepad_' then error('Unexpected preset key for ' .. action) end
         if actual ~= desired then changes[#changes + 1] = {id = id, desired = desired} end
         if not state.targets then
             local info = subsystem:GetMappingInfo(id)
@@ -91,6 +104,14 @@ local function apply(subsystem, library, state)
     end
     -- Cache only owned names/IDs, never temporary returned structs or array elements.
     state.targets = targets
+
+    if not state.conflictReported then
+        if bindings.Player_Drink_Blood == bindings.Combat_Attack then
+            log('Binding conflict: Player_Drink_Blood and Combat_Attack both use ' .. bindings.Player_Drink_Blood
+                .. '. Choose different buttons in your personal INI so Focus Bite and Death from Above can both work.')
+        end
+        state.conflictReported = true
+    end
 
     local contexts, ready = {}, false
     each(subsystem.RebindableContexts, function(context)
@@ -130,7 +151,8 @@ local function apply(subsystem, library, state)
         library:RequestRebuildControlMappingsUsingContext(entry.context, false)
     end
     if not announced then
-        log('v1.4.0 configuration active for the default controller preset. Restart the game after INI edits.')
+        log('v1.4.0 configuration active for the ' .. (alternative and 'Alternative' or 'Default')
+            .. ' controller preset. Player_Drink_Blood controls Focus Bite, feeding and Necrospeak. Restart after INI edits.')
         announced = true
     end
     if config.debugLogging and (#changes > 0 or #contexts > 0) then

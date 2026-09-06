@@ -1,13 +1,15 @@
 # Dawnwalker Controller Tweaks
 
-Controller improvements for *The Blood of Dawnwalker* on PC, with an INI for all 31 bindings in the default controller preset.
+Controller improvements for *The Blood of Dawnwalker* on PC, with one personal INI for all 31 bindings in the Default and Alternative controller presets.
 
 - **Configurable controls:** assign a physical controller button to each action in `ControllerTweaks.ini`. Changes load at game startup.
-- **Shoulder/trigger swap by default:** LB ↔ LT and RB ↔ RT (PlayStation L1 ↔ L2 and R1 ↔ R2), including Photo Mode.
+- **Linked Bite controls:** `Player_Drink_Blood` starts Voracious Bite in Focus and controls the hold while feeding. Necrospeak in Focus shares this button.
+- **Alternative preset support:** retains the original Alternative layout, with Bite/feeding on LB/L1 instead of X/Square to avoid the Attack conflict.
+- **Shoulder/trigger swap in the Default preset:** LB ↔ LT and RB ↔ RT (PlayStation L1 ↔ L2 and R1 ↔ R2), including Photo Mode.
 - **Easier walking:** raises the left-stick walk-to-run threshold from 0.70 to 0.90.
 - **Short press / long press:** by default, Back/View (PlayStation touchpad) opens the Map on a short press and the Game Hub on a long press (0.30 seconds).
 
-With the supplied layout, Block is LT, Focus Mode/Combat Abilities LB, Attack/Overworld Abilities RT, and Shadowstep RB.
+With the Default layout, Block is LT, Focus Mode/Combat Abilities LB, Attack/Overworld Abilities RT, and Shadowstep RB. Alternative retains its face-button attack/block layout and uses LT/L2 for Focus; walking and Map/Game Hub improvements work with either preset.
 
 ## Requirements and installation
 
@@ -15,7 +17,7 @@ Requires **UE4SS compatible with Dawnwalker**, including its TMap API and `LoopI
 
 1. Download **Dawnwalker-Controller-Tweaks.zip** from [Releases](https://github.com/my-mods/Dawnwalker-Controller-Tweaks/releases).
 2. Import it into Vortex 1.14 or newer as **Root (game folder)**, then enable and deploy.
-3. Select the game's **default controller preset**.
+3. Select **Default** or **Alternative** in the game's controller settings, then restart the game.
 
 To update, use Vortex's replace/reinstall flow on the existing entry with the new ZIP and deploy. Keep one enabled Controller Tweaks entry. Personal settings under your Windows profile are outside the archive and survive replacement and uninstall. For the first upgrade from a package that stored your INI inside the mod folder, preserve that file before reinstalling; see the release notes for migration.
 
@@ -29,11 +31,11 @@ Launch the game once with the mod, then close it. Open this directory using File
 
 Edit **ControllerTweaks.ini** there. The mod creates it only if missing, with the complete documented layout and every setting commented out. Uncomment only the settings you want to change, save and restart the game. Editing this personal file does not require Vortex deployment.
 
-The archive includes **ControllerTweaks.defaults.ini**, which documents all 31 actions and all supported controls. It is the maintained default configuration; do not edit it for personal preferences. The mod loads shipped defaults first and then applies only values present in your personal INI. Omitted/commented values inherit current defaults, including new settings added by future releases. Existing personal files are never rewritten, even when empty, malformed or read-only.
+The archive includes **ControllerTweaks.defaults.ini**, which documents all 31 actions and all supported controls. It is the maintained default configuration; do not edit it for personal preferences. For Default, the mod loads the shipped INI layout. For Alternative, it starts from the original Alternative layout with Bite/feeding on LB/L1. Your active personal entries then override either preset. Omitted/commented values inherit the defaults for the selected preset. An older personal file with every binding active overrides the entire layout; comment out values you want to inherit. Existing personal files are never rewritten, even when empty, malformed or read-only.
 
 Settings are read once per game session. After input setup completes, the remapper stops its worker; it does not continuously poll the INI or bindings. Loading, possession changes and input-context setup can trigger a bounded reapply using the same settings. An unavailable input system stops retrying after 20 attempts and waits for another input lifecycle event.
 
-For example, these overrides restore the stock combat shoulder/trigger arrangement:
+For example, these overrides restore the stock combat shoulder/trigger arrangement when using Default:
 
 ```ini
 [Bindings]
@@ -44,6 +46,20 @@ Combat_Attack = RB
 Player_Abilities_Gamepad = RB
 Player_Shadowstep = RT
 ```
+
+### Voracious Bite and the Alternative preset
+
+Use **`Player_Drink_Blood`** for both starting Voracious Bite in Focus and holding to feed. Change this one setting; there is no separate Bite-start setting. **Necrospeak in Focus uses the same button.** Normal world interactions remain on `Player_Interact`, and Death from Above remains on `Combat_Attack`.
+
+- **Default:** Bite/feeding uses X/Square unless you override it.
+- **Alternative:** Bite/feeding uses LB/L1 unless you override it; Attack stays on X/Square. No INI edit is needed for a new or fully commented personal file.
+- **Existing Alternative users:** if your personal INI explicitly sets `Player_Drink_Blood = X`, change that entry to `LB` or comment it out. Avoid duplicate entries. Other active personal overrides remain in effect.
+
+Keep Bite different from Attack and Focus. The log reports a Bite/Attack collision with the setting names to change. LB also remains the Alternative combat quickslot-toggle button in its own context. Settings load at startup; save and restart after editing.
+
+The linked Focus action is shared by input devices: **keyboard Focus Bite and Necrospeak now use the game's Drink Blood key as well**. Controller INI values do not change keyboard bindings. The initial lunge, continuous hold through the feeding transition, Necrospeak and both ability prompts require in-game acceptance testing for this development update.
+
+Existing personal INIs retain their comments and values. The updated binding explanation is in the packaged `ControllerTweaks.defaults.ini`; an existing personal file is not replaced just to refresh its reference comments.
 
 The shipped defaults file documents all 31 actions, grouped by gameplay context, plus every supported key alias and full Unreal key name. Comments explain stick clicks versus stick axes, shared buttons and the fixed short-press/long-press behavior. Values are case-insensitive:
 
@@ -61,14 +77,14 @@ The equivalent full `Gamepad_*` names are also accepted. Each entry names the ph
 
 Several actions intentionally share buttons in different contexts. Keep paired actions consistent where appropriate: Focus Mode/Combat Abilities, Attack/Overworld Abilities, and the two hub shortcuts. Assigning two simultaneous actions to one button can trigger both; the mod does not invent new chords or resolve those conflicts. Menu confirm/cancel navigation outside the preset is not configurable here. Movement/camera require stick axes, and button actions cannot use those axes.
 
-Missing personal entries inherit the current shipped defaults. Unknown settings, unknown controls, duplicate entries and incompatible axis assignments reject the whole file and leave the packaged layout in effect. `[General] Enabled = false` disables only INI remapping; the packaged shoulder/trigger swap, walking and hub changes remain. `DebugLogging = true` reports updates in `ue4ss/UE4SS.log`. Search the log for `[ControllerTweaks]` if controls do not change.
+Missing personal entries inherit the defaults for the selected preset. Unknown settings, unknown controls, duplicate entries and incompatible axis assignments reject the whole file and leave the packaged layout in effect. `[General] Enabled = false` disables only INI remapping; the packaged shoulder/trigger swap, linked Focus Bite/Necrospeak input, walking and hub changes remain. Alternative INI support and its LB Bite default require remapping enabled; a disabled/invalid INI can therefore leave the original Alternative X conflict. `DebugLogging = true` reports updates in `ue4ss/UE4SS.log`. Search the log for `[ControllerTweaks]` if controls do not change.
 
 ## Compatibility
 
-Replaces `IA_Move`, `IA_Hub_Launch`, `IA_Hub_Map`, and `RIP_GamepadDefault`. Other mods changing these assets need a compatibility patch, even if Vortex shows no file conflict. Other runtime controller remappers can also compete with the INI settings.
+Replaces `IA_Move`, `IA_Hub_Launch`, `IA_Hub_Map`, `RIP_GamepadDefault`, and `DA_FocusConfig`. Other mods changing these assets need a compatibility patch, even if Vortex shows no file conflict. Other runtime controller remappers can also compete with the INI settings.
 
 Earlier standalone shoulder/trigger and TapMapHoldMenu/controller compatibility mods are superseded; disable them through Vortex. This mod has its own UE4SS directory and no HUDTweaks overrides. All three `zzz_DawnwalkerControllerTweaks_P` container files must come from the same release.
 
-Based on Steam build **25129649 / CL-257186**. Later versions are unverified. The existing packaged controller behavior is unchanged. **INI remapping is a prerelease feature with offline validation; in-game acceptance is pending.** The game's cached button prompts or controller-layout screen may show the original preset even when a runtime binding changes; verify the actual action in game. Game and Steam Input deadzones affect the walking range.
+Based on Steam build **25129649 / CL-257186**. Later versions are unverified. The existing shoulder/trigger, walking and hub behavior is preserved. **Linked Focus Bite and Alternative support are development changes with offline validation; in-game acceptance is pending.** The game's cached button prompts or controller-layout screen may show the original preset even when a runtime binding changes; verify the actual action in game. Game and Steam Input deadzones affect the walking range.
 
 Original mod work is licensed under [MIT](LICENSE.txt). Game assets belong to their respective rightsholders and are not relicensed.

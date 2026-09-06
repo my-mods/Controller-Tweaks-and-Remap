@@ -68,5 +68,20 @@
     "precedence": "Shipped defaults, then personal overrides; omitted values inherit defaults",
     "creation": "Windows no-replace rename from a completed temporary file; existing personal files are read only",
     "legacyMigration": "When the personal file is absent, copy a valid legacy Scripts/ControllerTweaks.ini without modifying the original; otherwise seed a fully commented reference"
+  },
+  "focusBite": {
+    "status": "unreleased; in-game verification pending",
+    "gameBuild": "25129649",
+    "asset": "/Game/_Dawnwalker/Focus/DA_FocusConfig",
+    "change": "AbilityInputSlot1: IA_Interact -> IA_DrinkBlood; Bite and Necrospeak share the slot. AbilityInputSlot2 / Death from Above unchanged. Applies to keyboard and controller.",
+    "source": "Stock Dawnwalker-Windows containers; cached and installed UTOC SHA-256 verified identical on 2026-09-06",
+    "utocSha256": "7cf811c2a52e0f56ed9dc385168d1d871519ba99664eb18ced895c9ce14bc614",
+    "originalSha256": {
+      "DA_FocusConfig.uasset": "137e7b8870ad2641a4a7628e8ff5ec1002539a604d177a5ad1dcd73e6f5f4c98",
+      "DA_FocusConfig.uexp": "7417f45627a4c6ebccf91788e5ce6d85ed47bd19659d7c24e77d6a2d61359697"
+    },
+    "jsonSha256": "7fced0d4a9b478e78e751d3f7bbd6a2a972a1bb5d7719e1edb28027bd06a2f59",
+    "alternatePresetJsonSha256": "437cdf8b6cf896fbcc252a08d2d72c29dfeecbb7944c364963846cab817e4e49",
+    "alternateBehavior": "Original Alternative bindings, except LB for Player_Drink_Blood; personal INI values override either supported preset. Map/Hub timing and walking remain active."
   }
 }

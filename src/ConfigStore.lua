@@ -99,6 +99,11 @@ function M.load(directory, Config, log)
     end
     local config, err = Config.parse(personal, defaults)
     if not config then return nil, 'Personal INI rejected; file left untouched: ' .. err, 'invalid' end
+    local alternate = assert(Config.parse(personal, {
+        enabled = defaults.enabled, debugLogging = defaults.debugLogging,
+        bindings = Config.alternateDefaults,
+    }))
+    config.alternateBindings = alternate.bindings
     log('Loaded shipped defaults + personal overrides from ' .. path)
     return config
 end
