@@ -1,5 +1,10 @@
 # Changes
 
+## Unreleased
+
+- Stop the remapping worker after input setup instead of scanning objects and checking bindings every second.
+- Cache input-system references and binding metadata; reapply startup settings on input lifecycle events with bounded readiness retries.
+
 ## 1.4.0 — 2026-09-06
 
 - Add startup INI configuration for all 31 default-preset controller bindings, preserving the existing layout by default.

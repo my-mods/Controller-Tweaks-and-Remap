@@ -1,5 +1,9 @@
 # Dawnwalker Controller Tweaks v1.4.0
 
+## Pending development changes
+
+The remapper now stops its worker after successful input setup. It caches input-system references and binding metadata, and wakes for loading, possession and input-context setup. Readiness retries are bounded. INI edits still require a game restart. This removes the repeated idle work; confirmation of a stutter fix and lifecycle-hook behavior still needs in-game testing. Version metadata remains 1.4.0.
+
 Configure all 31 default-preset controller bindings with an INI. The shipped ControllerTweaks.defaults.ini contains the complete layout, action descriptions, Xbox/PlayStation equivalents and all supported key names.
 
 Personal overrides live at **%LOCALAPPDATA%\Dawnwalker\Saved\Config\ControllerTweaks.ini**, outside Vortex-managed files. Current shipped defaults load first; personal values take precedence. Omitted/commented settings inherit new defaults. The mod creates a commented reference only if the personal file is missing and never rewrites an existing personal file.

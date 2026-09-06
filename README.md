@@ -33,6 +33,8 @@ Edit **ControllerTweaks.ini** there. The mod creates it only if missing, with th
 
 The archive includes **ControllerTweaks.defaults.ini**, which documents all 31 actions and all supported controls. It is the maintained default configuration; do not edit it for personal preferences. The mod loads shipped defaults first and then applies only values present in your personal INI. Omitted/commented values inherit current defaults, including new settings added by future releases. Existing personal files are never rewritten, even when empty, malformed or read-only.
 
+Settings are read once per game session. After input setup completes, the remapper stops its worker; it does not continuously poll the INI or bindings. Loading, possession changes and input-context setup can trigger a bounded reapply using the same settings. An unavailable input system stops retrying after 20 attempts and waits for another input lifecycle event.
+
 For example, these overrides restore the stock combat shoulder/trigger arrangement:
 
 ```ini
