@@ -1,0 +1,4 @@
+- Reduce controller-related stutter by stopping unnecessary background checks.
+- Add support for the Alternative controller layout, including custom INI settings. Bite uses LB/L1 by default so it no longer shares X/Square with Attack.
+- Use the Drink Blood binding both to start Voracious Bite and to keep feeding. Necrospeak uses the same button; keyboard users also use their Drink Blood key for these Focus abilities.
+- Warn in the log when Bite and Attack share a button.

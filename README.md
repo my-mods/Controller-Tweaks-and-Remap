@@ -59,7 +59,7 @@ Use **`Player_Drink_Blood`** for both starting Voracious Bite in Focus and holdi
 
 Keep Bite different from Attack and Focus. The log reports a Bite/Attack collision with the setting names to change. LB also remains the Alternative combat quickslot-toggle button in its own context. Settings load at startup; save and restart after editing.
 
-The linked Focus action is shared by input devices: **keyboard Focus Bite and Necrospeak now use the game's Drink Blood key as well**. Controller INI values do not change keyboard bindings. The initial lunge, continuous hold through the feeding transition, Necrospeak and both ability prompts require in-game acceptance testing for this development update.
+The linked Focus action is shared by input devices: **keyboard Focus Bite and Necrospeak now use the game's Drink Blood key as well**. Controller INI values do not change keyboard bindings.
 
 Existing personal INIs retain their comments and values. The updated binding explanation is in the packaged `ControllerTweaks.defaults.ini`; an existing personal file is not replaced just to refresh its reference comments.
 
@@ -87,6 +87,6 @@ Replaces `IA_Move`, `IA_Hub_Launch`, `IA_Hub_Map`, `RIP_GamepadDefault`, and `DA
 
 Earlier standalone shoulder/trigger and TapMapHoldMenu/controller compatibility mods are superseded; disable them through Vortex. This mod has its own UE4SS directory and no HUDTweaks overrides. All three `zzz_DawnwalkerControllerTweaks_P` container files must come from the same release.
 
-Based on Steam build **25129649 / CL-257186**. Later versions are unverified. The existing shoulder/trigger, walking and hub behavior is preserved. **Linked Focus Bite and Alternative support are development changes with offline validation; in-game acceptance is pending.** The game's cached button prompts or controller-layout screen may show the original preset even when a runtime binding changes; verify the actual action in game. Game and Steam Input deadzones affect the walking range.
+Based on Steam build **25129649 / CL-257186**. The existing shoulder/trigger, walking and hub behavior is preserved. The game's cached button prompts or controller-layout screen may show the original preset even when a runtime binding changes. Actual actions follow your chosen bindings. Game and Steam Input deadzones affect the walking range.
 
 Original mod work is licensed under [MIT](LICENSE.txt). Game assets belong to their respective rightsholders and are not relicensed.

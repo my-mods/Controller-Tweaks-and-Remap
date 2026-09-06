@@ -1,13 +1,11 @@
 # Changes
 
-## Unreleased
+## 1.5.0 — 2026-09-06
 
-- Make the Drink Blood binding control both the start of Voracious Bite in Focus and the feeding hold; Necrospeak in Focus follows it too.
-- Support the Alternative controller preset with personal INI overrides and LB/L1 for Bite by default, avoiding its X/Square Attack conflict.
-- Document the linked binding, keyboard behavior, preset defaults and migration from an explicit X override; report Bite/Attack conflicts in the log.
-
-- Stop the remapping worker after input setup instead of scanning objects and checking bindings every second.
-- Cache input-system references and binding metadata; reapply startup settings on input lifecycle events with bounded readiness retries.
+- Reduce controller-related stutter by stopping unnecessary background checks.
+- Add support for the Alternative controller layout, including custom INI settings. Bite uses LB/L1 by default so it no longer shares X/Square with Attack.
+- Use the Drink Blood binding both to start Voracious Bite and to keep feeding. Necrospeak uses the same button; keyboard users also use their Drink Blood key for these Focus abilities.
+- Warn in the log when Bite and Attack share a button.
 
 ## 1.4.0 — 2026-09-06
 

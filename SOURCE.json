@@ -6,7 +6,7 @@
   "officialPatchAtCapture": "Hotfix 1.0.2",
   "unrealEngine": "5.5.4",
   "stockMappingCount": 30,
-  "controllerModVersion": "1.4.0",
+  "controllerModVersion": "1.5.0",
   "releaseArchive": "Dawnwalker-Controller-Tweaks.zip",
   "sourceHashes": {
     "scriptobjects.bin": "9DA57588D9D39F1FAB03C5D8591D3419E0CC745E00487A1FBB2A795907038095",
@@ -49,7 +49,7 @@
   "configuration": {
     "format": "INI",
     "file": "src/ControllerTweaks.defaults.ini",
-    "scope": "31 default-preset bindings; packaged movement and triggers unchanged",
+    "scope": "31 bindings in Default and Alternative presets; personal overrides load at startup",
     "referenceUE4SSCommit": "97b7e501c",
     "integration": [
       "RebelInputPreset.PresetMapping",
@@ -70,7 +70,7 @@
     "legacyMigration": "When the personal file is absent, copy a valid legacy Scripts/ControllerTweaks.ini without modifying the original; otherwise seed a fully commented reference"
   },
   "focusBite": {
-    "status": "unreleased; in-game verification pending",
+    "status": "1.5.0 prerelease; in-game verification pending",
     "gameBuild": "25129649",
     "asset": "/Game/_Dawnwalker/Focus/DA_FocusConfig",
     "change": "AbilityInputSlot1: IA_Interact -> IA_DrinkBlood; Bite and Necrospeak share the slot. AbilityInputSlot2 / Death from Above unchanged. Applies to keyboard and controller.",

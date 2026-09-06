@@ -151,7 +151,7 @@ local function apply(subsystem, library, state)
         library:RequestRebuildControlMappingsUsingContext(entry.context, false)
     end
     if not announced then
-        log('v1.4.0 configuration active for the ' .. (alternative and 'Alternative' or 'Default')
+        log('v1.5.0 configuration active for the ' .. (alternative and 'Alternative' or 'Default')
             .. ' controller preset. Player_Drink_Blood controls Focus Bite, feeding and Necrospeak. Restart after INI edits.')
         announced = true
     end

@@ -1,6 +1,6 @@
 {
   "name": "Dawnwalker Controller Tweaks",
-  "version": "1.4.0",
+  "version": "1.5.0",
   "game": "The Blood of Dawnwalker",
   "nexusDomain": "thebloodofdawnwalker",
   "summary": "Configure controller bindings with an INI, swap shoulders and triggers, enjoy a wider walking range, and use short press Map / long press Game Hub. Requires UE4SS.",
@@ -19,21 +19,20 @@
   "requirements": [
     "The Blood of Dawnwalker (PC)",
     "Controller",
-    "Default controller preset"
+    "Default or Alternative controller preset"
   ],
   "requiredMods": [
     "Dawnwalker-compatible UE4SS with TMap and LoopInGameThreadWithDelay"
   ],
   "fileName": "Dawnwalker-Controller-Tweaks.zip",
   "fileDisplayName": "Dawnwalker Controller Tweaks",
-  "fileDescription": "Configure all 31 bindings with a documented personal INI preserved across updates. Requires UE4SS. Replace/reinstall through Vortex as Root (game folder). Includes shoulder/trigger, walking and Map/Hub tweaks.",
+  "fileDescription": "Adds Alternative controls and linked Bite/feeding controls. Reduces controller-related stutter by stopping unnecessary background checks. Requires UE4SS. Replace/reinstall through Vortex as Root (game folder). Your personal INI is preserved.",
   "sourceUrl": "https://github.com/my-mods/Dawnwalker-Controller-Tweaks",
   "nexusModId": 203,
   "nexusFileId": 634,
   "tags": [
     "AI Assisted",
-    "AI Media",
-    "AI-Generated Content"
+    "AI Media"
   ],
   "license": "MIT",
   "nexusUrl": "https://www.nexusmods.com/thebloodofdawnwalker/mods/203",
