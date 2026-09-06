@@ -24,7 +24,7 @@
   "requiredMods": [
     "Dawnwalker-compatible UE4SS with TMap and LoopInGameThreadWithDelay"
   ],
-  "fileName": "Dawnwalker-Controller-Tweaks.zip",
+  "fileName": "Dawnwalker-Controller-Tweaks-and-Remap.zip",
   "fileDisplayName": "Controller Tweaks and Remap",
   "fileDescription": "Adds Alternative controls and linked Bite/feeding controls. Reduces controller-related stutter by stopping unnecessary background checks.",
   "sourceUrl": "https://github.com/my-mods/Dawnwalker-Controller-Tweaks-and-Remap",

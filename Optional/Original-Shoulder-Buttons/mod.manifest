@@ -2,7 +2,7 @@
 <mod>
   <info>
     <name>Controller Tweaks and Remap</name>
-    <modid>DawnwalkerControllerTweaks</modid>
+    <modid>DawnwalkerControllerTweaksAndRemap</modid>
     <version>1.4.0</version>
     <description>Optional Original Shoulder Buttons personal INI preset. Manual application to the user profile; requires the main mod and UE4SS.</description>
   </info>

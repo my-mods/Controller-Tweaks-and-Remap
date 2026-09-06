@@ -36,7 +36,7 @@ The Blood of Dawnwalker on PC, a controller, either Default or Alternative contr
 
 [size=4][b]Vortex Installation[/b][/size]
 
-Install UE4SS first. Import Dawnwalker-Controller-Tweaks.zip into Vortex as [b]Root (game folder)[/b], enable it and deploy. Select Default or Alternative, then restart the game.
+Install UE4SS first. Import Dawnwalker-Controller-Tweaks-and-Remap.zip into Vortex as [b]Root (game folder)[/b], enable it and deploy. Select Default or Alternative, then restart the game.
 
 [b]Updating[/b]
 Use Vortex's replace/reinstall flow on the existing Controller Tweaks and Remap entry, then deploy. Keep one enabled entry and restart the game. Personal settings are preserved. For Alternative, change an explicit Player_Drink_Blood=X to LB or comment it out to use the new default. Earlier standalone shoulder/trigger and TapMapHoldMenu/controller compatibility mods are superseded. If you previously edited an INI inside the mod folder, back it up before replacement and transfer desired settings into the personal INI.
