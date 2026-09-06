@@ -1,3 +1,7 @@
+## Pending correction
+
+Remove the Easier walking override to address reported Shapeshift/Mercurial Fervour interruption when steering. Movement returns to the original 0.70 threshold.
+
 # Controller Tweaks and Remap v1.5.0
 
 This minor update adds Alternative controller support and links the Bite controls. It also removes unnecessary background checks to address controller-related stutter.
@@ -23,4 +27,4 @@ If upgrading from an older package with a personal INI inside the mod folder, ba
 
 ## Compatibility
 
-Based on Steam build **25129649 / CL-257186**. Existing shoulder/trigger, walking and short-press Map / long-press Hub behavior is preserved. Button prompts and the controller-layout screen may still show the original bindings.
+Based on Steam build **25129649 / CL-257186**. Existing shoulder/trigger and short-press Map / long-press Hub behavior is preserved. Button prompts and the controller-layout screen may still show the original bindings.
