@@ -3,12 +3,13 @@
   <info>
     <name>Dawnwalker Controller Tweaks</name>
     <modid>DawnwalkerControllerTweaks</modid>
-    <description>Swap shoulders and triggers, enjoy a wider walking range, and use short press for Map or long press for Game Hub. No other mods or loaders required.</description>
+    <description>Configure controller bindings with an INI, swap shoulders and triggers, enjoy a wider walking range, and use short press Map / long press Game Hub. Requires UE4SS.</description>
     <author>Local compatibility mod</author>
-    <version>1.3.4</version>
+    <version>1.4.0</version>
     <created_on>2026-09-05</created_on>
   </info>
   <supports>
+    <requires>UE4SS with TMap and LoopInGameThreadWithDelay (reference 97b7e501c)</requires>
     <game>The Blood of Dawnwalker</game>
     <steam_build>25129649</steam_build>
     <executable>dw1-pc-257186-shipping-patch2-all</executable>

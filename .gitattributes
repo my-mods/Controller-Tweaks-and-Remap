@@ -11,3 +11,4 @@ current-json/IA_Move.json -text
 *.pak binary
 *.ucas binary
 *.utoc binary
+upstream/input/DT_InputMapping.json -text whitespace=cr-at-eol

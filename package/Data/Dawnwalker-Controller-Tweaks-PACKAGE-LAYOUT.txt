@@ -1,7 +1,7 @@
 Dawnwalker Controller Tweaks package layout
 
-Use Vortex's Root (game folder) installer. The only runtime payload is one IoStore
-container triple under Dawnwalker/Content/Paks/~mods/ at archive root.
-Data/ retains this uniquely named layout note; no runtime files are duplicated.
-mod.manifest and README.txt are at archive root. No Lua scripts are included.
+Use Vortex's Root (game folder) installer. Runtime files use game-relative
+Dawnwalker/Content/Paks/~mods/ and Dawnwalker/Binaries/Win64/ue4ss/Mods/
+DawnwalkerControllerTweaks/. The UE4SS loader is required separately.
+Data/ retains this unique layout note; no runtime files are duplicated.
 Manage installation, deployment, conflicts and removal through Vortex.

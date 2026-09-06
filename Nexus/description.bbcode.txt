@@ -2,6 +2,9 @@
 More comfortable controller input for The Blood of Dawnwalker on PC: swap shoulders and triggers, make walking easier, and open the Map or Game Hub with a short press or long press of the same button.
 
 [size=4][b]Features[/b][/size]
+[b]Configurable controller mappings[/b]
+Edit all 31 default-preset bindings in ControllerTweaks.ini; settings load at game startup. Xbox aliases such as LB, LT, RB, RT, A, B, X and Y are supported. The existing layout remains the default. This feature requires UE4SS and is awaiting in-game acceptance.
+
 [b]Shoulder / trigger swap[/b]
 Swaps LB with LT and RB with RT in the default controller preset. PlayStation equivalents are L1 with L2 and R1 with R2.
 [list]
@@ -23,7 +26,7 @@ On Back/View (PlayStation touchpad):
 [/list]
 
 [size=4][b]Requirements[/b][/size]
-The Blood of Dawnwalker on PC, a controller, and the default controller preset. No other mods or loaders are required; UE4SS and HUDTweaks are not needed.
+The Blood of Dawnwalker on PC, a controller, and the default controller preset. Requires a Dawnwalker-compatible UE4SS build with TMap and LoopInGameThreadWithDelay (reference build: 3.0.1 Beta, 97b7e501c). The loader is separate. HUDTweaks is not required.
 
 [size=4][b]Installation[/b][/size]
 [list=1]
@@ -41,13 +44,15 @@ Use Vortex's replace/reinstall flow on the existing mod entry with the new ZIP, 
 Disable or remove the mod in Vortex, then deploy.
 
 [size=4][b]Compatibility and configuration[/b][/size]
-This is a fixed controller preset and input-asset replacement. There is no INI or in-game configuration menu for this mod.
+Close the game, open this mod using Vortex's Open in File Manager, and edit Dawnwalker/Binaries/Win64/ue4ss/Mods/DawnwalkerControllerTweaks/Scripts/ControllerTweaks.ini. Save, deploy and restart. For example, Combat_Block = LB assigns Block to the left shoulder. The file lists all bindings and supported controls; see the README for examples. Keep Player_Hub_Map and Player_Hub_Launch on the same control for the shared short-press/long-press shortcut. Timing and walking threshold remain fixed.
+
+Back up your INI before updating. The download includes a full default INI and does not merge preferences. Invalid entries reject the whole file, leaving the packaged layout active. Check UE4SS.log for [ControllerTweaks] messages. Menu navigation outside the preset is unchanged, and the game's cached prompts/layout screen may retain old labels. Runtime remapping requires an in-game check.
 
 Replaces [b]IA_Move[/b], [b]IA_Hub_Launch[/b], [b]IA_Hub_Map[/b] and [b]RIP_GamepadDefault[/b]. Other mods changing any of these assets need a compatibility patch. Different container filenames can still replace the same assets, so Vortex may show no file conflict. Load order alone cannot combine two edits to the same asset.
 
 Standalone shoulder/trigger swap and TapMapHoldMenu/controller compatibility mods are superseded by this combined mod; disable them through Vortex before using it. HUDTweaks can be used independently: this package contains no HUDTweaks script or configuration overrides.
 
-Based on Steam build [b]25129649 / CL-257186[/b]. Controller behavior has been confirmed working in game. Later game builds are unverified.
+Based on Steam build [b]25129649 / CL-257186[/b]. The existing packaged controller behavior has been confirmed working in game; the new INI remapping feature has offline validation only. Later game builds are unverified.
 
 [size=4][b]Credits and source[/b][/size]
 Mod by CamilleBC. Controller and input changes are maintained in [url=https://github.com/my-mods/Dawnwalker-Controller-Tweaks]Dawnwalker Controller Tweaks on GitHub[/url]. Game assets belong to their respective rightsholders. The thumbnail is original AI-generated promotional artwork, not an in-game screenshot. This is an unofficial mod.

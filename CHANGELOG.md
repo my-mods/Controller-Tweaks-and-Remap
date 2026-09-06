@@ -1,5 +1,13 @@
 # Changes
 
+## 1.4.0 — 2026-09-06
+
+- Add startup INI configuration for all 31 bindings in the default controller preset.
+- Preserve the current layout by default and reapply custom controls across input-context recreation.
+- Validate the whole configuration before applying it; retain keyboard/mouse bindings and action triggers.
+- Require a compatible UE4SS build for runtime remapping. The existing cooked assets are unchanged.
+- Prerelease: offline validation completed; in-game acceptance remains.
+
 ## 1.3.4 — 2026-09-05
 
 - Include the existing MIT license text and retain the underlying game-asset rights notice.

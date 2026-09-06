@@ -1,9 +1,9 @@
 {
   "name": "Dawnwalker Controller Tweaks",
-  "version": "1.3.4",
+  "version": "1.4.0",
   "game": "The Blood of Dawnwalker",
   "nexusDomain": "thebloodofdawnwalker",
-  "summary": "Swap shoulders and triggers, enjoy a wider walking range, and use short press for Map or long press for Game Hub. No other mods or loaders required.",
+  "summary": "Configure controller bindings with an INI, swap shoulders and triggers, enjoy a wider walking range, and use short press Map / long press Game Hub. Requires UE4SS.",
   "descriptionFile": "description.bbcode.txt",
   "thumbnailFile": "thumbnail.png",
   "thumbnailAltText": "Controller Tweaks title over an official in-game screenshot of Coen walking through a town market.",
@@ -21,10 +21,12 @@
     "Controller",
     "Default controller preset"
   ],
-  "requiredMods": [],
+  "requiredMods": [
+    "Dawnwalker-compatible UE4SS with TMap and LoopInGameThreadWithDelay"
+  ],
   "fileName": "Dawnwalker-Controller-Tweaks.zip",
   "fileDisplayName": "Dawnwalker Controller Tweaks",
-  "fileDescription": "Shoulder/trigger swaps, a wider walking range, and short press Map / long press Game Hub. Install as Root (game folder) through Vortex.",
+  "fileDescription": "Configurable controller bindings, shoulder/trigger swaps, wider walking and short press Map / long press Game Hub. Requires UE4SS; install as Root (game folder).",
   "sourceUrl": "https://github.com/my-mods/Dawnwalker-Controller-Tweaks",
   "nexusModId": 203,
   "nexusFileId": 555,
