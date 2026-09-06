@@ -1,5 +1,11 @@
 # Changes
 
+## 1.4.1 — 2026-09-06
+
+- Document all 31 controller actions directly in the INI, grouped by gameplay context.
+- Add the complete supported key reference, Xbox/PlayStation equivalents, full Unreal names and shared-button guidance.
+- Keep all configured defaults and runtime behavior unchanged.
+
 ## 1.4.0 — 2026-09-06
 
 - Add startup INI configuration for all 31 bindings in the default controller preset.

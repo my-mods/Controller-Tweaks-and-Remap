@@ -39,7 +39,7 @@ Player_Abilities_Gamepad = RB
 Player_Shadowstep = RT
 ```
 
-The included INI lists every supported action and the current mod defaults. Values are case-insensitive:
+The included INI documents all 31 actions, grouped by gameplay context, plus every supported key alias and full Unreal key name. Comments explain stick clicks versus stick axes, shared buttons and the fixed short-press/long-press behavior. Values are case-insensitive:
 
 | INI value | Physical control / PlayStation equivalent |
 | --- | --- |

@@ -1,20 +1,17 @@
-# Dawnwalker Controller Tweaks v1.4.0
+# Dawnwalker Controller Tweaks v1.4.1
 
-- Configure all 31 default-preset controller bindings in ControllerTweaks.ini, using Xbox-style aliases or full Unreal gamepad key names.
-- Read the INI at startup and reapply changed bindings when the game recreates its input contexts. Preserve keyboard/mouse keys and existing triggers/modifiers.
-- Keep the previous controller layout as the default, including Photo Mode, the 0.90 walking threshold and short press Map / long press Game Hub.
-- Reject invalid configuration files instead of applying a partial layout.
+The INI now contains the complete configurable layout: all 31 actions with plain-language descriptions, all 20 supported key values with Xbox/PlayStation equivalents and full Unreal names, and guidance on stick clicks, axes, shared buttons and short press / long press behavior.
 
-## Updating through Vortex
+This is a documentation update. Binding values, Lua runtime files and cooked game assets are unchanged from v1.4.0.
 
-INI remapping adds a UE4SS dependency. Install a Dawnwalker-compatible UE4SS build with the TMap and delayed game-thread APIs (reference: 3.0.1 Beta, 97b7e501c). The loader is not included; HUDTweaks is not required.
+## Updating and configuration
 
-Close the game, back up any personal INI, replace/reinstall the existing Controller Tweaks entry from Dawnwalker-Controller-Tweaks.zip, and deploy. Reinstall the archive so Vortex processes the added UE4SS files. Use Root (game folder) and keep one enabled entry. Select the default controller preset. The included INI is a full default configuration, not a merge of your preferences.
+Back up your personal INI. Close the game, replace/reinstall the existing Vortex mod entry from Dawnwalker-Controller-Tweaks.zip as Root (game folder), and deploy. Keep one enabled Controller Tweaks entry. The ZIP includes a complete default INI; replacement does not merge preferences. Transfer your chosen values into the new commented file.
 
-The three zzz_DawnwalkerControllerTweaks_P containers are unchanged. Keep older standalone controller/Map shortcut mods disabled. No HUDTweaks files are overridden. For upgrades from pre-1.3.0, disable the old entry and deploy before replacement so Vortex removes ControllerCompass.lua and restores HUDTweaks' main.lua if HUDTweaks is enabled.
+Open the mod folder through Vortex and edit Dawnwalker/Binaries/Win64/ue4ss/Mods/DawnwalkerControllerTweaks/Scripts/ControllerTweaks.ini. Deploy and restart after changes. A Dawnwalker-compatible UE4SS build with TMap and LoopInGameThreadWithDelay is required (reference: 3.0.1 Beta, 97b7e501c). Use the default controller preset. HUDTweaks is not required; older standalone controller/Map-shortcut mods should remain disabled.
 
-## Validation and remaining checks
+## Validation
 
-Prerelease: Lua 5.4 configuration and mocked runtime regression checks pass for startup, missing/invalid configuration, simultaneous swaps, key-cache replacement, keyboard and trigger preservation, repeated application, save-load/context recreation, and possession/subsystem replacement. The 31 supplied bindings match the cooked preset. Actual ZIP bytes, repeated stable builds, installed Vortex destination planning and container round-trip are checked before publication.
+The documented INI parses to the same 31 bindings and general settings as v1.4.0. All supported aliases and full key names are documented. The actual ZIP, Vortex destination planning and cooked-container round-trip are verified before publication.
 
-In-game acceptance is still required: change a combat binding, restart, test it in gameplay and Photo Mode, load a save, and verify short/long press shortcuts and stick controls. Check UE4SS.log for [ControllerTweaks] errors. The game's cached prompts/layout screen may retain the preset labels; runtime prompt synchronization is not guaranteed. Live-game testing was not performed for this release.
+This remains a prerelease because v1.4.0 runtime remapping still awaits in-game acceptance. Test custom bindings after restarting and loading a save. The game's cached prompts/layout screen may retain the original labels. Existing walking and short-press/long-press behavior is unchanged.
