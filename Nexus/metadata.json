@@ -26,7 +26,7 @@
   ],
   "fileName": "Dawnwalker-Controller-Tweaks.zip",
   "fileDisplayName": "Dawnwalker Controller Tweaks",
-  "fileDescription": "Adds Alternative controls and linked Bite/feeding controls. Reduces controller-related stutter by stopping unnecessary background checks. Requires UE4SS. Replace/reinstall through Vortex as Root (game folder). Your personal INI is preserved.",
+  "fileDescription": "Adds Alternative controls and linked Bite/feeding controls. Reduces controller-related stutter by stopping unnecessary background checks.",
   "sourceUrl": "https://github.com/my-mods/Dawnwalker-Controller-Tweaks",
   "nexusModId": 203,
   "nexusFileId": 634,
