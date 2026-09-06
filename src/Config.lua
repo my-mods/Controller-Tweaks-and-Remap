@@ -66,9 +66,10 @@ local function boolean(s)
     error('expected true or false', 0)
 end
 
-function M.parse(text)
-    local config = {enabled = true, debugLogging = false, bindings = {}}
-    for action, key in pairs(M.defaults) do config.bindings[action] = key end
+function M.parse(text, base)
+    base = base or {enabled = true, debugLogging = false, bindings = M.defaults}
+    local config = {enabled = base.enabled, debugLogging = base.debugLogging, bindings = {}}
+    for action, key in pairs(base.bindings) do config.bindings[action] = key end
     local section, seen, lineNumber = '', {}, 0
     text = text:gsub('^\239\187\191', '')
     for line in (text .. '\n'):gmatch('(.-)\n') do

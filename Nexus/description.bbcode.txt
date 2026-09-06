@@ -44,9 +44,11 @@ Use Vortex's replace/reinstall flow on the existing mod entry with the new ZIP, 
 Disable or remove the mod in Vortex, then deploy.
 
 [size=4][b]Compatibility and configuration[/b][/size]
-Close the game, open this mod using Vortex's Open in File Manager, and edit Dawnwalker/Binaries/Win64/ue4ss/Mods/DawnwalkerControllerTweaks/Scripts/ControllerTweaks.ini. Save, deploy and restart. For example, Combat_Block = LB assigns Block to the left shoulder. The file lists all bindings and supported controls; see the README for examples. Keep Player_Hub_Map and Player_Hub_Launch on the same control for the shared short-press/long-press shortcut. Timing and walking threshold remain fixed.
+Launch once, close the game, then edit %LOCALAPPDATA%/Dawnwalker/Saved/Config/ControllerTweaks.ini. The personal file is created only when missing, with the complete layout commented out. Uncomment and change only your desired settings, save and restart; personal edits do not require Vortex deployment. For example, Combat_Block = LB assigns Block to the left shoulder.
 
-Back up your INI before updating. The download includes a full default INI and does not merge preferences. Invalid entries reject the whole file, leaving the packaged layout active. Check UE4SS.log for [ControllerTweaks] messages. Menu navigation outside the preset is unchanged, and the game's cached prompts/layout screen may retain old labels. Runtime remapping requires an in-game check.
+The package supplies ControllerTweaks.defaults.ini with all 31 actions and all supported key names. Shipped defaults load first, then personal overrides. Omitted settings inherit current defaults. Your personal INI is never included in the ZIP or overwritten by the mod, so it survives updates and uninstall. Preserve any older INI stored inside the mod folder before the first upgrade; follow the release notes for migration.
+
+Invalid files are left untouched and reported in UE4SS.log with the [ControllerTweaks] prefix. Keep Player_Hub_Map and Player_Hub_Launch on the same control for the shared short-press/long-press shortcut; timing and walking threshold remain fixed. Cached prompts/layout labels may remain unchanged. Runtime remapping awaits in-game acceptance.
 
 Replaces [b]IA_Move[/b], [b]IA_Hub_Launch[/b], [b]IA_Hub_Map[/b] and [b]RIP_GamepadDefault[/b]. Other mods changing any of these assets need a compatibility patch. Different container filenames can still replace the same assets, so Vortex may show no file conflict. Load order alone cannot combine two edits to the same asset.
 

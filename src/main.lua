@@ -1,24 +1,25 @@
 -- Dawnwalker Controller Tweaks. MIT; see LICENSE.txt.
--- Uses reflected preset and Enhanced Input APIs; never writes game settings/saves.
+-- Uses reflected input APIs and a separate personal INI; never writes game settings/saves.
 local source = debug.getinfo(1, 'S').source:gsub('^@', '')
 local directory = assert(source:match('^(.*[/\\])'), 'Controller Tweaks: missing script directory')
 local Config = dofile(directory .. 'Config.lua')
+local ConfigStore = dofile(directory .. 'ConfigStore.lua')
 local function log(message) print('[ControllerTweaks] ' .. message .. '\n') end
-local file = io.open(directory .. 'ControllerTweaks.ini', 'rb')
-local config, configError
-if file then
-    local text = file:read('*a')
-    file:close()
-    config, configError = Config.parse(text)
-else
-    log('ControllerTweaks.ini missing; using the packaged controller defaults.')
-    config = Config.parse('')
+local config, configStopped, configLastError
+local function loadConfig()
+    if config or configStopped then return end
+    local err, status
+    config, err, status = ConfigStore.load(directory, Config, log)
+    if not config then
+        if err ~= configLastError then log(err); configLastError = err end
+        configStopped = status ~= 'retry'
+    elseif not config.enabled then
+        log('Runtime remapping disabled by personal/default configuration.')
+        configStopped = true
+    end
 end
-if not config then
-    log('Configuration rejected; runtime remapping disabled: ' .. configError)
-    return
-end
-if not config.enabled then log('Runtime remapping disabled by configuration.'); return end
+loadConfig()
+if configStopped then return end
 
 local function live(object)
     if object == nil then return false end
@@ -123,6 +124,8 @@ end
 
 local function tick()
     local ok, err = pcall(function()
+        loadConfig()
+        if not config or configStopped then return end
         local library = StaticFindObject('/Script/EnhancedInput.Default__EnhancedInputLibrary')
         if not live(library) then return end
         local subsystems = FindAllOf('RebelInputMappingSubsystem')
@@ -144,4 +147,4 @@ if type(LoopInGameThreadWithDelay) ~= 'function' then
     return
 end
 LoopInGameThreadWithDelay(1000, tick)
-log('INI loaded. Waiting for the default controller preset; checking input contexts once per second.')
+log('Waiting for personal settings and the default controller preset; checking input contexts once per second.')

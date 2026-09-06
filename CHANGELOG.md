@@ -1,18 +1,13 @@
 # Changes
 
-## 1.4.1 — 2026-09-06
-
-- Document all 31 controller actions directly in the INI, grouped by gameplay context.
-- Add the complete supported key reference, Xbox/PlayStation equivalents, full Unreal names and shared-button guidance.
-- Keep all configured defaults and runtime behavior unchanged.
-
 ## 1.4.0 — 2026-09-06
 
-- Add startup INI configuration for all 31 bindings in the default controller preset.
-- Preserve the current layout by default and reapply custom controls across input-context recreation.
-- Validate the whole configuration before applying it; retain keyboard/mouse bindings and action triggers.
-- Require a compatible UE4SS build for runtime remapping. The existing cooked assets are unchanged.
-- Prerelease: offline validation completed; in-game acceptance remains.
+- Add startup INI configuration for all 31 default-preset controller bindings, preserving the existing layout by default.
+- Store personal overrides outside the mod package so updates do not replace user edits; load omitted values from current shipped defaults.
+- Create a fully commented personal reference only when missing, or migrate an available legacy INI without overwriting an existing personal file.
+- Document all actions, supported aliases, full Unreal key names, Xbox/PlayStation equivalents and shared-button behavior.
+- Reapply custom controls across input-context recreation while preserving keyboard/mouse keys and action triggers.
+- Require a compatible UE4SS build. Cooked assets are unchanged; runtime remapping remains a prerelease awaiting in-game acceptance.
 
 ## 1.3.4 — 2026-09-05
 

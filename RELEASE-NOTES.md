@@ -1,17 +1,25 @@
-# Dawnwalker Controller Tweaks v1.4.1
+# Dawnwalker Controller Tweaks v1.4.0
 
-The INI now contains the complete configurable layout: all 31 actions with plain-language descriptions, all 20 supported key values with Xbox/PlayStation equivalents and full Unreal names, and guidance on stick clicks, axes, shared buttons and short press / long press behavior.
+Configure all 31 default-preset controller bindings with an INI. The shipped ControllerTweaks.defaults.ini contains the complete layout, action descriptions, Xbox/PlayStation equivalents and all supported key names.
 
-This is a documentation update. Binding values, Lua runtime files and cooked game assets are unchanged from v1.4.0.
+Personal overrides live at **%LOCALAPPDATA%\Dawnwalker\Saved\Config\ControllerTweaks.ini**, outside Vortex-managed files. Current shipped defaults load first; personal values take precedence. Omitted/commented settings inherit new defaults. The mod creates a commented reference only if the personal file is missing and never rewrites an existing personal file.
 
-## Updating and configuration
+## Installation and update
 
-Back up your personal INI. Close the game, replace/reinstall the existing Vortex mod entry from Dawnwalker-Controller-Tweaks.zip as Root (game folder), and deploy. Keep one enabled Controller Tweaks entry. The ZIP includes a complete default INI; replacement does not merge preferences. Transfer your chosen values into the new commented file.
+Requires a Dawnwalker-compatible UE4SS build with TMap and LoopInGameThreadWithDelay (reference: 3.0.1 Beta, 97b7e501c). The loader is separate; HUDTweaks is not required. Import Dawnwalker-Controller-Tweaks.zip into Vortex as Root (game folder), replace/reinstall the existing entry if present, and deploy. Keep one enabled entry and use the default controller preset. Older standalone controller and Map-shortcut mods remain superseded.
 
-Open the mod folder through Vortex and edit Dawnwalker/Binaries/Win64/ue4ss/Mods/DawnwalkerControllerTweaks/Scripts/ControllerTweaks.ini. Deploy and restart after changes. A Dawnwalker-compatible UE4SS build with TMap and LoopInGameThreadWithDelay is required (reference: 3.0.1 Beta, 97b7e501c). Use the default controller preset. HUDTweaks is not required; older standalone controller/Map-shortcut mods should remain disabled.
+Launch once, close the game, then edit the personal INI. Uncomment only values you want to change and restart. Personal edits do not require redeployment. Reinstall this revised archive even if Vortex already displays 1.4.0 so it processes the new defaults filename and configuration loader.
+
+## Migration from an INI inside the mod folder
+
+Before replacing an older archive, back up the edited Scripts/ControllerTweaks.ini using Vortex's Open in File Manager. Vortex may remove that old file during replacement before the updated mod can read it.
+
+With the game closed, copy that backup to %LOCALAPPDATA%\Dawnwalker\Saved\Config\ControllerTweaks.ini if no personal file exists. If one already exists, transfer only the desired settings manually; do not overwrite it. A full migrated INI preserves all its explicit values; remove or comment out entries you want to inherit from future defaults.
+
+If a valid legacy Scripts/ControllerTweaks.ini is still present on first startup and the personal file is absent, the mod copies it byte for byte without changing the original. An existing personal file always wins. Invalid or unreadable files are preserved and reported in UE4SS.log rather than silently replaced. If the game's Saved/Config folder is not available yet, creation waits and retries.
 
 ## Validation
 
-The documented INI parses to the same 31 bindings and general settings as v1.4.0. All supported aliases and full key names are documented. The actual ZIP, Vortex destination planning and cooked-container round-trip are verified before publication.
+Offline tests cover layered defaults and partial overrides, preservation across repeated starts and simulated updates, empty/read-only/invalid personal files, first creation, legacy migration, concurrent creation, and startup/loading/possession behavior. Actual ZIP contents, stable repeat builds, installed Vortex destination planning and container round-trip are verified before publication. The archive contains no personal ControllerTweaks.ini.
 
-This remains a prerelease because v1.4.0 runtime remapping still awaits in-game acceptance. Test custom bindings after restarting and loading a save. The game's cached prompts/layout screen may retain the original labels. Existing walking and short-press/long-press behavior is unchanged.
+Prerelease: in-game acceptance remains pending. Test custom bindings after restarting and loading a save; check [ControllerTweaks] messages in UE4SS.log. Cached prompts/layout labels may remain unchanged. Existing walking and short-press/long-press behavior and cooked containers are preserved.

@@ -19,17 +19,21 @@ Requires **UE4SS compatible with Dawnwalker**, including its TMap API and `LoopI
 2. Import it into Vortex 1.14 or newer as **Root (game folder)**, then enable and deploy.
 3. Select the game's **default controller preset**.
 
-To update, back up your edited INI, then use Vortex's replace/reinstall flow on the existing entry with the new ZIP and deploy. The ZIP includes a complete default INI; replacement does **not** merge your preferences. Restore your chosen values into the new file. Keep one enabled Controller Tweaks entry.
+To update, use Vortex's replace/reinstall flow on the existing entry with the new ZIP and deploy. Keep one enabled Controller Tweaks entry. Personal settings under your Windows profile are outside the archive and survive replacement and uninstall. For the first upgrade from a package that stored your INI inside the mod folder, preserve that file before reinstalling; see the release notes for migration.
 
-To uninstall, close the game, disable/remove the mod and deploy through Vortex. Restart the game to discard runtime changes.
+To uninstall, close the game, disable/remove the mod and deploy through Vortex. Restart to discard runtime changes. The personal INI remains for future installs; remove it yourself only if you want to reset your preferences.
 
 ## Configuration
 
-Close the game. In Vortex, use **Open in File Manager** on this mod and open:
+Launch the game once with the mod, then close it. Open this directory using File Explorer's address bar:
 
-`Dawnwalker/Binaries/Win64/ue4ss/Mods/DawnwalkerControllerTweaks/Scripts/ControllerTweaks.ini`
+`%LOCALAPPDATA%\Dawnwalker\Saved\Config`
 
-Edit the physical button beside each action, save, deploy through Vortex and restart the game. For example, these overrides restore the stock combat shoulder/trigger arrangement:
+Edit **ControllerTweaks.ini** there. The mod creates it only if missing, with the complete documented layout and every setting commented out. Uncomment only the settings you want to change, save and restart the game. Editing this personal file does not require Vortex deployment.
+
+The archive includes **ControllerTweaks.defaults.ini**, which documents all 31 actions and all supported controls. It is the maintained default configuration; do not edit it for personal preferences. The mod loads shipped defaults first and then applies only values present in your personal INI. Omitted/commented values inherit current defaults, including new settings added by future releases. Existing personal files are never rewritten, even when empty, malformed or read-only.
+
+For example, these overrides restore the stock combat shoulder/trigger arrangement:
 
 ```ini
 [Bindings]
@@ -41,7 +45,7 @@ Player_Abilities_Gamepad = RB
 Player_Shadowstep = RT
 ```
 
-The included INI documents all 31 actions, grouped by gameplay context, plus every supported key alias and full Unreal key name. Comments explain stick clicks versus stick axes, shared buttons and the fixed short-press/long-press behavior. Values are case-insensitive:
+The shipped defaults file documents all 31 actions, grouped by gameplay context, plus every supported key alias and full Unreal key name. Comments explain stick clicks versus stick axes, shared buttons and the fixed short-press/long-press behavior. Values are case-insensitive:
 
 | INI value | Physical control / PlayStation equivalent |
 | --- | --- |
@@ -57,7 +61,7 @@ The equivalent full `Gamepad_*` names are also accepted. Each entry names the ph
 
 Several actions intentionally share buttons in different contexts. Keep paired actions consistent where appropriate: Focus Mode/Combat Abilities, Attack/Overworld Abilities, and the two hub shortcuts. Assigning two simultaneous actions to one button can trigger both; the mod does not invent new chords or resolve those conflicts. Menu confirm/cancel navigation outside the preset is not configurable here. Movement/camera require stick axes, and button actions cannot use those axes.
 
-Missing entries use this mod's defaults. Unknown settings, unknown controls, duplicate entries and incompatible axis assignments reject the whole file and leave the packaged layout in effect. `[General] Enabled = false` disables only INI remapping; the packaged shoulder/trigger swap, walking and hub changes remain. `DebugLogging = true` reports updates in `ue4ss/UE4SS.log`. Search the log for `[ControllerTweaks]` if controls do not change.
+Missing personal entries inherit the current shipped defaults. Unknown settings, unknown controls, duplicate entries and incompatible axis assignments reject the whole file and leave the packaged layout in effect. `[General] Enabled = false` disables only INI remapping; the packaged shoulder/trigger swap, walking and hub changes remain. `DebugLogging = true` reports updates in `ue4ss/UE4SS.log`. Search the log for `[ControllerTweaks]` if controls do not change.
 
 ## Compatibility
 
