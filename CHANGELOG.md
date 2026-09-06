@@ -1,9 +1,5 @@
 # Changes
 
-## Unreleased
-
-- Remove the Easier walking threshold override to address reported Shapeshift/Mercurial Fervour interruption when steering. Restore the original 0.70 movement threshold.
-
 ## 1.5.0 — 2026-09-06
 
 - Reduce controller-related stutter by stopping unnecessary background checks.

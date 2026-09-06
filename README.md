@@ -8,10 +8,10 @@ Controller improvements for *The Blood of Dawnwalker* on PC, with one personal I
 - **Linked Bite controls:** `Player_Drink_Blood` starts Voracious Bite in Focus and controls the hold while feeding. Necrospeak in Focus shares this button.
 - **Alternative preset support:** retains the original Alternative layout, with Bite/feeding on LB/L1 instead of X/Square to avoid the Attack conflict.
 - **Shoulder/trigger swap in the Default preset:** LB ↔ LT and RB ↔ RT (PlayStation L1 ↔ L2 and R1 ↔ R2), including Photo Mode.
-- **Original movement input:** uses the game’s standard 0.70 movement threshold.
+- **Easier walking:** raises the left-stick walk-to-run threshold from 0.70 to 0.90.
 - **Short press / long press:** by default, Back/View (PlayStation touchpad) opens the Map on a short press and the Game Hub on a long press (0.30 seconds).
 
-With the Default layout, Block is LT, Focus Mode/Combat Abilities LB, Attack/Overworld Abilities RT, and Shadowstep RB. Alternative retains its face-button attack/block layout and uses LT/L2 for Focus; Map/Game Hub improvements work with either preset.
+With the Default layout, Block is LT, Focus Mode/Combat Abilities LB, Attack/Overworld Abilities RT, and Shadowstep RB. Alternative retains its face-button attack/block layout and uses LT/L2 for Focus; walking and Map/Game Hub improvements work with either preset.
 
 ## Requirements and installation
 
@@ -75,11 +75,11 @@ The shipped defaults file documents all 31 actions, grouped by gameplay context,
 | LeftStick, RightStick | Two-dimensional stick axes; movement/camera only |
 | RightStickLeft, RightStickRight | Right-stick directions used for target switching |
 
-The equivalent full `Gamepad_*` names are also accepted. Each entry names the physical control to press, not another action. Assign both `Player_Hub_Map` and `Player_Hub_Launch` to the same button to retain their shared short-press/long-press shortcut. Their 0.30-second timing remains fixed. Movement uses the original 0.70 threshold.
+The equivalent full `Gamepad_*` names are also accepted. Each entry names the physical control to press, not another action. Assign both `Player_Hub_Map` and `Player_Hub_Launch` to the same button to retain their shared short-press/long-press shortcut. Their 0.30-second timing and the 0.90 walking threshold remain fixed.
 
 Several actions intentionally share buttons in different contexts. Keep paired actions consistent where appropriate: Focus Mode/Combat Abilities, Attack/Overworld Abilities, and the two hub shortcuts. Assigning two simultaneous actions to one button can trigger both; the mod does not invent new chords or resolve those conflicts. Menu confirm/cancel navigation outside the preset is not configurable here. Movement/camera require stick axes, and button actions cannot use those axes.
 
-Missing personal entries inherit the defaults for the selected preset. Unknown settings, unknown controls, duplicate entries and incompatible axis assignments reject the whole file and leave the packaged layout in effect. `[General] Enabled = false` disables only INI remapping; the packaged shoulder/trigger swap, linked Focus Bite/Necrospeak input, hub changes remain. Alternative INI support and its LB Bite default require remapping enabled; a disabled/invalid INI can therefore leave the original Alternative X conflict. `DebugLogging = true` reports updates in `ue4ss/UE4SS.log`. Search the log for `[ControllerTweaks]` if controls do not change.
+Missing personal entries inherit the defaults for the selected preset. Unknown settings, unknown controls, duplicate entries and incompatible axis assignments reject the whole file and leave the packaged layout in effect. `[General] Enabled = false` disables only INI remapping; the packaged shoulder/trigger swap, linked Focus Bite/Necrospeak input, walking and hub changes remain. Alternative INI support and its LB Bite default require remapping enabled; a disabled/invalid INI can therefore leave the original Alternative X conflict. `DebugLogging = true` reports updates in `ue4ss/UE4SS.log`. Search the log for `[ControllerTweaks]` if controls do not change.
 
 ## Compatibility
 
@@ -87,6 +87,6 @@ Replaces `IA_Move`, `IA_Hub_Launch`, `IA_Hub_Map`, `RIP_GamepadDefault`, and `DA
 
 Earlier standalone shoulder/trigger and TapMapHoldMenu/controller compatibility mods are superseded; disable them through Vortex. This mod has its own UE4SS directory and no HUDTweaks overrides. All three `zzz_DawnwalkerControllerTweaks_P` container files must come from the same release.
 
-Based on Steam build **25129649 / CL-257186**. The existing shoulder/trigger and hub behavior is preserved. The game's cached button prompts or controller-layout screen may show the original preset even when a runtime binding changes. Actual actions follow your chosen bindings. Game and Steam Input deadzones affect the walking range.
+Based on Steam build **25129649 / CL-257186**. The existing shoulder/trigger, walking and hub behavior is preserved. The game's cached button prompts or controller-layout screen may show the original preset even when a runtime binding changes. Actual actions follow your chosen bindings. Game and Steam Input deadzones affect the walking range.
 
 Original mod work is licensed under [MIT](LICENSE.txt). Game assets belong to their respective rightsholders and are not relicensed.

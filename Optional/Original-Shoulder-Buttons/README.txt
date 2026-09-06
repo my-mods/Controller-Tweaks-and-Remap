@@ -6,7 +6,7 @@ and the game's default controller preset. This download contains no loader
 or cooked mod assets. Install the main mod through Vortex first.
 
 This preset restores the original LB/LT and RB/RT bindings (L1/L2 and R1/R2),
-including Photo Mode. Short press Map / long press Game Hub
+including Photo Mode. Easier walking and short press Map / long press Game Hub
 remain supplied by the main mod. Quickslots and other bindings inherit its
 defaults. The INI includes the full commented layout and supported key names.
 
