@@ -1,4 +1,4 @@
-# Dawnwalker Controller Tweaks
+# Controller Tweaks and Remap
 
 Controller improvements for *The Blood of Dawnwalker* on PC, with one personal INI for all 31 bindings in the Default and Alternative controller presets.
 
@@ -15,11 +15,11 @@ With the Default layout, Block is LT, Focus Mode/Combat Abilities LB, Attack/Ove
 
 Requires **UE4SS compatible with Dawnwalker**, including its TMap API and `LoopInGameThreadWithDelay`. The reference build is **3.0.1 Beta, commit 97b7e501c**. The older UE4SS 3.0.0 stable release does not provide all required APIs. Install the appropriate loader through Vortex separately; it is not bundled. HUDTweaks is not required.
 
-1. Download **Dawnwalker-Controller-Tweaks.zip** from [Releases](https://github.com/my-mods/Dawnwalker-Controller-Tweaks/releases).
+1. Download **Dawnwalker-Controller-Tweaks.zip** from [Releases](https://github.com/my-mods/Dawnwalker-Controller-Tweaks-and-Remap/releases).
 2. Import it into Vortex 1.14 or newer as **Root (game folder)**, then enable and deploy.
 3. Select **Default** or **Alternative** in the game's controller settings, then restart the game.
 
-To update, use Vortex's replace/reinstall flow on the existing entry with the new ZIP and deploy. Keep one enabled Controller Tweaks entry. Personal settings under your Windows profile are outside the archive and survive replacement and uninstall. For the first upgrade from a package that stored your INI inside the mod folder, preserve that file before reinstalling; see the release notes for migration.
+To update, use Vortex's replace/reinstall flow on the existing entry with the new ZIP and deploy. Keep one enabled Controller Tweaks and Remap entry. Personal settings under your Windows profile are outside the archive and survive replacement and uninstall. For the first upgrade from a package that stored your INI inside the mod folder, preserve that file before reinstalling; see the release notes for migration.
 
 To uninstall, close the game, disable/remove the mod and deploy through Vortex. Restart to discard runtime changes. The personal INI remains for future installs; remove it yourself only if you want to reset your preferences.
 

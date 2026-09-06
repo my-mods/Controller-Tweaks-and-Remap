@@ -1,6 +1,6 @@
 Original Shoulder Buttons - optional preset 1.4.0
 
-Requires Dawnwalker Controller Tweaks 1.4.0 and compatible UE4SS.
+Requires Controller Tweaks and Remap 1.4.0 and compatible UE4SS.
 Manual download and personal-profile configuration only. Back up your INI
 before replacing it, or merge only the documented entries into existing
 sections to preserve other settings. See README.txt for exact instructions.

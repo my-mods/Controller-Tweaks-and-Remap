@@ -1,5 +1,5 @@
 {
-  "name": "Dawnwalker Controller Tweaks",
+  "name": "Controller Tweaks and Remap",
   "version": "1.5.0",
   "game": "The Blood of Dawnwalker",
   "nexusDomain": "thebloodofdawnwalker",
@@ -25,9 +25,9 @@
     "Dawnwalker-compatible UE4SS with TMap and LoopInGameThreadWithDelay"
   ],
   "fileName": "Dawnwalker-Controller-Tweaks.zip",
-  "fileDisplayName": "Dawnwalker Controller Tweaks",
+  "fileDisplayName": "Controller Tweaks and Remap",
   "fileDescription": "Adds Alternative controls and linked Bite/feeding controls. Reduces controller-related stutter by stopping unnecessary background checks.",
-  "sourceUrl": "https://github.com/my-mods/Dawnwalker-Controller-Tweaks",
+  "sourceUrl": "https://github.com/my-mods/Dawnwalker-Controller-Tweaks-and-Remap",
   "nexusModId": 203,
   "nexusFileId": 753,
   "tags": [

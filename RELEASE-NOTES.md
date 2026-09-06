@@ -1,4 +1,4 @@
-# Dawnwalker Controller Tweaks v1.5.0
+# Controller Tweaks and Remap v1.5.0
 
 This minor update adds Alternative controller support and links the Bite controls. It also removes unnecessary background checks to address controller-related stutter.
 
@@ -11,7 +11,7 @@ This minor update adds Alternative controller support and links the Bite control
 
 ## Updating
 
-Close the game. Replace/reinstall the existing Controller Tweaks entry in Vortex with Dawnwalker-Controller-Tweaks.zip as **Root (game folder)**, then deploy. Keep one enabled entry and restart the game after selecting Default or Alternative. Requires the separate Dawnwalker-compatible UE4SS loader (reference: 3.0.1 Beta, 97b7e501c). HUDTweaks is not required.
+Close the game. Replace/reinstall the existing Controller Tweaks and Remap entry in Vortex with Dawnwalker-Controller-Tweaks.zip as **Root (game folder)**, then deploy. Keep one enabled entry and restart the game after selecting Default or Alternative. Requires the separate Dawnwalker-compatible UE4SS loader (reference: 3.0.1 Beta, 97b7e501c). HUDTweaks is not required.
 
 Your personal **%LOCALAPPDATA%\Dawnwalker\Saved\Config\ControllerTweaks.ini** is preserved. With Alternative selected, change an explicit `Player_Drink_Blood = X` to `LB`, or comment it out to use the new default. Avoid assigning Bite to the same button as Attack or Focus. If every entry in an older INI is active, comment out settings you want to inherit from the selected layout. Save and restart after editing.
 

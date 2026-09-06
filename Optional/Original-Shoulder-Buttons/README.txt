@@ -1,7 +1,7 @@
 DAWNWALKER CONTROLLER TWEAKS - ORIGINAL SHOULDER BUTTONS
 Optional personal INI preset, version 1.4.0
 
-Requires the main Dawnwalker Controller Tweaks 1.4.0 mod, compatible UE4SS,
+Requires the main Controller Tweaks and Remap 1.4.0 mod, compatible UE4SS,
 and the game's default controller preset. This download contains no loader
 or cooked mod assets. Install the main mod through Vortex first.
 
@@ -60,5 +60,5 @@ remapping and this optional preset still require an in-game check, including
 after loading a save. Cached prompts may continue showing the old labels.
 This preset changes bindings only; it does not change triggers or modifiers.
 
-Source: https://github.com/my-mods/Dawnwalker-Controller-Tweaks
+Source: https://github.com/my-mods/Dawnwalker-Controller-Tweaks-and-Remap
 Original mod work is MIT-licensed; see LICENSE.txt.

@@ -1,4 +1,4 @@
-Dawnwalker Controller Tweaks package layout
+Controller Tweaks and Remap package layout
 
 Use Vortex's Root (game folder) installer. Runtime files use game-relative
 Dawnwalker/Content/Paks/~mods/ and Dawnwalker/Binaries/Win64/ue4ss/Mods/
