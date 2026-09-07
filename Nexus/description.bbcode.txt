@@ -8,8 +8,8 @@ Configure all 31 Default and Alternative controller bindings with a personal INI
 [b]Linked Voracious Bite controls[/b]
 Player_Drink_Blood controls both starting Bite in Focus and holding to feed. Necrospeak in Focus shares this button. Normal Interact and Death from Above keep their own bindings. Default uses X/Square; Alternative uses LB/L1 to avoid Attack on X/Square. If an old personal INI explicitly sets Player_Drink_Blood=X, change it to LB or comment it out when using Alternative. Keep Bite different from Attack and Focus. Keyboard Focus Bite/Necrospeak also follow the game's Drink Blood key.
 
-[b]Stutter improvement (1.5.0)[/b]
-Reduce controller-related stutter by stopping unnecessary background checks. Your controls are reapplied when needed after loading. INI edits still require a restart.
+[b]Controller stutter fixes (1.5.2)[/b]
+Stops completed background checks and combines duplicate input events so they do not repeatedly restart controller updates. Larger updates are spread across frames, and controls recover when needed after loading or controller preset changes. INI edits still require a restart.
 
 [b]Shoulder / trigger swap[/b]
 Swaps LB with LT and RB with RT in the default controller preset. PlayStation equivalents are L1 with L2 and R1 with R2.

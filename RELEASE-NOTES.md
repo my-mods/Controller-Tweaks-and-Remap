@@ -1,8 +1,8 @@
-# Controller Tweaks and Remap v1.5.1
+# Controller Tweaks and Remap v1.5.2
 
-Fixes Shapeshift and Mercurial Fervour ending when steering with easier walking enabled. The wider walking range remains, and full-stick movement strength is now consistent in every direction.
+Controller stutter fixes: completed background checks now stop correctly, duplicate input events are combined, and large updates are spread across frames. Controls recover when needed after loading or controller preset changes, without repeated completion callbacks or debug-log flooding.
 
-The previous controller stutter improvement is retained, along with Alternative preset support and linked Bite/feeding controls.
+The wider walking range, Shapeshift and Mercurial Fervour steering fix, Alternative preset support, and linked Bite/feeding controls are retained.
 
 ## Updating
 

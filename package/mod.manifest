@@ -5,7 +5,7 @@
     <modid>ControllerTweaksAndRemap</modid>
     <description>Configure controller bindings with an INI, swap shoulders and triggers, enjoy a wider walking range, and use short press Map / long press Game Hub. Requires UE4SS.</description>
     <author>Local compatibility mod</author>
-    <version>1.5.1</version>
+    <version>1.5.2</version>
     <created_on>2026-09-05</created_on>
   </info>
   <supports>
