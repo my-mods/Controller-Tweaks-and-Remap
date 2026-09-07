@@ -29,7 +29,7 @@
   "fileDescription": "Fixes Shapeshift and Mercurial Fervour ending when steering with easier walking enabled. Preserves the wider walking range and the previous stutter improvement.",
   "sourceUrl": "https://github.com/my-mods/Controller-Tweaks-and-Remap",
   "nexusModId": 203,
-  "nexusFileId": 753,
+  "nexusFileId": 827,
   "tags": [
     "AI Assisted",
     "AI Media"
