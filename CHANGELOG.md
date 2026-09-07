@@ -1,5 +1,9 @@
 # Changes
 
+## Unreleased
+
+- Fix Shapeshift and Mercurial Fervour ending when steering with easier walking enabled. Movement now uses a radial deadzone, preserving the wider walking range and full-stick strength in every direction.
+
 ## 1.5.0 — 2026-09-06
 
 - Reduce controller-related stutter by stopping unnecessary background checks.

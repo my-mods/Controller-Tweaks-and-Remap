@@ -8,7 +8,7 @@ Controller improvements for *The Blood of Dawnwalker* on PC, with one personal I
 - **Linked Bite controls:** `Player_Drink_Blood` starts Voracious Bite in Focus and controls the hold while feeding. Necrospeak in Focus shares this button.
 - **Alternative preset support:** retains the original Alternative layout, with Bite/feeding on LB/L1 instead of X/Square to avoid the Attack conflict.
 - **Shoulder/trigger swap in the Default preset:** LB ↔ LT and RB ↔ RT (PlayStation L1 ↔ L2 and R1 ↔ R2), including Photo Mode.
-- **Easier walking:** raises the left-stick walk-to-run threshold from 0.70 to 0.90.
+- **Easier walking:** raises the left-stick walk-to-run threshold from 0.70 to 0.90. A radial movement deadzone keeps full-stick strength consistent while steering, so Shapeshift and Mercurial Fervour stay active.
 - **Short press / long press:** by default, Back/View (PlayStation touchpad) opens the Map on a short press and the Game Hub on a long press (0.30 seconds).
 
 With the Default layout, Block is LT, Focus Mode/Combat Abilities LB, Attack/Overworld Abilities RT, and Shadowstep RB. Alternative retains its face-button attack/block layout and uses LT/L2 for Focus; walking and Map/Game Hub improvements work with either preset.
@@ -83,10 +83,10 @@ Missing personal entries inherit the defaults for the selected preset. Unknown s
 
 ## Compatibility
 
-Replaces `IA_Move`, `IA_Hub_Launch`, `IA_Hub_Map`, `RIP_GamepadDefault`, and `DA_FocusConfig`. Other mods changing these assets need a compatibility patch, even if Vortex shows no file conflict. Other runtime controller remappers can also compete with the INI settings.
+Replaces `IMC_Base`, `IA_Move`, `IA_Hub_Launch`, `IA_Hub_Map`, `RIP_GamepadDefault`, and `DA_FocusConfig`. Other mods changing these assets need a compatibility patch, even if Vortex shows no file conflict. Other runtime controller remappers can also compete with the INI settings.
 
 Earlier standalone shoulder/trigger and TapMapHoldMenu/controller compatibility mods are superseded; disable them through Vortex. This mod has its own UE4SS directory and no HUDTweaks overrides. All three `zzz_DawnwalkerControllerTweaks_P` container files must come from the same release.
 
-Based on Steam build **25129649 / CL-257186**. The existing shoulder/trigger, walking and hub behavior is preserved. The game's cached button prompts or controller-layout screen may show the original preset even when a runtime binding changes. Actual actions follow your chosen bindings. Game and Steam Input deadzones affect the walking range.
+Based on Steam build **25129649 / CL-257186**. The game's cached button prompts or controller-layout screen may show the original preset even when a runtime binding changes. Actual actions follow your chosen bindings. Movement uses a fixed 0.25 radial base deadzone; camera input retains the game's original modifier. A custom `rw.Input.BaseDeadzone` value no longer controls the movement mapping. Game and Steam Input processing can still affect the walking range.
 
 Original mod work is licensed under [MIT](LICENSE.txt). Game assets belong to their respective rightsholders and are not relicensed.

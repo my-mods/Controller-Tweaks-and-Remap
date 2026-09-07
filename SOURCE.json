@@ -30,7 +30,21 @@
     "capturedFrom": "Stock Dawnwalker-Windows.utoc/ucas with matching global containers, installed Steam build 25129649, extracted using retoc --version UE5_5 and UAssetGUI 3228c1e",
     "capturedOn": "2026-09-05",
     "validation": "Exact export payload and tag validated; actual ZIP round-trip tests; native movement feel pending",
-    "scope": "Processed input threshold; no movement-vector scaling or new Lua hooks"
+    "scope": "Processed input threshold; no movement-vector scaling or new Lua hooks",
+    "radialDeadzone": {
+      "asset": "/Game/_Dawnwalker/Player/Input/MappingContexts/IMC_Base",
+      "export": "SettingsStickDeadzoneInputModifier_1",
+      "class": "/Script/EnhancedInput.InputModifierDeadZone",
+      "lowerThreshold": 0.25,
+      "upperThreshold": 1,
+      "type": "Radial",
+      "serialization": "LowerThreshold override; UpperThreshold and Type inherit verified native class defaults",
+      "stockJsonSha256": "51996cc5197f503cc2566e16df9599b110228cd659014d0c38244bd36a35d7c4",
+      "modifiedJsonSha256": "c0ac037ea22ec208dd33604d0a9f8b76b5ee94d3c2c9fcee9764882c279eadce",
+      "capturedOn": "2026-09-07",
+      "source": "Stock Dawnwalker-Windows containers, Steam build 25129649 / CL-257186",
+      "scope": "Movement mapping only; look deadzone and keyboard mappings unchanged. Replaces movement use of rw.Input.BaseDeadzone with a fixed 0.25 radial deadzone."
+    }
   },
   "retiredCompass": {
     "removedIn": "1.3.0",
