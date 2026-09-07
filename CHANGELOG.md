@@ -1,8 +1,8 @@
 # Changes
 
-## Unreleased
+## 1.5.1 — 2026-09-07
 
-- Fix Shapeshift and Mercurial Fervour ending when steering with easier walking enabled. Movement now uses a radial deadzone, preserving the wider walking range and full-stick strength in every direction.
+- Fix Shapeshift and Mercurial Fervour ending when steering with easier walking enabled. The wider walking range is preserved.
 
 ## 1.5.0 — 2026-09-06
 

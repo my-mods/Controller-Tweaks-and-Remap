@@ -1,0 +1,1 @@
+Fix Shapeshift and Mercurial Fervour ending when steering with easier walking enabled. The wider walking range is preserved.

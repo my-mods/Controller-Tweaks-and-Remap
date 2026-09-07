@@ -22,7 +22,7 @@ Swaps LB with LT and RB with RT in the default controller preset. PlayStation eq
 The swap also applies in Photo Mode.
 
 [b]Easier walking[/b]
-Raises the left-stick walk-to-run threshold from 0.70 to 0.90, giving you a wider stick range for walking. A radial movement deadzone keeps full-stick strength consistent while steering, so Shapeshift and Mercurial Fervour stay active. Sprint bindings are preserved. Movement uses a fixed 0.25 radial base deadzone; custom rw.Input.BaseDeadzone values no longer control movement. Camera input retains its original modifier. Game and Steam Input deadzone settings affect the walking range you feel.
+Gives you a wider stick range for walking. Shapeshift and Mercurial Fervour stay active when you steer with the stick fully pushed. Sprint bindings are preserved.
 
 [b]Short press Map / long press Game Hub[/b]
 On Back/View (PlayStation touchpad):
@@ -32,7 +32,7 @@ On Back/View (PlayStation touchpad):
 [/list]
 
 [size=4][b]Requirements[/b][/size]
-The Blood of Dawnwalker on PC, a controller, either Default or Alternative controller preset, and a Dawnwalker-compatible UE4SS build with TMap and LoopInGameThreadWithDelay (reference: 3.0.1 Beta, 97b7e501c). Install [url=https://www.nexusmods.com/thebloodofdawnwalker/mods/18]UE4SS for Dawnwalker[/url] following its instructions. The loader is separate; HUDTweaks is not required.
+Install [url=https://www.nexusmods.com/thebloodofdawnwalker/mods/18]UE4SS for Dawnwalker[/url] following its instructions.
 
 [size=4][b]Vortex Installation[/b][/size]
 
@@ -60,7 +60,7 @@ With the game closed, back up your personal INI. If you have no preferences to k
 
 To remove the preset, comment out/remove those eight overrides and restart. The main mod's swap returns; other personal settings remain. There is no in-game configuration menu. Cached button prompts may retain their previous labels.
 
-Replaces [b]IMC_Base[/b], [b]IA_Move[/b], [b]IA_Hub_Launch[/b], [b]IA_Hub_Map[/b], [b]RIP_GamepadDefault[/b] and [b]DA_FocusConfig[/b]. Other mods changing any of these assets need a compatibility patch. 
+Other mods that change walking or controller controls may conflict.
 
 Based on Steam build [b]25129649 / CL-257186[/b].
 

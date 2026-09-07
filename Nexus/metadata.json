@@ -1,6 +1,6 @@
 {
   "name": "Controller Tweaks and Remap",
-  "version": "1.5.0",
+  "version": "1.5.1",
   "game": "The Blood of Dawnwalker",
   "nexusDomain": "thebloodofdawnwalker",
   "summary": "Configure controller bindings with an INI, swap shoulders and triggers, enjoy a wider walking range, and use short press Map / long press Game Hub. Requires UE4SS.",
@@ -26,7 +26,7 @@
   ],
   "fileName": "Controller-Tweaks-and-Remap.zip",
   "fileDisplayName": "Controller Tweaks and Remap",
-  "fileDescription": "Adds Alternative controls and linked Bite/feeding controls. Reduces controller-related stutter by stopping unnecessary background checks.",
+  "fileDescription": "Fixes Shapeshift and Mercurial Fervour ending when steering with easier walking enabled. Preserves the wider walking range and the previous stutter improvement.",
   "sourceUrl": "https://github.com/my-mods/Controller-Tweaks-and-Remap",
   "nexusModId": 203,
   "nexusFileId": 753,
