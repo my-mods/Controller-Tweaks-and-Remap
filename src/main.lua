@@ -65,6 +65,8 @@ local running, suspended, stopped, exhausted = false, false, false, false
 local retries, lastFrame, nextTry, recoveryContext = 20, nil, 0, nil
 local stats = {ticks=0, steps=0, names=0, rebuilds=0, ignored=0, maxMs=0}
 local wake, tick
+local ownerChecked = false
+local wakeStarted = 0
 
 local function cacheContext(context,index)
     local id=context:GetAddress()
@@ -140,10 +142,10 @@ local function reset()
     if not live(engine) then engineAttempts = 0 end
 end
 
-local function validState()
+local function validState(checkOwner)
     return state and same(currentWorld(), state.world) and live(state.object)
         and same(state.object:GetWorld(), state.world) and same(state.object:GetOuter(), state.owner)
-        and same(resolve(state.world), state.object)
+        and (not checkOwner or same(resolve(state.world), state.object))
 end
 
 local function beginPreset()
@@ -152,7 +154,8 @@ local function beginPreset()
     local full = preset:GetFullName()
     local alternative = full:sub(-#alternatePath) == alternatePath
     if not alternative and full:sub(-#presetPath) ~= presetPath then
-        state.unsupported = true; return true
+        state.rediscover=false
+        state.preset, state.unsupported = preset, true; return true
     end
     local mappings = preset.PresetMapping
     local inherited = alternative and #mappings == 7
@@ -167,6 +170,7 @@ local function beginPreset()
     local actions = {}
     for action, desired in pairs(bindings) do actions[#actions+1] = {action=action,desired=desired} end
     state.preset, state.targets, state.indices, state.slots = preset, {}, {}, {}
+    state.rediscover=false
     state.slot=0
     state.alternative, state.unsupported = alternative, false
     job = {phase='validate', index=1, actions=actions, changes={}, inherited=inherited, steps=0}
@@ -188,12 +192,15 @@ local function prepare()
     local owner = object:GetOuter()
     if not live(owner) then return false end
     state = {object=object, owner=owner, world=world, input=object.InputSystem, indices={}}
-    return beginPreset()
+    if beginPreset() then return true end
+    -- A discovered subsystem is not proof that its preset is ready.
+    state=nil
+    return false
 end
 
 local function startContext(context, index, all)
     job.context, job.contextIndex, job.all = context, index, all
-    job.phase, job.index, job.changed = 'mapping', 1, false
+    job.phase, job.index, job.changed, job.didRebuild = 'mapping', 1, false, false
     local mappings = context.Mappings
     job.count, job.address = #mappings, mappings:GetArrayDataAddress()
 end
@@ -276,12 +283,13 @@ local function step()
             local active=job
             if active.changed then
                 active.changed=false
+                active.didRebuild=true
                 library:RequestRebuildControlMappingsUsingContext(context,false)
                 stats.rebuilds=stats.rebuilds+1
             end
             if job~=active then return true end -- a native rebuild can dispatch travel
             if job.all then job.phase,job.index='contexts',job.contextIndex+1 else job=nil end
-            return true -- no second rebuild in this engine frame
+            return active.didRebuild -- no second rebuild in this engine frame
         end
         local mapping=at(mappings,job.index)
         local current=keyName(mapping.Key)
@@ -334,16 +342,20 @@ tick = function()
         if type(frame)~='number' then error('Frame counter unavailable') end
         if frame==lastFrame then return end
         lastFrame=frame
-        if not validState() then
+        if not validState(not ownerChecked) then
             -- Owner churn must not renew the finite readiness budget indefinitely.
             state,job,requested=nil,nil,{};return
         end
-        if not same(state.object:GetActiveGamepadPreset(),state.preset) and not state.unsupported then
+        ownerChecked=true
+        if not same(state.object:GetActiveGamepadPreset(),state.preset) then
             job,requested=nil,{}; if not beginPreset() then state=nil;return end
         end
         if state.unsupported then requested={};return end
-        for _=1,MAX_STEPS do
-            if os.clock()-started>=MAX_SECONDS then break end
+        for unit=1,MAX_STEPS do
+            -- The clock includes preparation. Reserve one bounded step when a
+            -- native prelude overruns the soft target, rather than starving the
+            -- job forever. Later steps must fit the remaining elapsed budget.
+            if unit>1 and os.clock()-started>=MAX_SECONDS then break end
             if not job then nextJob() end
             if not job then break end
             stats.steps=stats.steps+1
@@ -361,8 +373,8 @@ tick = function()
     if exhausted or (state and not job and not next(requested) and not state.rediscover) or configStopped then
         running=false
         if config and config.debugLogging then
-            log(string.format('Work summary: %d callbacks, %d steps, %d mapping queries, %d rebuilds, %d ignored events; max callback %.3f ms.',
-                stats.ticks,stats.steps,stats.names,stats.rebuilds,stats.ignored,stats.maxMs))
+            log(string.format('Work summary: wake completed in %.1f ms; %d callbacks, %d steps, %d mapping queries, %d rebuilds, %d ignored events; max callback %.3f ms.',
+                (os.clock()-wakeStarted)*1000,stats.ticks,stats.steps,stats.names,stats.rebuilds,stats.ignored,stats.maxMs))
         end
         if exhausted and not lastError then log('Input setup not ready; stopped until a new input owner, load or possession.') end
         return true
@@ -373,6 +385,8 @@ end
 wake=function()
     if stopped or suspended or configStopped or exhausted or running then return end
     running=true
+    ownerChecked=false
+    wakeStarted=os.clock()
     LoopInGameThreadWithDelay(16,tick)
 end
 
@@ -397,12 +411,16 @@ local hooksOK,hookError=pcall(function()
         if stopped or suspended or configStopped then return end
         local caller,target=unwrap(context),unwrap(mappingContext)
         if not state then wake();return end
-        if not live(state.object) then state,job,requested=nil,nil,{};wake();return end
-        if not same(caller,state.object.InputSystem) or not live(target) then stats.ignored=stats.ignored+1;return end
-        if not validState() then state,job,requested=nil,nil,{};wake();return end
-        -- Coalesce by native identity; wrapper identity is not stable across callbacks.
-        -- A bounded inbox prevents asset/event floods retaining unlimited objects.
+        if not live(target) then return end
+        -- Coalesce before reflected owner/property reads. Native wrapper identity
+        -- can change between calls, so use the target's native address.
         local id=target:GetAddress()
+        if requested[id] then return end
+        if not live(state.object) then state,job,requested=nil,nil,{};wake();return end
+        if not same(caller,state.object.InputSystem) then stats.ignored=stats.ignored+1;return end
+        -- World/controller/subsystem resolution belongs to the worker, once per
+        -- wake. Continuing slices validate cached world and owner references.
+        -- A bounded inbox prevents asset/event floods retaining unlimited objects.
         if exhausted then
             -- A concrete new context can recover late readiness once; repeated
             -- events for the same context cannot renew an exhausted retry chain.
@@ -422,8 +440,12 @@ local hooksOK,hookError=pcall(function()
     local lastConstruction
     NotifyOnNewObject('/Script/RebelInput.RebelInputMappingSubsystem',function(object)
         -- Construction only schedules. Resolve the current owner later, on the game thread.
-        if stopped or suspended or configStopped or running or object==lastConstruction then return end
+        if stopped or suspended or configStopped or object==lastConstruction then return end
         lastConstruction=object
+        -- A still-valid old subsystem can be replaced while a slice is pending.
+        -- Re-resolve on the next worker frame, never inside construction.
+        ownerChecked=false
+        if running then return end
         -- Keep a successful owner; an unrelated construction must not rebuild it.
         if not state then retries,exhausted,nextTry=20,false,0 end
         wake()
