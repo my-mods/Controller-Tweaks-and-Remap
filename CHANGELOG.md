@@ -131,3 +131,5 @@
 - Changed the mixed Lua/PAK archive to Vortex's game-root layout with no duplicate payload.
 - Retain the original HUDTweaks source snapshot.
 - Game-native binding and visuals still require an in-game check after Vortex deployment.
+
+- Standardize the debug logging setting as `debugLogging`; retain existing configuration compatibility.
