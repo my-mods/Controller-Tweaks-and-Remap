@@ -29,7 +29,7 @@
   "fileDescription": "Controller stutter fixes: stop completed background checks, coalesce duplicate input events, and recover controls correctly after loading or preset changes. Personal INI settings are preserved. Requires UE4SS.",
   "sourceUrl": "https://github.com/my-mods/Controller-Tweaks-and-Remap",
   "nexusModId": 203,
-  "nexusFileId": 827,
+  "nexusFileId": 836,
   "tags": [
     "AI Assisted",
     "AI Media"
@@ -46,8 +46,8 @@
       "allowModManagerDownload": false,
       "primaryModManagerDownload": false,
       "updateModVersion": false,
-      "description": "Original Shoulder Buttons preset 1.5.2. Same eight bindings; refreshed documentation. Requires main 1.4.0 or newer and UE4SS. MANUAL ONLY: back up ControllerTweaks.ini before applying. Replacement overwrites preferences; see README to preserve other settings. Do not install via Vortex.",
-      "nexusFileId": 635
+      "description": "Preset 1.5.2: same eight bindings; refreshed docs. Requires main 1.4.0+ and UE4SS. MANUAL ONLY: back up ControllerTweaks.ini before applying. Replacement overwrites preferences; see README to preserve other settings. Do not install via Vortex.",
+      "nexusFileId": 837
     }
   ]
 }
