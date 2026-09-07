@@ -1,8 +1,11 @@
-Original Shoulder Buttons - optional preset 1.4.0
+Original Shoulder Buttons - optional preset 1.5.2
 
-Requires Controller Tweaks and Remap 1.4.0 and compatible UE4SS.
+Updated documentation and diagnostic-setting example for the current main
+release. The eight original shoulder-button bindings are unchanged. Existing
+users who already use this preset do not need to replace their personal INI.
+
+Requires Controller Tweaks and Remap 1.4.0 or newer and compatible UE4SS.
 Manual download and personal-profile configuration only. Back up your INI
-before replacing it, or merge only the documented entries into existing
-sections to preserve other settings. See README.txt for exact instructions.
-
-Offline validation passed; in-game remapping remains unverified.
+before replacing it. Replacement overwrites all existing preferences; it
+does not merge them. To preserve other settings, manually copy/update only
+the documented entries in the existing sections. See README.txt.

@@ -39,14 +39,14 @@
   "optionalFiles": [
     {
       "name": "Original Shoulder Buttons",
-      "version": "1.4.0",
+      "version": "1.5.2",
       "category": "optional",
       "fileName": "Dawnwalker-Controller-Tweaks-Original-Shoulder-Buttons.zip",
       "sourceFolder": "Optional/Original-Shoulder-Buttons",
       "allowModManagerDownload": false,
       "primaryModManagerDownload": false,
       "updateModVersion": false,
-      "description": "Requires main 1.4.0 + UE4SS. MANUAL ONLY: copy ControllerTweaks.ini to %LOCALAPPDATA%\\Dawnwalker\\Saved\\Config\\. Back up your INI first; replacement overwrites preferences. See README to merge changes. Do not install via Vortex.",
+      "description": "Original Shoulder Buttons preset 1.5.2. Same eight bindings; refreshed documentation. Requires main 1.4.0 or newer and UE4SS. MANUAL ONLY: back up ControllerTweaks.ini before applying. Replacement overwrites preferences; see README to preserve other settings. Do not install via Vortex.",
       "nexusFileId": 635
     }
   ]

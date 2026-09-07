@@ -12,4 +12,4 @@ Close the game, replace/reinstall the existing Controller Tweaks and Remap entry
 
 Other mods that change walking or controller controls may conflict. Disable earlier standalone shoulder/trigger and TapMapHoldMenu mods through Vortex.
 
-The optional Original Shoulder Buttons preset remains unchanged.
+The optional Original Shoulder Buttons preset is also version 1.5.2, with refreshed documentation. Its eight bindings are unchanged; existing users do not need to replace their personal INI.

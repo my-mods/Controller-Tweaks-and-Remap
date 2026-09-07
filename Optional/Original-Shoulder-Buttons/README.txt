@@ -1,7 +1,7 @@
 DAWNWALKER CONTROLLER TWEAKS - ORIGINAL SHOULDER BUTTONS
-Optional personal INI preset, version 1.4.0
+Optional personal INI preset, version 1.5.2
 
-Requires the main Controller Tweaks and Remap 1.4.0 mod, compatible UE4SS,
+Requires the main Controller Tweaks and Remap 1.4.0 or newer, compatible UE4SS,
 and the game's default controller preset. This download contains no loader
 or cooked mod assets. Install the main mod through Vortex first.
 
@@ -11,7 +11,7 @@ remain supplied by the main mod. Quickslots and other bindings inherit its
 defaults. The INI includes the full commented layout and supported key names.
 
 INSTALL / UPDATE - MANUAL DOWNLOAD ONLY
-1. Launch the game once with Controller Tweaks 1.4.0, then close the game.
+1. Launch the game once with the main mod enabled, then close the game.
 2. Open %LOCALAPPDATA%\Dawnwalker\Saved\Config in File Explorer.
 3. Back up your existing ControllerTweaks.ini before applying this preset.
 4. If you have no personal settings to keep, copy this download's
@@ -55,9 +55,8 @@ packaged swap; it disables INI remapping and leaves the cooked swap active.
 
 VALIDATION AND COMPATIBILITY
 The eight bindings are checked against the preserved original controller
-preset. INI parsing and archive contents are checked offline. Runtime
-remapping and this optional preset still require an in-game check, including
-after loading a save. Cached prompts may continue showing the old labels.
+preset. INI parsing and archive contents are checked offline. Cached prompts may
+continue showing the old labels.
 This preset changes bindings only; it does not change triggers or modifiers.
 
 Source: https://github.com/my-mods/Controller-Tweaks-and-Remap

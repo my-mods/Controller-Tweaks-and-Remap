@@ -1,3 +1,7 @@
+1.5.2
+- Refresh preset documentation and the diagnostic-setting example for the
+  current main release. The eight original shoulder-button bindings are unchanged.
+
 1.4.0
 - Restore the original LB/LT and RB/RT bindings, including Photo Mode, through
   a personal INI preset. Keep the main mod's walking and Map/Game Hub tweaks.
