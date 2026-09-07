@@ -1,5 +1,9 @@
 # Changes
 
+## Unreleased
+
+- Reduce recurring controller stutter by limiting input updates to the active player and affected context, spreading large updates across frames, and stopping unrelated events from restarting background checks.
+
 ## 1.5.1 — 2026-09-07
 
 - Fix Shapeshift and Mercurial Fervour ending when steering with easier walking enabled. The wider walking range is preserved.
