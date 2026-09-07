@@ -9,7 +9,7 @@
     <created_on>2026-09-05</created_on>
   </info>
   <supports>
-    <requires>UE4SS with TMap and LoopInGameThreadWithDelay (reference 97b7e501c)</requires>
+    <requires>UE4SS with TMap and ExecuteInGameThreadWithDelay (reference 97b7e501c)</requires>
     <game>The Blood of Dawnwalker</game>
     <steam_build>25129649</steam_build>
     <executable>dw1-pc-257186-shipping-patch2-all</executable>

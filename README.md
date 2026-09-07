@@ -15,7 +15,7 @@ With the Default layout, Block is LT, Focus Mode/Combat Abilities LB, Attack/Ove
 
 ## Requirements and installation
 
-Requires **UE4SS compatible with Dawnwalker**, including its TMap API and `LoopInGameThreadWithDelay`. The reference build is **3.0.1 Beta, commit 97b7e501c**. The older UE4SS 3.0.0 stable release does not provide all required APIs. Install the appropriate loader through Vortex separately; it is not bundled. HUDTweaks is not required.
+Requires **UE4SS compatible with Dawnwalker**, including its TMap API and `ExecuteInGameThreadWithDelay`. The reference build is **3.0.1 Beta, commit 97b7e501c**. The older UE4SS 3.0.0 stable release does not provide all required APIs. Install the appropriate loader through Vortex separately; it is not bundled. HUDTweaks is not required.
 
 1. Download the **main ZIP** from [Releases](https://github.com/my-mods/Controller-Tweaks-and-Remap/releases).
 2. Import it into Vortex 1.14 or newer as **Root (game folder)**, then enable and deploy.

@@ -4,6 +4,7 @@
 
 - Reduce recurring controller stutter by limiting input updates to the active player and affected context, spreading large updates across frames, and stopping unrelated events from restarting background checks.
 - Coalesce duplicate input events before owner checks, keep queued updates progressing under load, and recover correctly when controller presets become available or change.
+- Stop completed background workers correctly, preventing repeated callbacks and debug-log flooding after initialization or loading.
 
 ## 1.5.1 — 2026-09-07
 

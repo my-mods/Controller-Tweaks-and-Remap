@@ -67,6 +67,10 @@ local stats = {ticks=0, steps=0, names=0, rebuilds=0, ignored=0, maxMs=0}
 local wake, tick
 local ownerChecked = false
 local wakeStarted = 0
+local readyAt
+local scheduled, scheduleSerial = false, 0
+local schedule
+local phaseMax = {prepare=0, validate=0, step=0}
 
 local function cacheContext(context,index)
     local id=context:GetAddress()
@@ -137,6 +141,7 @@ end
 
 local function reset()
     state, job, requested = nil, nil, {}
+    readyAt=nil
     retries, exhausted, nextTry, recoveryContext = 20, false, 0, nil
     bootstrapAttempts = 0
     if not live(engine) then engineAttempts = 0 end
@@ -174,6 +179,7 @@ local function beginPreset()
     state.slot=0
     state.alternative, state.unsupported = alternative, false
     job = {phase='validate', index=1, actions=actions, changes={}, inherited=inherited, steps=0}
+    readyAt=readyAt or os.clock()
     if not state.conflictReported and bindings.Player_Drink_Blood == bindings.Combat_Attack then
         log('Binding conflict: Player_Drink_Blood and Combat_Attack both use '..bindings.Player_Drink_Blood
             ..'. Choose different buttons in your personal INI so Focus Bite and Death from Above can both work.')
@@ -325,7 +331,7 @@ local function nextJob()
 end
 
 tick = function()
-    if stopped or suspended or configStopped then running=false;return true end
+    if not running or stopped or suspended or configStopped then running=false;return true end
     local started=os.clock()
     stats.ticks=stats.ticks+1
     local ok,err=pcall(function()
@@ -336,8 +342,12 @@ tick = function()
             if os.clock()<nextTry then return end
             nextTry=os.clock()+0.25
             retries=retries-1
-            if not prepare() then return end
+            local preparing=os.clock()
+            local prepared=prepare()
+            phaseMax.prepare=math.max(phaseMax.prepare,(os.clock()-preparing)*1000)
+            if not prepared then return end
         end
+        local validating=os.clock()
         local frame=system:GetFrameCount()
         if type(frame)~='number' then error('Frame counter unavailable') end
         if frame==lastFrame then return end
@@ -351,6 +361,7 @@ tick = function()
             job,requested=nil,{}; if not beginPreset() then state=nil;return end
         end
         if state.unsupported then requested={};return end
+        phaseMax.validate=math.max(phaseMax.validate,(os.clock()-validating)*1000)
         for unit=1,MAX_STEPS do
             -- The clock includes preparation. Reserve one bounded step when a
             -- native prelude overruns the soft target, rather than starving the
@@ -359,7 +370,10 @@ tick = function()
             if not job then nextJob() end
             if not job then break end
             stats.steps=stats.steps+1
-            if step() then break end
+            local stepping=os.clock()
+            local yielded=step()
+            phaseMax.step=math.max(phaseMax.step,(os.clock()-stepping)*1000)
+            if yielded then break end
             if not state then break end
         end
     end)
@@ -373,8 +387,12 @@ tick = function()
     if exhausted or (state and not job and not next(requested) and not state.rediscover) or configStopped then
         running=false
         if config and config.debugLogging then
-            log(string.format('Work summary: wake completed in %.1f ms; %d callbacks, %d steps, %d mapping queries, %d rebuilds, %d ignored events; max callback %.3f ms.',
-                (os.clock()-wakeStarted)*1000,stats.ticks,stats.steps,stats.names,stats.rebuilds,stats.ignored,stats.maxMs))
+            local now=os.clock()
+            local ready=readyAt or now
+            log(string.format('Work summary: wake completed in %.1f ms (readiness %.1f ms, processing %.1f ms); %d callbacks, %d steps, %d mapping queries, %d rebuilds, %d ignored events; max callback %.3f ms; max prepare/validate/step %.3f/%.3f/%.3f ms.',
+                (now-wakeStarted)*1000,(ready-wakeStarted)*1000,(now-ready)*1000,
+                stats.ticks,stats.steps,stats.names,stats.rebuilds,stats.ignored,stats.maxMs,
+                phaseMax.prepare,phaseMax.validate,phaseMax.step))
         end
         if exhausted and not lastError then log('Input setup not ready; stopped until a new input owner, load or possession.') end
         return true
@@ -382,15 +400,33 @@ tick = function()
     return false
 end
 
+schedule=function(delay)
+    if scheduled or not running then return end
+    scheduled=true
+    scheduleSerial=scheduleSerial+1
+    local ticket=scheduleSerial
+    -- UE4SS delayed loops ignore callback return values. Use a one-shot action
+    -- and explicitly schedule a successor only while work remains.
+    ExecuteInGameThreadWithDelay(delay,function()
+        if ticket~=scheduleSerial or not scheduled then return end
+        scheduled=false
+        if tick() then return end
+        local nextDelay=16
+        if not state then nextDelay=math.max(16,math.min(250,math.ceil((nextTry-os.clock())*1000))) end
+        schedule(nextDelay)
+    end)
+end
+
 wake=function()
     if stopped or suspended or configStopped or exhausted or running then return end
     running=true
     ownerChecked=false
     wakeStarted=os.clock()
-    LoopInGameThreadWithDelay(16,tick)
+    readyAt=state and wakeStarted or nil
+    schedule(16)
 end
 
-for _,api in ipairs({'LoopInGameThreadWithDelay','NotifyOnNewObject','RegisterLoadMapPreHook','RegisterLoadMapPostHook','RegisterHook','FindFirstOf','StaticFindObject'}) do
+for _,api in ipairs({'ExecuteInGameThreadWithDelay','NotifyOnNewObject','RegisterLoadMapPreHook','RegisterLoadMapPostHook','RegisterHook','FindFirstOf','StaticFindObject'}) do
     if type(_G[api])~='function' then log('This UE4SS build lacks '..api..'; remapping disabled.');return end
 end
 local hookIds={}

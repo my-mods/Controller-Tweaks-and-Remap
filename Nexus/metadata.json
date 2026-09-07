@@ -22,7 +22,7 @@
     "Default or Alternative controller preset"
   ],
   "requiredMods": [
-    "Dawnwalker-compatible UE4SS with TMap and LoopInGameThreadWithDelay"
+    "Dawnwalker-compatible UE4SS with TMap and ExecuteInGameThreadWithDelay"
   ],
   "fileName": "Controller-Tweaks-and-Remap.zip",
   "fileDisplayName": "Controller Tweaks and Remap",
