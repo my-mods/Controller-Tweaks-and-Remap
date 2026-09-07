@@ -83,6 +83,18 @@
     "creation": "Windows no-replace rename from a completed temporary file; existing personal files are read only",
     "legacyMigration": "When the personal file is absent, copy a valid legacy Scripts/ControllerTweaks.ini without modifying the original; otherwise seed a fully commented reference"
   },
+  "experimentalInputFixes": {
+    "archive": "Controller-Tweaks-and-Remap-Experimental-Fixes.zip",
+    "baseVersion": "1.5.2",
+    "runtime": "src/ControllerProfile.lua and src/main.lua",
+    "profile": "RebelInput.Profile",
+    "controllerSlot": "Second (1)",
+    "aliases": "RebelInputMappingSubsystem.GetMappingInfo().MappedActionNames",
+    "application": "K2_FindKeyMapping preflight; MapPlayerKey with controller-only slot and no slot creation; readback; ApplySettings",
+    "focusPriority": "Local-player IMC_FocusMode requested priority 0 becomes 1 through DWSystemBlueprintFunctionLibrary.AddInputMappingContext prehook",
+    "settingsPersistence": "No save calls",
+    "loader": "Dawnwalker UE4SS RC5 for build 25129649, including reflected struct ref/out support"
+  },
   "focusBite": {
     "status": "1.5.0 prerelease; in-game verification pending",
     "gameBuild": "25129649",

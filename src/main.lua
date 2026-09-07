@@ -1,9 +1,10 @@
 -- Dawnwalker Controller Tweaks. MIT; see LICENSE.txt.
--- Uses reflected input APIs and a separate personal INI; never writes game settings/saves.
+-- Uses reflected input APIs and a separate personal INI; never saves game settings.
 local source = debug.getinfo(1, 'S').source:gsub('^@', '')
 local directory = assert(source:match('^(.*[/\\])'), 'Controller Tweaks: missing script directory')
 local Config = dofile(directory .. 'Config.lua')
 local ConfigStore = dofile(directory .. 'ConfigStore.lua')
+local ControllerProfile = dofile(directory .. 'ControllerProfile.lua')
 local function log(message) print('[ControllerTweaks] ' .. message .. '\n') end
 local config, configStopped, configLastError
 local function loadConfig()
@@ -63,7 +64,7 @@ local engineAttempts, bootstrapAttempts = 0, 0
 local state, job, requested = nil, nil, {}
 local running, suspended, stopped, exhausted = false, false, false, false
 local retries, lastFrame, nextTry, recoveryContext = 20, nil, 0, nil
-local stats = {ticks=0, steps=0, names=0, rebuilds=0, ignored=0, maxMs=0}
+local stats = {ticks=0, steps=0, names=0, rebuilds=0, ignored=0, maxMs=0,profileWrites=0}
 local wake, tick
 local ownerChecked = false
 local wakeStarted = 0
@@ -150,6 +151,9 @@ end
 local function validState(checkOwner)
     return state and same(currentWorld(), state.world) and live(state.object)
         and same(state.object:GetWorld(), state.world) and same(state.object:GetOuter(), state.owner)
+        and state.profile and live(state.profile.settings) and live(state.profile.profile)
+        and same(state.object.InputSystem:GetUserSettings(),state.profile.settings)
+        and same(state.profile.settings:GetCurrentKeyProfile(),state.profile.profile)
         and (not checkOwner or same(resolve(state.world), state.object))
 end
 
@@ -175,6 +179,7 @@ local function beginPreset()
     local actions = {}
     for action, desired in pairs(bindings) do actions[#actions+1] = {action=action,desired=desired} end
     state.preset, state.targets, state.indices, state.slots = preset, {}, {}, {}
+    state.profileTargets={}
     state.rediscover=false
     state.slot=0
     state.alternative, state.unsupported = alternative, false
@@ -198,6 +203,8 @@ local function prepare()
     local owner = object:GetOuter()
     if not live(owner) then return false end
     state = {object=object, owner=owner, world=world, input=object.InputSystem, indices={}}
+    state.profile=ControllerProfile.acquire(state.input)
+    if not state.profile then state=nil;return false end
     if beginPreset() then return true end
     -- A discovered subsystem is not proof that its preset is ready.
     state=nil
@@ -226,24 +233,48 @@ local function step()
         if actual ~= row.desired then job.changes[#job.changes+1] = {id=id,desired=row.desired} end
         local info = state.object:GetMappingInfo(id)
         local aliases = assert(info.MappedActionNames,'Missing MappedActionNames')
-        if #aliases > 64 then error('Input alias limit exceeded') end
-        local function add(alias)
+        if #aliases == 0 or #aliases > 64 then error('Missing or excessive input aliases for '..row.action) end
+        local function add(alias,profileAlias)
             alias=name(alias):lower()
             if alias=='' or alias=='none' then error('Invalid mapping name') end
             local previous=state.targets[alias]
             if previous and previous.desired~=row.desired then error('Conflicting controls for shared mapping '..alias) end
             state.targets[alias]={id=id,desired=row.desired}
+            if profileAlias then state.profileTargets[alias]=row.desired end
         end
         add(row.action)
-        for i=1,#aliases do add(at(aliases,i)) end
+        for i=1,#aliases do add(at(aliases,i),true) end
         job.index=job.index+1
     elseif job.phase == 'preset' then
         local change=job.changes[job.index]
-        if not change then job.phase,job.index='contexts',1; return end
+        if not change then
+            job.profileAliases={};for alias in pairs(state.profileTargets) do job.profileAliases[#job.profileAliases+1]=alias end
+            table.sort(job.profileAliases)
+            job.phase,job.index='profileCheck',1;return
+        end
         local mappings=state.preset.PresetMapping
         mappings:Add(change.id,{Key={KeyName=FName(change.desired)}})
         if keyName(unwrap(mappings:Find(change.id)).Key)~=change.desired then error('Preset write failed') end
         job.index=job.index+1
+    elseif job.phase == 'profileCheck' then
+        local alias=job.profileAliases[job.index]
+        if not alias then job.phase,job.index='profileApply',1;return end
+        ControllerProfile.inspect(state.profile,alias,state.profileTargets[alias])
+        job.index=job.index+1
+    elseif job.phase == 'profileApply' then
+        local alias=job.profileAliases[job.index]
+        if not alias then
+            local changed=job.profileChanged
+            if job.profileOnly then job=nil else job.phase,job.index='contexts',1 end
+            if changed then ControllerProfile.finish(state.profile);stats.rebuilds=stats.rebuilds+1;return true end
+            return
+        end
+        local changed=ControllerProfile.apply(state.profile,alias,state.profileTargets[alias])
+        if changed then
+            job.profileChanged=true;stats.profileWrites=stats.profileWrites+1
+        end
+        job.index=job.index+1
+        return changed -- one profile write/readback per frame; native notifications may rebuild
     elseif job.phase == 'contexts' then
         local contexts=state.object.RebindableContexts
         if job.index > #contexts then
@@ -313,6 +344,14 @@ local function step()
 end
 
 local function nextJob()
+    if state.refreshProfile then
+        state.refreshProfile=false
+        state.profile=assert(ControllerProfile.acquire(state.object.InputSystem),'Controller profile unavailable')
+        local aliases={};for alias in pairs(state.profileTargets) do aliases[#aliases+1]=alias end
+        table.sort(aliases)
+        job={phase='profileCheck',index=1,profileAliases=aliases,steps=0,profileOnly=true}
+        return
+    end
     local id,context=next(requested)
     if not id then
         if state.rediscover then
@@ -384,9 +423,10 @@ tick = function()
         exhausted=true;job=nil;requested={}
     end
     if retries<=0 and not job then exhausted=true end
-    if exhausted or (state and not job and not next(requested) and not state.rediscover) or configStopped then
+    if exhausted or (state and not job and not next(requested) and not state.rediscover and not state.refreshProfile) or configStopped then
         running=false
         if config and config.debugLogging then
+            log('Experimental controller profile: '..stats.profileWrites..' verified slot updates.')
             local now=os.clock()
             local ready=readyAt or now
             log(string.format('Work summary: wake completed in %.1f ms (readiness %.1f ms, processing %.1f ms); %d callbacks, %d steps, %d mapping queries, %d rebuilds, %d ignored events; max callback %.3f ms; max prepare/validate/step %.3f/%.3f/%.3f ms.',
@@ -430,12 +470,46 @@ for _,api in ipairs({'ExecuteInGameThreadWithDelay','NotifyOnNewObject','Registe
     if type(_G[api])~='function' then log('This UE4SS build lacks '..api..'; remapping disabled.');return end
 end
 local hookIds={}
-local function hook(path,callback)
-    local pre,post=RegisterHook(path,function() end,callback)
+local function hook(path,callback,before)
+    local pre,post=RegisterHook(path,before or function() end,callback)
     assert(type(pre)=='number' and type(post)=='number','Could not register '..path)
     hookIds[#hookIds+1]={path,pre,post}
 end
 local hooksOK,hookError=pcall(function()
+    local function refreshProfile()
+        if stopped or suspended or configStopped or lastError then return end
+        if state and not state.unsupported then state.refreshProfile=true end
+        wake()
+    end
+    local focusError
+    local function isFocus(target)
+        return live(target) and target:GetFullName():match('/IMC_FocusMode%.IMC_FocusMode$')
+    end
+    hook('/Script/DogwoodSystem.DWSystemBlueprintFunctionLibrary:AddInputMappingContext',function(_,worldContext,mappingContext)
+        if not isFocus(unwrap(mappingContext)) then return end
+        local ok,owned=pcall(function()
+            local pawn=unwrap(worldContext)
+            return live(pawn) and same(pawn:GetWorld(),currentWorld()) and pawn:IsLocallyControlled()
+        end)
+        if ok and owned then refreshProfile() end
+    end,function(_,worldContext,mappingContext,priority)
+        if stopped or suspended or configStopped or not config then return end
+        local ok,err=pcall(function()
+            local pawn,target=unwrap(worldContext),unwrap(mappingContext)
+            if not isFocus(target) or not live(pawn) or not same(pawn:GetWorld(),currentWorld()) or not pawn:IsLocallyControlled() then return end
+            if unwrap(priority)==0 then
+                priority:set(1)
+                if config.debugLogging then log('Focus input context priority: 0 -> 1.') end
+            end
+        end)
+        if not ok and not focusError then focusError=true;log('Focus priority adjustment unavailable: '..tostring(err)) end
+    end)
+    hook('/Script/RebelInput.RebelInputMappingSubsystem:ApplyPendingKeyboardMappings',function(context)
+        if state and same(unwrap(context),state.object) then refreshProfile() end
+    end)
+    hook('/Script/EnhancedInput.EnhancedInputSubsystemInterface:OnUserKeyProfileChanged',function(context)
+        if state and same(unwrap(context),state.object.InputSystem) then refreshProfile() end
+    end)
     hook('/Script/Engine.PlayerController:ClientRestart',function(context)
         local controller=unwrap(context)
         if not live(controller) or not controller:IsLocalController() then return end
@@ -454,6 +528,7 @@ local hooksOK,hookError=pcall(function()
         if requested[id] then return end
         if not live(state.object) then state,job,requested=nil,nil,{};wake();return end
         if not same(caller,state.object.InputSystem) then stats.ignored=stats.ignored+1;return end
+        state.refreshProfile=true
         -- World/controller/subsystem resolution belongs to the worker, once per
         -- wake. Continuing slices validate cached world and owner references.
         -- A bounded inbox prevents asset/event floods retaining unlimited objects.

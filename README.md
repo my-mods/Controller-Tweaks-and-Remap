@@ -4,6 +4,16 @@
 
 Controller improvements for *The Blood of Dawnwalker* on PC, with one personal INI for all 31 bindings in the Default and Alternative controller presets.
 
+## Experimental input fixes
+
+This branch provides **Controller-Tweaks-and-Remap-Experimental-Fixes.zip**, a complete alternative package based on 1.5.2.
+
+- Controller overrides update every linked action in the active input profile, including Focus actions whose context contains an unresolved key. Keyboard bindings retain their separate profile slot.
+- Focus controls take priority over ordinary interaction while Focus is active. This addresses shared Interact/Attack buttons such as X in Alternative without moving Interact globally.
+- Attack and the controller ability wheel can use different buttons. Both follow their own INI setting.
+
+See [Input bindings](INPUT-BINDINGS.md) for linked actions, input rules and configuration examples.
+
 - **Configurable controls:** assign a physical controller button to each action in `ControllerTweaks.ini`. Changes load at game startup.
 - **Linked Bite controls:** `Player_Drink_Blood` starts Voracious Bite in Focus and controls the hold while feeding. Necrospeak in Focus shares this button.
 - **Alternative preset support:** retains the original Alternative layout, with Bite/feeding on LB/L1 instead of X/Square to avoid the Attack conflict.
@@ -15,9 +25,9 @@ With the Default layout, Block is LT, Focus Mode/Combat Abilities LB, Attack/Ove
 
 ## Requirements and installation
 
-Requires **UE4SS compatible with Dawnwalker**, including its TMap API and `ExecuteInGameThreadWithDelay`. The reference build is **3.0.1 Beta, commit 97b7e501c**. The older UE4SS 3.0.0 stable release does not provide all required APIs. Install the appropriate loader through Vortex separately; it is not bundled. HUDTweaks is not required.
+Requires **Dawnwalker UE4SS RC5 for build 25129649**, including its reflected struct ref/out support, TMap API and `ExecuteInGameThreadWithDelay`. Its reference base is **3.0.1 Beta, commit 97b7e501c**. The older UE4SS 3.0.0 stable release does not provide all required APIs. Install the appropriate loader through Vortex separately; it is not bundled. HUDTweaks is not required.
 
-1. Download the **main ZIP** from [Releases](https://github.com/my-mods/Controller-Tweaks-and-Remap/releases).
+1. Download **Controller-Tweaks-and-Remap-Experimental-Fixes.zip**. Use this complete experimental package in place of the main package; do not enable both copies in Vortex.
 2. Import it into Vortex 1.14 or newer as **Root (game folder)**, then enable and deploy.
 3. Select **Default** or **Alternative** in the game's controller settings, then restart the game.
 
@@ -77,7 +87,7 @@ The shipped defaults file documents all 31 actions, grouped by gameplay context,
 
 The equivalent full `Gamepad_*` names are also accepted. Each entry names the physical control to press, not another action. Assign both `Player_Hub_Map` and `Player_Hub_Launch` to the same button to retain their shared short-press/long-press shortcut. Their 0.30-second timing and the 0.90 walking threshold remain fixed.
 
-Several actions intentionally share buttons in different contexts. Keep paired actions consistent where appropriate: Focus Mode/Combat Abilities, Attack/Overworld Abilities, and the two hub shortcuts. Assigning two simultaneous actions to one button can trigger both; the mod does not invent new chords or resolve those conflicts. Menu confirm/cancel navigation outside the preset is not configurable here. Movement/camera require stick axes, and button actions cannot use those axes.
+Several actions intentionally share buttons in different contexts. Focus Mode and Combat Abilities may share a button, but they do not have to match. Attack and Overworld Abilities are independent; Alternative already uses different buttons. Keep the two hub shortcuts together for short-press/long-press behavior. Focus receives priority over ordinary interaction, but arbitrary simultaneous actions can still block each other or both activate. The mod does not invent new chords. Menu confirm/cancel navigation outside the preset is not configurable here. Movement/camera require stick axes, and button actions cannot use those axes.
 
 Missing personal entries inherit the defaults for the selected preset. Unknown settings, unknown controls, duplicate entries and incompatible axis assignments reject the whole file and leave the packaged layout in effect. `[General] Enabled = false` disables only INI remapping; the packaged shoulder/trigger swap, linked Focus Bite/Necrospeak input, walking and hub changes remain. Alternative INI support and its LB Bite default require remapping enabled; a disabled/invalid INI can therefore leave the original Alternative X conflict. `debugLogging = true` reports updates in `ue4ss/UE4SS.log`. Search the log for `[ControllerTweaks]` if controls do not change.
 
