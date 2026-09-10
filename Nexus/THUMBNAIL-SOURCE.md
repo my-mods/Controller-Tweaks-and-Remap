@@ -7,3 +7,5 @@ Background: official in-game screenshot from [The Blood of Dawnwalker on Steam](
 The Blood of Dawnwalker imagery is copyright Rebel Wolves and Bandai Namco Entertainment. The mod's MIT license does not apply to this third-party game imagery.
 
 The thumbnail adds the mod title and a bottom fade for readability. It is illustrative promotional imagery, not a capture demonstrating this mod installed.
+
+The thumbnail title was updated using AI image editing from the supplied market reference. The accompanying banner is an AI-generated adaptation, exported as a 1300 × 372 JPEG. Both images use the title Controller Tweaks and Remap.

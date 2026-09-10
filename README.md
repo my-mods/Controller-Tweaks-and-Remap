@@ -1,6 +1,6 @@
 # Controller Tweaks and Remap
 
-![Controller Tweaks and Remap](Nexus/thumbnail.png)
+![Controller Tweaks and Remap](Nexus/thumbnail.jpg)
 
 Controller improvements for *The Blood of Dawnwalker* on PC, with one personal INI for all 31 bindings in the Default and Alternative controller presets.
 
