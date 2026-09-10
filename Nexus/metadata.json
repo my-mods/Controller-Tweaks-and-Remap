@@ -5,9 +5,9 @@
   "nexusDomain": "thebloodofdawnwalker",
   "summary": "Configure controller bindings with an INI, swap shoulders and triggers, enjoy a wider walking range, and use short press Map / long press Game Hub. Requires UE4SS.",
   "descriptionFile": "description.bbcode.txt",
-  "thumbnailFile": "thumbnail.png",
-  "thumbnailAltText": "Controller Tweaks title over an official in-game screenshot of Coen walking through a town market.",
-  "thumbnailIsAIGenerated": false,
+  "thumbnailFile": "thumbnail.jpg",
+  "thumbnailAltText": "Controller Tweaks and Remap title over an official in-game screenshot of Coen walking through a town market.",
+  "thumbnailIsAIGenerated": true,
   "suggestedCategory": "Gameplay",
   "keywords": [
     "Controller",
