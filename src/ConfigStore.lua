@@ -11,8 +11,9 @@ function M.load(directory, Config, log)
     local values, problem = Store.load(directory, schema, function()
         local base = os.getenv('LOCALAPPDATA')
         if not base then return nil, 'LOCALAPPDATA unavailable for legacy migration' end
-        local personal, pe, pc = Store.read(base .. '/Dawnwalker/Saved/Config/ControllerTweaks.ini')
-        if not personal and pc == 2 then personal, pe, pc = Store.read(directory .. 'ControllerTweaks.ini') end
+        local legacyPath = base .. '/Dawnwalker/Saved/Config/ControllerTweaks.ini'
+        local personal, pe, pc = Store.read(legacyPath)
+        if not personal and pc == 2 then legacyPath = directory .. 'ControllerTweaks.ini'; personal, pe, pc = Store.read(legacyPath) end
         if not personal and pc ~= 2 then return nil, pe end
         local cfg, ce = Config.parse(personal or '', defaults)
         if not cfg then return nil, ce end
@@ -23,7 +24,7 @@ function M.load(directory, Config, log)
             local key = explicit.bindings[action]
             if key then for i, name in ipairs(keys) do if name == key then result[action] = i end end end
         end
-        return result
+        return result, nil, personal and {{path=legacyPath, text=personal}} or nil
     end)
     if not values then return nil, problem, 'invalid' end
     local cfg = {enabled=values.enabled==1,debugLogging=values.debugLogging==1,bindings={},alternateBindings={}}
