@@ -1,3 +1,7 @@
+## Unreleased
+
+- Simplify diagnostics to a single Logging switch at the end of Mod Settings.
+
 # Changes
 
 ## 1.5.2 — 2026-09-07

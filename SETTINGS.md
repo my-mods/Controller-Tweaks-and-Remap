@@ -9,7 +9,6 @@ Missing, duplicate or invalid settings stop configuration loading and are report
 | Group | Setting | Choices or range |
 | --- | --- | --- |
 | General | Runtime remapping | Off, On |
-| Diagnostics | Debug logging | Off, On |
 | Bindings | Camera Look | Inherit preset, Left stick axes, Right stick axes |
 | Bindings | Combat Abilities | Inherit preset, A / Cross, B / Circle, X / Square, Y / Triangle, LB / L1, LT / L2, RB / R1, RT / R2, LS / L3, RS / R3, View / Touchpad, Menu / Options, D-pad Up, D-pad Down, D-pad Left, D-pad Right, Right stick Left, Right stick Right |
 | Bindings | Combat Attack | Inherit preset, A / Cross, B / Circle, X / Square, Y / Triangle, LB / L1, LT / L2, RB / R1, RT / R2, LS / L3, RS / R3, View / Touchpad, Menu / Options, D-pad Up, D-pad Down, D-pad Left, D-pad Right, Right stick Left, Right stick Right |
@@ -41,7 +40,10 @@ Missing, duplicate or invalid settings stop configuration loading and are report
 | Bindings | Traversal Movement Axis | Inherit preset, Left stick axes, Right stick axes |
 | Bindings | Traversal Planeshift | Inherit preset, A / Cross, B / Circle, X / Square, Y / Triangle, LB / L1, LT / L2, RB / R1, RT / R2, LS / L3, RS / R3, View / Touchpad, Menu / Options, D-pad Up, D-pad Down, D-pad Left, D-pad Right, Right stick Left, Right stick Right |
 | Bindings | Traversal Sprint | Inherit preset, A / Cross, B / Circle, X / Square, Y / Triangle, LB / L1, LT / L2, RB / R1, RT / R2, LS / L3, RS / R3, View / Touchpad, Menu / Options, D-pad Up, D-pad Down, D-pad Left, D-pad Right, Right stick Left, Right stick Right |
+| Diagnostics | Logging | Off, On |
 
 Console commands are not used to change settings.
 
 Conditional rows and groups show relevant controls as you edit. Hidden options keep their saved values; hiding an option does not reset it. The interface uses toggles, labeled choices and sliders; the numeric representation in settings.ini is an implementation detail.
+
+**Logging** is the final menu setting and the only diagnostic control. Leave it Off for normal play; On writes troubleshooting details to `Dawnwalker/Binaries/Win64/ue4ss/UE4SS.log`.
