@@ -5,7 +5,9 @@ local directory = assert(source:match('^(.*[/\\])'), 'Controller Tweaks: missing
 local Config = dofile(directory .. 'Config.lua')
 local ConfigStore = dofile(directory .. 'ConfigStore.lua')
 local ControllerProfile = dofile(directory .. 'ControllerProfile.lua')
-local function log(message) print('[ControllerTweaks] ' .. message .. '\n') end
+local Diagnostics = dofile(directory .. 'UE4SSCommonDiagnostics.lua')
+local diagnostics = Diagnostics.new({prefix='[ControllerTweaks] ',output=function(text) print(text .. '\n') end})
+local function log(message) diagnostics.log(message) end
 local config, configStopped, configLastError
 local function loadConfig()
     if config or configStopped then return end
@@ -21,6 +23,7 @@ local function loadConfig()
 end
 loadConfig()
 if configStopped then return end
+diagnostics = Diagnostics.new({debugLogging=config.debugLogging,prefix='[ControllerTweaks] ',output=function(text) print(text .. '\n') end})
 
 local function live(object)
     if object == nil then return false end
@@ -469,11 +472,11 @@ end
 for _,api in ipairs({'ExecuteInGameThreadWithDelay','NotifyOnNewObject','RegisterLoadMapPreHook','RegisterLoadMapPostHook','RegisterHook','FindFirstOf','StaticFindObject'}) do
     if type(_G[api])~='function' then log('This UE4SS build lacks '..api..'; remapping disabled.');return end
 end
-local hookIds={}
+local hooks = dofile(directory .. 'UE4SSCommonHooks.lua').new({RegisterHook=RegisterHook,UnregisterHook=UnregisterHook})
+local function noop() end
 local function hook(path,callback,before)
-    local pre,post=RegisterHook(path,before or function() end,callback)
-    assert(type(pre)=='number' and type(post)=='number','Could not register '..path)
-    hookIds[#hookIds+1]={path,pre,post}
+    local pre,post=hooks.register(path,path,before or noop,callback)
+    assert(pre, 'Could not register '..path..': '..tostring(post))
 end
 local hooksOK,hookError=pcall(function()
     local function refreshProfile()
@@ -566,7 +569,8 @@ local hooksOK,hookError=pcall(function()
 end)
 if not hooksOK then
     stopped=true
-    if type(UnregisterHook)=='function' then for _,ids in ipairs(hookIds) do pcall(UnregisterHook,ids[1],ids[2],ids[3]) end end
+    local cleared,failures=hooks.clear()
+    if not cleared then for _,failure in ipairs(failures) do log('Hook cleanup failed: '..tostring(failure.key)..': '..tostring(failure.error)) end end
     log('Could not register input lifecycle callbacks; remapping disabled: '..tostring(hookError));return
 end
 wake()

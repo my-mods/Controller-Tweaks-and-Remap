@@ -15,3 +15,8 @@ upstream/input/RIP_GamepadAlternate.json -text
 *.utoc binary
 upstream/input/DT_InputMapping.json -text whitespace=cr-at-eol
 upstream/input/IMC_Base.json -text whitespace=cr-at-eol
+
+# Bundled dependency bytes must match the immutable library revision.
+**/SettingsStore.lua -text whitespace=cr-at-eol
+**/UE4SSCommon*.lua -text whitespace=cr-at-eol
+LICENSES/*-ue4ss-common.txt -text

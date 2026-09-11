@@ -48,3 +48,8 @@ Earlier standalone shoulder/trigger and TapMapHoldMenu/controller compatibility 
 Based on Steam build **25129649 / CL-257186**. The game's cached button prompts or controller-layout screen may show the original preset even when a runtime binding changes. Actual actions follow your chosen bindings.
 
 Original mod work is licensed under [MIT](LICENSE.txt). Game assets belong to their respective rightsholders and are not relicensed.
+
+
+Bundled library
+
+This mod includes the MIT-licensed ue4ss-common Lua helpers (https://github.com/my-mods/ue4ss-common). No separate library installation is required. Its license is included in LICENSES/DawnwalkerControllerTweaks-ue4ss-common.txt.

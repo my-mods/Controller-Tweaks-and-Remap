@@ -1,0 +1,193 @@
+[
+  {
+    "type": "attribute",
+    "key": "customFileName",
+    "value": "Controller Tweaks and Remap"
+  },
+  {
+    "type": "attribute",
+    "key": "version",
+    "value": "1.5.2"
+  },
+  {
+    "type": "attribute",
+    "key": "description",
+    "value": "Configure controller bindings with an INI, swap shoulders and triggers, enjoy a wider walking range, and use short press Map / long press Game Hub. Requires UE4SS."
+  },
+  {
+    "type": "attribute",
+    "source": "mod.manifest",
+    "key": "controllerTweaksReleaseMaterials",
+    "value": [
+      "mod.manifest",
+      "README.txt",
+      "Data/Dawnwalker-Controller-Tweaks-PACKAGE-LAYOUT.txt",
+      "LICENSE.txt",
+      "CHANGELOG.md",
+      "RELEASE-NOTES.md",
+      "INPUT-BINDINGS.md",
+      "SETTINGS.md",
+      "LICENSES/DawnwalkerControllerTweaks-ue4ss-common.txt"
+    ]
+  },
+  {
+    "type": "attribute",
+    "source": "README.txt",
+    "key": "controllerTweaksReleaseMaterials",
+    "value": [
+      "mod.manifest",
+      "README.txt",
+      "Data/Dawnwalker-Controller-Tweaks-PACKAGE-LAYOUT.txt",
+      "LICENSE.txt",
+      "CHANGELOG.md",
+      "RELEASE-NOTES.md",
+      "INPUT-BINDINGS.md",
+      "SETTINGS.md",
+      "LICENSES/DawnwalkerControllerTweaks-ue4ss-common.txt"
+    ]
+  },
+  {
+    "type": "attribute",
+    "source": "Data/Dawnwalker-Controller-Tweaks-PACKAGE-LAYOUT.txt",
+    "key": "controllerTweaksReleaseMaterials",
+    "value": [
+      "mod.manifest",
+      "README.txt",
+      "Data/Dawnwalker-Controller-Tweaks-PACKAGE-LAYOUT.txt",
+      "LICENSE.txt",
+      "CHANGELOG.md",
+      "RELEASE-NOTES.md",
+      "INPUT-BINDINGS.md",
+      "SETTINGS.md",
+      "LICENSES/DawnwalkerControllerTweaks-ue4ss-common.txt"
+    ]
+  },
+  {
+    "type": "attribute",
+    "source": "Data\\Dawnwalker-Controller-Tweaks-PACKAGE-LAYOUT.txt",
+    "key": "controllerTweaksReleaseMaterials",
+    "value": [
+      "mod.manifest",
+      "README.txt",
+      "Data/Dawnwalker-Controller-Tweaks-PACKAGE-LAYOUT.txt",
+      "LICENSE.txt",
+      "CHANGELOG.md",
+      "RELEASE-NOTES.md",
+      "INPUT-BINDINGS.md",
+      "SETTINGS.md",
+      "LICENSES/DawnwalkerControllerTweaks-ue4ss-common.txt"
+    ]
+  },
+  {
+    "type": "attribute",
+    "source": "LICENSE.txt",
+    "key": "controllerTweaksReleaseMaterials",
+    "value": [
+      "mod.manifest",
+      "README.txt",
+      "Data/Dawnwalker-Controller-Tweaks-PACKAGE-LAYOUT.txt",
+      "LICENSE.txt",
+      "CHANGELOG.md",
+      "RELEASE-NOTES.md",
+      "INPUT-BINDINGS.md",
+      "SETTINGS.md",
+      "LICENSES/DawnwalkerControllerTweaks-ue4ss-common.txt"
+    ]
+  },
+  {
+    "type": "attribute",
+    "source": "CHANGELOG.md",
+    "key": "controllerTweaksReleaseMaterials",
+    "value": [
+      "mod.manifest",
+      "README.txt",
+      "Data/Dawnwalker-Controller-Tweaks-PACKAGE-LAYOUT.txt",
+      "LICENSE.txt",
+      "CHANGELOG.md",
+      "RELEASE-NOTES.md",
+      "INPUT-BINDINGS.md",
+      "SETTINGS.md",
+      "LICENSES/DawnwalkerControllerTweaks-ue4ss-common.txt"
+    ]
+  },
+  {
+    "type": "attribute",
+    "source": "RELEASE-NOTES.md",
+    "key": "controllerTweaksReleaseMaterials",
+    "value": [
+      "mod.manifest",
+      "README.txt",
+      "Data/Dawnwalker-Controller-Tweaks-PACKAGE-LAYOUT.txt",
+      "LICENSE.txt",
+      "CHANGELOG.md",
+      "RELEASE-NOTES.md",
+      "INPUT-BINDINGS.md",
+      "SETTINGS.md",
+      "LICENSES/DawnwalkerControllerTweaks-ue4ss-common.txt"
+    ]
+  },
+  {
+    "type": "attribute",
+    "source": "INPUT-BINDINGS.md",
+    "key": "controllerTweaksReleaseMaterials",
+    "value": [
+      "mod.manifest",
+      "README.txt",
+      "Data/Dawnwalker-Controller-Tweaks-PACKAGE-LAYOUT.txt",
+      "LICENSE.txt",
+      "CHANGELOG.md",
+      "RELEASE-NOTES.md",
+      "INPUT-BINDINGS.md",
+      "SETTINGS.md",
+      "LICENSES/DawnwalkerControllerTweaks-ue4ss-common.txt"
+    ]
+  },
+  {
+    "type": "attribute",
+    "source": "SETTINGS.md",
+    "key": "controllerTweaksReleaseMaterials",
+    "value": [
+      "mod.manifest",
+      "README.txt",
+      "Data/Dawnwalker-Controller-Tweaks-PACKAGE-LAYOUT.txt",
+      "LICENSE.txt",
+      "CHANGELOG.md",
+      "RELEASE-NOTES.md",
+      "INPUT-BINDINGS.md",
+      "SETTINGS.md",
+      "LICENSES/DawnwalkerControllerTweaks-ue4ss-common.txt"
+    ]
+  },
+  {
+    "type": "attribute",
+    "source": "LICENSES/DawnwalkerControllerTweaks-ue4ss-common.txt",
+    "key": "controllerTweaksReleaseMaterials",
+    "value": [
+      "mod.manifest",
+      "README.txt",
+      "Data/Dawnwalker-Controller-Tweaks-PACKAGE-LAYOUT.txt",
+      "LICENSE.txt",
+      "CHANGELOG.md",
+      "RELEASE-NOTES.md",
+      "INPUT-BINDINGS.md",
+      "SETTINGS.md",
+      "LICENSES/DawnwalkerControllerTweaks-ue4ss-common.txt"
+    ]
+  },
+  {
+    "type": "attribute",
+    "source": "LICENSES\\DawnwalkerControllerTweaks-ue4ss-common.txt",
+    "key": "controllerTweaksReleaseMaterials",
+    "value": [
+      "mod.manifest",
+      "README.txt",
+      "Data/Dawnwalker-Controller-Tweaks-PACKAGE-LAYOUT.txt",
+      "LICENSE.txt",
+      "CHANGELOG.md",
+      "RELEASE-NOTES.md",
+      "INPUT-BINDINGS.md",
+      "SETTINGS.md",
+      "LICENSES/DawnwalkerControllerTweaks-ue4ss-common.txt"
+    ]
+  }
+]
