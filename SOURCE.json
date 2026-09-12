@@ -6,7 +6,7 @@
   "officialPatchAtCapture": "Hotfix 1.0.2",
   "unrealEngine": "5.5.4",
   "stockMappingCount": 30,
-  "controllerModVersion": "1.5.2",
+  "controllerModVersion": "1.6.0",
   "releaseArchive": "Controller-Tweaks-and-Remap.zip",
   "sourceHashes": {
     "scriptobjects.bin": "9DA57588D9D39F1FAB03C5D8591D3419E0CC745E00487A1FBB2A795907038095",
@@ -61,9 +61,9 @@
     "ue4ssReferenceReason": "Installed UE4SS log reports v3.0.1 Beta #0, Git SHA 97b7e501; this source provides the persistent timer and uses a shared hook Lua state. The exact native cause of the malformed return is not proven."
   },
   "configuration": {
-    "format": "INI",
+    "format": "Mod Setting Menu with generated settings.ini; legacy INI import on first use",
     "file": "src/ControllerTweaks.defaults.ini",
-    "scope": "31 bindings in Default and Alternative presets; personal overrides load at startup",
+    "scope": "31 bindings in Default and Alternative presets; Mod Setting Menu values load on save-load completion",
     "referenceUE4SSCommit": "97b7e501c",
     "integration": [
       "RebelInputPreset.PresetMapping",

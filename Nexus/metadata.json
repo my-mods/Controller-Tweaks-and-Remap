@@ -1,9 +1,9 @@
 {
   "name": "Controller Tweaks and Remap",
-  "version": "1.5.2",
+  "version": "1.6.0",
   "game": "The Blood of Dawnwalker",
   "nexusDomain": "thebloodofdawnwalker",
-  "summary": "Configure controller bindings with an INI, swap shoulders and triggers, enjoy a wider walking range, and use short press Map / long press Game Hub. Requires UE4SS.",
+  "summary": "Configure controller bindings through Mod Settings, swap shoulders and triggers, enjoy a wider walking range, and use short press Map / long press Game Hub.",
   "descriptionFile": "description.bbcode.txt",
   "thumbnailFile": "thumbnail.jpg",
   "thumbnailAltText": "Controller Tweaks and Remap title over an official in-game screenshot of Coen walking through a town market.",
@@ -22,11 +22,12 @@
     "Default or Alternative controller preset"
   ],
   "requiredMods": [
-    "Dawnwalker-compatible UE4SS with TMap and ExecuteInGameThreadWithDelay"
+    "UE4SS for BoD by Framecore 2b+ OR UE4SS for Dawnwalker by Vercadi RC6+",
+    "Mod Setting Menu 1.0.5.1+"
   ],
   "fileName": "Controller-Tweaks-and-Remap.zip",
   "fileDisplayName": "Controller Tweaks and Remap",
-  "fileDescription": "Controller stutter fixes: stop completed background checks, coalesce duplicate input events, and recover controls correctly after loading or preset changes. Personal INI settings are preserved. Requires UE4SS.",
+  "fileDescription": "Configure controls through Mod Settings, apply changes on save load, and use the linked-action and Focus input fixes in one main download. Improves controller recovery after loading.",
   "sourceUrl": "https://github.com/my-mods/Controller-Tweaks-and-Remap",
   "nexusModId": 203,
   "nexusFileId": 836,
@@ -36,7 +37,7 @@
   ],
   "license": "MIT",
   "nexusUrl": "https://www.nexusmods.com/thebloodofdawnwalker/mods/203",
-  "optionalFiles": [
+  "historicalOptionalFiles": [
     {
       "name": "Original Shoulder Buttons",
       "version": "1.5.2",
@@ -49,5 +50,7 @@
       "description": "Preset 1.5.2: same eight bindings; refreshed docs. Requires main 1.4.0+ and UE4SS. MANUAL ONLY: back up ControllerTweaks.ini before applying. Replacement overwrites preferences; see README to preserve other settings. Do not install via Vortex.",
       "nexusFileId": 837
     }
-  ]
+  ],
+  "optionalFiles": [],
+  "supersedesExperimentalVersion": "1.5.3"
 }

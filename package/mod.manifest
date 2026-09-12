@@ -3,13 +3,13 @@
   <info>
     <name>Controller Tweaks and Remap</name>
     <modid>ControllerTweaksAndRemap</modid>
-    <description>Configure controller bindings with an INI, swap shoulders and triggers, enjoy a wider walking range, and use short press Map / long press Game Hub. Requires UE4SS.</description>
+    <description>Configure controller bindings through Mod Settings, swap shoulders and triggers, enjoy a wider walking range, and use short press Map / long press Game Hub.</description>
     <author>Local compatibility mod</author>
-    <version>1.5.2</version>
+    <version>1.6.0</version>
     <created_on>2026-09-05</created_on>
   </info>
   <supports>
-    <requires>UE4SS with TMap and ExecuteInGameThreadWithDelay (reference 97b7e501c)</requires>
+    <requires>(UE4SS for BoD by Framecore 2b+ OR UE4SS for Dawnwalker by Vercadi RC6+) AND Mod Setting Menu 1.0.5.1+</requires>
     <game>The Blood of Dawnwalker</game>
     <steam_build>25129649</steam_build>
     <executable>dw1-pc-257186-shipping-patch2-all</executable>

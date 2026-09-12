@@ -1,6 +1,6 @@
 # Settings
 
-Install [Mod Setting Menu 1.0.5 or later](https://www.nexusmods.com/thebloodofdawnwalker/mods/271) and UE4SS through Vortex. On first use, load a save once to initialize the settings file, then return to Main Menu > Mod Settings > All Mods. Select this mod, change settings and press Apply. **Load a save after Apply.** Restore discards unapplied changes; Reset selects this mod’s defaults.
+Install [Mod Setting Menu 1.0.5.1 or later](https://www.nexusmods.com/thebloodofdawnwalker/mods/271) and UE4SS through Vortex. On first use, load a save once to initialize the settings file, then return to Main Menu > Mod Settings > All Mods. Select this mod, change settings and press Apply. **Load a save after Apply.** Restore discards unapplied changes; Reset selects this mod’s defaults.
 
 The stable menu ID is `oOCamilleOo_ControllerTweaksAndRemap`. The mod generates `settings.ini` beside `mod_settings.ini` in its UE4SS mod folder. This generated file is the authoritative settings store and is not shipped in the ZIP. Existing supported preferences are imported on first use. After the new settings are saved and verified, the successfully imported legacy files are deleted if their contents are unchanged. Migration or save failures retain the originals. Cleanup failures are logged and do not prevent using the new settings. Files left by an earlier migration are not deleted automatically. Back up `settings.ini` before removing/reinstalling the mod or moving its folder. Restore that backup into the same runtime folder before launching. Do not restore an old INI over it.
 
@@ -47,3 +47,20 @@ Console commands are not used to change settings.
 Conditional rows and groups show relevant controls as you edit. Hidden options keep their saved values; hiding an option does not reset it. The interface uses toggles, labeled choices and sliders; the numeric representation in settings.ini is an implementation detail.
 
 **Logging** is the final menu setting and the only diagnostic control. Leave it Off for normal play; On writes troubleshooting details to `Dawnwalker/Binaries/Win64/ue4ss/UE4SS.log`.
+
+## Original shoulder buttons
+
+Use these choices with the Default preset, press Apply, then load a save.
+
+| Setting | Choice |
+| --- | --- |
+| Combat Block | LB / L1 |
+| Combat Abilities | LT / L2 |
+| Player Focus Mode | LT / L2 |
+| Combat Attack | RB / R1 |
+| Player Abilities Gamepad | RB / R1 |
+| Player Shadowstep | RT / R2 |
+| Photo Vertical Rise | RT / R2 |
+| Photo Vertical Fall | LT / L2 |
+
+Walking and Map/Game Hub tweaks remain active.

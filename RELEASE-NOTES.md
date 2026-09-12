@@ -1,15 +1,9 @@
-# Controller Tweaks and Remap v1.5.2
+# Controller Tweaks and Remap 1.6.0
 
-Controller stutter fixes: completed background checks now stop correctly, duplicate input events are combined, and large updates are spread across frames. Controls recover when needed after loading or controller preset changes, without repeated completion callbacks or debug-log flooding.
+- Configure all 31 controller bindings through Mod Settings; apply changes when loading a save.
+- Apply overrides to linked actions, prioritize Focus controls over ordinary interaction, and allow separate Attack and ability-wheel buttons.
+- Restore controller remapping after loads with missed loading notifications or delayed player initialization.
+- Import supported legacy preferences into the new settings store on first use.
+- Use one Logging switch at the end of Mod Settings and retire console settings commands.
 
-The wider walking range, Shapeshift and Mercurial Fervour steering fix, Alternative preset support, and linked Bite/feeding controls are retained.
-
-## Updating
-
-Close the game, replace/reinstall the existing Controller Tweaks and Remap entry in Vortex with **Controller-Tweaks-and-Remap.zip** as **Root (game folder)**, then deploy and restart. Keep one enabled entry. Your personal ControllerTweaks.ini is preserved. UE4SS remains required.
-
-## Compatibility
-
-Other mods that change walking or controller controls may conflict. Disable earlier standalone shoulder/trigger and TapMapHoldMenu mods through Vortex.
-
-The optional Original Shoulder Buttons preset is also version 1.5.2, with refreshed documentation. Its eight bindings are unchanged; existing users do not need to replace their personal INI.
+Retains the controller stutter fixes, wider walking range, Shapeshift and Mercurial Fervour steering fix, Alternative preset support, and short press Map / long press Game Hub controls.

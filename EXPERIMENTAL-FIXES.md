@@ -1,10 +1,5 @@
-# Experimental input fixes
+# Integrated input fixes
 
-Complete Controller Tweaks and Remap package based on 1.5.2.
+The linked-action, Focus-priority and separate Attack/ability-wheel fixes introduced by the former experimental 1.5.3 download are included in Controller Tweaks and Remap 1.6.0. Use the single main archive, Controller-Tweaks-and-Remap.zip.
 
-- Applies controller overrides to every linked action in the active input profile, including Focus input mappings without a stored physical key.
-- Gives Focus actions priority over ordinary interaction for shared buttons such as Alternative Attack/Interact on X.
-- Supports independent Attack and overworld ability-wheel buttons.
-- Preserves separate keyboard bindings and the game's existing action triggers.
-- Restores controller profile overrides on relevant input setup events with bounded work and no continuous polling.
-- Documents linked actions, intentional shared controls and Focus button conflicts.
+See INPUT-BINDINGS.md for the current control behavior and SETTINGS.md for configuration.

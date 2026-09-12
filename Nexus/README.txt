@@ -5,9 +5,8 @@ Paste description.bbcode.txt into the Nexus description editor's BBCode mode.
 Upload thumbnail.jpg as the cover image and banner.jpg as the 1300 x 372 banner.
 These promotional images use AI editing and adaptation of the supplied game reference.
 
-The category and keywords are suggestions; select the matching choices offered
-by the game's Nexus submission form. Nexus IDs are unset because these files
-do not create or identify a published Nexus listing.
+The category and keywords describe the existing Gameplay listing. metadata.json
+identifies Nexus mod 203 and its maintained main-file chain.
 
 These listing materials are maintained separately in the repository's Nexus
 folder and are excluded from the Vortex release ZIP. Upload the thumbnail and
