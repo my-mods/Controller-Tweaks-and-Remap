@@ -1,48 +1,45 @@
-[b]Controller Tweaks and Remap[/b]
+[size=5][b][color=#E8C88A]Controller Tweaks and Remap[/color][/b][/size]
 
 Controller improvements for *The Blood of Dawnwalker* on PC, with one personal INI for all 31 bindings in the Default and Alternative controller presets.
 
-[b]Experimental input fixes[/b]
+[size=4][b][color=#E8C88A]Experimental input fixes[/color][/b][/size]
 
 This branch provides [b]Controller-Tweaks-and-Remap.zip[/b], a complete alternative package based on 1.5.2.
 
-- Controller overrides update every linked action in the active input profile, including Focus actions whose context contains an unresolved key. Keyboard bindings retain their separate profile slot.
-- Focus controls take priority over ordinary interaction while Focus is active. This addresses shared Interact/Attack buttons such as X in Alternative without moving Interact globally.
-- Attack and the controller ability wheel can use different buttons. Both follow their own INI setting.
+[list]
+[*]Controller overrides update every linked action in the active input profile, including Focus actions whose context contains an unresolved key. Keyboard bindings retain their separate profile slot.
+[*]Focus controls take priority over ordinary interaction while Focus is active. This addresses shared Interact/Attack buttons such as X in Alternative without moving Interact globally.
+[*]Attack and the controller ability wheel can use different buttons. Both follow their own INI setting.
+[/list]
 
 See Input bindings (included with the mod) for linked actions, input rules and configuration examples.
 
-- [b]Configurable controls:[/b] assign a physical controller button to each action in ControllerTweaks.ini. Changes load at game startup.
-- [b]Linked Bite controls:[/b] Player_Drink_Blood starts Voracious Bite in Focus and controls the hold while feeding. Necrospeak in Focus shares this button.
-- [b]Alternative preset support:[/b] retains the original Alternative layout, with Bite/feeding on LB/L1 instead of X/Square to avoid the Attack conflict.
-- [b]Shoulder/trigger swap in the Default preset:[/b] LB ↔ LT and RB ↔ RT (PlayStation L1 ↔ L2 and R1 ↔ R2), including Photo Mode.
-- [b]Easier walking:[/b] gives you a wider stick range for walking. Shapeshift and Mercurial Fervour stay active when you steer with the stick fully pushed.
-- [b]Short press / long press:[/b] by default, Back/View (PlayStation touchpad) opens the Map on a short press and the Game Hub on a long press (0.30 seconds).
+[list]
+[*][b][color=#A8D5C2]Configurable controls:[/color][/b] assign a physical controller button to each action in ControllerTweaks.ini. Changes load at game startup.
+[*][b][color=#A8D5C2]Linked Bite controls:[/color][/b] Player_Drink_Blood starts Voracious Bite in Focus and controls the hold while feeding. Necrospeak in Focus shares this button.
+[*][b][color=#A8D5C2]Alternative preset support:[/color][/b] retains the original Alternative layout, with Bite/feeding on LB/L1 instead of X/Square to avoid the Attack conflict.
+[*][b][color=#A8D5C2]Shoulder/trigger swap in the Default preset:[/color][/b] LB ↔ LT and RB ↔ RT (PlayStation L1 ↔ L2 and R1 ↔ R2), including Photo Mode.
+[*][b][color=#A8D5C2]Easier walking:[/color][/b] gives you a wider stick range for walking. Shapeshift and Mercurial Fervour stay active when you steer with the stick fully pushed.
+[*][b][color=#A8D5C2]Short press / long press:[/color][/b] by default, Back/View (PlayStation touchpad) opens the Map on a short press and the Game Hub on a long press (0.30 seconds).
+[/list]
 
 With the Default layout, Block is LT, Focus Mode/Combat Abilities LB, Attack/Overworld Abilities RT, and Shadowstep RB. Alternative retains its face-button attack/block layout and uses LT/L2 for Focus; walking and Map/Game Hub improvements work with either preset.
 
-[b]Requirements and installation[/b]
+[size=4][b][color=#E8C88A]Requirements[/color][/b][/size]
 
 Requires [b]Dawnwalker UE4SS RC5 for build 25129649[/b], including its reflected struct ref/out support, TMap API and ExecuteInGameThreadWithDelay. Its reference base is [b]3.0.1 Beta, commit 97b7e501c[/b]. The older UE4SS 3.0.0 stable release does not provide all required APIs. Install the appropriate loader through Vortex separately; it is not bundled. HUDTweaks is not required.
 
-1. Download [b]Controller-Tweaks-and-Remap.zip[/b]. Use this complete experimental package in place of the main package; do not enable both copies in Vortex.
-2. Import it into Vortex 1.14 or newer as [b]Root (game folder)[/b], then enable and deploy.
-3. Select [b]Default[/b] or [b]Alternative[/b] in the game's controller settings, then restart the game.
+[size=4][b][color=#E8C88A]Installation[/color][/b][/size]
 
-To update, use Vortex's replace/reinstall flow on the existing entry with the new ZIP and deploy. Keep one enabled Controller Tweaks and Remap entry. Legacy personal settings under your Windows profile are imported once. Back up the generated settings.ini before uninstalling/reinstalling; see SETTINGS.md for migration and restoration.
+[list]
+[*][b][color=#A8D5C2]Vortex:[/color][/b] Install Controller-Tweaks-and-Remap.zip through Vortex, enable it and deploy.
+[*][b][color=#A8D5C2]Manual:[/color][/b] Copy the archive's Dawnwalker folder into ...\steamapps\common\The Blood of Dawnwalker\, preserving the folder structure.
+[/list]
 
-To uninstall, close the game, disable/remove the mod and deploy through Vortex. Restart to discard runtime changes. Back up settings.ini before removal and restore it before the next launch if reinstalling.
-
-[b]Settings[/b]
+[size=4][b][color=#E8C88A]Settings[/color][/b][/size]
 
 Use [url=https://www.nexusmods.com/thebloodofdawnwalker/mods/271]Mod Setting Menu 1.0.5 or later[/url] from the main menu. Press Apply, then load a save. See SETTINGS.md (included with the mod) for all controls, first-use import and preference backups. Console settings commands are retired.
 
-[b]Compatibility[/b]
-
-Other mods that change walking or controller controls may conflict.
-
-Earlier standalone shoulder/trigger and TapMapHoldMenu/controller compatibility mods are superseded; disable them through Vortex. This mod has its own UE4SS directory and no HUDTweaks overrides. All three zzz_DawnwalkerControllerTweaks_P container files must come from the same release.
-
-Based on Steam build [b]25129649 / CL-257186[/b]. The game's cached button prompts or controller-layout screen may show the original preset even when a runtime binding changes. Actual actions follow your chosen bindings.
+[size=4][b][color=#E8C88A]License[/color][/b][/size]
 
 Original mod work is licensed under MIT (included with the mod). Game assets belong to their respective rightsholders and are not relicensed.
