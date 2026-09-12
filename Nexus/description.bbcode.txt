@@ -1,52 +1,77 @@
 [size=5][b][color=#E8C88A]Controller Tweaks and Remap[/color][/b][/size]
 
-More comfortable controller input for The Blood of Dawnwalker on PC: swap shoulders and triggers, make walking easier, and open the Map or Game Hub with a short press or long press of the same button.
+Remap your controller for The Blood of Dawnwalker. Choose your combat and exploration buttons, walk more comfortably, and open the Map or Game Hub with a short or long press of one button.
 
-[size=4][b][color=#E8C88A]Features[/color][/b][/size]
+[size=4][b][color=#E8C88A]What the mod does[/color][/b][/size]
 
-[size=3][b][color=#A8D5C2]Configurable controller mappings[/color][/b][/size]
-
-Configure all 31 Default and Alternative controller bindings through Mod Settings. Choose a button or inherit the selected preset, press Apply, then load a save. The main file keeps the existing layout by default.
-
-[size=3][b][color=#A8D5C2]Linked Voracious Bite controls[/color][/b][/size]
-
-Player_Drink_Blood controls both starting Bite in Focus and holding to feed. Necrospeak in Focus shares this button. Normal Interact retains its own binding; Death from Above follows Attack. Default uses X/Square; Alternative uses LB/L1 to avoid Attack on X/Square. With Alternative, select LB/L1 or Inherit preset for Player Drink Blood. Keep Bite different from Attack and Focus. Keyboard Focus Bite/Necrospeak also follow the game's Drink Blood key.
-
-[size=3][b][color=#A8D5C2]Controller stutter fixes[/color][/b][/size]
-
-Stops completed background checks and combines duplicate input events so they do not repeatedly restart controller updates. Larger updates are spread across frames, and controls recover when needed after loading or controller preset changes. Settings are applied when a save loads, with recovery for delayed player initialization and missed loading notifications.
-
-[size=3][b][color=#A8D5C2]Linked actions and Focus controls[/color][/b][/size]
-
-Controller overrides update every linked action in the active input profile, including Focus actions without a stored physical key. Focus actions take priority over ordinary interaction while Focus is active. Attack and the controller ability wheel can use different buttons. Keyboard bindings retain their separate profile slot.
-
-[size=3][b][color=#A8D5C2]Shoulder / trigger swap[/color][/b][/size]
-
-Swaps LB with LT and RB with RT in the default controller preset. PlayStation equivalents are L1 with L2 and R1 with R2.
 [list]
-[*][b][color=#A8D5C2]Block:[/color][/b] LT / L2.[/*]
-[*][b][color=#A8D5C2]Focus Mode / Combat Abilities:[/color][/b] LB / L1.[/*]
-[*][b][color=#A8D5C2]Attack / Overworld Abilities:[/color][/b] RT / R2.[/*]
-[*][b][color=#A8D5C2]Shadowstep:[/color][/b] RB / R1.[/*]
+[*][b][color=#A8D5C2]Shoulder and trigger layout:[/color][/b] in the Default preset, attack and the overworld ability wheel use RT / R2, block uses LT / L2, Focus and combat abilities use LB / L1, and Shadowstep uses RB / R1. Photo Mode uses RB / R1 to rise and LB / L1 to fall.
+[*][b][color=#A8D5C2]Easier walking:[/color][/b] a wider part of the stick's travel keeps you walking. You can still sprint, and Shapeshift and Mercurial Fervour stay active when you push the stick fully.
+[*][b][color=#A8D5C2]Map and Game Hub on one button:[/color][/b] short press View / Touchpad for the Map; long press for the Game Hub. The long press takes 0.30 seconds.
+[*][b][color=#A8D5C2]Controller stutter fixes:[/color][/b] fixes controller-related stutter and restores your chosen controls after loading a save.
 [/list]
-The swap also applies in Photo Mode.
 
-[size=3][b][color=#A8D5C2]Easier walking[/color][/b][/size]
+The [b]Alternative preset[/b] uses X / Square for attack, Y / Triangle for block, LT / L2 for Focus, RT / R2 for the overworld ability wheel, and LB / L1 for Bite. You can customize either preset through Mod Settings.
 
-Gives you a wider stick range for walking. Shapeshift and Mercurial Fervour stay active when you steer with the stick fully pushed. Sprint bindings are preserved.
+[size=4][b][color=#E8C88A]What you can remap[/color][/b][/size]
 
-[size=3][b][color=#A8D5C2]Short press Map / long press Game Hub[/color][/b][/size]
+Mod Settings gives you [b]31 controller settings[/b]:
 
-On Back/View (PlayStation touchpad):
 [list]
-[*][b][color=#A8D5C2]Short press:[/color][/b] open the Map.[/*]
-[*][b][color=#A8D5C2]Long press (0.30 seconds):[/color][/b] open the Game Hub.[/*]
+[*][b][color=#A8D5C2]Combat and abilities:[/color][/b] attack, block, dodge, weapons, target lock and switching, Focus, Bite, Shadowstep, and ability controls. Attack and the overworld ability wheel can use different buttons.
+[*][b][color=#A8D5C2]Exploration and menus:[/color][/b] interaction, jump, crouch, sprint, Planeshift, quickslots, the controls legend, Map and Game Hub.
+[*][b][color=#A8D5C2]Sticks and Photo Mode:[/color][/b] choose the left or right stick for movement and camera look, and change Photo Mode's rise, fall and exit buttons.
 [/list]
+
+Button choices include face buttons, shoulders, triggers, stick clicks, the D-pad, View / Touchpad, Menu / Options, and right-stick left or right. Movement and camera look must use a stick.
+
+[b]Inherit preset[/b] uses the Default or Alternative layout you selected in the game, including this mod's preset bindings. Choose a specific button to use your own assignment instead.
+
+[size=3][b][color=#A8D5C2]Choosing your shoulder buttons[/color][/b][/size]
+
+For the game's original Default shoulder layout, select block on LB / L1; Focus and combat abilities on LT / L2; attack and the overworld ability wheel on RB / R1; Shadowstep on RT / R2. Set Photo Mode rise to RT / R2 and fall to LT / L2.
+
+[size=4][b][color=#E8C88A]Controls that stay linked[/color][/b][/size]
+
+These actions share a binding. Assigning a button moves them together; you cannot give each action its own button:
+
+[list]
+[*][b][color=#A8D5C2]Attack:[/color][/b] attack, Death from Above, and drawing your weapon with the attack button.
+[*][b][color=#A8D5C2]Block:[/color][/b] block and drawing your weapon with the block button.
+[*][b][color=#A8D5C2]Dodge:[/color][/b] dodge and sprinting during combat.
+[*][b][color=#A8D5C2]Interact:[/color][/b] ordinary interaction and ledge-look interaction.
+[*][b][color=#A8D5C2]Jump:[/color][/b] jump and ladder drop.
+[*][b][color=#A8D5C2]Crouch:[/color][/b] crouch, ladder slide and ability cancel.
+[*][b][color=#A8D5C2]Drink Blood:[/color][/b] starting Voracious Bite in Focus, holding to feed, and Necrospeak in Focus.
+[*][b][color=#A8D5C2]Movement and camera sticks:[/color][/b] each also controls its Photo Mode counterpart.
+[/list]
+
+[size=3][b][color=#A8D5C2]Using the same button for several actions[/color][/b][/size]
+
+[list]
+[*]Keep Bite on a different button from both Attack and the button you hold for Focus. Keep the ability wheel off that Focus button too.
+[*]Focus actions take priority over ordinary interaction while Focus is active. Alternative can use X / Square for both Attack and Interact. Outside Focus, Interact works normally.
+[*]Two actions within Focus can still trigger together if you give them the same button. The mod does not resolve every possible button conflict.
+[*]Keep Map and Game Hub on the same button for their short press / long press shortcut.
+[/list]
+
+[size=4][b][color=#E8C88A]Limits[/color][/b][/size]
+
+[list]
+[*]Remapping covers the listed controller controls. It does not add button combinations, macros, or custom press/hold behaviours.
+[*]The walking range and Map/Game Hub hold time are fixed. There are no settings to adjust them or turn them off individually.
+[*][b]Runtime remapping[/b] is not a switch for the whole mod. When it is Off, the Default shoulder swap, walking tweaks and Map/Game Hub shortcut stay active.
+[*]On-screen button prompts and the game's controller diagram may still show the original layout.
+[*]This menu remaps controller input. Use the game's own settings to change keyboard bindings.
+[/list]
+
 [size=4][b][color=#E8C88A]Requirements[/color][/b][/size]
 
+Install [b]one UE4SS option[/b] and [b]Mod Setting Menu[/b]:
+
 [list]
-[*][b][color=#A8D5C2]UE4SS — choose one:[/color][/b] [url=https://www.nexusmods.com/thebloodofdawnwalker/mods/283]UE4SS for BoD by Framecore (2b or later)[/url] OR [url=https://www.nexusmods.com/thebloodofdawnwalker/mods/18]UE4SS for Dawnwalker by Vercadi (RC6 or later)[/url].
-[*][b][color=#A8D5C2]Also required:[/color][/b] [url=https://www.nexusmods.com/thebloodofdawnwalker/mods/271]Mod Setting Menu 1.0.5.1 or later[/url].
+[*][b][color=#A8D5C2]UE4SS — choose one:[/color][/b] [url=https://www.nexusmods.com/thebloodofdawnwalker/mods/283]Framecore's UE4SS for BoD (2b or later)[/url] OR [url=https://www.nexusmods.com/thebloodofdawnwalker/mods/18]Vercadi's UE4SS for Dawnwalker (RC6 or later)[/url].
+[*][b][color=#A8D5C2]Also required:[/color][/b] [url=https://www.nexusmods.com/thebloodofdawnwalker/mods/271]Mod Setting Menu (1.0.5.1 or later)[/url].
 [/list]
 
 [size=4][b][color=#E8C88A]Installation[/color][/b][/size]
@@ -56,26 +81,18 @@ On Back/View (PlayStation touchpad):
 [*][b][color=#A8D5C2]Manual:[/color][/b] Copy the archive's Dawnwalker folder into ...\steamapps\common\The Blood of Dawnwalker\, preserving the folder structure.
 [/list]
 
-[size=4][b][color=#E8C88A]Configuration[/color][/b][/size]
+[size=4][b][color=#E8C88A]How to change your controls[/color][/b][/size]
 
-On first use, load a save once to initialize the settings, then return to [b]Main Menu > Mod Settings > All Mods > Controller Tweaks and Remap[/b]. Choose your controls, press [b]Apply[/b], then [b]load a save[/b]. Restore discards unapplied changes; Reset selects this mod's defaults.
+On first use, [b]load a save once[/b], then return to the main menu.
 
-Choose [b]Inherit preset[/b] to use the selected Default or Alternative layout for a binding. Keep Player Hub Map and Player Hub Launch on the same control for the shared shortcut. Keep Player Drink Blood different from Attack and Focus. Cached button prompts may retain their previous labels.
+Open [b]Mod Settings > All Mods > Controller Tweaks and Remap[/b]. Choose your controls, press [b]Apply[/b], then [b]load a save[/b] to use the changes.
 
-[size=3][b][color=#A8D5C2]Original shoulder buttons[/color][/b][/size]
-
-Use Mod Settings to select Block LB/L1, Focus Mode and Combat Abilities LT/L2, Attack and Overworld Abilities RB/R1, Shadowstep RT/R2, and Photo Mode rise/fall RT/R2 and LT/L2. Walking and Map/Game Hub tweaks remain active. These choices are included in the main download.
-
-[size=3][b][color=#A8D5C2]Logging[/color][/b][/size]
-
-Logging is the final setting and the only diagnostic control. It defaults to Off; On writes troubleshooting details to [code]Dawnwalker/Binaries/Win64/ue4ss/UE4SS.log[/code]
-
-See SETTINGS.md and INPUT-BINDINGS.md in the archive for the complete settings and linked-action reference.
+[b]Restore[/b] discards changes you have not applied. [b]Reset[/b] selects this mod's defaults. Leave [b]Logging[/b] Off for normal play; turn it On only for troubleshooting.
 
 [size=4][b][color=#E8C88A]Credits and source[/color][/b][/size]
 
-Mod by CamilleBC. Controller and input changes are maintained in [url=https://github.com/my-mods/Controller-Tweaks-and-Remap]Controller Tweaks and Remap on GitHub[/url]. Bundled MIT-licensed Lua helpers come from [url=https://github.com/my-mods/ue4ss-common]ue4ss-common[/url]. Thanks to the UE4SS contributors, Framecore, Vercadi and the Mod Setting Menu author. Game assets belong to their respective rightsholders.
+Mod by CamilleBC. Thanks to the UE4SS contributors, Framecore, Vercadi and the Mod Setting Menu author.
 
-[size=4][b][color=#E8C88A]License[/color][/b][/size]
+[url=https://github.com/my-mods/Controller-Tweaks-and-Remap]Source on GitHub[/url] · [url=https://github.com/my-mods/ue4ss-common]ue4ss-common credits[/url]
 
-Original mod work is licensed under the [url=https://github.com/my-mods/Controller-Tweaks-and-Remap/blob/main/LICENSE.txt]MIT License[/url]. Preserve the copyright and permission notices when reusing it. Underlying game assets are not relicensed under MIT and remain subject to their rightsholders' terms.
+Original mod work is licensed under the [url=https://github.com/my-mods/Controller-Tweaks-and-Remap/blob/main/LICENSE.txt]MIT License[/url]. Preserve its copyright and permission notices when reusing it. Game assets remain the property of their respective rightsholders and are not covered by this license.
