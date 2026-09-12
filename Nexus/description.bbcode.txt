@@ -91,8 +91,8 @@ Open [b]Mod Settings > All Mods > Controller Tweaks and Remap[/b]. Choose your c
 
 [size=4][b][color=#E8C88A]Credits and source[/color][/b][/size]
 
-Mod by CamilleBC. Thanks to the UE4SS contributors, Framecore, Vercadi and the Mod Setting Menu author.
+Thanks to the UE4SS contributors, Framecore, Vercadi and the Mod Setting Menu author.
 
-[url=https://github.com/my-mods/Controller-Tweaks-and-Remap]Source on GitHub[/url] · [url=https://github.com/my-mods/ue4ss-common]ue4ss-common credits[/url]
+[url=https://github.com/my-mods/Controller-Tweaks-and-Remap]Source on GitHub[/url]
 
 Original mod work is licensed under the [url=https://github.com/my-mods/Controller-Tweaks-and-Remap/blob/main/LICENSE.txt]MIT License[/url]. Preserve its copyright and permission notices when reusing it. Game assets remain the property of their respective rightsholders and are not covered by this license.
