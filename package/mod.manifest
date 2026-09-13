@@ -5,7 +5,7 @@
     <modid>ControllerTweaksAndRemap</modid>
     <description>Configure controller bindings through Mod Settings, swap shoulders and triggers, enjoy a wider walking range, and use short press Map / long press Game Hub.</description>
     <author>Local compatibility mod</author>
-    <version>1.6.0</version>
+    <version>1.7.0</version>
     <created_on>2026-09-05</created_on>
   </info>
   <supports>

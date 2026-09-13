@@ -1,6 +1,6 @@
 {
   "name": "Controller Tweaks and Remap",
-  "version": "1.6.0",
+  "version": "1.7.0",
   "game": "The Blood of Dawnwalker",
   "nexusDomain": "thebloodofdawnwalker",
   "summary": "Configure controller bindings through Mod Settings, swap shoulders and triggers, enjoy a wider walking range, and use short press Map / long press Game Hub.",
@@ -27,13 +27,13 @@
   ],
   "fileName": "Controller-Tweaks-and-Remap.zip",
   "fileDisplayName": "Controller Tweaks and Remap",
-  "fileDescription": "Configure controls through Mod Settings, apply saved changes during play, and use the linked-action and Focus input fixes in one main download. Improves controller recovery after loading.",
+  "fileDescription": "Apply controller binding changes during play without loading a save. Prepare controller settings at startup so the menu is available before the first save load.",
   "sourceUrl": "https://github.com/my-mods/Controller-Tweaks-and-Remap",
   "nexusModId": 203,
   "nexusFileId": 1654,
   "tags": [
-    "AI Assisted",
-    "AI Media"
+    "AI Media",
+    "AI-Generated Content"
   ],
   "license": "MIT",
   "nexusUrl": "https://www.nexusmods.com/thebloodofdawnwalker/mods/203",

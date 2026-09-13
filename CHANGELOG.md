@@ -1,3 +1,8 @@
+## 1.7.0
+
+- Apply controller binding changes during play without loading a save.
+- Prepare controller settings at startup so the menu is available before the first save load.
+
 # Changes
 
 ## 1.6.0 — 2026-09-12

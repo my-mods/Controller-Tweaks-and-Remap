@@ -10,7 +10,6 @@ Remap your controller for The Blood of Dawnwalker. Choose your combat and explor
 [*][b][color=#A8D5C2]Map and Game Hub on one button:[/color][/b] short press View / Touchpad for the Map; long press for the Game Hub. The long press takes 0.30 seconds.
 [*][b][color=#A8D5C2]Controller stutter fixes:[/color][/b] fixes controller-related stutter and restores your chosen controls after loading a save.
 [/list]
-
 The [b]Alternative preset[/b] uses X / Square for attack, Y / Triangle for block, LT / L2 for Focus, RT / R2 for the overworld ability wheel, and LB / L1 for Bite. You can customize either preset through Mod Settings.
 
 [size=4][b][color=#E8C88A]What you can remap[/color][/b][/size]
@@ -22,7 +21,6 @@ Mod Settings gives you [b]31 controller settings[/b]:
 [*][b][color=#A8D5C2]Exploration and menus:[/color][/b] interaction, jump, crouch, sprint, Planeshift, quickslots, the controls legend, Map and Game Hub.
 [*][b][color=#A8D5C2]Sticks and Photo Mode:[/color][/b] choose the left or right stick for movement and camera look, and change Photo Mode's rise, fall and exit buttons.
 [/list]
-
 Button choices include face buttons, shoulders, triggers, stick clicks, the D-pad, View / Touchpad, Menu / Options, and right-stick left or right. Movement and camera look must use a stick.
 
 [b]Inherit preset[/b] uses the Default or Alternative layout you selected in the game, including this mod's preset bindings. Choose a specific button to use your own assignment instead.
@@ -45,7 +43,6 @@ These actions share a binding. Assigning a button moves them together; you canno
 [*][b][color=#A8D5C2]Drink Blood:[/color][/b] starting Voracious Bite in Focus, holding to feed, and Necrospeak in Focus.
 [*][b][color=#A8D5C2]Movement and camera sticks:[/color][/b] each also controls its Photo Mode counterpart.
 [/list]
-
 [size=3][b][color=#A8D5C2]Using the same button for several actions[/color][/b][/size]
 
 [list]
@@ -54,7 +51,6 @@ These actions share a binding. Assigning a button moves them together; you canno
 [*]Two actions within Focus can still trigger together if you give them the same button. The mod does not resolve every possible button conflict.
 [*]Keep Map and Game Hub on the same button for their short press / long press shortcut.
 [/list]
-
 [size=4][b][color=#E8C88A]Limits[/color][/b][/size]
 
 [list]
@@ -64,7 +60,6 @@ These actions share a binding. Assigning a button moves them together; you canno
 [*]On-screen button prompts and the game's controller diagram may still show the original layout.
 [*]This menu remaps controller input. Use the game's own settings to change keyboard bindings.
 [/list]
-
 [size=4][b][color=#E8C88A]Requirements[/color][/b][/size]
 
 Install [b]one UE4SS option[/b] and [b]Mod Setting Menu[/b]:
@@ -73,19 +68,19 @@ Install [b]one UE4SS option[/b] and [b]Mod Setting Menu[/b]:
 [*][b][color=#A8D5C2]UE4SS — choose one:[/color][/b] [url=https://www.nexusmods.com/thebloodofdawnwalker/mods/283]Framecore's UE4SS for BoD (2b or later)[/url] OR [url=https://www.nexusmods.com/thebloodofdawnwalker/mods/18]Vercadi's UE4SS for Dawnwalker (RC6 or later)[/url].
 [*][b][color=#A8D5C2]Also required:[/color][/b] [url=https://www.nexusmods.com/thebloodofdawnwalker/mods/271]Mod Setting Menu (1.0.6 or later)[/url].
 [/list]
-
 [size=4][b][color=#E8C88A]Installation[/color][/b][/size]
 
 [list]
 [*][b][color=#A8D5C2]Vortex:[/color][/b] Install Controller-Tweaks-and-Remap.zip through Vortex, enable it and deploy.
 [*][b][color=#A8D5C2]Manual:[/color][/b] Copy the archive's Dawnwalker folder into ...\steamapps\common\The Blood of Dawnwalker\, preserving the folder structure.
 [/list]
-
 [size=4][b][color=#E8C88A]How to change your controls[/color][/b][/size]
 
-On first use, [b]load a save once[/b], then return to the main menu.
+Mod Setting Menu 1.0.6+ is required. Apply saves changes and updates gameplay. Enable HookProcessConsoleExec = 1 in your Vortex-managed UE4SS configuration.
 
-Open [b]Mod Settings > All Mods > Controller Tweaks and Remap[/b]. Choose your controls, press [b]Apply[/b], then [b]load a save[/b] to use the changes.
+Settings are prepared when the game starts.
+
+Open [b]Mod Settings > All Mods > Controller Tweaks and Remap[/b]. Choose your controls, press [b]Apply[/b] to use the changes during play.
 
 [b]Restore[/b] discards changes you have not applied. [b]Reset[/b] selects this mod's defaults. Leave [b]Logging[/b] Off for normal play; turn it On only for troubleshooting.
 
@@ -96,8 +91,3 @@ Thanks to the UE4SS contributors, Framecore, Vercadi and the Mod Setting Menu au
 [url=https://github.com/my-mods/Controller-Tweaks-and-Remap]Source on GitHub[/url]
 
 Original mod work is licensed under the [url=https://github.com/my-mods/Controller-Tweaks-and-Remap/blob/main/LICENSE.txt]MIT License[/url]. Preserve its copyright and permission notices when reusing it. Game assets remain the property of their respective rightsholders and are not covered by this license.
-
-
-[b]Live settings[/b]
-Mod Setting Menu 1.0.6+ is required. Settings are prepared at startup; Apply saves changes and updates gameplay. The loader must use HookProcessConsoleExec = 1, managed through your Vortex loader configuration.
-Only affected bindings are queued. Validated presets, aliases and context indices are reused, and each changed context is rebuilt once. Logging changes do not inspect or rebuild mappings. Turning runtime remapping Off conditionally restores owned bindings.
