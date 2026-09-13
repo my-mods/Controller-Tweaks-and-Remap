@@ -1,3 +1,15 @@
+[size=5][b][color=#E8C88A]Author's Notes[/color][/b][/size]
+
+Fully configurable input map for the controller. Use at your own risk for very peculiar configs, like multiple bindings on the same key.
+
+Use [b][color=#A8D5C2]Mod Settings[/color][/b] to change your bindings. See the [url=https://www.nexusmods.com/thebloodofdawnwalker/mods/203?tab=description]mod's description[/url] for the current controls, configuration details, and advice on using the same button for several actions.
+
+[size=4][b][color=#E8C88A]1.5.2 Stutters[/color][/b][/size]
+Stutter troubles are resolved as of 1.5.2.
+
+[size=4][b][color=#E8C88A]1.5.3 Experimental fixes for non-conventional layouts[/color][/b][/size]
+Experimental fixes improve button remapping so related actions follow your chosen controls, address shared-button conflicts affecting Death from Above in Focus mode, and let you assign Attack and the ability wheel to separate buttons.
+
 [size=4][b][color=#E8C88A]New: change settings while playing[/color][/b][/size]
 
 The latest update lets you change this mod’s settings [b]without reloading your save[/b]. Open [b][color=#A8D5C2]Mod Settings[/color][/b], make your changes and press [b][color=#A8D5C2]Apply[/color][/b] to use them straight away.
