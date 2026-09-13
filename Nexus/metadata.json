@@ -23,11 +23,11 @@
   ],
   "requiredMods": [
     "UE4SS for BoD by Framecore 2b+ OR UE4SS for Dawnwalker by Vercadi RC6+",
-    "Mod Setting Menu 1.0.5.1+"
+    "Mod Setting Menu 1.0.6+"
   ],
   "fileName": "Controller-Tweaks-and-Remap.zip",
   "fileDisplayName": "Controller Tweaks and Remap",
-  "fileDescription": "Configure controls through Mod Settings, apply changes on save load, and use the linked-action and Focus input fixes in one main download. Improves controller recovery after loading.",
+  "fileDescription": "Configure controls through Mod Settings, apply saved changes during play, and use the linked-action and Focus input fixes in one main download. Improves controller recovery after loading.",
   "sourceUrl": "https://github.com/my-mods/Controller-Tweaks-and-Remap",
   "nexusModId": 203,
   "nexusFileId": 1654,
@@ -52,5 +52,10 @@
     }
   ],
   "optionalFiles": [],
-  "supersedesExperimentalVersion": "1.5.3"
+  "supersedesExperimentalVersion": "1.5.3",
+  "liveSettings": {
+    "minimumMenuVersion": "1.0.6",
+    "HookProcessConsoleExec": 1,
+    "apply": "Committed values update gameplay through bounded workers."
+  }
 }

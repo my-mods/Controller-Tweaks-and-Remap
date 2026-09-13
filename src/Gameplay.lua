@@ -12,7 +12,8 @@ local config, configStopped, configLastError
 local function loadConfig()
     if config or configStopped then return end
     local err, status
-    config, err, status = ConfigStore.load(directory, Config, log)
+    if SaveLoadContext.settings then config=ConfigStore.convert(SaveLoadContext.settings,Config,ControllerSettingsDefaults)
+    else config,err,status=ConfigStore.load(directory,Config,log) end
     if not config then
         if err ~= configLastError then log(err); configLastError = err end
         configStopped = status ~= 'retry'
@@ -22,8 +23,15 @@ local function loadConfig()
     end
 end
 loadConfig()
+local updateSettings
+Session.onSettings(function(values,changes)
+    if not config or (values.enabled==1)~=config.enabled then Session.restart();return end
+    local nextConfig=ConfigStore.convert(values,Config,ControllerSettingsDefaults)
+    if diagnostics.setEnabled then diagnostics.setEnabled(nextConfig.debugLogging) end
+    if updateSettings then updateSettings(nextConfig) else config=nextConfig end
+end)
 if configStopped then return end
-diagnostics = Diagnostics.new({debugLogging=config.debugLogging,prefix='[ControllerTweaks] ',output=function(text) print(text .. '\n') end})
+diagnostics = Diagnostics.new({mutable=true,debugLogging=config.debugLogging,prefix='[ControllerTweaks] ',output=function(text) print(text .. '\n') end})
 
 local function live(object)
     if object == nil then return false end
@@ -64,6 +72,8 @@ end
 local MAX_STEPS, MAX_SECONDS, MAX_JOB_STEPS = 8, 0.0005, 131072
 local engine, library, system, gameplay, subsystems, subsystemClass, subsystemKind
 local state, job, requested = nil, nil, {}
+local settingsDirty,settingsVersion=false,0
+local dirtyActions={}
 local restoreContexts = {}
 local running, suspended, stopped, exhausted = false, false, false, false
 local lastFrame, recoveryContext
@@ -81,7 +91,7 @@ local function cacheContext(context,index)
     if not state.indices[id] then
         state.slot=(state.slot or 0)%128+1
         local old=state.slots[state.slot]
-        if old then state.indices[old]=nil end
+        if old then state.indices[old]=nil;if state.mappingRows then state.mappingRows[old]=nil end end
         state.slots[state.slot]=id
     end
     state.indices[id]={object=context,index=index}
@@ -177,10 +187,12 @@ local function beginPreset()
     for action, desired in pairs(bindings) do actions[#actions+1] = {action=action,desired=desired} end
     state.preset, state.targets, state.indices, state.slots = preset, {}, {}, {}
     state.profileTargets={}
+    state.actionAliases,state.mappingRows={},{}
+    state.initialized=false
     state.rediscover=false
     state.slot=0
     state.alternative, state.unsupported = alternative, false
-    job = {phase='validate', index=1, actions=actions, changes={}, inherited=inherited, steps=0}
+    job = {phase='validate', index=1, actions=actions, changes={}, inherited=inherited, steps=0,settingsVersion=settingsVersion}
     readyAt=readyAt or os.clock()
     if not state.conflictReported and bindings.Player_Drink_Blood == bindings.Combat_Attack then
         log('Binding conflict: Player_Drink_Blood and Combat_Attack both use '..bindings.Player_Drink_Blood
@@ -213,6 +225,25 @@ local function startContext(context, index, all)
     job.phase, job.index, job.changed, job.didRebuild = 'mapping', 1, false, false
     local mappings = context.Mappings
     job.count, job.address = #mappings, mappings:GetArrayDataAddress()
+    local id=context:GetAddress()
+    local cached=state.mappingRows[id]
+    if not cached or cached.count~=job.count or cached.address~=job.address then
+        cached={object=context,contextIndex=index,count=job.count,address=job.address,aliases={}}
+        state.mappingRows[id]=cached
+    end
+    if not job.liveSettings then cached.aliases={} end
+    job.mappingCache=cached
+end
+
+local function beginSettings()
+    if not state.initialized then return beginPreset() end
+    local bindings=state.alternative and config.alternateBindings or config.bindings
+    local actions={}
+    for action in pairs(dirtyActions) do actions[#actions+1]={action=action,desired=bindings[action]} end
+    job={phase='validate',index=1,actions=actions,changes={},steps=0,inherited=state.alternative,
+        liveSettings=true,settingsVersion=settingsVersion,selectedAliases={},contextSlots={}}
+    for _,id in pairs(state.slots) do job.contextSlots[#job.contextSlots+1]=id end
+    return true
 end
 
 local function step()
@@ -228,24 +259,33 @@ local function step()
         local actual = present and keyName(unwrap(mappings:Find(id)).Key) or nil
         if actual and actual:sub(1,8) ~= 'Gamepad_' then error('Unexpected preset key for '..row.action) end
         if actual ~= row.desired then job.changes[#job.changes+1] = {id=id,desired=row.desired,action=row.action} end
-        local info = state.object:GetMappingInfo(id)
-        local aliases = assert(info.MappedActionNames,'Missing MappedActionNames')
-        if #aliases == 0 or #aliases > 64 then error('Missing or excessive input aliases for '..row.action) end
+        local aliases=state.actionAliases[row.action]
+        if not aliases then
+            local info=state.object:GetMappingInfo(id)
+            local borrowed=assert(info.MappedActionNames,'Missing MappedActionNames')
+            assert(#borrowed>0 and #borrowed<=64,'Missing or excessive input aliases for '..row.action)
+            aliases={}
+            for i=1,#borrowed do aliases[i]=name(at(borrowed,i)):lower() end
+            state.actionAliases[row.action]=aliases
+        end
         local function add(alias,profileAlias)
             alias=name(alias):lower()
             if alias=='' or alias=='none' then error('Invalid mapping name') end
             local previous=state.targets[alias]
-            if previous and previous.desired~=row.desired then error('Conflicting controls for shared mapping '..alias) end
-            state.targets[alias]={id=id,desired=row.desired}
+            if previous and previous.action~=row.action and previous.desired~=row.desired then error('Conflicting controls for shared mapping '..alias) end
+            state.targets[alias]={id=id,desired=row.desired,action=row.action}
+            if job.liveSettings then job.selectedAliases[alias]=true end
             if profileAlias then state.profileTargets[alias]=row.desired end
         end
         add(row.action)
-        for i=1,#aliases do add(at(aliases,i),true) end
+        for i=1,#aliases do add(aliases[i],true) end
         job.index=job.index+1
     elseif job.phase == 'preset' then
         local change=job.changes[job.index]
         if not change then
-            job.profileAliases={};for alias in pairs(state.profileTargets) do job.profileAliases[#job.profileAliases+1]=alias end
+            job.profileAliases={};for alias in pairs(state.profileTargets) do
+                if not job.liveSettings or job.selectedAliases[alias] then job.profileAliases[#job.profileAliases+1]=alias end
+            end
             table.sort(job.profileAliases)
             job.phase,job.index='profileCheck',1;return
         end
@@ -271,7 +311,9 @@ local function step()
         local alias=job.profileAliases[job.index]
         if not alias then
             local changed=job.profileChanged
-            if job.profileOnly then job=nil else job.phase,job.index='contexts',1 end
+            if job.profileOnly then job=nil
+            elseif job.liveSettings then job.phase,job.contextCursor='settingsContexts',1
+            else job.phase,job.index='contexts',1 end
             if changed then ControllerProfile.finish(state.profile);stats.rebuilds=stats.rebuilds+1;return true end
             return
         end
@@ -288,9 +330,32 @@ local function step()
         end
         job.index=job.index+1
         return changed -- one profile write/readback per frame; native notifications may rebuild
+    elseif job.phase=='settingsContexts' then
+        local id=job.contextSlots[job.contextCursor]
+        if not id then
+            if job.settingsVersion==settingsVersion then dirtyActions={} end
+            job=nil;return
+        end
+        local cached=state.mappingRows[id]
+        if not cached or not live(cached.object) then job.contextCursor=job.contextCursor+1;return end
+        local mappings=cached.object.Mappings
+        local intact=#mappings==cached.count and mappings:GetArrayDataAddress()==cached.address
+        local selected={}
+        for alias in pairs(job.selectedAliases) do
+            for _,index in ipairs(cached.aliases[alias] or {}) do selected[#selected+1]=index end
+        end
+        if intact and #selected==0 then job.contextCursor=job.contextCursor+1;return end
+        table.sort(selected)
+        startContext(cached.object,cached.contextIndex,false)
+        if intact then
+            job.selected,job.selectionIndex=selected,1
+            job.index=selected[1]
+        end
     elseif job.phase == 'contexts' then
         local contexts=state.object.RebindableContexts
         if job.index > #contexts then
+            state.initialized=true
+            if job.settingsVersion==settingsVersion then dirtyActions={} end
             if #contexts==0 then
                 job=nil
                 return true
@@ -298,7 +363,7 @@ local function step()
             job=nil
             if not announced then
                 log('Configuration active for the '..(state.alternative and 'Alternative' or 'Default')
-                    ..' controller preset. Use Mod Settings, Apply, then load a save.')
+                    ..' controller preset. Use Mod Settings and Apply to update gameplay.')
                 announced=true
             end
             return
@@ -320,13 +385,16 @@ local function step()
     elseif job.phase == 'mapping' then
         local context=job.context
         if not live(context) or not same(at(state.object.RebindableContexts,job.contextIndex),context) then
-            if job.all then job.phase,job.index='contexts',job.contextIndex+1 else job=nil end
+            if job.liveSettings then job.phase='settingsContexts';job.contextCursor=job.contextCursor+1
+            elseif job.all then job.phase,job.index='contexts',job.contextIndex+1 else job=nil end
             return
         end
         local mappings=context.Mappings
         if #mappings~=job.count or mappings:GetArrayDataAddress()~=job.address then
             -- Reacquire after a container replacement; never retain a borrowed element.
             job.index,job.count,job.address=1,#mappings,mappings:GetArrayDataAddress()
+            job.selected=nil
+            job.mappingCache.count,job.mappingCache.address,job.mappingCache.aliases=job.count,job.address,{}
         end
         if job.index > #mappings then
             local active=job
@@ -337,14 +405,20 @@ local function step()
                 stats.rebuilds=stats.rebuilds+1
             end
             if job~=active then return true end -- a native rebuild can dispatch travel
-            if job.all then job.phase,job.index='contexts',job.contextIndex+1 else job=nil end
+            if job.liveSettings then job.phase='settingsContexts';job.contextCursor=job.contextCursor+1
+            elseif job.all then job.phase,job.index='contexts',job.contextIndex+1 else job=nil end
             return active.didRebuild -- no second rebuild in this engine frame
         end
         local mapping=at(mappings,job.index)
         local current=keyName(mapping.Key)
         if current:sub(1,8)=='Gamepad_' then
             local mappingName=name(library:GetMappingName(mapping)):lower()
-            local target=state.targets[mappingName]
+            if not job.selected then
+                local indices=job.mappingCache.aliases[mappingName]
+                if not indices then indices={};job.mappingCache.aliases[mappingName]=indices end
+                if indices[#indices]~=job.index then indices[#indices+1]=job.index end
+            end
+            local target=(not job.liveSettings or job.selectedAliases[mappingName]) and state.targets[mappingName] or nil
             stats.names=stats.names+1
             if target and current~=target.desired then
                 local index, address, count = job.index, job.address, job.count
@@ -377,7 +451,10 @@ local function step()
                 job.changed=true
             end
         end
-        job.index=job.index+1
+        if job.selected then
+            job.selectionIndex=job.selectionIndex+1
+            job.index=job.selected[job.selectionIndex] or job.count+1
+        else job.index=job.index+1 end
     end
 end
 
@@ -434,7 +511,8 @@ tick = function()
         if not same(state.object:GetActiveGamepadPreset(),state.preset) then
             job,requested=nil,{}; if not beginPreset() then state=nil;return end
         end
-        if state.unsupported then requested={};return end
+        if state.unsupported then requested={};settingsDirty=false;return end
+        if settingsDirty then settingsDirty=false;beginSettings() end
         phaseMax.validate=math.max(phaseMax.validate,(os.clock()-validating)*1000)
         for unit=1,MAX_STEPS do
             -- The clock includes preparation. Reserve one bounded step when a
@@ -457,7 +535,7 @@ tick = function()
         if err~=lastError then log('Remapping stopped: '..err);lastError=err end
         exhausted=true;job=nil;requested={}
     end
-    if not running or exhausted or (state and not job and not next(requested) and not state.rediscover and not state.refreshProfile) or configStopped then
+    if not running or exhausted or (state and not settingsDirty and not job and not next(requested) and not state.rediscover and not state.refreshProfile) or configStopped then
         running=false
         if config and config.debugLogging then
             log('Experimental controller profile: '..stats.profileWrites..' verified slot updates.')
@@ -496,6 +574,21 @@ wake=function()
     wakeStarted=os.clock()
     readyAt=state and wakeStarted or nil
     schedule(16)
+end
+
+updateSettings=function(nextConfig)
+    local changed=false
+    for action,desired in pairs(nextConfig.bindings) do
+        if config.bindings[action]~=desired or config.alternateBindings[action]~=nextConfig.alternateBindings[action] then
+            dirtyActions[action]=true;changed=true
+        end
+    end
+    config=nextConfig
+    if changed then
+        settingsVersion=settingsVersion+1;settingsDirty=true
+        exhausted=false;lastError=nil
+        if state or running then wake() end
+    end
 end
 
 for _,api in ipairs({'ExecuteInGameThreadWithDelay','NotifyOnNewObject','RegisterLoadMapPreHook','RegisterLoadMapPostHook','RegisterHook','FindFirstOf','StaticFindObject'}) do

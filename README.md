@@ -8,7 +8,7 @@ More comfortable controller input for The Blood of Dawnwalker on PC: swap should
 
 ### Configurable controller mappings
 
-Configure all 31 Default and Alternative controller bindings through Mod Settings. Choose a button or inherit the selected preset, press Apply, then load a save. The main file keeps the existing layout by default.
+Configure all 31 Default and Alternative controller bindings through Mod Settings. Choose a button or inherit the selected preset, press Apply to save and update the active game. The main file keeps the existing layout by default.
 
 ### Linked Voracious Bite controls
 
@@ -16,7 +16,7 @@ Player_Drink_Blood controls both starting Bite in Focus and holding to feed. Nec
 
 ### Controller stutter fixes
 
-Stops completed background checks and combines duplicate input events so they do not repeatedly restart controller updates. Larger updates are spread across frames, and controls recover when needed after loading or controller preset changes. Settings are applied when a save loads, with recovery for delayed player initialization and missed loading notifications.
+Stops completed background checks and combines duplicate input events so they do not repeatedly restart controller updates. Larger updates are spread across frames, and controls recover when needed after loading or controller preset changes. Settings apply during play and after save loads, with recovery for delayed player initialization and missed loading notifications.
 
 ### Linked actions and Focus controls
 
@@ -45,7 +45,7 @@ On Back/View (PlayStation touchpad):
 ## Requirements
 
 - **UE4SS — choose one:** [UE4SS for BoD by Framecore (2b or later)](https://www.nexusmods.com/thebloodofdawnwalker/mods/283) OR [UE4SS for Dawnwalker by Vercadi (RC6 or later)](https://www.nexusmods.com/thebloodofdawnwalker/mods/18).
-- **Also required:** [Mod Setting Menu 1.0.5.1 or later](https://www.nexusmods.com/thebloodofdawnwalker/mods/271).
+- **Also required:** [Mod Setting Menu 1.0.6 or later](https://www.nexusmods.com/thebloodofdawnwalker/mods/271).
 
 ## Installation
 
@@ -54,7 +54,15 @@ On Back/View (PlayStation touchpad):
 
 ## Configuration
 
-On first use, load a save once to initialize the settings, then return to **Main Menu > Mod Settings > All Mods > Controller Tweaks and Remap**. Choose your controls, press **Apply**, then **load a save**. Restore discards unapplied changes; Reset selects this mod's defaults.
+Mod Setting Menu 1.0.6 or later is required. Its callback bridge also requires `HookProcessConsoleExec = 1` in `UE4SS-settings.ini`. Manage that loader setting through your Vortex loader configuration; this archive contains no replacement global UE4SS INI.
+
+Settings are prepared when the game starts and are available from the main menu before the first save. Press **Apply** to save and update the active game. Changes made while loading are retained for the next valid player. Restore and Discard leave saved settings unchanged; Reset takes effect after Apply.
+
+Only affected bindings are queued. Validated presets, aliases and context indices are reused, and each changed context is rebuilt once. Logging changes do not inspect or rebuild mappings. Turning runtime remapping Off conditionally restores owned bindings.
+
+Logging is the final, sole diagnostic control. It changes immediately; verbose logging is Off by default. Logs are written to `Dawnwalker/Binaries/Win64/ue4ss/UE4SS.log`. Settings are never polled.
+
+Settings are prepared at startup. Open **Main Menu > Mod Settings > All Mods > Controller Tweaks and Remap**. Choose your controls, press **Apply** to save and update the active game. Restore discards unapplied changes; Reset selects this mod's defaults.
 
 Choose **Inherit preset** to use the selected Default or Alternative layout for a binding. Keep Player Hub Map and Player Hub Launch on the same control for the shared shortcut. Keep Player Drink Blood different from Attack and Focus. Cached button prompts may retain their previous labels.
 

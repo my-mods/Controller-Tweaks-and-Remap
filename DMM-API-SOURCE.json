@@ -1,0 +1,31 @@
+{
+  "version": "1.0.6",
+  "url": "https://www.nexusmods.com/thebloodofdawnwalker/mods/271",
+  "file": "Integration Guide/example/Scripts/dmm_api.lua",
+  "sha256": "6bb667bffc543d1c5c1b36ab6da66c621d6c81c9ee46f94f0f6339cae9cc884c",
+  "permission": "Integration guide explicitly instructs authors to copy this helper unchanged.",
+  "integration": {
+    "minimumMenuVersion": "1.0.6",
+    "hookProcessConsoleExec": 1,
+    "lifetime": "One subscription in the persistent main script.",
+    "configuration": "Startup preparation and accepted save-load reads; no callback I/O.",
+    "commonCommit": "b51434dee720bc000090d4cf387d60f8f6be7e60",
+    "commonLock": "ue4ss-common.lock.json"
+  },
+  "runtimeSources": {
+    "src/Config.lua": "ccd9b3d72fcf0c1c3af714a21f996e86820cb0d5426dbdee2dd6c76c463edec9",
+    "src/ConfigStore.lua": "e01a548ad222e4570250c67db7d960ef93ec8d91a3b9800405a1bc5c1ceab58c",
+    "src/ControllerProfile.lua": "f1bae5a52b91e06aacf228096ea7112db73d1e30816f41bd87dea0a161152c29",
+    "src/dmm_api.lua": "6bb667bffc543d1c5c1b36ab6da66c621d6c81c9ee46f94f0f6339cae9cc884c",
+    "src/Gameplay.lua": "c0477ad2912b39ecb71023228dd3fb2db2623a7cd94401c9b048bcb314321609",
+    "src/LiveSettings.lua": "ef4be53a4a4bf31e0ceffac8b0f06b4ef2168fc11b8b506a01e47cd10e6c872a",
+    "src/main.lua": "b29b68a16c89b41bec53ce6bf314a685b095d7f40308497c9464bfbe78a8480d",
+    "src/SettingsSchema.lua": "705e8f1dee915b6925df730827a31bfeff61e77fd564034a586225f73ef0ed1d",
+    "src/SettingsStore.lua": "db597ebcfbe67fd03aa16c3c2eb4129c346975961e4df0481bb70440aa7cfa26",
+    "src/UE4SSCommonDiagnostics.lua": "a6c3de0fb908085654e967a0c38c388dd021d19af7fecc0bb0722a3ea1b20f0e",
+    "src/UE4SSCommonHooks.lua": "723b8680903e75f64d44deaad432b90169e91e5f322d964aaedc4a6aaba4abea",
+    "src/UE4SSCommonSession.lua": "924272d0246d73759ba57a6ed5f0feea319065a96119d7c9ff7248dd345a09a2",
+    "src/UE4SSDawnwalkerSaveLoad.lua": "17e9cbb70326f536b14ba5512a46ac425e7e1446c90516e826b2092b30465707",
+    "src/UE4SSDawnwalkerSettings.lua": "039b09679eafec2b19cd8f27e3033dec26a52484a7529edbf14f15193ba07ef1"
+  }
+}

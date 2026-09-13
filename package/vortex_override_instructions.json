@@ -27,7 +27,9 @@
       "RELEASE-NOTES.md",
       "INPUT-BINDINGS.md",
       "SETTINGS.md",
-      "LICENSES/DawnwalkerControllerTweaks-ue4ss-common.txt"
+      "LICENSES/DawnwalkerControllerTweaks-ue4ss-common.txt",
+      "DMM-API-SOURCE.json",
+      "ue4ss-common.lock.json"
     ]
   },
   {
@@ -43,7 +45,9 @@
       "RELEASE-NOTES.md",
       "INPUT-BINDINGS.md",
       "SETTINGS.md",
-      "LICENSES/DawnwalkerControllerTweaks-ue4ss-common.txt"
+      "LICENSES/DawnwalkerControllerTweaks-ue4ss-common.txt",
+      "DMM-API-SOURCE.json",
+      "ue4ss-common.lock.json"
     ]
   },
   {
@@ -59,7 +63,9 @@
       "RELEASE-NOTES.md",
       "INPUT-BINDINGS.md",
       "SETTINGS.md",
-      "LICENSES/DawnwalkerControllerTweaks-ue4ss-common.txt"
+      "LICENSES/DawnwalkerControllerTweaks-ue4ss-common.txt",
+      "DMM-API-SOURCE.json",
+      "ue4ss-common.lock.json"
     ]
   },
   {
@@ -75,7 +81,9 @@
       "RELEASE-NOTES.md",
       "INPUT-BINDINGS.md",
       "SETTINGS.md",
-      "LICENSES/DawnwalkerControllerTweaks-ue4ss-common.txt"
+      "LICENSES/DawnwalkerControllerTweaks-ue4ss-common.txt",
+      "DMM-API-SOURCE.json",
+      "ue4ss-common.lock.json"
     ]
   },
   {
@@ -91,7 +99,9 @@
       "RELEASE-NOTES.md",
       "INPUT-BINDINGS.md",
       "SETTINGS.md",
-      "LICENSES/DawnwalkerControllerTweaks-ue4ss-common.txt"
+      "LICENSES/DawnwalkerControllerTweaks-ue4ss-common.txt",
+      "DMM-API-SOURCE.json",
+      "ue4ss-common.lock.json"
     ]
   },
   {
@@ -107,7 +117,9 @@
       "RELEASE-NOTES.md",
       "INPUT-BINDINGS.md",
       "SETTINGS.md",
-      "LICENSES/DawnwalkerControllerTweaks-ue4ss-common.txt"
+      "LICENSES/DawnwalkerControllerTweaks-ue4ss-common.txt",
+      "DMM-API-SOURCE.json",
+      "ue4ss-common.lock.json"
     ]
   },
   {
@@ -123,7 +135,9 @@
       "RELEASE-NOTES.md",
       "INPUT-BINDINGS.md",
       "SETTINGS.md",
-      "LICENSES/DawnwalkerControllerTweaks-ue4ss-common.txt"
+      "LICENSES/DawnwalkerControllerTweaks-ue4ss-common.txt",
+      "DMM-API-SOURCE.json",
+      "ue4ss-common.lock.json"
     ]
   },
   {
@@ -139,7 +153,9 @@
       "RELEASE-NOTES.md",
       "INPUT-BINDINGS.md",
       "SETTINGS.md",
-      "LICENSES/DawnwalkerControllerTweaks-ue4ss-common.txt"
+      "LICENSES/DawnwalkerControllerTweaks-ue4ss-common.txt",
+      "DMM-API-SOURCE.json",
+      "ue4ss-common.lock.json"
     ]
   },
   {
@@ -155,7 +171,9 @@
       "RELEASE-NOTES.md",
       "INPUT-BINDINGS.md",
       "SETTINGS.md",
-      "LICENSES/DawnwalkerControllerTweaks-ue4ss-common.txt"
+      "LICENSES/DawnwalkerControllerTweaks-ue4ss-common.txt",
+      "DMM-API-SOURCE.json",
+      "ue4ss-common.lock.json"
     ]
   },
   {
@@ -171,7 +189,9 @@
       "RELEASE-NOTES.md",
       "INPUT-BINDINGS.md",
       "SETTINGS.md",
-      "LICENSES/DawnwalkerControllerTweaks-ue4ss-common.txt"
+      "LICENSES/DawnwalkerControllerTweaks-ue4ss-common.txt",
+      "DMM-API-SOURCE.json",
+      "ue4ss-common.lock.json"
     ]
   },
   {
@@ -187,7 +207,45 @@
       "RELEASE-NOTES.md",
       "INPUT-BINDINGS.md",
       "SETTINGS.md",
-      "LICENSES/DawnwalkerControllerTweaks-ue4ss-common.txt"
+      "LICENSES/DawnwalkerControllerTweaks-ue4ss-common.txt",
+      "DMM-API-SOURCE.json",
+      "ue4ss-common.lock.json"
+    ]
+  },
+  {
+    "type": "attribute",
+    "source": "DMM-API-SOURCE.json",
+    "key": "controllerTweaksReleaseMaterials",
+    "value": [
+      "mod.manifest",
+      "README.txt",
+      "Data/Dawnwalker-Controller-Tweaks-PACKAGE-LAYOUT.txt",
+      "LICENSE.txt",
+      "CHANGELOG.md",
+      "RELEASE-NOTES.md",
+      "INPUT-BINDINGS.md",
+      "SETTINGS.md",
+      "LICENSES/DawnwalkerControllerTweaks-ue4ss-common.txt",
+      "DMM-API-SOURCE.json",
+      "ue4ss-common.lock.json"
+    ]
+  },
+  {
+    "type": "attribute",
+    "source": "ue4ss-common.lock.json",
+    "key": "controllerTweaksReleaseMaterials",
+    "value": [
+      "mod.manifest",
+      "README.txt",
+      "Data/Dawnwalker-Controller-Tweaks-PACKAGE-LAYOUT.txt",
+      "LICENSE.txt",
+      "CHANGELOG.md",
+      "RELEASE-NOTES.md",
+      "INPUT-BINDINGS.md",
+      "SETTINGS.md",
+      "LICENSES/DawnwalkerControllerTweaks-ue4ss-common.txt",
+      "DMM-API-SOURCE.json",
+      "ue4ss-common.lock.json"
     ]
   }
 ]

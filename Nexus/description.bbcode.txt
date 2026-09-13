@@ -71,7 +71,7 @@ Install [b]one UE4SS option[/b] and [b]Mod Setting Menu[/b]:
 
 [list]
 [*][b][color=#A8D5C2]UE4SS — choose one:[/color][/b] [url=https://www.nexusmods.com/thebloodofdawnwalker/mods/283]Framecore's UE4SS for BoD (2b or later)[/url] OR [url=https://www.nexusmods.com/thebloodofdawnwalker/mods/18]Vercadi's UE4SS for Dawnwalker (RC6 or later)[/url].
-[*][b][color=#A8D5C2]Also required:[/color][/b] [url=https://www.nexusmods.com/thebloodofdawnwalker/mods/271]Mod Setting Menu (1.0.5.1 or later)[/url].
+[*][b][color=#A8D5C2]Also required:[/color][/b] [url=https://www.nexusmods.com/thebloodofdawnwalker/mods/271]Mod Setting Menu (1.0.6 or later)[/url].
 [/list]
 
 [size=4][b][color=#E8C88A]Installation[/color][/b][/size]
@@ -96,3 +96,8 @@ Thanks to the UE4SS contributors, Framecore, Vercadi and the Mod Setting Menu au
 [url=https://github.com/my-mods/Controller-Tweaks-and-Remap]Source on GitHub[/url]
 
 Original mod work is licensed under the [url=https://github.com/my-mods/Controller-Tweaks-and-Remap/blob/main/LICENSE.txt]MIT License[/url]. Preserve its copyright and permission notices when reusing it. Game assets remain the property of their respective rightsholders and are not covered by this license.
+
+
+[b]Live settings[/b]
+Mod Setting Menu 1.0.6+ is required. Settings are prepared at startup; Apply saves changes and updates gameplay. The loader must use HookProcessConsoleExec = 1, managed through your Vortex loader configuration.
+Only affected bindings are queued. Validated presets, aliases and context indices are reused, and each changed context is rebuilt once. Logging changes do not inspect or rebuild mappings. Turning runtime remapping Off conditionally restores owned bindings.

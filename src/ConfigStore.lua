@@ -27,12 +27,16 @@ function M.load(directory, Config, log)
         return result, nil, personal and {{path=legacyPath, text=personal}} or nil
     end)
     if not values then return nil, problem, 'invalid' end
+    return M.convert(values, Config, defaults), nil, nil, values, defaults
+end
+function M.convert(values, Config, defaults)
+    local keys = {"Gamepad_FaceButton_Bottom","Gamepad_FaceButton_Right","Gamepad_FaceButton_Left","Gamepad_FaceButton_Top","Gamepad_LeftShoulder","Gamepad_LeftTriggerAxis","Gamepad_RightShoulder","Gamepad_RightTriggerAxis","Gamepad_LeftThumbstick","Gamepad_RightThumbstick","Gamepad_Special_Left","Gamepad_Special_Right","Gamepad_DPad_Up","Gamepad_DPad_Down","Gamepad_DPad_Left","Gamepad_DPad_Right","Gamepad_RightStick_Left","Gamepad_RightStick_Right","Gamepad_Left2D","Gamepad_Right2D"}
+    defaults=defaults or {bindings=Config.defaults}
     local cfg = {enabled=values.enabled==1,debugLogging=values.debugLogging==1,bindings={},alternateBindings={}}
     for action, key in pairs(defaults.bindings) do
         cfg.bindings[action] = values[action]==0 and key or keys[values[action]]
         cfg.alternateBindings[action] = values[action]==0 and Config.alternateDefaults[action] or keys[values[action]]
     end
-    log('Loaded Mod Settings; Apply changes in the menu, then restart.')
     return cfg
 end
 return M
