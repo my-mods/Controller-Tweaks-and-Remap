@@ -44,7 +44,7 @@ On Back/View (PlayStation touchpad):
 
 ## Requirements
 
-- **UE4SS — choose one:** [UE4SS for BoD by Framecore (2b or later)](https://www.nexusmods.com/thebloodofdawnwalker/mods/283) OR [UE4SS for Dawnwalker by Vercadi (RC6 or later)](https://www.nexusmods.com/thebloodofdawnwalker/mods/18).
+- **Required:** [UE4SS for Dawnwalker by Vercadi](https://www.nexusmods.com/thebloodofdawnwalker/mods/18) **1.3 (RC6) or later**.
 - **Also required:** [Mod Setting Menu 1.0.6 or later](https://www.nexusmods.com/thebloodofdawnwalker/mods/271).
 
 ## Installation
@@ -78,7 +78,7 @@ See SETTINGS.md and INPUT-BINDINGS.md in the archive for the complete settings a
 
 ## Credits and source
 
-Mod by CamilleBC. Controller and input changes are maintained in [Controller Tweaks and Remap on GitHub](https://github.com/my-mods/Controller-Tweaks-and-Remap). Bundled MIT-licensed Lua helpers come from [ue4ss-common](https://github.com/my-mods/ue4ss-common). Thanks to the UE4SS contributors, Framecore, Vercadi and the Mod Setting Menu author. Game assets belong to their respective rightsholders.
+Mod by CamilleBC. Controller and input changes are maintained in [Controller Tweaks and Remap on GitHub](https://github.com/my-mods/Controller-Tweaks-and-Remap). Bundled MIT-licensed Lua helpers come from [ue4ss-common](https://github.com/my-mods/ue4ss-common). Thanks to the UE4SS contributors, Vercadi and the Mod Setting Menu author. Game assets belong to their respective rightsholders.
 
 ## License
 

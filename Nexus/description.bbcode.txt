@@ -60,14 +60,6 @@ These actions share a binding. Assigning a button moves them together; you canno
 [*]On-screen button prompts and the game's controller diagram may still show the original layout.
 [*]This menu remaps controller input. Use the game's own settings to change keyboard bindings.
 [/list]
-[size=4][b][color=#E8C88A]Requirements[/color][/b][/size]
-
-Install [b]one UE4SS option[/b] and [b]Mod Setting Menu[/b]:
-
-[list]
-[*][b][color=#A8D5C2]UE4SS — choose one:[/color][/b] [url=https://www.nexusmods.com/thebloodofdawnwalker/mods/283]Framecore's UE4SS for BoD (2b or later)[/url] OR [url=https://www.nexusmods.com/thebloodofdawnwalker/mods/18]Vercadi's UE4SS for Dawnwalker (RC6 or later)[/url].
-[*][b][color=#A8D5C2]Also required:[/color][/b] [url=https://www.nexusmods.com/thebloodofdawnwalker/mods/271]Mod Setting Menu (1.0.6 or later)[/url].
-[/list]
 [size=4][b][color=#E8C88A]Installation[/color][/b][/size]
 
 [list]
@@ -86,7 +78,7 @@ Open [b]Mod Settings > All Mods > Controller Tweaks and Remap[/b]. Choose your c
 
 [size=4][b][color=#E8C88A]Credits and source[/color][/b][/size]
 
-Thanks to the UE4SS contributors, Framecore, Vercadi and the Mod Setting Menu author.
+Thanks to the UE4SS contributors, Vercadi and the Mod Setting Menu author.
 
 [url=https://github.com/my-mods/Controller-Tweaks-and-Remap]Source on GitHub[/url]
 
