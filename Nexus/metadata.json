@@ -22,8 +22,8 @@
     "Default or Alternative controller preset"
   ],
   "requiredMods": [
-    "UE4SS for Dawnwalker by Vercadi 1.3 (RC6) or later",
-    "Mod Setting Menu 1.0.6+"
+    "UE4SS for Dawnwalker",
+    "Mod Setting Menu"
   ],
   "fileName": "Controller-Tweaks-and-Remap.zip",
   "fileDisplayName": "Controller Tweaks and Remap",
