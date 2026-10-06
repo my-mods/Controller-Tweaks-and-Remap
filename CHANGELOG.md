@@ -1,5 +1,7 @@
 ## 1.7.0
 
+- Use D-pad quickslot items on short release; long holds no longer consume them.
+
 - Apply controller binding changes during play without loading a save.
 - Prepare controller settings at startup so the menu is available before the first save load.
 

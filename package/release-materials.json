@@ -7,5 +7,6 @@
   "RELEASE-NOTES.md",
   "INPUT-BINDINGS.md",
   "SETTINGS.md",
-  "LICENSES/DawnwalkerControllerTweaks-ue4ss-common.txt"
+  "LICENSES/DawnwalkerControllerTweaks-ue4ss-common.txt",
+  "LICENSES/MinHook.txt"
 ]

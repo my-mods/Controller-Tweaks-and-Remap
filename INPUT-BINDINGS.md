@@ -25,7 +25,7 @@ The game intentionally reuses buttons across gameplay contexts. Its configuratio
 
 The mod gives Focus priority over ordinary interaction while Focus is active. With Alternative, Attack and Interact can retain X; the Focus Attack action takes precedence over ordinary interaction. Outside Focus, Interact keeps its configured button. This context priority also applies to keyboard mappings when keyboard controls share a key across those contexts.
 
-Keep Bite different from Attack and the Focus activation button. Avoid assigning the wheel to the button held to enter Focus. Two actions inside Focus sharing a button can both receive input; priority between contexts does not separate actions within the same context. The remapper preserves the game's press, hold and release triggers rather than adding chords or choosing one action arbitrarily.
+Keep Bite different from Attack and the Focus activation button. Avoid assigning the wheel to the button held to enter Focus. Two actions inside Focus sharing a button can both receive input; priority between contexts does not separate actions within the same context. Ability bindings preserve the game's press, hold and release triggers. D-pad item quickslots use short-release handling: release before about 0.6 seconds to use the item; a longer hold cancels item use.
 
 Attack and the wheel do not need matching buttons. For example:
 
@@ -41,6 +41,6 @@ Keep `Player_Hub_Map` and `Player_Hub_Launch` together to retain the Map short p
 
 ## Diagnostics
 
-Set Logging to On in Mod Settings, press Apply, then load a save. Search `Dawnwalker/Binaries/Win64/ue4ss/UE4SS.log` for `[ControllerTweaks]`. Messages include profile-update counts, setup timings and Focus priority adjustments. Set Logging to Off to disable detailed logging.
+Set Logging to On in Mod Settings and press Apply. Search `Dawnwalker/Binaries/Win64/ue4ss/UE4SS.log` for `[ControllerTweaks]`. Messages include profile-update counts, setup timings, Focus priority adjustments and item press/release counts with aggregate input timing. Set Logging to Off to disable detailed logging.
 
-The remapper does not save the game's input settings. Setup and relevant input lifecycle events trigger bounded work; it does not continuously poll bindings. Settings are read on save load.
+The remapper does not save the game's input settings. Setup and relevant input lifecycle events trigger bounded work; it does not continuously poll bindings. Settings are prepared at startup, applied through the menu callback and refreshed on save load.

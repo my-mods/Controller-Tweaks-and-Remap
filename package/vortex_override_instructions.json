@@ -29,7 +29,8 @@
       "SETTINGS.md",
       "LICENSES/DawnwalkerControllerTweaks-ue4ss-common.txt",
       "DMM-API-SOURCE.json",
-      "ue4ss-common.lock.json"
+      "ue4ss-common.lock.json",
+      "LICENSES/MinHook.txt"
     ]
   },
   {
@@ -47,7 +48,8 @@
       "SETTINGS.md",
       "LICENSES/DawnwalkerControllerTweaks-ue4ss-common.txt",
       "DMM-API-SOURCE.json",
-      "ue4ss-common.lock.json"
+      "ue4ss-common.lock.json",
+      "LICENSES/MinHook.txt"
     ]
   },
   {
@@ -65,7 +67,8 @@
       "SETTINGS.md",
       "LICENSES/DawnwalkerControllerTweaks-ue4ss-common.txt",
       "DMM-API-SOURCE.json",
-      "ue4ss-common.lock.json"
+      "ue4ss-common.lock.json",
+      "LICENSES/MinHook.txt"
     ]
   },
   {
@@ -83,7 +86,8 @@
       "SETTINGS.md",
       "LICENSES/DawnwalkerControllerTweaks-ue4ss-common.txt",
       "DMM-API-SOURCE.json",
-      "ue4ss-common.lock.json"
+      "ue4ss-common.lock.json",
+      "LICENSES/MinHook.txt"
     ]
   },
   {
@@ -101,7 +105,8 @@
       "SETTINGS.md",
       "LICENSES/DawnwalkerControllerTweaks-ue4ss-common.txt",
       "DMM-API-SOURCE.json",
-      "ue4ss-common.lock.json"
+      "ue4ss-common.lock.json",
+      "LICENSES/MinHook.txt"
     ]
   },
   {
@@ -119,7 +124,8 @@
       "SETTINGS.md",
       "LICENSES/DawnwalkerControllerTweaks-ue4ss-common.txt",
       "DMM-API-SOURCE.json",
-      "ue4ss-common.lock.json"
+      "ue4ss-common.lock.json",
+      "LICENSES/MinHook.txt"
     ]
   },
   {
@@ -137,7 +143,8 @@
       "SETTINGS.md",
       "LICENSES/DawnwalkerControllerTweaks-ue4ss-common.txt",
       "DMM-API-SOURCE.json",
-      "ue4ss-common.lock.json"
+      "ue4ss-common.lock.json",
+      "LICENSES/MinHook.txt"
     ]
   },
   {
@@ -155,7 +162,8 @@
       "SETTINGS.md",
       "LICENSES/DawnwalkerControllerTweaks-ue4ss-common.txt",
       "DMM-API-SOURCE.json",
-      "ue4ss-common.lock.json"
+      "ue4ss-common.lock.json",
+      "LICENSES/MinHook.txt"
     ]
   },
   {
@@ -173,7 +181,8 @@
       "SETTINGS.md",
       "LICENSES/DawnwalkerControllerTweaks-ue4ss-common.txt",
       "DMM-API-SOURCE.json",
-      "ue4ss-common.lock.json"
+      "ue4ss-common.lock.json",
+      "LICENSES/MinHook.txt"
     ]
   },
   {
@@ -191,7 +200,8 @@
       "SETTINGS.md",
       "LICENSES/DawnwalkerControllerTweaks-ue4ss-common.txt",
       "DMM-API-SOURCE.json",
-      "ue4ss-common.lock.json"
+      "ue4ss-common.lock.json",
+      "LICENSES/MinHook.txt"
     ]
   },
   {
@@ -209,7 +219,8 @@
       "SETTINGS.md",
       "LICENSES/DawnwalkerControllerTweaks-ue4ss-common.txt",
       "DMM-API-SOURCE.json",
-      "ue4ss-common.lock.json"
+      "ue4ss-common.lock.json",
+      "LICENSES/MinHook.txt"
     ]
   },
   {
@@ -227,7 +238,8 @@
       "SETTINGS.md",
       "LICENSES/DawnwalkerControllerTweaks-ue4ss-common.txt",
       "DMM-API-SOURCE.json",
-      "ue4ss-common.lock.json"
+      "ue4ss-common.lock.json",
+      "LICENSES/MinHook.txt"
     ]
   },
   {
@@ -245,7 +257,46 @@
       "SETTINGS.md",
       "LICENSES/DawnwalkerControllerTweaks-ue4ss-common.txt",
       "DMM-API-SOURCE.json",
-      "ue4ss-common.lock.json"
+      "ue4ss-common.lock.json",
+      "LICENSES/MinHook.txt"
+    ]
+  },
+  {
+    "type": "attribute",
+    "source": "LICENSES/MinHook.txt",
+    "key": "controllerTweaksReleaseMaterials",
+    "value": [
+      "mod.manifest",
+      "README.txt",
+      "Data/Dawnwalker-Controller-Tweaks-PACKAGE-LAYOUT.txt",
+      "LICENSE.txt",
+      "CHANGELOG.md",
+      "RELEASE-NOTES.md",
+      "INPUT-BINDINGS.md",
+      "SETTINGS.md",
+      "LICENSES/DawnwalkerControllerTweaks-ue4ss-common.txt",
+      "DMM-API-SOURCE.json",
+      "ue4ss-common.lock.json",
+      "LICENSES/MinHook.txt"
+    ]
+  },
+  {
+    "type": "attribute",
+    "source": "LICENSES\\MinHook.txt",
+    "key": "controllerTweaksReleaseMaterials",
+    "value": [
+      "mod.manifest",
+      "README.txt",
+      "Data/Dawnwalker-Controller-Tweaks-PACKAGE-LAYOUT.txt",
+      "LICENSE.txt",
+      "CHANGELOG.md",
+      "RELEASE-NOTES.md",
+      "INPUT-BINDINGS.md",
+      "SETTINGS.md",
+      "LICENSES/DawnwalkerControllerTweaks-ue4ss-common.txt",
+      "DMM-API-SOURCE.json",
+      "ue4ss-common.lock.json",
+      "LICENSES/MinHook.txt"
     ]
   }
 ]

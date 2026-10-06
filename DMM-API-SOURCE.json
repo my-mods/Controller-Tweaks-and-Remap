@@ -17,7 +17,7 @@
     "src/ConfigStore.lua": "e01a548ad222e4570250c67db7d960ef93ec8d91a3b9800405a1bc5c1ceab58c",
     "src/ControllerProfile.lua": "f1bae5a52b91e06aacf228096ea7112db73d1e30816f41bd87dea0a161152c29",
     "src/dmm_api.lua": "6bb667bffc543d1c5c1b36ab6da66c621d6c81c9ee46f94f0f6339cae9cc884c",
-    "src/Gameplay.lua": "c0477ad2912b39ecb71023228dd3fb2db2623a7cd94401c9b048bcb314321609",
+    "src/Gameplay.lua": "b83dea9ec91fcf91b08e540c08b02df547a9c66f6aa8b00814214970030bbf0f",
     "src/LiveSettings.lua": "ef4be53a4a4bf31e0ceffac8b0f06b4ef2168fc11b8b506a01e47cd10e6c872a",
     "src/main.lua": "b29b68a16c89b41bec53ce6bf314a685b095d7f40308497c9464bfbe78a8480d",
     "src/SettingsSchema.lua": "705e8f1dee915b6925df730827a31bfeff61e77fd564034a586225f73ef0ed1d",
@@ -26,6 +26,13 @@
     "src/UE4SSCommonHooks.lua": "723b8680903e75f64d44deaad432b90169e91e5f322d964aaedc4a6aaba4abea",
     "src/UE4SSCommonSession.lua": "924272d0246d73759ba57a6ed5f0feea319065a96119d7c9ff7248dd345a09a2",
     "src/UE4SSDawnwalkerSaveLoad.lua": "17e9cbb70326f536b14ba5512a46ac425e7e1446c90516e826b2092b30465707",
-    "src/UE4SSDawnwalkerSettings.lua": "039b09679eafec2b19cd8f27e3033dec26a52484a7529edbf14f15193ba07ef1"
+    "src/UE4SSDawnwalkerSettings.lua": "039b09679eafec2b19cd8f27e3033dec26a52484a7529edbf14f15193ba07ef1",
+    "src/QuickslotTap.lua": "f07862e6e75e4f1ea965a6efeba9418ff250f81c84b6296b20b0775acf555c1e",
+    "src/TorchLink.lua": "7dcb6020ca630a7f9f2ee58f1c843b0ec0596133bea2f87fc0e210caa5830aba"
+  },
+  "nativeDll": {
+    "file": "native/bin/main.dll",
+    "sha256": "4f2ec9d04e0485bf27a5a2e3cc3fa7d5f2f5475d27c7570d28d0b7896522049b",
+    "purpose": "D-pad item press suppression; controlled by Runtime remapping"
   }
 }

@@ -5,6 +5,7 @@ Remap your controller for The Blood of Dawnwalker. Choose your combat and explor
 [size=4][b][color=#E8C88A]What the mod does[/color][/b][/size]
 
 [list]
+[*][b][color=#A8D5C2]D-pad item quickslots:[/color][/b] a short press uses the item on release. Holding for about 0.6 seconds cancels item use. Ability quickslots and menu navigation keep their usual behavior.
 [*][b][color=#A8D5C2]Shoulder and trigger layout:[/color][/b] in the Default preset, attack and the overworld ability wheel use RT / R2, block uses LT / L2, Focus and combat abilities use LB / L1, and Shadowstep uses RB / R1. Photo Mode uses RB / R1 to rise and LB / L1 to fall.
 [*][b][color=#A8D5C2]Easier walking:[/color][/b] a wider part of the stick's travel keeps you walking. You can still sprint, and Shapeshift and Mercurial Fervour stay active when you push the stick fully.
 [*][b][color=#A8D5C2]Map and Game Hub on one button:[/color][/b] short press View / Touchpad for the Map; long press for the Game Hub. The long press takes 0.30 seconds.
@@ -54,9 +55,9 @@ These actions share a binding. Assigning a button moves them together; you canno
 [size=4][b][color=#E8C88A]Limits[/color][/b][/size]
 
 [list]
-[*]Remapping covers the listed controller controls. It does not add button combinations, macros, or custom press/hold behaviours.
+[*]Remapping covers the listed controller controls. The menu does not provide button combinations, macros, or adjustable press/hold timings.
 [*]The walking range and Map/Game Hub hold time are fixed. There are no settings to adjust them or turn them off individually.
-[*][b]Runtime remapping[/b] is not a switch for the whole mod. When it is Off, the Default shoulder swap, walking tweaks and Map/Game Hub shortcut stay active.
+[*][b]Runtime remapping[/b] also controls short-release item use. It is not a switch for the whole mod. When it is Off, the Default shoulder swap, walking tweaks and Map/Game Hub shortcut stay active.
 [*]On-screen button prompts and the game's controller diagram may still show the original layout.
 [*]This menu remaps controller input. Use the game's own settings to change keyboard bindings.
 [/list]

@@ -6,7 +6,7 @@
   "officialPatchAtCapture": "Hotfix 1.0.2",
   "unrealEngine": "5.5.4",
   "stockMappingCount": 30,
-  "controllerModVersion": "1.6.0",
+  "controllerModVersion": "1.7.0",
   "releaseArchive": "Controller-Tweaks-and-Remap.zip",
   "sourceHashes": {
     "scriptobjects.bin": "9DA57588D9D39F1FAB03C5D8591D3419E0CC745E00487A1FBB2A795907038095",
@@ -117,5 +117,19 @@
     "loaderRequirement": "HookProcessConsoleExec=1",
     "startup": "Prepare missing preferences once; do not activate gameplay effects.",
     "callback": "Validate committed numeric values, preserve file-only keys, merge pending changes and update affected runtime state. No configuration I/O or polling."
+  },
+  "itemShortPress": {
+    "function": "/Script/DogwoodInventory.InventoryQuickslotSubsystem:TriggerQuickslot",
+    "scope": "Four D-pad item quickslots only; original ability action triggers preserved",
+    "thresholdSeconds": 0.6,
+    "pollMillisecondsWhilePending": 16,
+    "clock": "GameplayStatics.GetRealTimeSeconds",
+    "nativeSource": "native/main.cpp",
+    "nativeSha256": "4f2ec9d04e0485bf27a5a2e3cc3fa7d5f2f5475d27c7570d28d0b7896522049b",
+    "referenceSteamBuild": "25232147",
+    "referenceExecutableSha256": "cb9b7d7bd88a6754c0a9c08318aa64d5013ddfd92d5badcae84e1b4ea980dcfc",
+    "compatibility": "Reflected parameter layout and scoped wrapper/implementation byte checks; no whole-file hash gate",
+    "capturedOn": "2026-10-06",
+    "validation": "Offline production Lua fixtures, compiled native gate tests, current binary instruction checks and archive verification"
   }
 }

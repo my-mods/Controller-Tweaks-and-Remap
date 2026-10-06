@@ -72,6 +72,7 @@ end
 local MAX_STEPS, MAX_SECONDS, MAX_JOB_STEPS = 8, 0.0005, 131072
 local engine, library, system, gameplay, subsystems, subsystemClass, subsystemKind
 local state, job, requested = nil, nil, {}
+local quickslotTap
 local settingsDirty,settingsVersion=false,0
 local dirtyActions={}
 local restoreContexts = {}
@@ -150,6 +151,7 @@ local function resolve(world)
 end
 
 local function reset()
+    if quickslotTap then quickslotTap.clear() end
     state, job, requested = nil, nil, {}
     readyAt=nil
     exhausted, recoveryContext = false, nil
@@ -214,7 +216,10 @@ local function prepare()
     state = {object=object, owner=owner, world=world, input=object.InputSystem, indices={}}
     state.profile=ControllerProfile.acquire(state.input)
     if not state.profile then state=nil;return false end
-    if beginPreset() then return true end
+    if beginPreset() then
+        if quickslotTap and not state.unsupported then quickslotTap.setup() end
+        return true
+    end
     -- A discovered subsystem is not proof that its preset is ready.
     state=nil
     return false
@@ -577,6 +582,7 @@ wake=function()
 end
 
 updateSettings=function(nextConfig)
+    if quickslotTap then quickslotTap.clear() end
     local changed=false
     for action,desired in pairs(nextConfig.bindings) do
         if config.bindings[action]~=desired or config.alternateBindings[action]~=nextConfig.alternateBindings[action] then
@@ -695,5 +701,20 @@ if not hooksOK then
     if not cleared then for _,failure in ipairs(failures) do log('Hook cleanup failed: '..tostring(failure.key)..': '..tostring(failure.error)) end end
     log('Could not register input lifecycle callbacks; remapping disabled: '..tostring(hookError));return
 end
+quickslotTap=dofile(directory..'QuickslotTap.lua').new({
+    link=dofile(directory..'TorchLink.lua'),log=log,
+    logging=function() return config and config.debugLogging end,
+    context=function()
+        if stopped or suspended or configStopped or not state or state.unsupported
+            or not live(gameplay) or not same(currentWorld(),state.world) then return nil end
+        local pc=gameplay:GetPlayerController(state.world,0)
+        if not live(pc) or not pc:IsLocalController() or not same(pc:GetWorld(),state.world) then return nil end
+        local pawn=pc.Pawn
+        if not live(pawn) or not same(pawn:GetWorld(),state.world) then return nil end
+        return {world=state.world,controller=pc,pawn=pawn,gameplay=gameplay,
+            bindings=state.alternative and config.alternateBindings or config.bindings}
+    end,
+})
+Session.onClose(quickslotTap.clear)
 wake()
 log('Waiting for input setup. Context updates are bounded and scoped to the active player; no continuous polling.')

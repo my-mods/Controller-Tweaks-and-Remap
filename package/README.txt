@@ -22,6 +22,10 @@ Stops completed background checks and combines duplicate input events so they do
 
 Controller overrides update every linked action in the active input profile, including Focus actions without a stored physical key. Focus actions take priority over ordinary interaction while Focus is active. Attack and the controller ability wheel can use different buttons. Keyboard bindings retain their separate profile slot.
 
+### D-pad item quickslots
+
+Short press a D-pad direction to use its item when you release the button. Holding for about 0.6 seconds cancels item use, leaving long holds available for other actions. Ability quickslots, keyboard controls and menu navigation keep their usual behavior. This feature follows the Runtime remapping switch.
+
 ### Shoulder / trigger swap
 
 Swaps LB with LT and RB with RT in the default controller preset. PlayStation equivalents are L1 with L2 and R1 with R2.
@@ -78,7 +82,7 @@ See SETTINGS.md and INPUT-BINDINGS.md in the archive for the complete settings a
 
 ## Credits and source
 
-Mod by CamilleBC. Controller and input changes are maintained in [Controller Tweaks and Remap on GitHub](https://github.com/my-mods/Controller-Tweaks-and-Remap). Bundled MIT-licensed Lua helpers come from [ue4ss-common](https://github.com/my-mods/ue4ss-common). Thanks to the UE4SS contributors, Vercadi and the Mod Setting Menu author. Game assets belong to their respective rightsholders.
+Mod by CamilleBC. Controller and input changes are maintained in [Controller Tweaks and Remap on GitHub](https://github.com/my-mods/Controller-Tweaks-and-Remap). Bundled MIT-licensed Lua helpers come from [ue4ss-common](https://github.com/my-mods/ue4ss-common). The native item input helper uses MinHook; its license is included. Thanks to the UE4SS contributors, Vercadi and the Mod Setting Menu author. Game assets belong to their respective rightsholders.
 
 ## License
 
