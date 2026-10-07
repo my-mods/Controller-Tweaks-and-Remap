@@ -89,7 +89,7 @@ bool ready() {
 }
 class ControllerMod final:public CppUserModBase {
 public:
-    ControllerMod() { ModName=STR("Controller Tweaks and Remap");ModVersion=STR("1.7.0");ModAuthors=STR("my-mods"); }
+    ControllerMod() { ModName=STR("Controller Tweaks and Remap");ModVersion=STR("1.7.1-dev");ModAuthors=STR("my-mods"); }
     void on_lua_start(StringViewType name,Lua& lua,Lua&,Lua&,Lua*) override {
         if(name!=STR("DawnwalkerControllerTweaks")) return;
         gate.clear();

@@ -1,0 +1,86 @@
+{
+  "schemaVersion": 1,
+  "packages": {
+    "main": {
+      "id": "ControllerTweaksAndRemap",
+      "name": "Controller Tweaks and Remap",
+      "archive": "Controller-Tweaks-and-Remap.zip",
+      "packageFormat": 1,
+      "baseline": {
+        "kind": "nexus",
+        "version": "1.7.0",
+        "normalizedVersion": "1.7.0",
+        "sourceCommit": "191af058b200bcf944a103ecc4c0e2cd332cad56",
+        "sourceTag": "v1.7.0",
+        "archiveSha256": "d4d3bf4856e14b9efb03fb5520e69563a4dad679be8d881df81ef344d21ca7d2",
+        "verifiedAt": "2026-10-07T12:13:10.1410416Z",
+        "nexus": {
+          "game": "thebloodofdawnwalker",
+          "pageId": "203",
+          "modId": "41742787150027",
+          "fileChainId": "7917138",
+          "versionId": "41742787151606",
+          "siteFileId": "1782"
+        }
+      },
+      "bindings": [
+        {
+          "path": "Nexus/metadata.json",
+          "jsonPointer": [
+            "version"
+          ],
+          "members": []
+        },
+        {
+          "path": "SOURCE.json",
+          "jsonPointer": [
+            "controllerModVersion"
+          ],
+          "members": []
+        },
+        {
+          "path": "native/main.cpp",
+          "pattern": "ModVersion\\s*=\\s*(?:STR\\(|L)?\"(?P<version>[^\"]+)\"",
+          "count": 1,
+          "members": []
+        },
+        {
+          "path": "package/mod.manifest",
+          "pattern": "<version>(?P<version>[^<]+)</version>",
+          "count": 1,
+          "members": [
+            "mod.manifest"
+          ]
+        },
+        {
+          "path": "src/mod_settings.ini",
+          "pattern": "^Version\\s*=\\s*(?P<version>[^\\r\\n]+)",
+          "count": 1,
+          "members": [
+            "Dawnwalker/Binaries/Win64/ue4ss/Mods/DawnwalkerControllerTweaks/mod_settings.ini"
+          ]
+        },
+        {
+          "path": "src/mod_settings.ini",
+          "pattern": "^Version\\s*=\\s*(?P<version>[^\\r\\n]+)",
+          "count": 1,
+          "members": [
+            "Dawnwalker/Binaries/Win64/ue4ss/Mods/DawnwalkerControllerTweaks/mod_settings.ini"
+          ]
+        }
+      ],
+      "excludePaths": [
+        "Optional",
+        "Compatibility",
+        "VortexExtension"
+      ],
+      "pending": {
+        "impact": "patch",
+        "rationale": "Fix D-pad quickslot use during long holds, coordinate torch holds, and correct shipped dependency and package metadata.",
+        "majorOverride": false,
+        "reviewedInputs": "bb19c20273f6507dedd8d7af8e3c760058b5b50d738a6e51c35f0e39b87f1eee",
+        "divergenceReviewed": false
+      }
+    }
+  }
+}
