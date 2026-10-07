@@ -1,3 +1,7 @@
+## Unreleased
+
+- Skip detailed diagnostic measurements unless Logging is set to Debug.
+
 ## 1.7.0
 
 - Choose Off, Error, Warning, Info or Debug logging; Warning is the default.

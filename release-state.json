@@ -76,9 +76,9 @@
       ],
       "pending": {
         "impact": "minor",
-        "rationale": "Complete direct baseline delta reviewed. Retains preceding scope: Fix D-pad quickslot use during long holds, coordinate torch holds, and correct shipped dependency and package metadata. Adds compatible cumulative Logging Off/Error/Warning/Info/Debug, default Warning, preference migration and local unchanged-library output boundaries; native logging ABI coordinated with rebuilt DLLs. New option makes the full remaining delta minor.",
+        "rationale": "Complete direct baseline delta reviewed. Retains preceding scope: Fix D-pad quickslot use during long holds, coordinate torch holds, and correct shipped dependency and package metadata. Adds compatible cumulative Logging Off/Error/Warning/Info/Debug, default Warning, preference migration and local unchanged-library output boundaries; native logging ABI coordinated with rebuilt DLLs. New option makes the full remaining delta minor. Review follow-up: gate optional counters and phase clocks at Debug while retaining the bounded scheduling clock and job-step safety limit.",
         "majorOverride": false,
-        "reviewedInputs": "a6464471347cb314e6a45ece850ec4f2550f6bbc6809529bdf1ff8375f06c88a",
+        "reviewedInputs": "b79e85a779a81fbfff2df4fa2d505780a019ee479811454062a1f3df11321784",
         "divergenceReviewed": false
       }
     }

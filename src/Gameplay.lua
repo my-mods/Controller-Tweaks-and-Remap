@@ -81,7 +81,7 @@ local lastFrame, recoveryContext
 local stats = {ticks=0, steps=0, names=0, rebuilds=0, ignored=0, maxMs=0,profileWrites=0}
 local wake, tick
 local ownerChecked = false
-local wakeStarted = 0
+local wakeStarted
 local readyAt
 local scheduled, scheduleSerial = false, 0
 local schedule
@@ -195,7 +195,7 @@ local function beginPreset()
     state.slot=0
     state.alternative, state.unsupported = alternative, false
     job = {phase='validate', index=1, actions=actions, changes={}, inherited=inherited, steps=0,settingsVersion=settingsVersion}
-    readyAt=readyAt or os.clock()
+    if config.debugLogging then readyAt=readyAt or os.clock() end
     if not state.conflictReported and bindings.Player_Drink_Blood == bindings.Combat_Attack then
         log('Binding conflict: Player_Drink_Blood and Combat_Attack both use '..bindings.Player_Drink_Blood
             ..'. Choose different buttons in Mod Settings so Focus Bite and Death from Above can both work.')
@@ -319,7 +319,7 @@ local function step()
             if job.profileOnly then job=nil
             elseif job.liveSettings then job.phase,job.contextCursor='settingsContexts',1
             else job.phase,job.index='contexts',1 end
-            if changed then ControllerProfile.finish(state.profile);stats.rebuilds=stats.rebuilds+1;return true end
+            if changed then ControllerProfile.finish(state.profile);if config.debugLogging then stats.rebuilds=stats.rebuilds+1 end;return true end
             return
         end
         local profile = state.profile
@@ -331,7 +331,7 @@ local function step()
             if not Session.active then ControllerProfile.finish(profile);return true end
         end,state.profileTargets[alias])
         if changed then
-            job.profileChanged=true;stats.profileWrites=stats.profileWrites+1
+            job.profileChanged=true;if config.debugLogging then stats.profileWrites=stats.profileWrites+1 end
         end
         job.index=job.index+1
         return changed -- one profile write/readback per frame; native notifications may rebuild
@@ -407,7 +407,7 @@ local function step()
                 active.changed=false
                 active.didRebuild=true
                 library:RequestRebuildControlMappingsUsingContext(context,false)
-                stats.rebuilds=stats.rebuilds+1
+                if config.debugLogging then stats.rebuilds=stats.rebuilds+1 end
             end
             if job~=active then return true end -- a native rebuild can dispatch travel
             if job.liveSettings then job.phase='settingsContexts';job.contextCursor=job.contextCursor+1
@@ -424,7 +424,7 @@ local function step()
                 if indices[#indices]~=job.index then indices[#indices+1]=job.index end
             end
             local target=(not job.liveSettings or job.selectedAliases[mappingName]) and state.targets[mappingName] or nil
-            stats.names=stats.names+1
+            if config.debugLogging then stats.names=stats.names+1 end
             if target and current~=target.desired then
                 local index, address, count = job.index, job.address, job.count
                 local alias = mappingName
@@ -491,19 +491,20 @@ end
 
 tick = function()
     if not running or stopped or suspended or configStopped then running=false;return true end
-    local started=os.clock()
-    stats.ticks=stats.ticks+1
+    local started=os.clock() -- Always required by the bounded worker budget.
+    local measuring=config.debugLogging
+    if measuring then stats.ticks=stats.ticks+1 end
     local ok,err=pcall(function()
         if state and not (live(engine) and live(library) and live(system) and live(gameplay) and live(subsystems) and live(subsystemClass)) then
             state,job,requested=nil,nil,{}
         end
         if not state then
-            local preparing=os.clock()
+            local preparing=measuring and os.clock()
             local prepared=prepare()
-            phaseMax.prepare=math.max(phaseMax.prepare,(os.clock()-preparing)*1000)
+            if measuring then phaseMax.prepare=math.max(phaseMax.prepare,(os.clock()-preparing)*1000) end
             if not prepared then running=false;return end
         end
-        local validating=os.clock()
+        local validating=measuring and os.clock()
         local frame=system:GetFrameCount()
         if type(frame)~='number' then error('Frame counter unavailable') end
         if frame==lastFrame then return end
@@ -518,7 +519,7 @@ tick = function()
         end
         if state.unsupported then requested={};settingsDirty=false;return end
         if settingsDirty then settingsDirty=false;beginSettings() end
-        phaseMax.validate=math.max(phaseMax.validate,(os.clock()-validating)*1000)
+        if measuring then phaseMax.validate=math.max(phaseMax.validate,(os.clock()-validating)*1000) end
         for unit=1,MAX_STEPS do
             -- The clock includes preparation. Reserve one bounded step when a
             -- native prelude overruns the soft target, rather than starving the
@@ -526,15 +527,17 @@ tick = function()
             if unit>1 and os.clock()-started>=MAX_SECONDS then break end
             if not job then nextJob() end
             if not job then break end
-            stats.steps=stats.steps+1
-            local stepping=os.clock()
+            if measuring then stats.steps=stats.steps+1 end
+            local stepping=measuring and os.clock()
             local yielded=step()
-            phaseMax.step=math.max(phaseMax.step,(os.clock()-stepping)*1000)
+            if measuring then phaseMax.step=math.max(phaseMax.step,(os.clock()-stepping)*1000) end
             if yielded then break end
             if not state then break end
         end
     end)
-    local ms=(os.clock()-started)*1000;stats.maxMs=math.max(stats.maxMs,ms)
+    if measuring then
+        local ms=(os.clock()-started)*1000;stats.maxMs=math.max(stats.maxMs,ms)
+    end
     if not ok then
         err=tostring(err)
         if err~=lastError then diagnostics.error('Remapping stopped: '..err);lastError=err end
@@ -546,8 +549,9 @@ tick = function()
             log('Experimental controller profile: '..stats.profileWrites..' verified slot updates.')
             local now=os.clock()
             local ready=readyAt or now
+            local beginning=wakeStarted or ready
             log(string.format('Work summary: wake completed in %.1f ms (readiness %.1f ms, processing %.1f ms); %d callbacks, %d steps, %d mapping queries, %d rebuilds, %d ignored events; max callback %.3f ms; max prepare/validate/step %.3f/%.3f/%.3f ms.',
-                (now-wakeStarted)*1000,(ready-wakeStarted)*1000,(now-ready)*1000,
+                (now-beginning)*1000,(ready-beginning)*1000,(now-ready)*1000,
                 stats.ticks,stats.steps,stats.names,stats.rebuilds,stats.ignored,stats.maxMs,
                 phaseMax.prepare,phaseMax.validate,phaseMax.step))
         end
@@ -576,7 +580,7 @@ wake=function()
     if stopped or suspended or configStopped or exhausted or running then return end
     running=true
     ownerChecked=false
-    wakeStarted=os.clock()
+    wakeStarted=config.debugLogging and os.clock() or nil
     readyAt=state and wakeStarted or nil
     schedule(16)
 end
@@ -658,7 +662,7 @@ local hooksOK,hookError=pcall(function()
         local id=target:GetAddress()
         if requested[id] then return end
         if not live(state.object) then state,job,requested=nil,nil,{};wake();return end
-        if not same(caller,state.object.InputSystem) then stats.ignored=stats.ignored+1;return end
+        if not same(caller,state.object.InputSystem) then if config.debugLogging then stats.ignored=stats.ignored+1 end;return end
         state.refreshProfile=true
         -- World/controller/subsystem resolution belongs to the worker, once per
         -- wake. Continuing slices validate cached world and owner references.

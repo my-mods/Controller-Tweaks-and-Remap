@@ -17,7 +17,7 @@
     "src/ConfigStore.lua": "c341aeca75a903c0280d3dcb1cbc7d444a3875d74f13bc6a58b4344f634af563",
     "src/ControllerProfile.lua": "39141918680b7603eca84dad820de610fc93cb692af36234f1cca28326a3eb8b",
     "src/dmm_api.lua": "6bb667bffc543d1c5c1b36ab6da66c621d6c81c9ee46f94f0f6339cae9cc884c",
-    "src/Gameplay.lua": "4024b072d63b044ccaaa360279ea891e44b221501af8ba5dc708ac36f023e930",
+    "src/Gameplay.lua": "4954f773bfa29d3b4191f9afd68404a755ac27d42584f4f54f8b96450baecbd1",
     "src/LiveSettings.lua": "d794cf1dad9584ee9d74d8400d7db6e4254d016b8c9b656b21967e200841810e",
     "src/LoggingSettings.lua": "ca1c2822cfba296e6cd79deca47e2e90c7f8eb930d23c198d6a4ed2b758496da",
     "src/main.lua": "3e359d8b738ad312db88a350aeac5891e1dca4cca491f77f1af3677a1b03b397",
