@@ -2,3 +2,5 @@
 
 - Apply controller binding changes during play without loading a save.
 - Prepare controller settings at startup so the menu is available before the first save load.
+
+- Choose how much troubleshooting detail to record with five Logging levels.

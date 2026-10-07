@@ -37,10 +37,15 @@ function M.new(directory, report)
         ["Traversal_Movement_Axis"]="Traversal_Movement_Axis",
         ["Traversal_Planeshift"]="Traversal_Planeshift",
         ["Traversal_Sprint"]="Traversal_Sprint",
-        ["debugLogging"]="debugLogging"
+        ["logLevel"]="logLevel"
         }})
     live.start(function(id,callback)
-        return dofile(directory..'dmm_api.lua').subscribe(id,callback)
+        return dofile(directory..'ModDmmApi.lua').subscribe(id,function(values,...)
+            dofile(directory..'ModDiagnostics.lua').setLevel(values.logLevel)
+            if _CTSetLogLevelV2 then _CTSetLogLevelV2(values.logLevel) end
+            local ok,err=pcall(callback,values,...)
+            if not ok and report then report('Settings callback failed: '..tostring(err)) end
+        end)
     end)
     return live
 end

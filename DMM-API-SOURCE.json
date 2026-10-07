@@ -13,26 +13,31 @@
     "commonLock": "ue4ss-common.lock.json"
   },
   "runtimeSources": {
-    "src/Config.lua": "ccd9b3d72fcf0c1c3af714a21f996e86820cb0d5426dbdee2dd6c76c463edec9",
-    "src/ConfigStore.lua": "e01a548ad222e4570250c67db7d960ef93ec8d91a3b9800405a1bc5c1ceab58c",
-    "src/ControllerProfile.lua": "f1bae5a52b91e06aacf228096ea7112db73d1e30816f41bd87dea0a161152c29",
+    "src/Config.lua": "f8c112d8260ee60fda6a2fe894811a9864c755a5923175867c85b72226ed9a71",
+    "src/ConfigStore.lua": "c341aeca75a903c0280d3dcb1cbc7d444a3875d74f13bc6a58b4344f634af563",
+    "src/ControllerProfile.lua": "39141918680b7603eca84dad820de610fc93cb692af36234f1cca28326a3eb8b",
     "src/dmm_api.lua": "6bb667bffc543d1c5c1b36ab6da66c621d6c81c9ee46f94f0f6339cae9cc884c",
-    "src/Gameplay.lua": "b83dea9ec91fcf91b08e540c08b02df547a9c66f6aa8b00814214970030bbf0f",
-    "src/LiveSettings.lua": "ef4be53a4a4bf31e0ceffac8b0f06b4ef2168fc11b8b506a01e47cd10e6c872a",
-    "src/main.lua": "b29b68a16c89b41bec53ce6bf314a685b095d7f40308497c9464bfbe78a8480d",
-    "src/SettingsSchema.lua": "705e8f1dee915b6925df730827a31bfeff61e77fd564034a586225f73ef0ed1d",
+    "src/Gameplay.lua": "4024b072d63b044ccaaa360279ea891e44b221501af8ba5dc708ac36f023e930",
+    "src/LiveSettings.lua": "d794cf1dad9584ee9d74d8400d7db6e4254d016b8c9b656b21967e200841810e",
+    "src/LoggingSettings.lua": "ca1c2822cfba296e6cd79deca47e2e90c7f8eb930d23c198d6a4ed2b758496da",
+    "src/main.lua": "3e359d8b738ad312db88a350aeac5891e1dca4cca491f77f1af3677a1b03b397",
+    "src/ModDiagnostics.lua": "753f29683b18b41bf8ed4c90fcd8dff40a0eabf88dada679d2e65d32498d1c15",
+    "src/ModDmmApi.lua": "814f79e062aa45a8b510deb1d492a81da51577b0c69c1dfc1d9ebc4760ee7ce4",
+    "src/ModLogLevels.lua": "d56248918e94bc32ce561407664a0acf8f202a99eab6560787c698447d599cc2",
+    "src/ModSettingsStore.lua": "6be45ca74e6b706f45a8c1587f574398d9cf0d9fd9625d26cbaac082ade28893",
+    "src/QuickslotTap.lua": "76f7ba3392387467b550760e44da3581cb42ac86f9e917d0731d70e1875cd5d9",
+    "src/SettingsSchema.lua": "7e4e43ef2a07d7748c2746de82ce82a212e6345053da5c24fbf1cb5120aafbe0",
     "src/SettingsStore.lua": "db597ebcfbe67fd03aa16c3c2eb4129c346975961e4df0481bb70440aa7cfa26",
+    "src/TorchLink.lua": "714f782df45c4a83441af21f5e5152ba13a22c989ae017f8fd8c5aa8bd9a1a2e",
     "src/UE4SSCommonDiagnostics.lua": "a6c3de0fb908085654e967a0c38c388dd021d19af7fecc0bb0722a3ea1b20f0e",
     "src/UE4SSCommonHooks.lua": "723b8680903e75f64d44deaad432b90169e91e5f322d964aaedc4a6aaba4abea",
     "src/UE4SSCommonSession.lua": "924272d0246d73759ba57a6ed5f0feea319065a96119d7c9ff7248dd345a09a2",
     "src/UE4SSDawnwalkerSaveLoad.lua": "17e9cbb70326f536b14ba5512a46ac425e7e1446c90516e826b2092b30465707",
-    "src/UE4SSDawnwalkerSettings.lua": "039b09679eafec2b19cd8f27e3033dec26a52484a7529edbf14f15193ba07ef1",
-    "src/QuickslotTap.lua": "f07862e6e75e4f1ea965a6efeba9418ff250f81c84b6296b20b0775acf555c1e",
-    "src/TorchLink.lua": "7dcb6020ca630a7f9f2ee58f1c843b0ec0596133bea2f87fc0e210caa5830aba"
+    "src/UE4SSDawnwalkerSettings.lua": "039b09679eafec2b19cd8f27e3033dec26a52484a7529edbf14f15193ba07ef1"
   },
   "nativeDll": {
     "file": "native/bin/main.dll",
-    "sha256": "4f2ec9d04e0485bf27a5a2e3cc3fa7d5f2f5475d27c7570d28d0b7896522049b",
+    "sha256": "073013c7f982f105d1d2dd9ab325fbeaee1eacc1aba8bbb0db9422cf45cba7e1",
     "purpose": "D-pad item press suppression; controlled by Runtime remapping"
   }
 }

@@ -76,14 +76,4 @@ Use Mod Settings to select Block LB/L1, Focus Mode and Combat Abilities LT/L2, A
 
 ### Logging
 
-Logging is the final setting and the only diagnostic control. It defaults to Off; On writes troubleshooting details to `Dawnwalker/Binaries/Win64/ue4ss/UE4SS.log`
-
-See SETTINGS.md and INPUT-BINDINGS.md in the archive for the complete settings and linked-action reference.
-
-## Credits and source
-
-Mod by CamilleBC. Controller and input changes are maintained in [Controller Tweaks and Remap on GitHub](https://github.com/my-mods/Controller-Tweaks-and-Remap). Bundled MIT-licensed Lua helpers come from [ue4ss-common](https://github.com/my-mods/ue4ss-common). The native item input helper uses MinHook; its license is included. Thanks to the UE4SS contributors, Vercadi and the Mod Setting Menu author. Game assets belong to their respective rightsholders.
-
-## License
-
-Original mod work is licensed under the [MIT License](https://github.com/my-mods/Controller-Tweaks-and-Remap/blob/main/LICENSE.txt). Preserve the copyright and permission notices when reusing it. Underlying game assets are not relicensed under MIT and remain subject to their rightsholders' terms.
+Logging is the final diagnostic setting: **Off**, **Error**, **Warning** (default), **Info**, or **Debug**. Levels include all more severe messages. Off silences this mod; Debug includes detailed events and timing summaries in `Dawnwalker/Binaries/Win64/ue4ss/UE4SS.log`. Old Logging Debug preferences become Debug; old Off preferences become Warning.

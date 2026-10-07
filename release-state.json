@@ -75,10 +75,10 @@
         "VortexExtension"
       ],
       "pending": {
-        "impact": "patch",
-        "rationale": "Fix D-pad quickslot use during long holds, coordinate torch holds, and correct shipped dependency and package metadata.",
+        "impact": "minor",
+        "rationale": "Complete direct baseline delta reviewed. Retains preceding scope: Fix D-pad quickslot use during long holds, coordinate torch holds, and correct shipped dependency and package metadata. Adds compatible cumulative Logging Off/Error/Warning/Info/Debug, default Warning, preference migration and local unchanged-library output boundaries; native logging ABI coordinated with rebuilt DLLs. New option makes the full remaining delta minor.",
         "majorOverride": false,
-        "reviewedInputs": "e5cc4d354f4a7da08497a0d11c4b64a57c617b578ba813956bc56ae415764068",
+        "reviewedInputs": "a6464471347cb314e6a45ece850ec4f2550f6bbc6809529bdf1ff8375f06c88a",
         "divergenceReviewed": false
       }
     }

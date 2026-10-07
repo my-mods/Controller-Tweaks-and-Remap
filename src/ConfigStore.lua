@@ -1,8 +1,10 @@
 -- Mod Setting Menu is the authoritative store. Legacy files are import-only. MIT.
 local M = {}
 function M.load(directory, Config, log)
-    local Store = dofile(directory .. 'SettingsStore.lua')
+    local Store = dofile(directory .. 'ModSettingsStore.lua')
     local schema = dofile(directory .. 'SettingsSchema.lua')
+    local ready,issue=dofile(directory..'LoggingSettings.lua').prepare(directory,schema)
+    if not ready then return nil,issue,'invalid' end
     local keys = {"Gamepad_FaceButton_Bottom","Gamepad_FaceButton_Right","Gamepad_FaceButton_Left","Gamepad_FaceButton_Top","Gamepad_LeftShoulder","Gamepad_LeftTriggerAxis","Gamepad_RightShoulder","Gamepad_RightTriggerAxis","Gamepad_LeftThumbstick","Gamepad_RightThumbstick","Gamepad_Special_Left","Gamepad_Special_Right","Gamepad_DPad_Up","Gamepad_DPad_Down","Gamepad_DPad_Left","Gamepad_DPad_Right","Gamepad_RightStick_Left","Gamepad_RightStick_Right","Gamepad_Left2D","Gamepad_Right2D"}
     local text, err = Store.read(directory .. 'ControllerTweaks.defaults.ini')
     if not text then return nil, err, 'invalid' end
@@ -18,7 +20,7 @@ function M.load(directory, Config, log)
         local cfg, ce = Config.parse(personal or '', defaults)
         if not cfg then return nil, ce end
         local explicit = assert(Config.parse(personal or '', {enabled=defaults.enabled,debugLogging=defaults.debugLogging,bindings={}}))
-        local result = {enabled=cfg.enabled and 1 or 0,debugLogging=cfg.debugLogging and 1 or 0}
+        local result = {enabled=cfg.enabled and 1 or 0,logLevel=cfg.debugLogging and 4 or 2}
         for action in pairs(cfg.bindings) do
             result[action] = 0
             local key = explicit.bindings[action]
@@ -27,12 +29,13 @@ function M.load(directory, Config, log)
         return result, nil, personal and {{path=legacyPath, text=personal}} or nil
     end)
     if not values then return nil, problem, 'invalid' end
+    ModDiagnosticLevel=values.logLevel
     return M.convert(values, Config, defaults), nil, nil, values, defaults
 end
 function M.convert(values, Config, defaults)
     local keys = {"Gamepad_FaceButton_Bottom","Gamepad_FaceButton_Right","Gamepad_FaceButton_Left","Gamepad_FaceButton_Top","Gamepad_LeftShoulder","Gamepad_LeftTriggerAxis","Gamepad_RightShoulder","Gamepad_RightTriggerAxis","Gamepad_LeftThumbstick","Gamepad_RightThumbstick","Gamepad_Special_Left","Gamepad_Special_Right","Gamepad_DPad_Up","Gamepad_DPad_Down","Gamepad_DPad_Left","Gamepad_DPad_Right","Gamepad_RightStick_Left","Gamepad_RightStick_Right","Gamepad_Left2D","Gamepad_Right2D"}
     defaults=defaults or {bindings=Config.defaults}
-    local cfg = {enabled=values.enabled==1,debugLogging=values.debugLogging==1,bindings={},alternateBindings={}}
+    local cfg = {enabled=values.enabled==1,logLevel=values.logLevel,debugLogging=values.logLevel==4,bindings={},alternateBindings={}}
     for action, key in pairs(defaults.bindings) do
         cfg.bindings[action] = values[action]==0 and key or keys[values[action]]
         cfg.alternateBindings[action] = values[action]==0 and Config.alternateDefaults[action] or keys[values[action]]

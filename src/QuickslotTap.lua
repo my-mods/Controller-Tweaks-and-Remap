@@ -115,9 +115,9 @@ function M.new(options)
     end
     local function setup()
         if registered or unavailable then return end
-        if type(_CTQuickslotReady)~='function' then unavailable=true;log('Item short-press handling requires the bundled native helper.');return end
+        if type(_CTQuickslotReadyLogV2)~='function' then unavailable=true;log('Item short-press handling requires the bundled native helper.');return end
         local ok,result=pcall(function()
-            if not _CTQuickslotReady() then return false end
+            if not _CTQuickslotReadyLogV2() then return false end
             for _,name in ipairs(keyNames) do keys[name]={KeyName=FName(name)} end
             local a,b=RegisterHook(PATH,pre,post)
             if not a or not b then return false end

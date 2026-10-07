@@ -5,7 +5,7 @@ local directory = assert(source:match('^(.*[/\\])'), 'Controller Tweaks: missing
 local Config = dofile(directory .. 'Config.lua')
 local ConfigStore = dofile(directory .. 'ConfigStore.lua')
 local ControllerProfile = dofile(directory .. 'ControllerProfile.lua')
-local Diagnostics = dofile(directory .. 'UE4SSCommonDiagnostics.lua')
+local Diagnostics = dofile(directory .. 'ModDiagnostics.lua')
 local diagnostics = Diagnostics.new({prefix='[ControllerTweaks] ',output=function(text) print(text .. '\n') end})
 local function log(message) diagnostics.log(message) end
 local config, configStopped, configLastError
@@ -18,7 +18,7 @@ local function loadConfig()
         if err ~= configLastError then log(err); configLastError = err end
         configStopped = status ~= 'retry'
     elseif not config.enabled then
-        log('Runtime remapping disabled in Mod Settings.')
+        diagnostics.info('Runtime remapping disabled in Mod Settings.')
         configStopped = true
     end
 end
@@ -27,7 +27,7 @@ local updateSettings
 Session.onSettings(function(values,changes)
     if not config or (values.enabled==1)~=config.enabled then Session.restart();return end
     local nextConfig=ConfigStore.convert(values,Config,ControllerSettingsDefaults)
-    if diagnostics.setEnabled then diagnostics.setEnabled(nextConfig.debugLogging) end
+    diagnostics.setLevel(nextConfig.logLevel)
     if updateSettings then updateSettings(nextConfig) else config=nextConfig end
 end)
 if configStopped then return end
@@ -367,7 +367,7 @@ local function step()
             end
             job=nil
             if not announced then
-                log('Configuration active for the '..(state.alternative and 'Alternative' or 'Default')
+                diagnostics.info('Configuration active for the '..(state.alternative and 'Alternative' or 'Default')
                     ..' controller preset. Use Mod Settings and Apply to update gameplay.')
                 announced=true
             end
@@ -537,7 +537,7 @@ tick = function()
     local ms=(os.clock()-started)*1000;stats.maxMs=math.max(stats.maxMs,ms)
     if not ok then
         err=tostring(err)
-        if err~=lastError then log('Remapping stopped: '..err);lastError=err end
+        if err~=lastError then diagnostics.error('Remapping stopped: '..err);lastError=err end
         exhausted=true;job=nil;requested={}
     end
     if not running or exhausted or (state and not settingsDirty and not job and not next(requested) and not state.rediscover and not state.refreshProfile) or configStopped then
@@ -598,7 +598,7 @@ updateSettings=function(nextConfig)
 end
 
 for _,api in ipairs({'ExecuteInGameThreadWithDelay','NotifyOnNewObject','RegisterLoadMapPreHook','RegisterLoadMapPostHook','RegisterHook','FindFirstOf','StaticFindObject'}) do
-    if type(_G[api])~='function' then log('This UE4SS build lacks '..api..'; remapping disabled.');return end
+    if type(_G[api])~='function' then diagnostics.error('This UE4SS build lacks '..api..'; remapping disabled.');return end
 end
 local hooks = dofile(directory .. 'UE4SSCommonHooks.lua').new({RegisterHook=RegisterHook,UnregisterHook=UnregisterHook})
 local function noop() end
@@ -699,7 +699,7 @@ if not hooksOK then
     stopped=true
     local cleared,failures=hooks.clear()
     if not cleared then for _,failure in ipairs(failures) do log('Hook cleanup failed: '..tostring(failure.key)..': '..tostring(failure.error)) end end
-    log('Could not register input lifecycle callbacks; remapping disabled: '..tostring(hookError));return
+    diagnostics.error('Could not register input lifecycle callbacks; remapping disabled: '..tostring(hookError));return
 end
 quickslotTap=dofile(directory..'QuickslotTap.lua').new({
     link=dofile(directory..'TorchLink.lua'),log=log,
@@ -717,4 +717,4 @@ quickslotTap=dofile(directory..'QuickslotTap.lua').new({
 })
 Session.onClose(quickslotTap.clear)
 wake()
-log('Waiting for input setup. Context updates are bounded and scoped to the active player; no continuous polling.')
+diagnostics.info('Waiting for input setup. Context updates are bounded and scoped to the active player; no continuous polling.')

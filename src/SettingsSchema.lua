@@ -1,7 +1,7 @@
 -- Settings contract shared by the loader and Mod Setting Menu. MIT License.
 return {
     {key="enabled", default=1, values={0,1}},
-    {key="debugLogging", default=0, values={0,1}},
+    {key="logLevel", default=2, values={0,1,2,3,4}},
     {key="Camera_Look", default=0, values={0,19,20}},
     {key="Combat_Abilities", default=0, values={0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18}},
     {key="Combat_Attack", default=0, values={0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18}},

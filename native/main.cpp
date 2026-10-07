@@ -11,6 +11,8 @@
 #include <Windows.h>
 #include <MinHook.h>
 #include <cstring>
+#include <atomic>
+#include <algorithm>
 #include "QuickslotGate.hpp"
 
 using namespace RC;
@@ -21,6 +23,7 @@ using Use=uint8_t(*)(UObject*,uint8_t);
 Use original{};
 void* target{};
 bool initialized{},warned{};
+std::atomic_int logLevel{2};
 thread_local ControllerTweaks::QuickslotGate gate;
 static_assert(sizeof(CppUserModBase)==192);
 
@@ -37,7 +40,7 @@ bool executable(const void* ptr,size_t bytes) {
     return reinterpret_cast<uintptr_t>(ptr)+bytes<=reinterpret_cast<uintptr_t>(m.BaseAddress)+m.RegionSize;
 }
 bool fail(const wchar_t* why) {
-    if(!warned) { warned=true;Output::send(StringType(STR("[ControllerTweaks] Item short-press handling unavailable: "))+why+STR("\n")); }
+    if(logLevel>=2&&!warned) { warned=true;Output::send(StringType(STR("[ControllerTweaks] Item short-press handling unavailable: "))+why+STR("\n")); }
     return false;
 }
 bool ready() {
@@ -89,11 +92,14 @@ bool ready() {
 }
 class ControllerMod final:public CppUserModBase {
 public:
-    ControllerMod() { ModName=STR("Controller Tweaks and Remap");ModVersion=STR("1.7.1-dev");ModAuthors=STR("my-mods"); }
+    ControllerMod() { ModName=STR("Controller Tweaks and Remap");ModVersion=STR("1.8.0-dev");ModAuthors=STR("my-mods"); }
     void on_lua_start(StringViewType name,Lua& lua,Lua&,Lua&,Lua*) override {
         if(name!=STR("DawnwalkerControllerTweaks")) return;
         gate.clear();
-        lua.register_function("_CTQuickslotReady",[](const Lua& l) { l.set_bool(ready());return 1; });
+        lua.register_function("_CTSetLogLevelV2",[](const Lua& l) {
+            logLevel=static_cast<int>(std::clamp<int64_t>(l.get_integer(1),0,4));return 0;
+        });
+        lua.register_function("_CTQuickslotReadyLogV2",[](const Lua& l) { l.set_bool(ready());return 1; });
         lua.register_function("_CTQuickslotBegin",[](const Lua& l) {
             auto owner=static_cast<uintptr_t>(l.get_integer(1));auto slot=static_cast<int>(l.get_integer(1));
             l.set_integer(target && IsInGameThread() ? gate.begin(owner,slot) : 0);return 1;
