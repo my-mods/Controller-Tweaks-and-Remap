@@ -78,7 +78,7 @@
         "impact": "patch",
         "rationale": "Fix D-pad quickslot use during long holds, coordinate torch holds, and correct shipped dependency and package metadata.",
         "majorOverride": false,
-        "reviewedInputs": "bb19c20273f6507dedd8d7af8e3c760058b5b50d738a6e51c35f0e39b87f1eee",
+        "reviewedInputs": "e5cc4d354f4a7da08497a0d11c4b64a57c617b578ba813956bc56ae415764068",
         "divergenceReviewed": false
       }
     }
