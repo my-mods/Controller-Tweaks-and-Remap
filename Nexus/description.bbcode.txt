@@ -1,139 +1,135 @@
 [size=5][b][color=#E8C88A]Controller Tweaks and Remap[/color][/b][/size]
-
-Remap your controller for The Blood of Dawnwalker. Choose your combat and exploration buttons, walk more comfortably, and open the Map or Game Hub with a short or long press of one button.
-
-[size=4][b][color=#E8C88A]What the mod does[/color][/b][/size]
-
-[list]
-[*][b][color=#A8D5C2]D-pad item quickslots:[/color][/b] a short press uses the item on release. Holding for about 0.6 seconds cancels item use. Ability quickslots and menu navigation keep their usual behavior.
-[*][b][color=#A8D5C2]Shoulder and trigger layout:[/color][/b] in the Default preset, attack and the overworld ability wheel use RT / R2, block uses LT / L2, Focus and combat abilities use LB / L1, and Shadowstep uses RB / R1. Photo Mode uses RB / R1 to rise and LB / L1 to fall.
-[*][b][color=#A8D5C2]Easier walking:[/color][/b] a wider part of the stick's travel keeps you walking. You can still sprint, and Shapeshift and Mercurial Fervour stay active when you push the stick fully.
-[*][b][color=#A8D5C2]Map and Game Hub on one button:[/color][/b] short press View / Touchpad for the Map; long press for the Game Hub. The long press takes 0.30 seconds.
-[*][b][color=#A8D5C2]Controller stutter fixes:[/color][/b] fixes controller-related stutter and restores your chosen controls after loading a save.
-[/list]
-The [b]Alternative preset[/b] uses X / Square for attack, Y / Triangle for block, LT / L2 for Focus, RT / R2 for the overworld ability wheel, and LB / L1 for Bite. You can customize either preset through Mod Settings.
-
-[size=4][b][color=#E8C88A]What you can remap[/color][/b][/size]
-
-Mod Settings gives you [b]31 controller settings[/b]:
-
-[list]
-[*][b][color=#A8D5C2]Combat and abilities:[/color][/b] attack, block, dodge, weapons, target lock and switching, Focus, Bite, Shadowstep, and ability controls. Attack and the overworld ability wheel can use different buttons.
-[*][b][color=#A8D5C2]Exploration and menus:[/color][/b] interaction, jump, crouch, sprint, Planeshift, quickslots, the controls legend, Map and Game Hub.
-[*][b][color=#A8D5C2]Sticks and Photo Mode:[/color][/b] choose the left or right stick for movement and camera look, and change Photo Mode's rise, fall and exit buttons.
-[/list]
-Button choices include face buttons, shoulders, triggers, stick clicks, the D-pad, View / Touchpad, Menu / Options, and right-stick left or right. Movement and camera look must use a stick.
-
-[b]Inherit preset[/b] uses the Default or Alternative layout you selected in the game, including this mod's preset bindings. Choose a specific button to use your own assignment instead.
-
-[size=3][b][color=#A8D5C2]Choosing your shoulder buttons[/color][/b][/size]
-
-For the game's original Default shoulder layout, select block on LB / L1; Focus and combat abilities on LT / L2; attack and the overworld ability wheel on RB / R1; Shadowstep on RT / R2. Set Photo Mode rise to RT / R2 and fall to LT / L2.
-
-[size=4][b][color=#E8C88A]Controls that stay linked[/color][/b][/size]
-
-These actions share a binding. Assigning a button moves them together; you cannot give each action its own button:
-
-[list]
-[*][b][color=#A8D5C2]Attack:[/color][/b] attack, Death from Above, and drawing your weapon with the attack button.
-[*][b][color=#A8D5C2]Block:[/color][/b] block and drawing your weapon with the block button.
-[*][b][color=#A8D5C2]Dodge:[/color][/b] dodge and sprinting during combat.
-[*][b][color=#A8D5C2]Interact:[/color][/b] ordinary interaction and ledge-look interaction.
-[*][b][color=#A8D5C2]Jump:[/color][/b] jump and ladder drop.
-[*][b][color=#A8D5C2]Crouch:[/color][/b] crouch, ladder slide and ability cancel.
-[*][b][color=#A8D5C2]Drink Blood:[/color][/b] starting Voracious Bite in Focus, holding to feed, and Necrospeak in Focus.
-[*][b][color=#A8D5C2]Movement and camera sticks:[/color][/b] each also controls its Photo Mode counterpart.
-[/list]
-[size=3][b][color=#A8D5C2]Using the same button for several actions[/color][/b][/size]
-
-[list]
-[*]Keep Bite on a different button from both Attack and the button you hold for Focus. Keep the ability wheel off that Focus button too.
-[*]Focus actions take priority over ordinary interaction while Focus is active. Alternative can use X / Square for both Attack and Interact. Outside Focus, Interact works normally.
-[*]Two actions within Focus can still trigger together if you give them the same button. The mod does not resolve every possible button conflict.
-[*]Keep Map and Game Hub on the same button for their short press / long press shortcut.
-[/list]
-[size=4][b][color=#E8C88A]Limits[/color][/b][/size]
-
-[list]
-[*]Remapping covers the listed controller controls. The menu does not provide button combinations, macros, or adjustable press/hold timings.
-[*]The walking range and Map/Game Hub hold time are fixed. There are no settings to adjust them or turn them off individually.
-[*][b]Runtime remapping[/b] also controls short-release item use. It is not a switch for the whole mod. When it is Off, the Default shoulder swap, walking tweaks and Map/Game Hub shortcut stay active.
-[*]On-screen button prompts and the game's controller diagram may still show the original layout.
-[*]This menu remaps controller input. Use the game's own settings to change keyboard bindings.
-[/list]
-[size=4][b][color=#E8C88A]Installation[/color][/b][/size]
-
-[list]
-[*][b][color=#A8D5C2]Vortex:[/color][/b] Install Controller-Tweaks-and-Remap.zip through Vortex, enable it and deploy.
-[*][b][color=#A8D5C2]Manual:[/color][/b] Copy the archive's Dawnwalker folder into ...\steamapps\common\The Blood of Dawnwalker\, preserving the folder structure.
-[/list]
-
-[size=4][b][color=#E8C88A]Reporting Bugs and other issues[/color][/b][/size]
-
-If you encounter an issue, set [b]Logging[/b] to [b]Debug[/b] in this mod’s Mod Setting Menu settings, apply the change, reproduce the issue. Then start either a bug report in the Bugs tab on Nexus (preferred method for me to track things), or at least start a new thread in comments and send me [b]Dawnwalker/Binaries/Win64/ue4ss/UE4SS.log[/b] from your game folder. Do not report unrelated bugs in other people's threads, please, this makes it impossible for me to track issues.
-
-[size=4][b][color=#E8C88A]How to change your controls[/color][/b][/size]
-
-Apply saves changes and updates gameplay. Enable HookProcessConsoleExec = 1 in your Vortex-managed UE4SS configuration.
-
-Settings are prepared when the game starts.
-
-Open [b]Mod Settings > All Mods > Controller Tweaks and Remap[/b]. Choose your controls, press [b]Apply[/b] to use the changes during play.
-
-[b]Restore[/b] discards changes you have not applied. [b]Reset[/b] selects this mod's defaults. Leave [b]Logging[/b] Off for normal play; turn it On only for troubleshooting.
-
-[size=4][b][color=#E8C88A]Credits and source[/color][/b][/size]
-
-Thanks to the UE4SS contributors, Vercadi and the Mod Setting Menu author.
-
-[url=https://github.com/my-mods/Controller-Tweaks-and-Remap]Source on GitHub[/url]
-
-Original mod work is licensed under the [url=https://github.com/my-mods/Controller-Tweaks-and-Remap/blob/main/LICENSE.txt]MIT License[/url]. Preserve its copyright and permission notices when reusing it. Game assets remain the property of their respective rightsholders and are not covered by this license.
-
-[size=5][b][color=#E8C88A]My Dawnwalker mods[/color][/b][/size]
-
-[size=4][b][color=#E8C88A]Combat your way[/color][/b][/size]
-
-[b][color=#A8D5C2][url=https://www.nexusmods.com/thebloodofdawnwalker/mods/161]Easier Parry and Dodge While Blocking[/url][/color][/b]
-Make parry and perfect-dodge windows longer or shorter to suit your timing.
-[b]Highlights:[/b] Consistent same-side or opposite-side ripostes; dodge while blocking; adjustable dodge invulnerability duration.
-
-[b][color=#A8D5C2][url=https://www.nexusmods.com/thebloodofdawnwalker/mods/480]Combat Camera - Configurable[/url][/color][/b]
-Choose how your camera follows enemies and how you select your targets.
-[b]Highlights:[/b] Free, smooth or native tracking; camera-directed or fixed targets; automatic lock on hit; optional center dot.
-
-[b][color=#A8D5C2][url=https://www.nexusmods.com/thebloodofdawnwalker/mods/284]Fair Duelist - Customizable Difficulty[/url][/color][/b]
-Build your own difficulty with precise control over combat balance.
-[b]Highlights:[/b] Enemy health and damage; stamina costs; normal, low-health and ranged attack delays; coordinated enemy attacks.
-
-[b][color=#A8D5C2][url=https://www.nexusmods.com/thebloodofdawnwalker/mods/448]Health Regen - Configurable[/url][/color][/b]
-Set separate health regeneration rates for your human and vampire forms.
-[b]Highlights:[/b] Optional healing during combat; optional recovery of lost vampire segments; healing stops at the selected limit.
-
-[size=4][b][color=#E8C88A]Controls and exploration[/color][/b][/size]
-
-[b][color=#A8D5C2][url=https://www.nexusmods.com/thebloodofdawnwalker/mods/203]Controller Tweaks and Remap[/url][/color][/b]
-Tailor your controller layout and make walking and menu access more comfortable.
-[b]Highlights:[/b] 31 controller settings; wider walking range; short press for Map, long press for Game Hub; controller stutter fixes.
-
-[b][color=#A8D5C2][url=https://www.nexusmods.com/thebloodofdawnwalker/mods/449]Press to Gather - Configurable[/url][/color][/b]
-Gather nearby harvestable resources with one keyboard press or controller hold.
-[b]Highlights:[/b] Adjustable 10–200 m range; 14 controller button choices; support for 17 additional wild plant types.
-
-[b][color=#A8D5C2][url=https://www.nexusmods.com/thebloodofdawnwalker/mods/711]Less Wildlife[/url][/color][/b]
-Make ordinary boar herds and wolf packs smaller—or larger.
-[b]Highlights:[/b] Population from 10% to 200%; separate boar and wolf switches; quest and named animals keep their normal values.
-
-[size=4][b][color=#E8C88A]Your view, your style[/color][/b][/size]
-
-[b][color=#A8D5C2][url=https://www.nexusmods.com/thebloodofdawnwalker/mods/452]Quiet Dawn - Configurable HUD[/url][/color][/b]
-Clear the screen while keeping health and stamina alerts when you need them.
-[b]Highlights:[/b] 17 panels with independent opacity and size; hold-to-peek; configurable combat cues, enemy information and effect icons.
-
-[b][color=#A8D5C2][url=https://www.nexusmods.com/thebloodofdawnwalker/mods/721]Style Without Sacrifice - Your Transmogrification Wardrobe[/url][/color][/b]
-Choose your equipment's appearance while keeping its stats.
-[b]Highlights:[/b] Separate day and night outfits; three saved presets; character preview; hide selected equipment; collected or all looks.
-
-[b][color=#A8D5C2][url=https://www.nexusmods.com/thebloodofdawnwalker/mods/694]Night Vision - Configurable[/url][/color][/b]
-See in the dark as a vampire with natural colours or your preferred monochrome blend.
-[b]Highlights:[/b] Independent brightness and colour controls; keyboard or controller toggle; stays enabled through save loading and camera changes.
+<br />
+<br />Remap your controller for The Blood of Dawnwalker. Choose your combat and exploration buttons, walk more comfortably, and open the Map or Game Hub with a short or long press of one button.
+<br />
+<br />[size=4][b][color=#E8C88A]What the mod does[/color][/b][/size]
+<br />
+<br />[list]
+<br />[*][b][color=#A8D5C2]Quickslot holds:[/color][/b] D-pad quickslot items are used on short release. Long holds do not consume them, including torch holds with Ignite.[/*]
+<br />[*][b][color=#A8D5C2]Shoulder and trigger layout:[/color][/b] in the Default preset, attack and the overworld ability wheel use RT / R2, block uses LT / L2, Focus and combat abilities use LB / L1, and Shadowstep uses RB / R1. Photo Mode uses RB / R1 to rise and LB / L1 to fall.[/*]
+<br />[*][b][color=#A8D5C2]Easier walking:[/color][/b] a wider part of the stick's travel keeps you walking. You can still sprint, and Shapeshift and Mercurial Fervour stay active when you push the stick fully.[/*]
+<br />[*][b][color=#A8D5C2]Map and Game Hub on one button:[/color][/b] short press View / Touchpad for the Map; long press for the Game Hub. The long press takes 0.30 seconds.[/*]
+<br />[*][b][color=#A8D5C2]Controller stutter fixes:[/color][/b] fixes controller-related stutter and restores your chosen controls after loading a save.[/*]
+<br />[/list]The [b]Alternative preset[/b] uses X / Square for attack, Y / Triangle for block, LT / L2 for Focus, RT / R2 for the overworld ability wheel, and LB / L1 for Bite. You can customize either preset through Mod Settings.
+<br />
+<br />[size=4][b][color=#E8C88A]What you can remap[/color][/b][/size]
+<br />
+<br />Mod Settings gives you [b]31 controller settings[/b]:
+<br />
+<br />[list]
+<br />[*][b][color=#A8D5C2]Combat and abilities:[/color][/b] attack, block, dodge, weapons, target lock and switching, Focus, Bite, Shadowstep, and ability controls. Attack and the overworld ability wheel can use different buttons.[/*]
+<br />[*][b][color=#A8D5C2]Exploration and menus:[/color][/b] interaction, jump, crouch, sprint, Planeshift, quickslots, the controls legend, Map and Game Hub.[/*]
+<br />[*][b][color=#A8D5C2]Sticks and Photo Mode:[/color][/b] choose the left or right stick for movement and camera look, and change Photo Mode's rise, fall and exit buttons.[/*]
+<br />[/list]Button choices include face buttons, shoulders, triggers, stick clicks, the D-pad, View / Touchpad, Menu / Options, and right-stick left or right. Movement and camera look must use a stick.
+<br />
+<br />[b]Inherit preset[/b] uses the Default or Alternative layout you selected in the game, including this mod's preset bindings. Choose a specific button to use your own assignment instead.
+<br />
+<br />[size=3][b][color=#A8D5C2]Choosing your shoulder buttons[/color][/b][/size]
+<br />
+<br />For the game's original Default shoulder layout, select block on LB / L1; Focus and combat abilities on LT / L2; attack and the overworld ability wheel on RB / R1; Shadowstep on RT / R2. Set Photo Mode rise to RT / R2 and fall to LT / L2.
+<br />
+<br />[size=4][b][color=#E8C88A]Controls that stay linked[/color][/b][/size]
+<br />
+<br />These actions share a binding. Assigning a button moves them together; you cannot give each action its own button:
+<br />
+<br />[list]
+<br />[*][b][color=#A8D5C2]Attack:[/color][/b] attack, Death from Above, and drawing your weapon with the attack button.[/*]
+<br />[*][b][color=#A8D5C2]Block:[/color][/b] block and drawing your weapon with the block button.[/*]
+<br />[*][b][color=#A8D5C2]Dodge:[/color][/b] dodge and sprinting during combat.[/*]
+<br />[*][b][color=#A8D5C2]Interact:[/color][/b] ordinary interaction and ledge-look interaction.[/*]
+<br />[*][b][color=#A8D5C2]Jump:[/color][/b] jump and ladder drop.[/*]
+<br />[*][b][color=#A8D5C2]Crouch:[/color][/b] crouch, ladder slide and ability cancel.[/*]
+<br />[*][b][color=#A8D5C2]Drink Blood:[/color][/b] starting Voracious Bite in Focus, holding to feed, and Necrospeak in Focus.[/*]
+<br />[*][b][color=#A8D5C2]Movement and camera sticks:[/color][/b] each also controls its Photo Mode counterpart.[/*]
+<br />[/list][size=3][b][color=#A8D5C2]Using the same button for several actions[/color][/b][/size]
+<br />
+<br />[list]
+<br />[*]Keep Bite on a different button from both Attack and the button you hold for Focus. Keep the ability wheel off that Focus button too.[/*]
+<br />[*]Focus actions take priority over ordinary interaction while Focus is active. Alternative can use X / Square for both Attack and Interact. Outside Focus, Interact works normally.[/*]
+<br />[*]Two actions within Focus can still trigger together if you give them the same button. The mod does not resolve every possible button conflict.[/*]
+<br />[*]Keep Map and Game Hub on the same button for their short press / long press shortcut.[/*]
+<br />[/list][size=4][b][color=#E8C88A]Limits[/color][/b][/size]
+<br />
+<br />[list]
+<br />[*]Remapping covers the listed controller controls. It does not add button combinations, macros, or custom press/hold behaviours.[/*]
+<br />[*]The walking range and Map/Game Hub hold time are fixed. There are no settings to adjust them or turn them off individually.[/*]
+<br />[*][b]Runtime remapping[/b] is not a switch for the whole mod. When it is Off, the Default shoulder swap, walking tweaks and Map/Game Hub shortcut stay active.[/*]
+<br />[*]On-screen button prompts and the game's controller diagram may still show the original layout.[/*]
+<br />[*]This menu remaps controller input. Use the game's own settings to change keyboard bindings.[/*]
+<br />[/list][size=4][b][color=#E8C88A]Installation[/color][/b][/size]
+<br />
+<br />[list]
+<br />[*][b][color=#A8D5C2]Vortex:[/color][/b] Install Controller-Tweaks-and-Remap.zip through Vortex, enable it and deploy.[/*]
+<br />[*][b][color=#A8D5C2]Manual:[/color][/b] Copy the archive's Dawnwalker folder into ...&#92;steamapps&#92;common&#92;The Blood of Dawnwalker&#92;, preserving the folder structure.[/*]
+<br />[/list]
+<br />[size=4][b][color=#E8C88A]Reporting Bugs and other issues[/color][/b][/size]
+<br />
+<br />If you encounter an issue, set [b]Logging[/b] to [b]Debug[/b] in this mod’s Mod Setting Menu settings, apply the change, reproduce the issue. Then start either a bug report in the Bugs tab on Nexus (preferred method for me to track things), or at least start a new thread in comments and send me [b]Dawnwalker/Binaries/Win64/ue4ss/UE4SS.log[/b] from your game folder. Do not report unrelated bugs in other people's threads, please, this makes it impossible for me to track issues.
+<br />
+<br />
+<br />[size=4][b][color=#E8C88A]How to change your controls[/color][/b][/size]
+<br />
+<br />Mod Setting Menu is required. Apply saves changes and updates gameplay. Enable HookProcessConsoleExec = 1 in your Vortex-managed UE4SS configuration.
+<br />
+<br />Settings are prepared when the game starts.
+<br />
+<br />Open [b]Mod Settings &gt; All Mods &gt; Controller Tweaks and Remap[/b]. Choose your controls, press [b]Apply[/b] to use the changes during play.
+<br />
+<br />[b]Restore[/b] discards changes you have not applied. [b]Reset[/b] selects this mod's defaults. Choose Off, Error, Warning, Info or Debug. Warning is the default; Off is silent. Debug records detailed troubleshooting information in Dawnwalker/Binaries/Win64/ue4ss/UE4SS.log.
+<br />
+<br />[size=4][b][color=#E8C88A]Credits and source[/color][/b][/size]
+<br />
+<br />Thanks to the UE4SS contributors, Vercadi and the Mod Setting Menu author.
+<br />
+<br />[url=https://github.com/my-mods/Controller-Tweaks-and-Remap]Source on GitHub[/url]
+<br />
+<br />Original mod work is licensed under the [url=https://github.com/my-mods/Controller-Tweaks-and-Remap/blob/main/LICENSE.txt]MIT License[/url]. Preserve its copyright and permission notices when reusing it. Game assets remain the property of their respective rightsholders and are not covered by this license.
+<br />
+<br />[size=5][b][color=#E8C88A]My Dawnwalker mods[/color][/b][/size]
+<br />
+<br />[size=4][b][color=#E8C88A]Combat your way[/color][/b][/size]
+<br />
+<br />[b][color=#A8D5C2][url=https://www.nexusmods.com/thebloodofdawnwalker/mods/161]Easier Parry and Dodge While Blocking[/url][/color][/b]
+<br />Make parry and perfect-dodge windows longer or shorter to suit your timing.
+<br />[b]Highlights:[/b] Consistent same-side or opposite-side ripostes; dodge while blocking; adjustable dodge invulnerability duration.
+<br />
+<br />[b][color=#A8D5C2][url=https://www.nexusmods.com/thebloodofdawnwalker/mods/480]Combat Camera - Configurable[/url][/color][/b]
+<br />Choose how your camera follows enemies and how you select your targets.
+<br />[b]Highlights:[/b] Free, smooth or native tracking; camera-directed or fixed targets; automatic lock on hit; optional center dot.
+<br />
+<br />[b][color=#A8D5C2][url=https://www.nexusmods.com/thebloodofdawnwalker/mods/284]Fair Duelist - Customizable Difficulty[/url][/color][/b]
+<br />Build your own difficulty with precise control over combat balance.
+<br />[b]Highlights:[/b] Enemy health and damage; stamina costs; normal, low-health and ranged attack delays; coordinated enemy attacks.
+<br />
+<br />[b][color=#A8D5C2][url=https://www.nexusmods.com/thebloodofdawnwalker/mods/448]Health Regen - Configurable[/url][/color][/b]
+<br />Set separate health regeneration rates for your human and vampire forms.
+<br />[b]Highlights:[/b] Optional healing during combat; optional recovery of lost vampire segments; healing stops at the selected limit.
+<br />
+<br />[size=4][b][color=#E8C88A]Controls and exploration[/color][/b][/size]
+<br />
+<br />[b][color=#A8D5C2][url=https://www.nexusmods.com/thebloodofdawnwalker/mods/203]Controller Tweaks and Remap[/url][/color][/b]
+<br />Tailor your controller layout and make walking and menu access more comfortable.
+<br />[b]Highlights:[/b] 31 controller settings; wider walking range; short press for Map, long press for Game Hub; controller stutter fixes.
+<br />
+<br />[b][color=#A8D5C2][url=https://www.nexusmods.com/thebloodofdawnwalker/mods/449]Press to Gather - Configurable[/url][/color][/b]
+<br />Gather nearby harvestable resources with one keyboard press or controller hold.
+<br />[b]Highlights:[/b] Adjustable 10–200 m range; 14 controller button choices; support for 17 additional wild plant types.
+<br />
+<br />[b][color=#A8D5C2][url=https://www.nexusmods.com/thebloodofdawnwalker/mods/711]Less Wildlife[/url][/color][/b]
+<br />Make ordinary boar herds and wolf packs smaller—or larger.
+<br />[b]Highlights:[/b] Population from 10% to 200%; separate boar and wolf switches; quest and named animals keep their normal values.
+<br />
+<br />[size=4][b][color=#E8C88A]Your view, your style[/color][/b][/size]
+<br />
+<br />[b][color=#A8D5C2][url=https://www.nexusmods.com/thebloodofdawnwalker/mods/452]Quiet Dawn - Configurable HUD[/url][/color][/b]
+<br />Clear the screen while keeping health and stamina alerts when you need them.
+<br />[b]Highlights:[/b] 17 panels with independent opacity and size; hold-to-peek; configurable combat cues, enemy information and effect icons.
+<br />
+<br />[b][color=#A8D5C2][url=https://www.nexusmods.com/thebloodofdawnwalker/mods/721]Style Without Sacrifice - Your Transmogrification Wardrobe[/url][/color][/b]
+<br />Choose your equipment's appearance while keeping its stats.
+<br />[b]Highlights:[/b] Separate day and night outfits; three saved presets; character preview; hide selected equipment; collected or all looks.
+<br />
+<br />[b][color=#A8D5C2][url=https://www.nexusmods.com/thebloodofdawnwalker/mods/694]Night Vision - Configurable[/url][/color][/b]
+<br />See in the dark as a vampire with natural colours or your preferred monochrome blend.
+<br />[b]Highlights:[/b] Independent brightness and colour controls; keyboard or controller toggle; stays enabled through save loading and camera changes.
+<br />

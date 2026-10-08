@@ -1,6 +1,5 @@
-# Controller Tweaks and Remap 1.7.0
+# Controller Tweaks and Remap 1.8.0
 
-- Apply controller binding changes during play without loading a save.
-- Prepare controller settings at startup so the menu is available before the first save load.
-
-- Choose how much troubleshooting detail to record with five Logging levels.
+- Use D-pad quickslot items on short release; long holds no longer consume them.
+- Coordinate torch holds with Ignite so they do not use a quickslot item.
+- Choose Off, Error, Warning, Info or Debug logging; Warning is the default.
