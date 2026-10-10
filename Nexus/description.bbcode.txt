@@ -133,3 +133,4 @@
 <br />See in the dark as a vampire with natural colours or your preferred monochrome blend.
 <br />[b]Highlights:[/b] Independent brightness and colour controls; keyboard or controller toggle; stays enabled through save loading and camera changes.
 <br />
+Item short-press handling validates its required native interface rather than matching the original item-use implementation body or cleanup. Other controller features remain independent.

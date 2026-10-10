@@ -76,9 +76,9 @@
       ],
       "pending": {
         "impact": "minor",
-        "rationale": "Complete direct baseline delta reviewed. Retains preceding scope: Fix D-pad quickslot use during long holds, coordinate torch holds, and correct shipped dependency and package metadata. Adds compatible cumulative Logging Off/Error/Warning/Info/Debug, default Warning, preference migration and local unchanged-library output boundaries; native logging ABI coordinated with rebuilt DLLs. New option makes the full remaining delta minor. Review follow-up: gate optional counters and phase clocks at Debug while retaining the bounded scheduling clock and job-step safety limit. Release preparation: verified unchanged live Nexus baseline on 2026-10-08; consolidated complete player changelog and preserved published page formatting/history.",
+        "rationale": "Whole Nexus 1.7.0 delta: D-pad/torch and logging additions; item interception validates required reflected ABI and reachable Slot/final-result flow without original implementation or unrelated helper body identity. Decoder notices retain their complete license text.",
         "majorOverride": false,
-        "reviewedInputs": "3bd2e4b6a025d899245618130bc10f4792f8329017cc47911b3183556d7325d6",
+        "reviewedInputs": "12b3cd626b68f6479ffe90ca8ef8dff0fa66a7c1d2cc1cd92a3b7cf2c4770cf1",
         "divergenceReviewed": false
       }
     }

@@ -77,3 +77,5 @@ Use Mod Settings to select Block LB/L1, Focus Mode and Combat Abilities LT/L2, A
 ### Logging
 
 Logging is the final diagnostic setting: **Off**, **Error**, **Warning** (default), **Info**, or **Debug**. Levels include all more severe messages. Off silences this mod; Debug includes detailed events and timing summaries in `Dawnwalker/Binaries/Win64/ue4ss/UE4SS.log`. Old Logging Debug preferences become Debug; old Off preferences become Warning.
+
+The item-input helper checks the required argument/result interface and native hook safety, not the original item-use implementation body or its cleanup. Other controller features remain independent if item-input handling is unavailable.

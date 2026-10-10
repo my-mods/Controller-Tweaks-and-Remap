@@ -7,7 +7,7 @@
   {
     "type": "attribute",
     "key": "version",
-    "value": "1.8.0"
+    "value": "1.8.0-dev"
   },
   {
     "type": "attribute",
@@ -30,7 +30,9 @@
       "LICENSES/DawnwalkerControllerTweaks-ue4ss-common.txt",
       "DMM-API-SOURCE.json",
       "ue4ss-common.lock.json",
-      "LICENSES/MinHook.txt"
+      "LICENSES/MinHook.txt",
+      "LICENSES/Zydis.txt",
+      "LICENSES/Zycore.txt"
     ]
   },
   {
@@ -49,7 +51,9 @@
       "LICENSES/DawnwalkerControllerTweaks-ue4ss-common.txt",
       "DMM-API-SOURCE.json",
       "ue4ss-common.lock.json",
-      "LICENSES/MinHook.txt"
+      "LICENSES/MinHook.txt",
+      "LICENSES/Zydis.txt",
+      "LICENSES/Zycore.txt"
     ]
   },
   {
@@ -68,7 +72,9 @@
       "LICENSES/DawnwalkerControllerTweaks-ue4ss-common.txt",
       "DMM-API-SOURCE.json",
       "ue4ss-common.lock.json",
-      "LICENSES/MinHook.txt"
+      "LICENSES/MinHook.txt",
+      "LICENSES/Zydis.txt",
+      "LICENSES/Zycore.txt"
     ]
   },
   {
@@ -87,7 +93,9 @@
       "LICENSES/DawnwalkerControllerTweaks-ue4ss-common.txt",
       "DMM-API-SOURCE.json",
       "ue4ss-common.lock.json",
-      "LICENSES/MinHook.txt"
+      "LICENSES/MinHook.txt",
+      "LICENSES/Zydis.txt",
+      "LICENSES/Zycore.txt"
     ]
   },
   {
@@ -106,7 +114,9 @@
       "LICENSES/DawnwalkerControllerTweaks-ue4ss-common.txt",
       "DMM-API-SOURCE.json",
       "ue4ss-common.lock.json",
-      "LICENSES/MinHook.txt"
+      "LICENSES/MinHook.txt",
+      "LICENSES/Zydis.txt",
+      "LICENSES/Zycore.txt"
     ]
   },
   {
@@ -125,7 +135,9 @@
       "LICENSES/DawnwalkerControllerTweaks-ue4ss-common.txt",
       "DMM-API-SOURCE.json",
       "ue4ss-common.lock.json",
-      "LICENSES/MinHook.txt"
+      "LICENSES/MinHook.txt",
+      "LICENSES/Zydis.txt",
+      "LICENSES/Zycore.txt"
     ]
   },
   {
@@ -144,7 +156,9 @@
       "LICENSES/DawnwalkerControllerTweaks-ue4ss-common.txt",
       "DMM-API-SOURCE.json",
       "ue4ss-common.lock.json",
-      "LICENSES/MinHook.txt"
+      "LICENSES/MinHook.txt",
+      "LICENSES/Zydis.txt",
+      "LICENSES/Zycore.txt"
     ]
   },
   {
@@ -163,7 +177,9 @@
       "LICENSES/DawnwalkerControllerTweaks-ue4ss-common.txt",
       "DMM-API-SOURCE.json",
       "ue4ss-common.lock.json",
-      "LICENSES/MinHook.txt"
+      "LICENSES/MinHook.txt",
+      "LICENSES/Zydis.txt",
+      "LICENSES/Zycore.txt"
     ]
   },
   {
@@ -182,7 +198,9 @@
       "LICENSES/DawnwalkerControllerTweaks-ue4ss-common.txt",
       "DMM-API-SOURCE.json",
       "ue4ss-common.lock.json",
-      "LICENSES/MinHook.txt"
+      "LICENSES/MinHook.txt",
+      "LICENSES/Zydis.txt",
+      "LICENSES/Zycore.txt"
     ]
   },
   {
@@ -201,7 +219,9 @@
       "LICENSES/DawnwalkerControllerTweaks-ue4ss-common.txt",
       "DMM-API-SOURCE.json",
       "ue4ss-common.lock.json",
-      "LICENSES/MinHook.txt"
+      "LICENSES/MinHook.txt",
+      "LICENSES/Zydis.txt",
+      "LICENSES/Zycore.txt"
     ]
   },
   {
@@ -220,7 +240,9 @@
       "LICENSES/DawnwalkerControllerTweaks-ue4ss-common.txt",
       "DMM-API-SOURCE.json",
       "ue4ss-common.lock.json",
-      "LICENSES/MinHook.txt"
+      "LICENSES/MinHook.txt",
+      "LICENSES/Zydis.txt",
+      "LICENSES/Zycore.txt"
     ]
   },
   {
@@ -239,7 +261,9 @@
       "LICENSES/DawnwalkerControllerTweaks-ue4ss-common.txt",
       "DMM-API-SOURCE.json",
       "ue4ss-common.lock.json",
-      "LICENSES/MinHook.txt"
+      "LICENSES/MinHook.txt",
+      "LICENSES/Zydis.txt",
+      "LICENSES/Zycore.txt"
     ]
   },
   {
@@ -258,7 +282,9 @@
       "LICENSES/DawnwalkerControllerTweaks-ue4ss-common.txt",
       "DMM-API-SOURCE.json",
       "ue4ss-common.lock.json",
-      "LICENSES/MinHook.txt"
+      "LICENSES/MinHook.txt",
+      "LICENSES/Zydis.txt",
+      "LICENSES/Zycore.txt"
     ]
   },
   {
@@ -277,7 +303,9 @@
       "LICENSES/DawnwalkerControllerTweaks-ue4ss-common.txt",
       "DMM-API-SOURCE.json",
       "ue4ss-common.lock.json",
-      "LICENSES/MinHook.txt"
+      "LICENSES/MinHook.txt",
+      "LICENSES/Zydis.txt",
+      "LICENSES/Zycore.txt"
     ]
   },
   {
@@ -296,7 +324,93 @@
       "LICENSES/DawnwalkerControllerTweaks-ue4ss-common.txt",
       "DMM-API-SOURCE.json",
       "ue4ss-common.lock.json",
-      "LICENSES/MinHook.txt"
+      "LICENSES/MinHook.txt",
+      "LICENSES/Zydis.txt",
+      "LICENSES/Zycore.txt"
+    ]
+  },
+  {
+    "type": "attribute",
+    "source": "LICENSES/Zydis.txt",
+    "key": "controllerTweaksReleaseMaterials",
+    "value": [
+      "mod.manifest",
+      "README.txt",
+      "Data/Dawnwalker-Controller-Tweaks-PACKAGE-LAYOUT.txt",
+      "LICENSE.txt",
+      "CHANGELOG.md",
+      "RELEASE-NOTES.md",
+      "INPUT-BINDINGS.md",
+      "SETTINGS.md",
+      "LICENSES/DawnwalkerControllerTweaks-ue4ss-common.txt",
+      "DMM-API-SOURCE.json",
+      "ue4ss-common.lock.json",
+      "LICENSES/MinHook.txt",
+      "LICENSES/Zydis.txt",
+      "LICENSES/Zycore.txt"
+    ]
+  },
+  {
+    "type": "attribute",
+    "source": "LICENSES\\Zydis.txt",
+    "key": "controllerTweaksReleaseMaterials",
+    "value": [
+      "mod.manifest",
+      "README.txt",
+      "Data/Dawnwalker-Controller-Tweaks-PACKAGE-LAYOUT.txt",
+      "LICENSE.txt",
+      "CHANGELOG.md",
+      "RELEASE-NOTES.md",
+      "INPUT-BINDINGS.md",
+      "SETTINGS.md",
+      "LICENSES/DawnwalkerControllerTweaks-ue4ss-common.txt",
+      "DMM-API-SOURCE.json",
+      "ue4ss-common.lock.json",
+      "LICENSES/MinHook.txt",
+      "LICENSES/Zydis.txt",
+      "LICENSES/Zycore.txt"
+    ]
+  },
+  {
+    "type": "attribute",
+    "source": "LICENSES/Zycore.txt",
+    "key": "controllerTweaksReleaseMaterials",
+    "value": [
+      "mod.manifest",
+      "README.txt",
+      "Data/Dawnwalker-Controller-Tweaks-PACKAGE-LAYOUT.txt",
+      "LICENSE.txt",
+      "CHANGELOG.md",
+      "RELEASE-NOTES.md",
+      "INPUT-BINDINGS.md",
+      "SETTINGS.md",
+      "LICENSES/DawnwalkerControllerTweaks-ue4ss-common.txt",
+      "DMM-API-SOURCE.json",
+      "ue4ss-common.lock.json",
+      "LICENSES/MinHook.txt",
+      "LICENSES/Zydis.txt",
+      "LICENSES/Zycore.txt"
+    ]
+  },
+  {
+    "type": "attribute",
+    "source": "LICENSES\\Zycore.txt",
+    "key": "controllerTweaksReleaseMaterials",
+    "value": [
+      "mod.manifest",
+      "README.txt",
+      "Data/Dawnwalker-Controller-Tweaks-PACKAGE-LAYOUT.txt",
+      "LICENSE.txt",
+      "CHANGELOG.md",
+      "RELEASE-NOTES.md",
+      "INPUT-BINDINGS.md",
+      "SETTINGS.md",
+      "LICENSES/DawnwalkerControllerTweaks-ue4ss-common.txt",
+      "DMM-API-SOURCE.json",
+      "ue4ss-common.lock.json",
+      "LICENSES/MinHook.txt",
+      "LICENSES/Zydis.txt",
+      "LICENSES/Zycore.txt"
     ]
   }
 ]
