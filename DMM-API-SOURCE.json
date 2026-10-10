@@ -37,7 +37,7 @@
   },
   "nativeDll": {
     "file": "native/bin/main.dll",
-    "sha256": "f310c3a636455780f86778963d61865c4019e95f78da8dbbc1e54d425de0daca",
+    "sha256": "8dbd3f7fff644ae61dcdac392fa5b23f4e0301c21b294ececc326e7720955468",
     "purpose": "D-pad item press suppression; controlled by Runtime remapping"
   }
 }

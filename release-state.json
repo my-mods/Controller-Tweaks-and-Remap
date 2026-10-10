@@ -76,9 +76,9 @@
       ],
       "pending": {
         "impact": "minor",
-        "rationale": "Whole Nexus 1.7.0 delta: D-pad/torch and logging additions; item interception validates required reflected ABI and reachable Slot/final-result flow without original implementation or unrelated helper body identity. Decoder notices retain their complete license text.",
+        "rationale": "Whole Nexus 1.7.0 baseline delta: compatible D-pad/torch hold coordination, five-level Logging, required native argument/result and provenance validation; optional copy-map DATA export dynamically discovered without adding a loader prerequisite.",
         "majorOverride": false,
-        "reviewedInputs": "12b3cd626b68f6479ffe90ca8ef8dff0fa66a7c1d2cc1cd92a3b7cf2c4770cf1",
+        "reviewedInputs": "ee03ba16fb4fecca87aca65ade296e17feed9ec887046aff3b08d4ba399bfb9c",
         "divergenceReviewed": false
       }
     }

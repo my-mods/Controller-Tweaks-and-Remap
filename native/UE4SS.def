@@ -56,5 +56,3 @@ EXPORTS
 ?GetNameByValue@UEnum@Unreal@RC@@QEAA?AVFName@23@_J@Z
 ?GetArrayDim@FProperty@Unreal@RC@@QEAAAEAHXZ
 ?GetEnum@FEnumProperty@Unreal@RC@@QEAAAEAV?$TObjectPtr@VUEnum@Unreal@RC@@@23@XZ
-
-    ?VTableLayoutMap@FProperty@Unreal@RC@@2V?$unordered_map@V?$basic_string@_WU?$char_traits@_W@std@@V?$allocator@_W@2@@std@@IU?$hash@V?$basic_string@_WU?$char_traits@_W@std@@V?$allocator@_W@2@@std@@@2@U?$equal_to@V?$basic_string@_WU?$char_traits@_W@std@@V?$allocator@_W@2@@std@@@2@V?$allocator@U?$pair@$$CBV?$basic_string@_WU?$char_traits@_W@std@@V?$allocator@_W@2@@std@@I@std@@@2@@std@@A DATA

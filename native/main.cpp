@@ -15,6 +15,7 @@
 #include <algorithm>
 #include "QuickslotGate.hpp"
 #include "NativeRoute.hpp"
+#include "OptionalPropertyMap.hpp"
 
 using namespace RC;
 using namespace RC::Unreal;
@@ -55,6 +56,7 @@ bool ready() {
     for(int i=0;i<4;++i)if(slotEnum->GetNameByValue(i).ToString()!=directions[i])return fail(L"quickslot direction values differ");
     if(resultEnum->GetNameByValue(1).ToString()!=L"EQuickslotResult::Success")return fail(L"quickslot byte 1 is not Success");
     NativeRoute::ArgumentABI abi;unsigned fields=0;
+    const auto copyMap=ControllerTweaks::optionalPropertyMap<decltype(FProperty::VTableLayoutMap)>();
     for(auto prop:TFieldRange<FProperty>(fn)) {
         if(!prop->HasAnyPropertyFlags(CPF_Parm)) continue;
         const auto name=prop->GetName();
@@ -66,11 +68,11 @@ bool ready() {
         const bool isReturn=prop->HasAnyPropertyFlags(CPF_ReturnParm);
         if((name==L"Slot" && prop->GetOffset_Internal()==0 && !isReturn && !prop->HasAnyPropertyFlags(CPF_OutParm|CPF_ReferenceParm) && ep->GetEnum().Get()==slotEnum)
             || (name==L"ReturnValue" && prop->GetOffset_Internal()==1 && isReturn && ep->GetEnum().Get()==resultEnum)) {
-            if(!isReturn){
-                const auto copy=FProperty::VTableLayoutMap.find(STR("CopyCompleteValueToScriptVM_InContainer"));
+            if(!isReturn && copyMap){
+                const auto copy=copyMap->find(STR("CopyCompleteValueToScriptVM_InContainer"));
                 // Optional capability: Frame-only wrappers do not call this
                 // interface. Reached compiled-copy routes require its identity.
-                if(copy!=FProperty::VTableLayoutMap.end()){
+                if(copy!=copyMap->end()){
                     abi.copySlot=copy->second;auto copyTable=*reinterpret_cast<uintptr_t**>(prop);
                     auto copyEntry=reinterpret_cast<uint8_t*>(copyTable)+copy->second;
                     if(NativeRoute::accessible(copyEntry,sizeof(uintptr_t))){
