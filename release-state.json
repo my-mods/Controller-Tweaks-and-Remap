@@ -8,20 +8,21 @@
       "packageFormat": 1,
       "baseline": {
         "kind": "nexus",
-        "version": "1.7.0",
-        "normalizedVersion": "1.7.0",
-        "sourceCommit": "191af058b200bcf944a103ecc4c0e2cd332cad56",
-        "sourceTag": "v1.7.0",
-        "archiveSha256": "d4d3bf4856e14b9efb03fb5520e69563a4dad679be8d881df81ef344d21ca7d2",
-        "verifiedAt": "2026-10-07T12:13:10.1410416Z",
+        "version": "1.8.0",
+        "normalizedVersion": "1.8.0",
+        "sourceCommit": "4bb01c4d88f5c329f7d8374513907e0338d9d60f",
+        "sourceTag": null,
+        "archiveSha256": "4d3106e636898b7a501db2775dda66feec2f23c03df63e51e391b98162c14e80",
+        "verifiedAt": "2026-10-27T12:00:00Z",
         "nexus": {
           "game": "thebloodofdawnwalker",
           "pageId": "203",
           "modId": "41742787150027",
           "fileChainId": "7917138",
-          "versionId": "41742787151606",
-          "siteFileId": "1782"
-        }
+          "versionId": "41742787152994",
+          "siteFileId": "3170"
+        },
+        "sourceFingerprint": "3bd2e4b6a025d899245618130bc10f4792f8329017cc47911b3183556d7325d6"
       },
       "bindings": [
         {
@@ -75,10 +76,10 @@
         "VortexExtension"
       ],
       "pending": {
-        "impact": "minor",
-        "rationale": "Complete delta from Nexus 1.7.0: D-pad item/torch hold coordination, five-level logging, scoped native validation, and patch 1.1 focus and one-shot hub assets while preserving existing remapping and movement controls.",
+        "impact": "patch",
+        "rationale": "Complete remaining delta from verified Nexus 1.8.0: Dawnwalker 1.1 cooked focus/hub rebasing, native argument/result compatibility and optional metadata discovery; existing controls/settings retained.",
         "majorOverride": false,
-        "reviewedInputs": "6ca209a36cfc3d6218e75ce662898d358e9522f47b9acf9789fcff9b8ab49d67",
+        "reviewedInputs": "e330e71ad2d80fd8d0befc33c25397427f545a2a7da8d878d555c07766fc2f87",
         "divergenceReviewed": false
       }
     }
