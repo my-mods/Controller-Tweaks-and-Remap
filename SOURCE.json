@@ -131,5 +131,28 @@
     "compatibility": "Reflected parameter layout and scoped wrapper/implementation byte checks; no whole-file hash gate",
     "capturedOn": "2026-10-06",
     "validation": "Offline production Lua fixtures, compiled native gate tests, current binary instruction checks and archive verification"
+  },
+  "patch11": {
+    "patch": "1.1",
+    "steamBuild": "25915545",
+    "capturedOn": "2026-10-27",
+    "officialPatchNotes": "https://dawnwalkergame.com/us/en/news/update-1-1",
+    "executableSha256": "e6222b815b1c376f2c85a2189120c5a9b5cd30ac5688a34b61a2c18efbc9b117",
+    "stockSnapshots": {
+      "upstream/patch-1.1/DA_FocusConfig.json": "87cf6c26b2db8c2f4585c901949fd847f52c77a1be3161b16c48bd92a0621ad4",
+      "upstream/patch-1.1/IA_Hub_Launch.json": "cedade9412e9d95c17d7475d98069e4d1f254edb07141b31d9a36391139a94d1",
+      "upstream/patch-1.1/RIP_GamepadAlternate.json": "a3000d9633397598e71edcbcd69f5b32bec21c8f45f8f9d55366881dd41134f1"
+    },
+    "hub": "Preserve the stock single one-shot 0.30-second hold trigger; short-press map remains unchanged.",
+    "focus": "Apply only the existing IA_Interact to IA_DrinkBlood reference substitution to the patch 1.1 focus configuration.",
+    "unchangedStock": [
+      "IA_Hub_Map",
+      "IA_Move",
+      "RIP_GamepadDefault",
+      "IMC_Base",
+      "DT_InputMapping"
+    ],
+    "alternativePreset": "Patch 1.1 stock adds Player_Interact; no alternative preset asset is overridden.",
+    "native": "Existing reflected quickslot argument/result validator accepts the patch 1.1 wrapper; native payload unchanged."
   }
 }

@@ -1,5 +1,7 @@
 # Controller Tweaks and Remap
 
+Updated for Dawnwalker patch 1.1.
+
 ![Controller Tweaks and Remap](Nexus/thumbnail.jpg)
 
 More comfortable controller input for The Blood of Dawnwalker on PC: swap shoulders and triggers, make walking easier, and open the Map or Game Hub with a short press or long press of the same button.

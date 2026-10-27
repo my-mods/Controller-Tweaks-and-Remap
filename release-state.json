@@ -76,9 +76,9 @@
       ],
       "pending": {
         "impact": "minor",
-        "rationale": "Whole Nexus 1.7.0 baseline delta: compatible D-pad/torch hold coordination, five-level Logging, required native argument/result and provenance validation; optional copy-map DATA export dynamically discovered without adding a loader prerequisite.",
+        "rationale": "Complete delta from Nexus 1.7.0: D-pad item/torch hold coordination, five-level logging, scoped native validation, and patch 1.1 focus and one-shot hub assets while preserving existing remapping and movement controls.",
         "majorOverride": false,
-        "reviewedInputs": "ee03ba16fb4fecca87aca65ade296e17feed9ec887046aff3b08d4ba399bfb9c",
+        "reviewedInputs": "6ca209a36cfc3d6218e75ce662898d358e9522f47b9acf9789fcff9b8ab49d67",
         "divergenceReviewed": false
       }
     }

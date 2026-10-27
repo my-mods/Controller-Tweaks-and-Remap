@@ -1,3 +1,5 @@
+Updated for Dawnwalker patch 1.1.
+
 [size=5][b][color=#E8C88A]Controller Tweaks and Remap[/color][/b][/size]
 <br />
 <br />Remap your controller for The Blood of Dawnwalker. Choose your combat and exploration buttons, walk more comfortably, and open the Map or Game Hub with a short or long press of one button.
